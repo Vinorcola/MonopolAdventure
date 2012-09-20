@@ -22,10 +22,20 @@ Développement en cours
 
 MonopolAdventure est développé en C++ à l'aide du framework Qt 4.8.0.
 
+Deux programme différents seront développés :
+* **MonopolAdventure** permettra à l'utilisateur de jouer une partie ou de 
+faire des aventures ;
+* **MonopolAdventureEditor** permettre à l'utilisateur de créer, modifier
+des plateaux de jeu.
+
 Le développement de MonopolAdventure est en cours, le projet n'en est
-qu'à ses débuts.  Pour le moment, je ne recherche pas forcemment de
+qu'à ses débuts. Pour le moment, je ne recherche pas forcemment de
 contributeurs. Cela viendra plus tard. Mais n'hésitez pas à me faire
 part de toutes vos remarques, critiques ou encouragements.
+
+Le développement de **MonopolAdventureEditor** a commencé. Une fois
+le développement de l'éditeur suffisamment avancé, je débuterais le
+développement du jeu.
 
 Merci d'avance,
 Vinorcola.

@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/cartes/Action.hpp</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="MonopolAdventureEditorIcon.png"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">MonopolAdventureEditor
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/cartes/Action.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef ACTIONINFOS_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define ACTIONINFOS_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;donnees/cartes/PileCartes.hpp&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;donnees/emplacements/Emplacement.hpp&quot;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00015"></a><a class="code" href="class_action.html">00015</a> <span class="keyword">class </span><a class="code" href="class_action.html" title="Action contient les informations éditables d&#39;une action à éxécuter après avoir piocher une carte...">Action</a>
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017     <span class="keyword">private</span>:
+<a name="l00018"></a>00018         <span class="comment">/* Deplacement</span>
+<a name="l00019"></a>00019 <span class="comment">         */</span>
+<a name="l00020"></a><a class="code" href="class_action.html#ac7ddb9163c2ab877b682ada4a7bec712">00020</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#ac7ddb9163c2ab877b682ada4a7bec712" title="Indique si le joueur doit se déplacer.">m_deplacement</a>;
+<a name="l00021"></a><a class="code" href="class_action.html#aa56e7e74fbecb1f5164e7c7b2c251a17">00021</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#aa56e7e74fbecb1f5164e7c7b2c251a17" title="Indique si le joueur doit se déplacer en avançant ou en reculant.">m_joueurAvance</a>;
+<a name="l00022"></a><a class="code" href="class_action.html#af2e1f0a94a49d5b519206c01dd66885f">00022</a>         quint8 <a class="code" href="class_action.html#af2e1f0a94a49d5b519206c01dd66885f" title="Indique le nombre d&#39;emplacements à se déplacer depuis l&#39;emplacement actuel du joueur.">m_deplacementRelatif</a>;
+<a name="l00023"></a><a class="code" href="class_action.html#ae186499c456d21bfd1ef3ec7d8313430">00023</a>         <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <a class="code" href="class_action.html#ae186499c456d21bfd1ef3ec7d8313430" title="Emplacement sur lequel le joueur doit se déplacer.">m_deplacementEmplacement</a>;
+<a name="l00024"></a><a class="code" href="class_action.html#a433e8ae92319f53efa93b4a2f59aac28">00024</a>         Type::Emplacement <a class="code" href="class_action.html#a433e8ae92319f53efa93b4a2f59aac28" title="Indique si le joueur doit ce déplacer jusqu&#39;au prochain emplacements qui possède ce flag...">m_deplacementJusquauProchain</a>;
+<a name="l00025"></a><a class="code" href="class_action.html#ac110e2e121832e5d604bc7047dbf8cac">00025</a>         quint8 <a class="code" href="class_action.html#ac110e2e121832e5d604bc7047dbf8cac" title="Si le joueur arrive sur une propriete appartenant à un autre joueur, son loyer est multiplié par ce c...">m_coefficientLoyer</a>;
+<a name="l00026"></a><a class="code" href="class_action.html#aed7eb63dcfdf8e86ccadf468198817f2">00026</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#aed7eb63dcfdf8e86ccadf468198817f2" title="Indique si le joueur doit relancer les dés s&#39;il se déplace sur un service appartenant à un autre joue...">m_relanceDes</a>;
+<a name="l00027"></a>00027         
+<a name="l00028"></a>00028         
+<a name="l00029"></a>00029         <span class="comment">/* Transaction</span>
+<a name="l00030"></a>00030 <span class="comment">         */</span>
+<a name="l00031"></a><a class="code" href="class_action.html#a2dcf7204c0927e606320a3982adce905">00031</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a2dcf7204c0927e606320a3982adce905" title="Indique si une transaction a lieu.">m_transaction</a>;
+<a name="l00032"></a><a class="code" href="class_action.html#a76d89234d14152f8a785227fe314a011">00032</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a76d89234d14152f8a785227fe314a011" title="Indique si le joueur gagne ou perd de l&#39;argent.">m_gainArgent</a>;
+<a name="l00033"></a>00033 
+<a name="l00037"></a><a class="code" href="class_action.html#a0f4266bbc43d98a1b20fe9a0edc3705b">00037</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a0f4266bbc43d98a1b20fe9a0edc3705b" title="Indique si la transaction se fait entre la banque et le joueur.">m_enversBanque</a>;
+<a name="l00045"></a><a class="code" href="class_action.html#aa4a9f25fa43f95af611e41fbe1ad8a76">00045</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#aa4a9f25fa43f95af611e41fbe1ad8a76" title="Indique si l&#39;échange se fait entre le joueur actuel et tous les autres joueurs à la fois...">m_enversTousLesJoueurs</a>;
+<a name="l00046"></a><a class="code" href="class_action.html#a38a037abe968533ec2cea38e05382a8e">00046</a>         quint16 <a class="code" href="class_action.html#a38a037abe968533ec2cea38e05382a8e" title="Indique le montant de l&#39;échange ou bien le montant de l&#39;amende dans le cas d&#39;une carte &quot;Paye une amen...">m_montant</a>;
+<a name="l00047"></a>00047         
+<a name="l00048"></a>00048         
+<a name="l00049"></a>00049         <span class="comment">/* Réparation</span>
+<a name="l00050"></a>00050 <span class="comment">         */</span>
+<a name="l00051"></a><a class="code" href="class_action.html#a7644ddadc576d640b9bf638ab8ecf8b1">00051</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a7644ddadc576d640b9bf638ab8ecf8b1" title="Indique si le joueur doit faire des réparations dans ses maisons.">m_reparation</a>;
+<a name="l00052"></a><a class="code" href="class_action.html#a6d10347d0fcd4a3f79254b44d1db2e9d">00052</a>         quint16 <a class="code" href="class_action.html#a6d10347d0fcd4a3f79254b44d1db2e9d" title="Indique le montant à payer par maison à réparer.">m_montantParMaison</a>;
+<a name="l00053"></a><a class="code" href="class_action.html#a99c2eee4be0099cc46aa11ad93023a3d">00053</a>         quint16 <a class="code" href="class_action.html#a99c2eee4be0099cc46aa11ad93023a3d" title="Indique le montant à payer par hôtel à réparer.">m_montantParHotel</a>;
+<a name="l00054"></a><a class="code" href="class_action.html#afa5df141a7e3649ee0bb87eea7c67295">00054</a>         quint16 <a class="code" href="class_action.html#afa5df141a7e3649ee0bb87eea7c67295" title="Indique le montant à payer par gratte-ciel à réparer.">m_montantParGratteCiel</a>;
+<a name="l00055"></a>00055         
+<a name="l00056"></a>00056         
+<a name="l00057"></a>00057         <span class="comment">/* Paye ou pioche</span>
+<a name="l00058"></a>00058 <span class="comment">         */</span>
+<a name="l00059"></a><a class="code" href="class_action.html#a7f05625058de2e0ea8ffdebf9be45be0">00059</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a7f05625058de2e0ea8ffdebf9be45be0" title="Indique si le joueur peut avoir le choix entre payer une ammende ou piocher une nouvelle carte...">m_payeOuPioche</a>;
+<a name="l00060"></a><a class="code" href="class_action.html#afa83d8844e592908a528ad040dc74c9a">00060</a>         <a class="code" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a>* <a class="code" href="class_action.html#afa83d8844e592908a528ad040dc74c9a" title="Pile de carte à piocher.">m_pileCartes</a>;
+<a name="l00061"></a>00061         
+<a name="l00062"></a>00062         
+<a name="l00063"></a>00063         <span class="comment">/* Pioche</span>
+<a name="l00064"></a>00064 <span class="comment">         */</span>
+<a name="l00065"></a><a class="code" href="class_action.html#ae1e2a57963390d63ba1523470e64863f">00065</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#ae1e2a57963390d63ba1523470e64863f" title="Indique si le joueur doit piocher une nouvelle carte depuis la pile de cartes m_pileCartes.">m_pioche</a>;
+<a name="l00066"></a>00066         
+<a name="l00067"></a>00067         
+<a name="l00068"></a>00068         <span class="comment">/* Libéré de prison</span>
+<a name="l00069"></a>00069 <span class="comment">         */</span>
+<a name="l00070"></a><a class="code" href="class_action.html#a309bd521c9de4a8e7c2c3c516c8febe6">00070</a>         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a309bd521c9de4a8e7c2c3c516c8febe6" title="Indique si le joueur peut être libéré de prison.">m_libereDePrison</a>;
+<a name="l00071"></a>00071         
+<a name="l00072"></a>00072         
+<a name="l00073"></a>00073         
+<a name="l00074"></a>00074     <span class="keyword">public</span>:
+<a name="l00078"></a>00078         <a class="code" href="class_action.html#a4f457ccfc8336b565cadca56b36e0271" title="Construit une action par défaut : le joueur se déplace d&#39;emplacement en avant.">Action</a>();
+<a name="l00079"></a>00079         
+<a name="l00080"></a>00080         
+<a name="l00081"></a>00081         
+<a name="l00087"></a>00087         QString <a class="code" href="class_action.html#a3dc51e5737335ba29514d8b786fec930" title="Retourne une description détaillée de l&#39;action.">description</a>(<span class="keyword">const</span> QString&amp; devise) <span class="keyword">const</span>;
+<a name="l00088"></a>00088         
+<a name="l00089"></a>00089         
+<a name="l00090"></a>00090         
+<a name="l00095"></a>00095         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#ae5f80731436f4ce302de919df45edade" title="Indique si l&#39;action est un déplacement.">isDeplacement</a>() <span class="keyword">const</span>;
+<a name="l00096"></a>00096         
+<a name="l00097"></a>00097         
+<a name="l00098"></a>00098         
+<a name="l00103"></a>00103         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a31f984af5f3f7c1e448d6e9b22842edf" title="Indique si le joueur se déplace en avançant.">joueurAvance</a>() <span class="keyword">const</span>;
+<a name="l00104"></a>00104         
+<a name="l00105"></a>00105         
+<a name="l00106"></a>00106         
+<a name="l00111"></a>00111         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a66930829e61243d6d251a20313f7ef74" title="Indique si le joueur se déplace en reculant.">joueurRecule</a>() <span class="keyword">const</span>;
+<a name="l00112"></a>00112         
+<a name="l00113"></a>00113         
+<a name="l00114"></a>00114         
+<a name="l00119"></a>00119         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#aed2ad8427ec8b7663b0bab85691f4ef2" title="Indique si le déplacement est un déplacement absolu.">isDeplacementAbsolu</a>() <span class="keyword">const</span>;
+<a name="l00120"></a>00120         
+<a name="l00121"></a>00121         
+<a name="l00122"></a>00122         
+<a name="l00127"></a>00127         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a0d5823904128d393b5bac476be43e6a1" title="Indique si le déplacement est un déplacement relatif.">isDeplacementRelatif</a>() <span class="keyword">const</span>;
+<a name="l00128"></a>00128         
+<a name="l00129"></a>00129         
+<a name="l00130"></a>00130         
+<a name="l00135"></a>00135         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a9765ab65b28cf109eb561980f0a64093" title="Indique si le déplacement est un déplacement jusqu&#39;au prochain emplacement d&#39;un certain type...">isDeplacementJusquauProchain</a>() <span class="keyword">const</span>;
+<a name="l00136"></a>00136         
+<a name="l00137"></a>00137         
+<a name="l00138"></a>00138         
+<a name="l00143"></a>00143         quint8 <a class="code" href="class_action.html#aae63d0b49916c6c827fa903be9d28a3e" title="Retourne le nombre d&#39;emplacements à se déplacer.">deplacementNombreEmplacements</a>() <span class="keyword">const</span>;
+<a name="l00144"></a>00144         
+<a name="l00145"></a>00145         
+<a name="l00146"></a>00146         
+<a name="l00151"></a>00151         <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <a class="code" href="class_action.html#aed06fd71953cb2f5add4dec6d882b140" title="Retourne l&#39;emplacement vers lequel se déplacer.">deplacementEmplacement</a>() <span class="keyword">const</span>;
+<a name="l00152"></a>00152         
+<a name="l00153"></a>00153         
+<a name="l00154"></a>00154         
+<a name="l00159"></a>00159         Type::Emplacement <a class="code" href="class_action.html#aadc965d0d721677a5731935fc4d17532" title="Retourne jusqu&#39;a quel type de terrain se déplacer.">deplacementJusquauProchain</a>() <span class="keyword">const</span>;
+<a name="l00160"></a>00160         
+<a name="l00161"></a>00161         
+<a name="l00162"></a>00162         
+<a name="l00167"></a>00167         quint8 <a class="code" href="class_action.html#abcef1dd294efbe8da2b328bc25788484" title="Renseigne le coefficient à appliquer sur les loyers si le joueur se déplace sur une propriété apparte...">coefficientLoyer</a>() <span class="keyword">const</span>;
+<a name="l00168"></a>00168         
+<a name="l00169"></a>00169         
+<a name="l00170"></a>00170         
+<a name="l00175"></a>00175         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#add0f5bd5fc8a9dac0f1bc9c955724fae" title="Indique si le joueur doit relancer les dés lorsqu&#39;il se déplace sur un service appartenant à un autre...">relanceDesPourLoyerService</a>() <span class="keyword">const</span>;
+<a name="l00176"></a>00176         
+<a name="l00177"></a>00177         
+<a name="l00178"></a>00178         
+<a name="l00186"></a>00186         <span class="keywordtype">void</span> <a class="code" href="class_action.html#a92e00c85b2ac67a2cdbdc9f02b710803" title="Change l&#39;action en déplacement absolu.">setDeplacement</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> avance,
+<a name="l00187"></a>00187                             <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* emplacement,
+<a name="l00188"></a>00188                             <span class="keyword">const</span> quint8 <a class="code" href="class_action.html#abcef1dd294efbe8da2b328bc25788484" title="Renseigne le coefficient à appliquer sur les loyers si le joueur se déplace sur une propriété apparte...">coefficientLoyer</a> = 1,
+<a name="l00189"></a>00189                             <span class="keyword">const</span> <span class="keywordtype">bool</span> relanceDes = <span class="keyword">false</span>);
+<a name="l00190"></a>00190         
+<a name="l00191"></a>00191         
+<a name="l00192"></a>00192         
+<a name="l00200"></a>00200         <span class="keywordtype">void</span> <a class="code" href="class_action.html#a92e00c85b2ac67a2cdbdc9f02b710803" title="Change l&#39;action en déplacement absolu.">setDeplacement</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> avance,
+<a name="l00201"></a>00201                             <span class="keyword">const</span> quint8 nombreEmplacements,
+<a name="l00202"></a>00202                             <span class="keyword">const</span> quint8 <a class="code" href="class_action.html#abcef1dd294efbe8da2b328bc25788484" title="Renseigne le coefficient à appliquer sur les loyers si le joueur se déplace sur une propriété apparte...">coefficientLoyer</a> = 1,
+<a name="l00203"></a>00203                             <span class="keyword">const</span> <span class="keywordtype">bool</span> relanceDes = <span class="keyword">false</span>);
+<a name="l00204"></a>00204         
+<a name="l00205"></a>00205         
+<a name="l00206"></a>00206         
+<a name="l00214"></a>00214         <span class="keywordtype">void</span> <a class="code" href="class_action.html#a29da92af6ede574524122255cdf5c6f4" title="Change l&#39;action en déplacement jusqu&#39;au prochain emplacement d&#39;un certain type.">setDeplacementJusquauProchain</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> avance,
+<a name="l00215"></a>00215                                            <span class="keyword">const</span> Type::Emplacement typeEmplacement,
+<a name="l00216"></a>00216                                            <span class="keyword">const</span> quint8 <a class="code" href="class_action.html#abcef1dd294efbe8da2b328bc25788484" title="Renseigne le coefficient à appliquer sur les loyers si le joueur se déplace sur une propriété apparte...">coefficientLoyer</a> = 1,
+<a name="l00217"></a>00217                                            <span class="keyword">const</span> <span class="keywordtype">bool</span> relanceDes = <span class="keyword">false</span>);
+<a name="l00218"></a>00218         
+<a name="l00219"></a>00219         
+<a name="l00220"></a>00220         
+<a name="l00225"></a>00225         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#adfc5e957e7b1540e68e0ab137053ad74" title="Indique si l&#39;action est une transaction.">isTransaction</a>() <span class="keyword">const</span>;
+<a name="l00226"></a>00226         
+<a name="l00227"></a>00227         
+<a name="l00228"></a>00228         
+<a name="l00233"></a>00233         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a7d0f2b049f2672e282a3c9379457c8bb" title="Indique si le joueur acteur gagne de l&#39;argent lors de la transaction.">joueurGagneArgent</a>() <span class="keyword">const</span>;
+<a name="l00234"></a>00234         
+<a name="l00235"></a>00235         
+<a name="l00236"></a>00236         
+<a name="l00241"></a>00241         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#add6e6a9b36eedd9a5e769d6027bfbdc6" title="Indique si le joueur acteur perd de l&#39;argent lors de la transaction.">joueurPerdArgent</a>() <span class="keyword">const</span>;
+<a name="l00242"></a>00242         
+<a name="l00243"></a>00243         
+<a name="l00244"></a>00244         
+<a name="l00249"></a>00249         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#abb2bd02157d803d51dce1bdff7c50f9a" title="Indique si la transaction se déroule entre le joueur acteur et le joueur secondaire.">isTransactionAvecJoueurSecondaire</a>() <span class="keyword">const</span>;
+<a name="l00250"></a>00250         
+<a name="l00251"></a>00251         
+<a name="l00252"></a>00252         
+<a name="l00257"></a>00257         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a51451b1feee02e11774ff2c2c7e4a0f8" title="Indique si la transaction se déroule entre le joueur acteur et la banque.">isTransactionAvecBanque</a>() <span class="keyword">const</span>;
+<a name="l00258"></a>00258         
+<a name="l00259"></a>00259         
+<a name="l00260"></a>00260         
+<a name="l00265"></a>00265         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a6e97ea5958cc23a39fe65bb61b682ea6" title="Indique si la transaction se déroule entre le joueur acteur et tous les autres joueurs.">isTransactionAvecTousLesJoueurs</a>() <span class="keyword">const</span>;
+<a name="l00266"></a>00266         
+<a name="l00267"></a>00267         
+<a name="l00268"></a>00268         
+<a name="l00273"></a>00273         quint16 <a class="code" href="class_action.html#a876ab35f65c6333560ab5d2c33f34268" title="Retourne le montant de la transaction.">montant</a>() <span class="keyword">const</span>;
+<a name="l00274"></a>00274         
+<a name="l00275"></a>00275         
+<a name="l00276"></a>00276         
+<a name="l00282"></a>00282         <span class="keywordtype">void</span> <a class="code" href="class_action.html#a72e8633ea1e8fa2856cf7955962c2dae" title="Change l&#39;action en transaction avec le joueur secondaire.">setTransactionAvecJoueurSecondaire</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> gain,
+<a name="l00283"></a>00283                                                 <span class="keyword">const</span> quint16 <a class="code" href="class_action.html#a876ab35f65c6333560ab5d2c33f34268" title="Retourne le montant de la transaction.">montant</a>);
+<a name="l00284"></a>00284         
+<a name="l00285"></a>00285         
+<a name="l00286"></a>00286         
+<a name="l00292"></a>00292         <span class="keywordtype">void</span> <a class="code" href="class_action.html#ad9c0526ecd8f81c5cc76e452eac33c35" title="Change l&#39;action en transaction avec la banque.">setTransactionAvecBanque</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> gain,
+<a name="l00293"></a>00293                                       <span class="keyword">const</span> quint16 <a class="code" href="class_action.html#a876ab35f65c6333560ab5d2c33f34268" title="Retourne le montant de la transaction.">montant</a>);
+<a name="l00294"></a>00294         
+<a name="l00295"></a>00295         
+<a name="l00296"></a>00296         
+<a name="l00302"></a>00302         <span class="keywordtype">void</span> <a class="code" href="class_action.html#acb0232aa2a6b5be60495899f39eb5dd4" title="Change l&#39;action en transaction avec tous les autres joueurs.">setTransactionAvecTousLesJoueurs</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> gain,
+<a name="l00303"></a>00303                                               <span class="keyword">const</span> quint16 <a class="code" href="class_action.html#a876ab35f65c6333560ab5d2c33f34268" title="Retourne le montant de la transaction.">montant</a>);
+<a name="l00304"></a>00304         
+<a name="l00305"></a>00305         
+<a name="l00306"></a>00306         
+<a name="l00311"></a>00311         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a45004f9de4a0f48979889a02ddfac3a2" title="Indique si l&#39;action est une réparation des constructions.">isReparationConstructions</a>() <span class="keyword">const</span>;
+<a name="l00312"></a>00312         
+<a name="l00313"></a>00313         
+<a name="l00314"></a>00314         
+<a name="l00319"></a>00319         quint16 <a class="code" href="class_action.html#a0f6a1a9e2ca6395144757c819d05ab65" title="Retourne le montant des réparations pour une maison.">montantParMaison</a>() <span class="keyword">const</span>;
+<a name="l00320"></a>00320         
+<a name="l00321"></a>00321         
+<a name="l00322"></a>00322         
+<a name="l00327"></a>00327         quint16 <a class="code" href="class_action.html#afc36b45adeb788dce8d74bfb5580558b" title="Retourne le montant des réparations pour un hôtel.">montantParHotel</a>() <span class="keyword">const</span>;
+<a name="l00328"></a>00328         
+<a name="l00329"></a>00329         
+<a name="l00330"></a>00330         
+<a name="l00335"></a>00335         quint16 <a class="code" href="class_action.html#a6188c2e32d184fda8bed29f6a652d862" title="Retourne le montant des réparations pour un gratte-ciel.">montantParGratteCiel</a>() <span class="keyword">const</span>;
+<a name="l00336"></a>00336         
+<a name="l00337"></a>00337         
+<a name="l00338"></a>00338         
+<a name="l00345"></a>00345         <span class="keywordtype">void</span> <a class="code" href="class_action.html#a1dcaf6dc2181f8d42ced709b998f183f" title="Change l&#39;action en réparation des constructions.">setReparationConstructions</a>(<span class="keyword">const</span> quint16 <a class="code" href="class_action.html#a0f6a1a9e2ca6395144757c819d05ab65" title="Retourne le montant des réparations pour une maison.">montantParMaison</a>,
+<a name="l00346"></a>00346                                         <span class="keyword">const</span> quint16 <a class="code" href="class_action.html#afc36b45adeb788dce8d74bfb5580558b" title="Retourne le montant des réparations pour un hôtel.">montantParHotel</a>,
+<a name="l00347"></a>00347                                         <span class="keyword">const</span> quint16 <a class="code" href="class_action.html#a6188c2e32d184fda8bed29f6a652d862" title="Retourne le montant des réparations pour un gratte-ciel.">montantParGratteCiel</a> = 0);
+<a name="l00348"></a>00348         
+<a name="l00349"></a>00349         
+<a name="l00350"></a>00350         
+<a name="l00358"></a>00358         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a59a833faf1911ff4e9e935048005ffe8" title="Indique si l&#39;action est de type &quot;Paye ou Pioche&quot;.">isPayeOuPioche</a>() <span class="keyword">const</span>;
+<a name="l00359"></a>00359         
+<a name="l00360"></a>00360         
+<a name="l00361"></a>00361         
+<a name="l00366"></a>00366         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a571d116970e832c6468448c100e824b7" title="Indique si l&#39;action consiste à piocher une carte.">isPioche</a>() <span class="keyword">const</span>;
+<a name="l00367"></a>00367         
+<a name="l00368"></a>00368         
+<a name="l00369"></a>00369         
+<a name="l00374"></a>00374         <a class="code" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a>* <a class="code" href="class_action.html#a2d1c2dfb390ee544f92fe6a77506b751" title="Retourne la pile de cartes dans laquelle piocher la carte.">pileCartes</a>() <span class="keyword">const</span>;
+<a name="l00375"></a>00375         
+<a name="l00376"></a>00376         
+<a name="l00377"></a>00377         
+<a name="l00382"></a>00382         quint16 <a class="code" href="class_action.html#a7b6109b4969c6534ef4cccd83b24b6ab" title="Retourne le montant de l&#39;amende à payer.">montantAmende</a>() <span class="keyword">const</span>;
+<a name="l00383"></a>00383         
+<a name="l00384"></a>00384         
+<a name="l00385"></a>00385         
+<a name="l00391"></a>00391         <span class="keywordtype">void</span> <a class="code" href="class_action.html#ae788729d7443eee5956a80db7cf893c8" title="Change l&#39;action en action de type &quot;Paye ou Pioche&quot;.">setPayeOuPioche</a>(<span class="keyword">const</span> quint16 <a class="code" href="class_action.html#a7b6109b4969c6534ef4cccd83b24b6ab" title="Retourne le montant de l&#39;amende à payer.">montantAmende</a>,
+<a name="l00392"></a>00392                              <a class="code" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a>* <a class="code" href="class_action.html#a2d1c2dfb390ee544f92fe6a77506b751" title="Retourne la pile de cartes dans laquelle piocher la carte.">pileCartes</a>);
+<a name="l00393"></a>00393         
+<a name="l00394"></a>00394         
+<a name="l00395"></a>00395         
+<a name="l00400"></a>00400         <span class="keywordtype">void</span> <a class="code" href="class_action.html#a4bc553534e0c81a3e5929b61407c9930" title="Change l&#39;action pour une action consistant à piocher une carte.">setPioche</a>(<a class="code" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a>* <a class="code" href="class_action.html#a2d1c2dfb390ee544f92fe6a77506b751" title="Retourne la pile de cartes dans laquelle piocher la carte.">pileCartes</a>);
+<a name="l00401"></a>00401         
+<a name="l00402"></a>00402         
+<a name="l00403"></a>00403         
+<a name="l00408"></a>00408         <span class="keywordtype">bool</span> <a class="code" href="class_action.html#ae93824ac0b95d73934533cbeb9338f5a" title="Indique si l&#39;action est de type &quot;Libéré de prison&quot;.">isLibereDePrison</a>() <span class="keyword">const</span>;
+<a name="l00409"></a>00409         
+<a name="l00410"></a>00410         
+<a name="l00411"></a>00411         
+<a name="l00415"></a>00415         <span class="keywordtype">void</span> <a class="code" href="class_action.html#ae64411690abaa4dbb76b56403ccd8b24" title="Change l&#39;action en action de type &quot;Libéré de prison&quot;.">setLibereDePrison</a>();
+<a name="l00416"></a>00416 };
+<a name="l00417"></a>00417 
+<a name="l00418"></a>00418 <span class="preprocessor">#endif // ACTIONINFOS_HPP</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

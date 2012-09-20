@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/Emplacement.hpp</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="MonopolAdventureEditorIcon.png"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">MonopolAdventureEditor
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/Emplacement.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef EMPLACEMENTINFOS_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define EMPLACEMENTINFOS_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QPixmap&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QString&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;global.hpp&quot;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00017"></a><a class="code" href="class_emplacement.html">00017</a> <span class="keyword">class </span><a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019     <span class="keyword">private</span>:
+<a name="l00020"></a><a class="code" href="class_emplacement.html#a301c57161d39c6458ee645553742e9f6">00020</a>         <span class="keyword">const</span> Type::Emplacement <a class="code" href="class_emplacement.html#a301c57161d39c6458ee645553742e9f6" title="Indique le type d&#39;emplacement.">m_type</a>;
+<a name="l00021"></a><a class="code" href="class_emplacement.html#a61698e317b1a151181fec7e7fed9aa57">00021</a>         QString <a class="code" href="class_emplacement.html#a61698e317b1a151181fec7e7fed9aa57" title="Titre de l&#39;emplacement.">m_titre</a>;
+<a name="l00022"></a><a class="code" href="class_emplacement.html#a396a6ebdfc76365d237764c0fd3d5d0f">00022</a>         QString <a class="code" href="class_emplacement.html#a396a6ebdfc76365d237764c0fd3d5d0f" title="Sous-titre de l&#39;emplacement.">m_sousTitre</a>;
+<a name="l00023"></a><a class="code" href="class_emplacement.html#a243467904f2aa099168c36a0dabdb302">00023</a>         QString <a class="code" href="class_emplacement.html#a243467904f2aa099168c36a0dabdb302" title="Description de l&#39;emplacement.">m_description</a>;
+<a name="l00024"></a><a class="code" href="class_emplacement.html#a4e63ba1e2526b88c152e76a974d00ca0">00024</a>         QPixmap <a class="code" href="class_emplacement.html#a4e63ba1e2526b88c152e76a974d00ca0" title="Image de l&#39;emplacement.">m_image</a>;
+<a name="l00025"></a>00025         
+<a name="l00026"></a>00026         
+<a name="l00027"></a>00027         
+<a name="l00028"></a>00028     <span class="keyword">public</span>:
+<a name="l00033"></a>00033         <a class="code" href="class_emplacement.html#a003155799a448113c2dc0bafe5592543" title="Construit un emplacement par défaut.">Emplacement</a>(Type::Emplacement type);
+<a name="l00034"></a>00034         
+<a name="l00035"></a>00035         
+<a name="l00036"></a>00036         
+<a name="l00040"></a>00040         <span class="keyword">virtual</span> <a class="code" href="class_emplacement.html#ae3dbc48571ad347ea73cb777cae5fedb" title="Destructeur virtuel.">~Emplacement</a>();
+<a name="l00041"></a>00041         
+<a name="l00042"></a>00042         
+<a name="l00043"></a>00043         
+<a name="l00048"></a>00048         Type::Emplacement <a class="code" href="class_emplacement.html#a46aa71bd93d7e9fc0b8ce78a15155313" title="Renseigne le type d&#39;emplacement.">getType</a>() <span class="keyword">const</span>;
+<a name="l00049"></a>00049         
+<a name="l00050"></a>00050         
+<a name="l00051"></a>00051         
+<a name="l00056"></a>00056         <span class="keyword">const</span> QString&amp; <a class="code" href="class_emplacement.html#a872fcf5d2550aeb2fd6d58ca054d348a" title="Renseigne le titre de l&#39;emplacement.">getTitre</a>() <span class="keyword">const</span>;
+<a name="l00057"></a>00057         
+<a name="l00058"></a>00058         
+<a name="l00059"></a>00059         
+<a name="l00064"></a>00064         <span class="keywordtype">void</span> <a class="code" href="class_emplacement.html#a118611321c080e07582274020e62503f" title="Remplace le titre de l&#39;emplacement par titre.">editTitre</a>(<span class="keyword">const</span> QString&amp; titre);
+<a name="l00065"></a>00065         
+<a name="l00066"></a>00066         
+<a name="l00067"></a>00067         
+<a name="l00072"></a>00072         <span class="keyword">const</span> QString&amp; <a class="code" href="class_emplacement.html#a2968962a100505544946ea3b2cb4086f" title="Renseigne le sous-titre de l&#39;emplacement.">getSousTitre</a>() <span class="keyword">const</span>;
+<a name="l00073"></a>00073         
+<a name="l00074"></a>00074         
+<a name="l00075"></a>00075         
+<a name="l00080"></a>00080         <span class="keywordtype">void</span> <a class="code" href="class_emplacement.html#aa3f38b46cc8bce6f458397dd95420641" title="Remplace le sous-titre de l&#39;emplacement par sousTitre.">editSousTitre</a>(<span class="keyword">const</span> QString&amp; sousTitre);
+<a name="l00081"></a>00081         
+<a name="l00082"></a>00082         
+<a name="l00083"></a>00083         
+<a name="l00088"></a>00088         <span class="keyword">const</span> QString&amp; <a class="code" href="class_emplacement.html#ad4c861f26341c91251d91fa7f11cf429" title="Renseigne la description de l&#39;emplacement.">getDescription</a>() <span class="keyword">const</span>;
+<a name="l00089"></a>00089         
+<a name="l00090"></a>00090         
+<a name="l00091"></a>00091         
+<a name="l00096"></a>00096         <span class="keywordtype">void</span> <a class="code" href="class_emplacement.html#ab1154b990b7b49bf473439358d57ba47" title="Remplace la description de l&#39;emplacement par description.">editDescription</a>(<span class="keyword">const</span> QString&amp; description);
+<a name="l00097"></a>00097         
+<a name="l00098"></a>00098         
+<a name="l00099"></a>00099         
+<a name="l00104"></a>00104         <span class="keyword">const</span> QPixmap&amp; <a class="code" href="class_emplacement.html#a2ac65ae52b536f341d9520b3be990edf" title="Retourne l&#39;image de l&#39;emplacement.">getImage</a>() <span class="keyword">const</span>;
+<a name="l00105"></a>00105         
+<a name="l00106"></a>00106         
+<a name="l00107"></a>00107         
+<a name="l00112"></a>00112         <span class="keywordtype">void</span> <a class="code" href="class_emplacement.html#a7918ec2ac9b2105e608ba3a975dfa471" title="Remplace l&#39;image de l&#39;emplacement par image.">editImage</a>(<span class="keyword">const</span> QPixmap&amp; image);
+<a name="l00113"></a>00113 };
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 <span class="preprocessor">#endif // EMPLACEMENTINFOS_HPP</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

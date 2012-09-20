@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/Propriete.hpp</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="MonopolAdventureEditorIcon.png"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">MonopolAdventureEditor
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/Propriete.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef PROPRIETEINFOS_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define PROPRIETEINFOS_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;donnees/emplacements/Emplacement.hpp&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00014"></a><a class="code" href="class_propriete.html">00014</a> <span class="keyword">class </span><a class="code" href="class_propriete.html" title="Propriete contient les informations éditables communes à toutes les propriétés d&#39;un plateau...">Propriete</a> : <span class="keyword">public</span> <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016     <span class="keyword">private</span>:
+<a name="l00017"></a><a class="code" href="class_propriete.html#afbefc72171e84b716c2a5d018ccb5ada">00017</a>         quint16 <a class="code" href="class_propriete.html#afbefc72171e84b716c2a5d018ccb5ada" title="Prix d&#39;achat de la propriété.">m_prixAchat</a>;
+<a name="l00018"></a><a class="code" href="class_propriete.html#a4aca6c37657406543c39992d89498483">00018</a>         quint16 <a class="code" href="class_propriete.html#a4aca6c37657406543c39992d89498483" title="Valeur de l&#39;hypothèque.">m_valeurHypotheque</a>;
+<a name="l00019"></a>00019         
+<a name="l00020"></a>00020         
+<a name="l00021"></a>00021         
+<a name="l00022"></a>00022     <span class="keyword">public</span>:
+<a name="l00027"></a>00027         <a class="code" href="class_propriete.html#a0fcb9f478fb0c40b5988078ba98a0445" title="Construit une propriété par défaut.">Propriete</a>(<span class="keyword">const</span> Type::Emplacement type);
+<a name="l00028"></a>00028         
+<a name="l00029"></a>00029         
+<a name="l00030"></a>00030         
+<a name="l00034"></a>00034         <span class="keyword">virtual</span> <a class="code" href="class_propriete.html#adb1a8f9bdb27dc234605ff05461ba52c" title="Destructeur virtuel.">~Propriete</a>();
+<a name="l00035"></a>00035         
+<a name="l00036"></a>00036         
+<a name="l00037"></a>00037         
+<a name="l00042"></a>00042         quint16 <a class="code" href="class_propriete.html#a0ca0118ce88ea8a213ea8d1a7bc4f931" title="Renseigne le montant du prix d&#39;achat de la propriété.">getPrixAchat</a>() <span class="keyword">const</span>;
+<a name="l00043"></a>00043         
+<a name="l00044"></a>00044         
+<a name="l00045"></a>00045         
+<a name="l00050"></a>00050         <span class="keywordtype">void</span> <a class="code" href="class_propriete.html#ae60e857f2e3ed6eb8fe3277406960afa" title="Remplace le montant du prix d&#39;achat de la propriété par montant.">editPrixAchat</a>(<span class="keyword">const</span> quint16 montant);
+<a name="l00051"></a>00051         
+<a name="l00052"></a>00052         
+<a name="l00053"></a>00053         
+<a name="l00058"></a>00058         quint16 <a class="code" href="class_propriete.html#ada7dd05f7049848442fa2bfaeaa1c5d3" title="Renseigne le montant de la valeur de l&#39;hypothèque de la propriété.">getValeurHypotheque</a>() <span class="keyword">const</span>;
+<a name="l00059"></a>00059         
+<a name="l00060"></a>00060         
+<a name="l00061"></a>00061         
+<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="class_propriete.html#a5670ad9e47aa3c5f19ce404d30962ad7" title="Remplace le montant de la valeur de l&#39;hypothèque de la propriété par montant.">editValeurHypotheque</a>(<span class="keyword">const</span> quint16 montant);
+<a name="l00067"></a>00067 };
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="preprocessor">#endif // PROPRIETEINFOS_HPP</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>
