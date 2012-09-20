@@ -14,7 +14,17 @@
 class SimpleVisite : public Emplacement
 {
     public:
+        /**
+         * Construit un emplacement « Simple visite » par défaut.
+         */
         SimpleVisite();
+        
+        
+        
+        /**
+         * Destructeur virtuel.
+         */
+        virtual ~SimpleVisite();
 };
 
 #endif // SIMPLEVISITEINFOS_HPP

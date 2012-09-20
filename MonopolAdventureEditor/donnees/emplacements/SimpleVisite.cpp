@@ -10,3 +10,12 @@ SimpleVisite::SimpleVisite() :
     
 }
 
+
+
+
+
+SimpleVisite::~SimpleVisite()
+{
+    
+}
+
