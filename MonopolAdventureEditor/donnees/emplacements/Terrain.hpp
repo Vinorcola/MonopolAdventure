@@ -29,8 +29,11 @@ class Terrain : public Propriete
     public:
         /**
          * Construit un terrain par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
+         * @param devise Référence vers la devise servant à l'affichage du prix sur le plateau.
          */
-        Terrain();
+        Terrain(const GraphismeEmplacementInfos& graphismeInfos,
+                const QString& devise);
         
         
         
@@ -141,6 +144,11 @@ class Terrain : public Propriete
          */
         void editLoyerHotel(const int nombreHotelsConstruits,
                             const quint16 montant);
+        
+        
+        
+    protected:
+        virtual QColor helper_getCouleurRegroupement() const;
 };
 
 #endif // TERRAININFOS_HPP

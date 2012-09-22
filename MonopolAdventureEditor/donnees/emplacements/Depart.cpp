@@ -4,8 +4,8 @@
 
 
 
-Depart::Depart() :
-    Emplacement(Type::Depart),
+Depart::Depart(const GraphismeEmplacementInfos& graphismeInfos) :
+    Emplacement(Type::Depart, graphismeInfos),
     m_salaire(0)
 {
     

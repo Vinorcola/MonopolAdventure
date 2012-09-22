@@ -4,8 +4,8 @@
 
 
 
-Deplacement::Deplacement() :
-    Emplacement(Type::Deplacement),
+Deplacement::Deplacement(const GraphismeEmplacementInfos& graphismeInfos) :
+    Emplacement(Type::Deplacement, graphismeInfos),
     m_destination(0),
     m_amende(0)
 {

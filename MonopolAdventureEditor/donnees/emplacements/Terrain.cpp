@@ -4,8 +4,9 @@
 
 
 
-Terrain::Terrain() :
-    Propriete(Type::Terrain),
+Terrain::Terrain(const GraphismeEmplacementInfos& graphismeInfos,
+                 const QString& devise) :
+    Propriete(Type::Terrain, graphismeInfos, devise),
     m_regroupement(0),
     m_loyerNu(0),
     m_loyerNuExtra(0),
@@ -222,5 +223,14 @@ void Terrain::editLoyerHotel(const int nombreHotelsConstruits,
             m_loyersHotel[nombreHotelsConstruits - 1] = montant;
         }
     }
+}
+
+
+
+
+
+QColor Terrain::helper_getCouleurRegroupement() const
+{
+    return m_regroupement->getCouleur();
 }
 

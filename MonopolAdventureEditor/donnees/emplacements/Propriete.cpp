@@ -4,10 +4,13 @@
 
 
 
-Propriete::Propriete(const Type::Emplacement type) :
-    Emplacement(type),
+Propriete::Propriete(const Type::Emplacement type,
+                     const GraphismeEmplacementInfos& graphismeInfos,
+                     const QString& devise) :
+    Emplacement(type, graphismeInfos),
     m_prixAchat(0),
-    m_valeurHypotheque(0)
+    m_valeurHypotheque(0),
+    m_devise(devise)
 {
     
 }
@@ -69,5 +72,14 @@ void Propriete::editValeurHypotheque(const quint16 montant)
     {
         m_valeurHypotheque = montant;
     }
+}
+
+
+
+
+
+QString Propriete::helper_getPrix() const
+{
+    return QString::number(m_prixAchat) + m_devise;
 }
 

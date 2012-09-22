@@ -4,8 +4,9 @@
 
 
 
-CompagnieTranspot::CompagnieTranspot() :
-    Propriete(Type::CompagnieTransport)
+CompagnieTranspot::CompagnieTranspot(const GraphismeEmplacementInfos& graphismeInfos,
+                                     const QString& devise) :
+    Propriete(Type::CompagnieTransport, graphismeInfos, devise)
 {
     
 }

@@ -4,8 +4,9 @@
 
 
 
-Service::Service() :
-    Propriete(Type::Service),
+Service::Service(const GraphismeEmplacementInfos& graphismeInfos,
+                 const QString& devise) :
+    Propriete(Type::Service, graphismeInfos, devise),
     m_loyers()
 {
     

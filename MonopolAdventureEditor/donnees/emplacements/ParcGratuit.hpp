@@ -16,8 +16,9 @@ class ParcGratuit : public Emplacement
     public:
         /**
          * Construit un parc gratuit par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
          */
-        ParcGratuit();
+        ParcGratuit(const GraphismeEmplacementInfos& graphismeInfos);
         
         
         

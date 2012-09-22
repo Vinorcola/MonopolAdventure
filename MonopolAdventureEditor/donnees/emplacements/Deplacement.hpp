@@ -22,8 +22,9 @@ class Deplacement : public Emplacement
     public:
         /**
          * Construit un emplacement « Déplacement » par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
          */
-        Deplacement();
+        Deplacement(const GraphismeEmplacementInfos& graphismeInfos);
         
         
         

@@ -23,8 +23,11 @@ class CompagnieTranspot : public Propriete
     public:
         /**
          * Construit une compagnie de transport par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
+         * @param devise Référence vers la devise servant à l'affichage du prix sur le plateau.
          */
-        CompagnieTranspot();
+        CompagnieTranspot(const GraphismeEmplacementInfos& graphismeInfos,
+                          const QString& devise);
         
         
         

@@ -4,8 +4,8 @@
 
 
 
-SimpleVisite::SimpleVisite() :
-    Emplacement(Type::SimpleVisite)
+SimpleVisite::SimpleVisite(const GraphismeEmplacementInfos& graphismeInfos) :
+    Emplacement(Type::SimpleVisite, graphismeInfos)
 {
     
 }

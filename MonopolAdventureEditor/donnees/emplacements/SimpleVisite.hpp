@@ -16,8 +16,9 @@ class SimpleVisite : public Emplacement
     public:
         /**
          * Construit un emplacement « Simple visite » par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
          */
-        SimpleVisite();
+        SimpleVisite(const GraphismeEmplacementInfos& graphismeInfos);
         
         
         

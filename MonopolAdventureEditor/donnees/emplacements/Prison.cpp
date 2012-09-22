@@ -4,8 +4,10 @@
 
 
 
-Prison::Prison() :
-    Emplacement(Type::Prison),
+Prison::Prison(const GraphismeEmplacementInfos& graphismeInfos,
+               SimpleVisite* const emplacementAssocie) :
+    Emplacement(Type::Prison, graphismeInfos),
+    m_emplacementAssocie(emplacementAssocie),
     m_caution(0)
 {
     
@@ -24,9 +26,30 @@ Prison::~Prison()
 
 
 
+SimpleVisite* Prison::getEmplacementAssocie() const
+{
+    return m_emplacementAssocie;
+}
+
+
+
+
+
+void Prison::editEmplacementAssocie(SimpleVisite* emplacement)
+{
+    if (emplacement)
+    {
+        m_emplacementAssocie = emplacement;
+    }
+}
+
+
+
+
+
 quint16 Prison::getCaution() const
 {
-    reuturn m_caution;
+    return m_caution;
 }
 
 

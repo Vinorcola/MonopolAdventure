@@ -19,12 +19,21 @@ class Propriete : public Emplacement
         
         
         
+    protected:
+        const QString& m_devise;///< Référence constante vers la devise du plateau.
+        
+        
+        
     public:
         /**
          * Construit une propriété par défaut.
          * @param type Précise le type de propriété.
+         * @param graphismeInfos Informations concernant le graphisme.
+         * @param devise Référence vers la devise servant à l'affichage du prix sur le plateau.
          */
-        Propriete(const Type::Emplacement type);
+        Propriete(const Type::Emplacement type,
+                  const GraphismeEmplacementInfos& graphismeInfos,
+                  const QString& devise);
         
         
         
@@ -64,6 +73,11 @@ class Propriete : public Emplacement
          * @param montant Montant de la nouvelle valeur.
          */
         void editValeurHypotheque(const quint16 montant);
+        
+        
+        
+    protected:
+        virtual QString helper_getPrix() const;
 };
 
 #endif // PROPRIETEINFOS_HPP

@@ -4,8 +4,8 @@
 
 
 
-Pioche::Pioche() :
-    Emplacement(Type::Pioche)
+Pioche::Pioche(const GraphismeEmplacementInfos& graphismeInfos) :
+    Emplacement(Type::Pioche, graphismeInfos)
 {
     
 }

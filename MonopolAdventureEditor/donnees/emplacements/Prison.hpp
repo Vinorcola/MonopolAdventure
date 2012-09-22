@@ -2,6 +2,7 @@
 #define PRISONINFOS_HPP
 
 #include "donnees/emplacements/Emplacement.hpp"
+#include "donnees/emplacements/SimpleVisite.hpp"
 
 
 
@@ -14,6 +15,7 @@
 class Prison : public Emplacement
 {
     private:
+        SimpleVisite* m_emplacementAssocie;///< Emplacement « Simple visite » associé à la prison.
         quint16 m_caution;///< Montant de la caution pour sortir de prison.
         
         
@@ -21,8 +23,11 @@ class Prison : public Emplacement
     public:
         /**
          * Construit une prison par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
+         * @param emplacementAssocie Emplacement « Simple visite » associé à la prison.
          */
-        Prison();
+        Prison(const GraphismeEmplacementInfos& graphismeInfos,
+               SimpleVisite* const emplacementAssocie);
         
         
         
@@ -30,6 +35,22 @@ class Prison : public Emplacement
          * Destructeur virtuel.
          */
         virtual ~Prison();
+        
+        
+        
+        /**
+         * Renseigne l'emplacement « Simple visite » associé à la prison.
+         * @return Emplacement « Simple visite » associé à la prison.
+         */
+        SimpleVisite* getEmplacementAssocie() const;
+        
+        
+        
+        /**
+         * Remplace l'emplacement « Simple visite » associé à la prison par @a emplacement
+         * @param emplacement Nouvel emplacement.
+         */
+        void editEmplacementAssocie(SimpleVisite* emplacement);
         
         
         

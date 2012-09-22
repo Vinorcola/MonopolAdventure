@@ -23,8 +23,11 @@ class Service : public Propriete
     public:
         /**
          * Construit un service par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
+         * @param devise Référence vers la devise servant à l'affichage du prix sur le plateau.
          */
-        Service();
+        Service(const GraphismeEmplacementInfos& graphismeInfos,
+                const QString& devise);
         
         
         

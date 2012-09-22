@@ -4,8 +4,8 @@
 
 
 
-ParcGratuit::ParcGratuit() :
-    Emplacement(Type::ParcGratuit)
+ParcGratuit::ParcGratuit(const GraphismeEmplacementInfos& graphismeInfos) :
+    Emplacement(Type::ParcGratuit, graphismeInfos)
 {
     
 }

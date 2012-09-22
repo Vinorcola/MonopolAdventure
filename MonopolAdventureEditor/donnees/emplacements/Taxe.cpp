@@ -4,12 +4,14 @@
 
 
 
-Taxe::Taxe() :
-    Emplacement(Type::Taxe),
+Taxe::Taxe(const GraphismeEmplacementInfos& graphismeInfos,
+           const QString& devise) :
+    Emplacement(Type::Taxe, graphismeInfos),
     m_payeMontantFixe(false),
     m_montantFixe(0),
     m_payePourcentageFortune(false),
-    m_pourcentageFortune(0)
+    m_pourcentageFortune(0),
+    m_devise(devise)
 {
     
 }
@@ -90,16 +92,16 @@ quint16 Taxe::getPourcentageFortune() const
 
 
 
-void Taxe::enablePourcentageFortune(const quint16 pourcentage)
+void Taxe::enablePourcentageFortune(const quint8 pourcentage)
 {
     m_payePourcentageFortune = true;
-    if (montant > MONTANT_MAX_EDITEUR)
+    if (pourcentage > 100)
     {
-        m_pourcentageFortune = MONTANT_MAX_EDITEUR;
+        m_pourcentageFortune = 100;
     }
     else
     {
-        m_pourcentageFortune = montant;
+        m_pourcentageFortune = pourcentage;
     }
 }
 
@@ -111,5 +113,31 @@ void Taxe::disablePourcentageFortune()
 {
     m_payePourcentageFortune = false;
     m_pourcentageFortune = 0;
+}
+
+
+
+
+
+QString Taxe::helper_getPrix() const
+{
+    QString texte("");
+    
+    if (m_payeMontantFixe)
+    {
+        texte += QString::number(m_montantFixe) + m_devise;
+    }
+    
+    if (m_payePourcentageFortune)
+    {
+        if (m_payeMontantFixe)
+        {
+            texte += " " + QObject::tr("ou") + " ";
+        }
+        
+        texte += QString::number(m_pourcentageFortune) + "%";
+    }
+    
+    return texte;
 }
 

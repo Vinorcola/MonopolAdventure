@@ -17,15 +17,23 @@ class Taxe : public Emplacement
         bool m_payeMontantFixe;///< Indique si le joueur peut verser un montant fixe.
         quint16 m_montantFixe;///< Montant fixe à verser.
         bool m_payePourcentageFortune;///< Indique si le joueur peut verser un montant correspondant à un pourcentage de sa fortune.
-        quint16 m_pourcentageFortune;///< Pourcentage de la fortune à verser.
+        quint8 m_pourcentageFortune;///< Pourcentage de la fortune à verser.
+        
+        
+        
+    protected:
+        const QString& m_devise;///< Référence constante vers la devise du plateau.
         
         
         
     public:
         /**
          * Construit un emplacement « Taxe » par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
+         * @param devise Référence vers la devise servant à l'affichage du prix sur le plateau.
          */
-        Taxe();
+        Taxe(const GraphismeEmplacementInfos& graphismeInfos,
+             const QString& devise);
         
         
         
@@ -87,7 +95,7 @@ class Taxe : public Emplacement
          * Autorise le joueur à verser un pourcentage de sa fortune.
          * @param pourcentage Pourcentage de la fortune à verser.
          */
-        void enablePourcentageFortune(const quint16 pourcentage);
+        void enablePourcentageFortune(const quint8 pourcentage);
         
         
         
@@ -95,6 +103,11 @@ class Taxe : public Emplacement
          * Supprime l'autorisation pour le joueur de verser un pourcentage de sa fortune.
          */
         void disablePourcentageFortune();
+        
+        
+        
+    protected:
+        virtual QString helper_getPrix() const;
 };
 
 #endif // TAXEINFOS_HPP

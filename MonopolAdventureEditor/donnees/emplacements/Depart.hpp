@@ -21,8 +21,9 @@ class Depart : public Emplacement
     public:
         /**
          * Construit un emplacement « Départ » par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
          */
-        Depart();
+        Depart(const GraphismeEmplacementInfos& graphismeInfos);
         
         
         

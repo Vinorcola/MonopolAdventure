@@ -22,8 +22,9 @@ class Pioche : public Emplacement
     public:
         /**
          * Construit un emplacement « Pioche » par défaut.
+         * @param graphismeInfos Informations concernant le graphisme.
          */
-        Pioche();
+        Pioche(const GraphismeEmplacementInfos& graphismeInfos);
         
         
         
