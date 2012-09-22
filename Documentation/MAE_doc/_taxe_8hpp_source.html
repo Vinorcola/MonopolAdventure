@@ -91,11 +91,66 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00009"></a>00009 
 <a name="l00014"></a><a class="code" href="class_taxe.html">00014</a> <span class="keyword">class </span><a class="code" href="class_taxe.html" title="Taxe contient les informations éditables d&#39;un emplacement « Taxe » d&#39;un plateau.">Taxe</a> : <span class="keyword">public</span> <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>
 <a name="l00015"></a>00015 {
-<a name="l00016"></a>00016     <span class="keyword">public</span>:
-<a name="l00017"></a>00017         <a class="code" href="class_taxe.html" title="Taxe contient les informations éditables d&#39;un emplacement « Taxe » d&#39;un plateau.">Taxe</a>();
-<a name="l00018"></a>00018 };
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020 <span class="preprocessor">#endif // TAXEINFOS_HPP</span>
+<a name="l00016"></a>00016     <span class="keyword">private</span>:
+<a name="l00017"></a><a class="code" href="class_taxe.html#a1da9aac5061f46f6837c4eac2f9ccfd1">00017</a>         <span class="keywordtype">bool</span> <a class="code" href="class_taxe.html#a1da9aac5061f46f6837c4eac2f9ccfd1" title="Indique si le joueur peut verser un montant fixe.">m_payeMontantFixe</a>;
+<a name="l00018"></a><a class="code" href="class_taxe.html#a7b1caec2d807ea33d456b93f0dfd71f9">00018</a>         quint16 <a class="code" href="class_taxe.html#a7b1caec2d807ea33d456b93f0dfd71f9" title="Montant fixe à verser.">m_montantFixe</a>;
+<a name="l00019"></a><a class="code" href="class_taxe.html#a597d49ed8b2169f113f484c55fb33eed">00019</a>         <span class="keywordtype">bool</span> <a class="code" href="class_taxe.html#a597d49ed8b2169f113f484c55fb33eed" title="Indique si le joueur peut verser un montant correspondant à un pourcentage de sa fortune.">m_payePourcentageFortune</a>;
+<a name="l00020"></a><a class="code" href="class_taxe.html#ad34567b653a1fc2e6fadce3999a755b1">00020</a>         quint8 <a class="code" href="class_taxe.html#ad34567b653a1fc2e6fadce3999a755b1" title="Pourcentage de la fortune à verser.">m_pourcentageFortune</a>;
+<a name="l00021"></a>00021         
+<a name="l00022"></a>00022         
+<a name="l00023"></a>00023         
+<a name="l00024"></a>00024     <span class="keyword">protected</span>:
+<a name="l00025"></a><a class="code" href="class_taxe.html#a06d0c31da147f410cc3287690c988135">00025</a>         <span class="keyword">const</span> QString&amp; <a class="code" href="class_taxe.html#a06d0c31da147f410cc3287690c988135" title="Référence constante vers la devise du plateau.">m_devise</a>;
+<a name="l00026"></a>00026         
+<a name="l00027"></a>00027         
+<a name="l00028"></a>00028         
+<a name="l00029"></a>00029     <span class="keyword">public</span>:
+<a name="l00035"></a>00035         <a class="code" href="class_taxe.html#a14fac43c8d4ca0184241435a90cac7bb" title="Construit un emplacement « Taxe » par défaut.">Taxe</a>(<span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; graphismeInfos,
+<a name="l00036"></a>00036              <span class="keyword">const</span> QString&amp; devise);
+<a name="l00037"></a>00037         
+<a name="l00038"></a>00038         
+<a name="l00039"></a>00039         
+<a name="l00043"></a>00043         <span class="keyword">virtual</span> <a class="code" href="class_taxe.html#a2020ad36cdd110a67f71c7d587702715" title="Destructeur virtuel.">~Taxe</a>();
+<a name="l00044"></a>00044         
+<a name="l00045"></a>00045         
+<a name="l00046"></a>00046         
+<a name="l00051"></a>00051         <span class="keywordtype">bool</span> <a class="code" href="class_taxe.html#a1d94106a29fc84ba029cf6e5f91c5baa" title="Indique si la taxe est un montant fixe.">isMontantFixe</a>() <span class="keyword">const</span>;
+<a name="l00052"></a>00052         
+<a name="l00053"></a>00053         
+<a name="l00054"></a>00054         
+<a name="l00059"></a>00059         quint16 <a class="code" href="class_taxe.html#a5ddc92cbc6fe093f32313c87fe1a9cf4" title="Renseigne le montant fixe de la taxe.">getMontantFixe</a>() <span class="keyword">const</span>;
+<a name="l00060"></a>00060         
+<a name="l00061"></a>00061         
+<a name="l00062"></a>00062         
+<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_taxe.html#ad9b978dc65ba5c1bb757beab40239df8" title="Autorise le joueur à verser un montant fixe.">enableMontantFixe</a>(<span class="keyword">const</span> quint16 montant);
+<a name="l00068"></a>00068         
+<a name="l00069"></a>00069         
+<a name="l00070"></a>00070         
+<a name="l00074"></a>00074         <span class="keywordtype">void</span> <a class="code" href="class_taxe.html#ad1eea3b0fab4e9fecb5aba0a14e30f62" title="Supprime l&#39;autorisation pour le joueur de verser un montant fixe.">disableMontantFixe</a>();
+<a name="l00075"></a>00075         
+<a name="l00076"></a>00076         
+<a name="l00077"></a>00077         
+<a name="l00082"></a>00082         <span class="keywordtype">bool</span> <a class="code" href="class_taxe.html#a5694e2e4957c76beb6b6d7f80b82bcb9" title="Indique si la taxe est un pourcentage de la fortune.">isPourcentageFortune</a>() <span class="keyword">const</span>;
+<a name="l00083"></a>00083         
+<a name="l00084"></a>00084         
+<a name="l00085"></a>00085         
+<a name="l00090"></a>00090         quint16 <a class="code" href="class_taxe.html#a534abf7607477e0e0324951c7673b64d" title="Renseigne le pourcentage de la fortune à verser.">getPourcentageFortune</a>() <span class="keyword">const</span>;
+<a name="l00091"></a>00091         
+<a name="l00092"></a>00092         
+<a name="l00093"></a>00093         
+<a name="l00098"></a>00098         <span class="keywordtype">void</span> <a class="code" href="class_taxe.html#ae830bd5077a96fbb6e01e29133cbb6b6" title="Autorise le joueur à verser un pourcentage de sa fortune.">enablePourcentageFortune</a>(<span class="keyword">const</span> quint8 pourcentage);
+<a name="l00099"></a>00099         
+<a name="l00100"></a>00100         
+<a name="l00101"></a>00101         
+<a name="l00105"></a>00105         <span class="keywordtype">void</span> <a class="code" href="class_taxe.html#ab2a5623fef0ee99046367306ef84d692" title="Supprime l&#39;autorisation pour le joueur de verser un pourcentage de sa fortune.">disablePourcentageFortune</a>();
+<a name="l00106"></a>00106         
+<a name="l00107"></a>00107         
+<a name="l00108"></a>00108         
+<a name="l00109"></a>00109     <span class="keyword">protected</span>:
+<a name="l00110"></a>00110         <span class="keyword">virtual</span> QString <a class="code" href="class_taxe.html#acde5ebe8e5c6dde0c8d0395f75c53d29" title="Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé.">helper_getPrix</a>() <span class="keyword">const</span>;
+<a name="l00111"></a>00111 };
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="preprocessor">#endif // TAXEINFOS_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -114,7 +169,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

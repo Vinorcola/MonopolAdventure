@@ -99,27 +99,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00021"></a>00021         
 <a name="l00022"></a>00022         
 <a name="l00023"></a>00023     <span class="keyword">public</span>:
-<a name="l00027"></a>00027         <a class="code" href="class_service.html#acc246c9f7ed3c51e2d91d10fe257513f" title="Construit un service par défaut.">Service</a>();
-<a name="l00028"></a>00028         
-<a name="l00029"></a>00029         
-<a name="l00030"></a>00030         
-<a name="l00034"></a>00034         <span class="keyword">virtual</span> <a class="code" href="class_service.html#af6c3577b59652ac817d1d76aaccee904" title="Destructeur virtuel.">~Service</a>();
-<a name="l00035"></a>00035         
-<a name="l00036"></a>00036         
-<a name="l00037"></a>00037         
-<a name="l00043"></a>00043         quint16 <a class="code" href="class_service.html#afed4900974bc1632b23e83820563a08e" title="Renseigne le montant du loyer du service en fonction du nombre de services possédés par le propriétai...">getLoyer</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> nombreServicesPossedes) <span class="keyword">const</span>;
-<a name="l00044"></a>00044         
-<a name="l00045"></a>00045         
-<a name="l00046"></a>00046         
-<a name="l00051"></a>00051         <span class="keywordtype">void</span> <a class="code" href="class_service.html#ac0aba58e610bf120f60500dd2df83d9a" title="Informe du nombre de services sur le plateau.">setupNombreServices</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> quantite);
-<a name="l00052"></a>00052         
-<a name="l00053"></a>00053         
-<a name="l00054"></a>00054         
-<a name="l00060"></a>00060         <span class="keywordtype">void</span> <a class="code" href="class_service.html#ab2032c6be9ea900acc5962fc88a3be3b" title="Remplace le montant du loyer du service lorsque le propriétaire possède nombreServicesPossedes servic...">editLoyer</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> nombreServicesPossedes,
-<a name="l00061"></a>00061                        <span class="keyword">const</span> quint16 montant);
-<a name="l00062"></a>00062 };
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="preprocessor">#endif // SERVICEINFOS_HPP</span>
+<a name="l00029"></a>00029         <a class="code" href="class_service.html#ade8d4216ef0806b53b721cc6fa5beb25" title="Construit un service par défaut.">Service</a>(<span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; graphismeInfos,
+<a name="l00030"></a>00030                 <span class="keyword">const</span> QString&amp; devise);
+<a name="l00031"></a>00031         
+<a name="l00032"></a>00032         
+<a name="l00033"></a>00033         
+<a name="l00037"></a>00037         <span class="keyword">virtual</span> <a class="code" href="class_service.html#af6c3577b59652ac817d1d76aaccee904" title="Destructeur virtuel.">~Service</a>();
+<a name="l00038"></a>00038         
+<a name="l00039"></a>00039         
+<a name="l00040"></a>00040         
+<a name="l00046"></a>00046         quint16 <a class="code" href="class_service.html#afed4900974bc1632b23e83820563a08e" title="Renseigne le montant du loyer du service en fonction du nombre de services possédés par le propriétai...">getLoyer</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> nombreServicesPossedes) <span class="keyword">const</span>;
+<a name="l00047"></a>00047         
+<a name="l00048"></a>00048         
+<a name="l00049"></a>00049         
+<a name="l00054"></a>00054         <span class="keywordtype">void</span> <a class="code" href="class_service.html#ac0aba58e610bf120f60500dd2df83d9a" title="Informe du nombre de services sur le plateau.">setupNombreServices</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> quantite);
+<a name="l00055"></a>00055         
+<a name="l00056"></a>00056         
+<a name="l00057"></a>00057         
+<a name="l00063"></a>00063         <span class="keywordtype">void</span> <a class="code" href="class_service.html#ab2032c6be9ea900acc5962fc88a3be3b" title="Remplace le montant du loyer du service lorsque le propriétaire possède nombreServicesPossedes servic...">editLoyer</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> nombreServicesPossedes,
+<a name="l00064"></a>00064                        <span class="keyword">const</span> quint16 montant);
+<a name="l00065"></a>00065 };
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="preprocessor">#endif // SERVICEINFOS_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -138,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Septembre 23 2012 01:49:08 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

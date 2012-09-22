@@ -10,5 +10,7 @@ var searchData=
   ['_7epropriete',['~Propriete',['../class_propriete.html#adb1a8f9bdb27dc234605ff05461ba52c',1,'Propriete']]],
   ['_7eregroupement',['~Regroupement',['../class_regroupement.html#a18646f7ad1defb3627d6ff31cd193d56',1,'Regroupement']]],
   ['_7eservice',['~Service',['../class_service.html#af6c3577b59652ac817d1d76aaccee904',1,'Service']]],
+  ['_7esimplevisite',['~SimpleVisite',['../class_simple_visite.html#a62e2fdbb337613435154f37500bcdffb',1,'SimpleVisite']]],
+  ['_7etaxe',['~Taxe',['../class_taxe.html#a2020ad36cdd110a67f71c7d587702715',1,'Taxe']]],
   ['_7eterrain',['~Terrain',['../class_terrain.html#a2f7f0a2aee54886324ccf48a6f321de0',1,'Terrain']]]
 ];

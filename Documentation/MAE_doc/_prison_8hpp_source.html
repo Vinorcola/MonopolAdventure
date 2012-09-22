@@ -84,22 +84,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define PRISONINFOS_HPP</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &quot;donnees/emplacements/Emplacement.hpp&quot;</span>
-<a name="l00005"></a>00005 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;donnees/emplacements/SimpleVisite.hpp&quot;</span>
 <a name="l00006"></a>00006 
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 
-<a name="l00014"></a><a class="code" href="class_prison.html">00014</a> <span class="keyword">class </span><a class="code" href="class_prison.html" title="Prison contient les informations éditables d&#39;une prison d&#39;un plateau.">Prison</a> : <span class="keyword">public</span> <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>
-<a name="l00015"></a>00015 {
-<a name="l00016"></a>00016     <span class="keyword">public</span>:
-<a name="l00020"></a>00020         <a class="code" href="class_prison.html#a578a39597fe4ac9f0b3d435d0bea582b" title="Construit une prison par défaut.">Prison</a>();
+<a name="l00010"></a>00010 
+<a name="l00015"></a><a class="code" href="class_prison.html">00015</a> <span class="keyword">class </span><a class="code" href="class_prison.html" title="Prison contient les informations éditables d&#39;une prison d&#39;un plateau.">Prison</a> : <span class="keyword">public</span> <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017     <span class="keyword">private</span>:
+<a name="l00018"></a><a class="code" href="class_prison.html#a0a5c60190c7853dcca65bc47c1705e40">00018</a>         <a class="code" href="class_simple_visite.html" title="SimpleVisite contient les informations éditables d&#39;un emplacement « Simple visite » d&#39;un plateau...">SimpleVisite</a>* <a class="code" href="class_prison.html#a0a5c60190c7853dcca65bc47c1705e40" title="Emplacement « Simple visite » associé à la prison.">m_emplacementAssocie</a>;
+<a name="l00019"></a><a class="code" href="class_prison.html#a11a47bfd537c41362b4dd224d199dc9e">00019</a>         quint16 <a class="code" href="class_prison.html#a11a47bfd537c41362b4dd224d199dc9e" title="Montant de la caution pour sortir de prison.">m_caution</a>;
+<a name="l00020"></a>00020         
 <a name="l00021"></a>00021         
 <a name="l00022"></a>00022         
-<a name="l00023"></a>00023         
-<a name="l00027"></a>00027         <span class="keyword">virtual</span> <a class="code" href="class_prison.html#a2e3f4d82bf90f9b3d97a6e8cc06445b4" title="Destructeur virtuel.">~Prison</a>();
-<a name="l00028"></a>00028 };
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="preprocessor">#endif // PRISONINFOS_HPP</span>
+<a name="l00023"></a>00023     <span class="keyword">public</span>:
+<a name="l00029"></a>00029         <a class="code" href="class_prison.html#a8377f08c8e2124a702a4d6849641d23f" title="Construit une prison par défaut.">Prison</a>(<span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; graphismeInfos,
+<a name="l00030"></a>00030                <a class="code" href="class_simple_visite.html" title="SimpleVisite contient les informations éditables d&#39;un emplacement « Simple visite » d&#39;un plateau...">SimpleVisite</a>* <span class="keyword">const</span> emplacementAssocie);
+<a name="l00031"></a>00031         
+<a name="l00032"></a>00032         
+<a name="l00033"></a>00033         
+<a name="l00037"></a>00037         <span class="keyword">virtual</span> <a class="code" href="class_prison.html#a2e3f4d82bf90f9b3d97a6e8cc06445b4" title="Destructeur virtuel.">~Prison</a>();
+<a name="l00038"></a>00038         
+<a name="l00039"></a>00039         
+<a name="l00040"></a>00040         
+<a name="l00045"></a>00045         <a class="code" href="class_simple_visite.html" title="SimpleVisite contient les informations éditables d&#39;un emplacement « Simple visite » d&#39;un plateau...">SimpleVisite</a>* <a class="code" href="class_prison.html#a1440547780a0645f34a19f1b6c0947ef" title="Renseigne l&#39;emplacement « Simple visite » associé à la prison.">getEmplacementAssocie</a>() <span class="keyword">const</span>;
+<a name="l00046"></a>00046         
+<a name="l00047"></a>00047         
+<a name="l00048"></a>00048         
+<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="class_prison.html#a1c8c15275ac59306301f91ae02160ed5" title="Remplace l&#39;emplacement « Simple visite » associé à la prison par emplacement.">editEmplacementAssocie</a>(<a class="code" href="class_simple_visite.html" title="SimpleVisite contient les informations éditables d&#39;un emplacement « Simple visite » d&#39;un plateau...">SimpleVisite</a>* emplacement);
+<a name="l00054"></a>00054         
+<a name="l00055"></a>00055         
+<a name="l00056"></a>00056         
+<a name="l00061"></a>00061         quint16 <a class="code" href="class_prison.html#a867022a42ee79bbc645ae9cf49a5cafd" title="Renseigne le montant de la caution pour sortir de prison.">getCaution</a>() <span class="keyword">const</span>;
+<a name="l00062"></a>00062         
+<a name="l00063"></a>00063         
+<a name="l00064"></a>00064         
+<a name="l00069"></a>00069         <span class="keywordtype">void</span> <a class="code" href="class_prison.html#a3df219e8a9495d990cfaa82d960194a3" title="Remplace le montant de la caution par montant.">editCaution</a>(<span class="keyword">const</span> quint16 montant);
+<a name="l00070"></a>00070 };
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="preprocessor">#endif // PRISONINFOS_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -118,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Septembre 23 2012 01:49:08 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

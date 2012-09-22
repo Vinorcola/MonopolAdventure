@@ -98,30 +98,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00020"></a>00020         
 <a name="l00021"></a>00021         
 <a name="l00022"></a>00022     <span class="keyword">public</span>:
-<a name="l00026"></a>00026         <a class="code" href="class_deplacement.html#a38ff1b6746a3f6e0277b2236a17bfb64" title="Construit un emplacement « Déplacement » par défaut.">Deplacement</a>();
-<a name="l00027"></a>00027         
+<a name="l00027"></a>00027         <a class="code" href="class_deplacement.html#aba8858693e84691607692ec198ee5fdd" title="Construit un emplacement « Déplacement » par défaut.">Deplacement</a>(<span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; graphismeInfos);
 <a name="l00028"></a>00028         
 <a name="l00029"></a>00029         
-<a name="l00033"></a>00033         <span class="keyword">virtual</span> <a class="code" href="class_deplacement.html#a022cead0d0898fe082a02f41d3eb57b6" title="Destructeur virtuel.">~Deplacement</a>();
-<a name="l00034"></a>00034         
+<a name="l00030"></a>00030         
+<a name="l00034"></a>00034         <span class="keyword">virtual</span> <a class="code" href="class_deplacement.html#a022cead0d0898fe082a02f41d3eb57b6" title="Destructeur virtuel.">~Deplacement</a>();
 <a name="l00035"></a>00035         
 <a name="l00036"></a>00036         
-<a name="l00041"></a>00041         <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <a class="code" href="class_deplacement.html#a59dc2f3d2a51ae39f94a342ec2402341" title="Renseigne l&#39;emplacement de destination.">getDestination</a>() <span class="keyword">const</span>;
-<a name="l00042"></a>00042         
+<a name="l00037"></a>00037         
+<a name="l00042"></a>00042         <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <a class="code" href="class_deplacement.html#a59dc2f3d2a51ae39f94a342ec2402341" title="Renseigne l&#39;emplacement de destination.">getDestination</a>() <span class="keyword">const</span>;
 <a name="l00043"></a>00043         
 <a name="l00044"></a>00044         
-<a name="l00049"></a>00049         <span class="keywordtype">void</span> <a class="code" href="class_deplacement.html#a9d0c3071b425d5fd0bd351e95097bbd3" title="Remplace l&#39;emplacement de destination par destination.">editDestination</a>(<a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <span class="keyword">const</span> destination);
-<a name="l00050"></a>00050         
+<a name="l00045"></a>00045         
+<a name="l00050"></a>00050         <span class="keywordtype">void</span> <a class="code" href="class_deplacement.html#a9d0c3071b425d5fd0bd351e95097bbd3" title="Remplace l&#39;emplacement de destination par destination.">editDestination</a>(<a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <span class="keyword">const</span> destination);
 <a name="l00051"></a>00051         
 <a name="l00052"></a>00052         
-<a name="l00057"></a>00057         quint16 <a class="code" href="class_deplacement.html#a1fed3e7fa0c6c0fbecdf48b388a5bd4a" title="Renseigne le montant de l&#39;amende.">getMontantAmende</a>() <span class="keyword">const</span>;
-<a name="l00058"></a>00058         
+<a name="l00053"></a>00053         
+<a name="l00058"></a>00058         quint16 <a class="code" href="class_deplacement.html#a1fed3e7fa0c6c0fbecdf48b388a5bd4a" title="Renseigne le montant de l&#39;amende.">getMontantAmende</a>() <span class="keyword">const</span>;
 <a name="l00059"></a>00059         
 <a name="l00060"></a>00060         
-<a name="l00065"></a>00065         <span class="keywordtype">void</span> <a class="code" href="class_deplacement.html#a8b53ff397d4ca63a8612409e9272701c" title="Remplace le montant de l&#39;amende par montant.">editMontantAmende</a>(<span class="keyword">const</span> quint16 montant);
-<a name="l00066"></a>00066 };
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 <span class="preprocessor">#endif // DEPLACEMENTINFOS_HPP</span>
+<a name="l00061"></a>00061         
+<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="class_deplacement.html#a8b53ff397d4ca63a8612409e9272701c" title="Remplace le montant de l&#39;amende par montant.">editMontantAmende</a>(<span class="keyword">const</span> quint16 montant);
+<a name="l00067"></a>00067 };
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="preprocessor">#endif // DEPLACEMENTINFOS_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -140,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Septembre 23 2012 01:49:08 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

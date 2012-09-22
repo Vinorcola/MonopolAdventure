@@ -81,6 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
 <a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Terrain</div>  </div>
@@ -106,9 +107,8 @@ Graphe d'héritage de Terrain:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7160a06ab07a86ed97d23374405e8ef6"></a><!-- doxytag: member="Terrain::Terrain" ref="a7160a06ab07a86ed97d23374405e8ef6" args="()" -->
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#a7160a06ab07a86ed97d23374405e8ef6">Terrain</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un terrain par défaut. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#ad10965a2850643ae93ff34259a429e74">Terrain</a> (const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;graphismeInfos, const QString &amp;devise)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un terrain par défaut.  <a href="#ad10965a2850643ae93ff34259a429e74"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#a2f7f0a2aee54886324ccf48a6f321de0">~Terrain</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel.  <a href="#a2f7f0a2aee54886324ccf48a6f321de0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_regroupement.html">Regroupement</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#ad50c3007ede64912cdbed3f9fdb75f32">getRegroupement</a> () const </td></tr>
@@ -135,6 +135,10 @@ Fonctions membres publiques</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirgure le nombre maximum d'hôtels constructibles sur le terrain.  <a href="#aa7883da3a10daca8ea6a840b6b15f2ba"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#a070e27c493072e1aa6753dd84940b91c">editLoyerHotel</a> (const int nombreHotelsConstruits, const quint16 montant)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace le montant du loyer du terrain aménagé avec <em>nombreHotelsConstruits</em> hôtels par <em>montant</em>.  <a href="#a070e27c493072e1aa6753dd84940b91c"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#acbdaf16e3231b838b4246054a4eb5918">helper_getCouleurRegroupement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode virtuelle permettant à chaque classe héritant de renvoyer une couleur personnalisée.  <a href="#acbdaf16e3231b838b4246054a4eb5918"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa797c6f42d4c749e9ac61ee3265b7cd0"></a><!-- doxytag: member="Terrain::m_regroupement" ref="aa797c6f42d4c749e9ac61ee3265b7cd0" args="" -->
@@ -156,6 +160,42 @@ QList&lt; quint16 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a cla
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p><a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a> contient les informations éditables d'un terrain d'un plateau. </p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="ad10965a2850643ae93ff34259a429e74"></a><!-- doxytag: member="Terrain::Terrain" ref="ad10965a2850643ae93ff34259a429e74" args="(const GraphismeEmplacementInfos &amp;graphismeInfos, const QString &amp;devise)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_terrain.html#ad10965a2850643ae93ff34259a429e74">Terrain::Terrain</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td>
+          <td class="paramname"><em>graphismeInfos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>devise</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Construit un terrain par défaut. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graphismeInfos</td><td>Informations concernant le graphisme. </td></tr>
+    <tr><td class="paramname">devise</td><td>Référence vers la devise servant à l'affichage du prix sur le plateau. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a2f7f0a2aee54886324ccf48a6f321de0"></a><!-- doxytag: member="Terrain::~Terrain" ref="a2f7f0a2aee54886324ccf48a6f321de0" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -432,6 +472,27 @@ QList&lt; quint16 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a cla
 
 </div>
 </div>
+<a class="anchor" id="acbdaf16e3231b838b4246054a4eb5918"></a><!-- doxytag: member="Terrain::helper_getCouleurRegroupement" ref="acbdaf16e3231b838b4246054a4eb5918" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QColor <a class="el" href="class_terrain.html#acbdaf16e3231b838b4246054a4eb5918">Terrain::helper_getCouleurRegroupement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Méthode virtuelle permettant à chaque classe héritant de renvoyer une couleur personnalisée. </p>
+<p>Cette méthode est réimplémentée dans les emplacements <a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a>. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_emplacement.html#a879e48d61cca1b1360df29f1f1ac7f6e">Emplacement</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aa7883da3a10daca8ea6a840b6b15f2ba"></a><!-- doxytag: member="Terrain::setupNombreMaxHotel" ref="aa7883da3a10daca8ea6a840b6b15f2ba" args="(const int quantite)" -->
 <div class="memitem">
 <div class="memproto">
@@ -504,7 +565,7 @@ QList&lt; quint16 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a cla
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

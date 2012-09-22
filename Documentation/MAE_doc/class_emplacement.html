@@ -80,7 +80,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div>
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
 <a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Emplacement</div>  </div>
@@ -110,10 +113,14 @@ Graphe d'héritage de Emplacement:</div>
 
 <p><a href="class_emplacement-members.html">Liste de tous les membres</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement_1_1_element_graphique.html">ElementGraphique</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données servant à la déclaration des scène sur lesquelles est affiché l'emplacement.  <a href="class_emplacement_1_1_element_graphique.html#details">Plus de détails...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a003155799a448113c2dc0bafe5592543">Emplacement</a> (Type::Emplacement type)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un emplacement par défaut.  <a href="#a003155799a448113c2dc0bafe5592543"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a0ab91b1c6fc0a9566efeac2a46b05c27">Emplacement</a> (Type::Emplacement type, const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;graphismeInfos)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un emplacement par défaut.  <a href="#a0ab91b1c6fc0a9566efeac2a46b05c27"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3dbc48571ad347ea73cb777cae5fedb"></a><!-- doxytag: member="Emplacement::~Emplacement" ref="ae3dbc48571ad347ea73cb777cae5fedb" args="()" -->
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#ae3dbc48571ad347ea73cb777cae5fedb">~Emplacement</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel. <br/></td></tr>
@@ -135,6 +142,28 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'image de l'emplacement.  <a href="#a2ac65ae52b536f341d9520b3be990edf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a7918ec2ac9b2105e608ba3a975dfa471">editImage</a> (const QPixmap &amp;image)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace l'image de l'emplacement par <em>image</em>.  <a href="#a7918ec2ac9b2105e608ba3a975dfa471"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494">registerScene</a> (QGraphicsScene *scene, const QPoint &amp;coordonnees=QPoint(), const int rotation=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Déclare l'emplacement sur une scène.  <a href="#ad4cd848fb3031b0aced010026fb9a494"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a4b162cf2b05f59ede8a6e62a8ac24cbb">dessiner</a> (QGraphicsScene *scene=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'emplacement sur la scène passée en argument.  <a href="#a4b162cf2b05f59ede8a6e62a8ac24cbb"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#af70384de48681d9091f2be8955c0dd56">helper_getPrix</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé.  <a href="#af70384de48681d9091f2be8955c0dd56"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a879e48d61cca1b1360df29f1f1ac7f6e">helper_getCouleurRegroupement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode virtuelle permettant à chaque classe héritant de renvoyer une couleur personnalisée.  <a href="#a879e48d61cca1b1360df29f1f1ac7f6e"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94042bfe01af919092343f85814b63ef"></a><!-- doxytag: member="Emplacement::m_graphismeInfos" ref="a94042bfe01af919092343f85814b63ef" args="" -->
+const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a94042bfe01af919092343f85814b63ef">m_graphismeInfos</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Informations concernant le graphisme. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6b28f62f37da80e45248b6543904fb7"></a><!-- doxytag: member="Emplacement::m_enCoin" ref="ac6b28f62f37da80e45248b6543904fb7" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#ac6b28f62f37da80e45248b6543904fb7">m_enCoin</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si l'emplacement se situe dans un coin du plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec90add4f33ae8a1de2bdd2970503970"></a><!-- doxytag: member="Emplacement::m_scenes" ref="aec90add4f33ae8a1de2bdd2970503970" args="" -->
+QHash&lt; QGraphicsScene <br class="typebreak"/>
+*, <a class="el" href="class_emplacement_1_1_element_graphique.html">ElementGraphique</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#aec90add4f33ae8a1de2bdd2970503970">m_scenes</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Table des éléments graphiques et de leur scène. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a301c57161d39c6458ee645553742e9f6"></a><!-- doxytag: member="Emplacement::m_type" ref="a301c57161d39c6458ee645553742e9f6" args="" -->
@@ -156,16 +185,26 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p><a class="el" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a> contient les informations éditables communes à tous les emplacements d'un plateau. </p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a003155799a448113c2dc0bafe5592543"></a><!-- doxytag: member="Emplacement::Emplacement" ref="a003155799a448113c2dc0bafe5592543" args="(Type::Emplacement type)" -->
+<a class="anchor" id="a0ab91b1c6fc0a9566efeac2a46b05c27"></a><!-- doxytag: member="Emplacement::Emplacement" ref="a0ab91b1c6fc0a9566efeac2a46b05c27" args="(Type::Emplacement type, const GraphismeEmplacementInfos &amp;graphismeInfos)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_emplacement.html#a003155799a448113c2dc0bafe5592543">Emplacement::Emplacement</a> </td>
+          <td class="memname"><a class="el" href="class_emplacement.html#a0ab91b1c6fc0a9566efeac2a46b05c27">Emplacement::Emplacement</a> </td>
           <td>(</td>
           <td class="paramtype">Type::Emplacement&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td>
+          <td class="paramname"><em>graphismeInfos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -175,6 +214,7 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <dl class="params"><dt><b>Paramètres:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>Précise le type d'emplacement. </td></tr>
+    <tr><td class="paramname">graphismeInfos</td><td>Informations concernant le graphisme. </td></tr>
   </table>
   </dd>
 </dl>
@@ -182,6 +222,32 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div>
 </div>
 <hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a4b162cf2b05f59ede8a6e62a8ac24cbb"></a><!-- doxytag: member="Emplacement::dessiner" ref="a4b162cf2b05f59ede8a6e62a8ac24cbb" args="(QGraphicsScene *scene=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_emplacement.html#a4b162cf2b05f59ede8a6e62a8ac24cbb">Emplacement::dessiner</a> </td>
+          <td>(</td>
+          <td class="paramtype">QGraphicsScene *&#160;</td>
+          <td class="paramname"><em>scene</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dessine l'emplacement sur la scène passée en argument. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scene</td><td>Scène sur laquelle mettre à jour l'affichage (0 pour toutes).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>L'emplacement va garder en mémoire les scènes sur lesquelles il est affiché. Il va créer un nouveau QGraphicsItem à chaque fois qu'il doit être affiché sur une nouvelle scène. Pour déclarer une scène, il faut appeler au préalale la méthode <a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494" title="Déclare l&#39;emplacement sur une scène.">Emplacement::registerScene()</a> afin de renseigner les coordonnées et la rotation de l'emplacement sur la scène. Pour actualiser l'affichage graphique de l'emplacement sur une scène précise, il suffit d'appeler cette méthode avec la scène en paramètre. Si aucune scène n'est passée en argument, toutes les scènes sont mises à jour. </p>
+
+</div>
+</div>
 <a class="anchor" id="ab1154b990b7b49bf473439358d57ba47"></a><!-- doxytag: member="Emplacement::editDescription" ref="ab1154b990b7b49bf473439358d57ba47" args="(const QString &amp;description)" -->
 <div class="memitem">
 <div class="memproto">
@@ -377,6 +443,91 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 </div>
 </div>
+<a class="anchor" id="a879e48d61cca1b1360df29f1f1ac7f6e"></a><!-- doxytag: member="Emplacement::helper_getCouleurRegroupement" ref="a879e48d61cca1b1360df29f1f1ac7f6e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QColor <a class="el" href="class_emplacement.html#a879e48d61cca1b1360df29f1f1ac7f6e">Emplacement::helper_getCouleurRegroupement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Méthode virtuelle permettant à chaque classe héritant de renvoyer une couleur personnalisée. </p>
+<p>Cette méthode est réimplémentée dans les emplacements <a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a>. </p>
+
+<p>Réimplémentée dans <a class="el" href="class_terrain.html#acbdaf16e3231b838b4246054a4eb5918">Terrain</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af70384de48681d9091f2be8955c0dd56"></a><!-- doxytag: member="Emplacement::helper_getPrix" ref="af70384de48681d9091f2be8955c0dd56" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="class_emplacement.html#af70384de48681d9091f2be8955c0dd56">Emplacement::helper_getPrix</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé. </p>
+<p>Cette méthode est réimplémentée dans les emplacements <a class="el" href="class_propriete.html" title="Propriete contient les informations éditables communes à toutes les propriétés d&#39;un plateau...">Propriete</a> et <a class="el" href="class_taxe.html" title="Taxe contient les informations éditables d&#39;un emplacement « Taxe » d&#39;un plateau.">Taxe</a>. Pour plus de facilité, elle renvoie un QString directement utilisable. </p>
+
+<p>Réimplémentée dans <a class="el" href="class_taxe.html#acde5ebe8e5c6dde0c8d0395f75c53d29">Taxe</a>, et <a class="el" href="class_propriete.html#a807aa9fbef30ee6da0831529d13a94d5">Propriete</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad4cd848fb3031b0aced010026fb9a494"></a><!-- doxytag: member="Emplacement::registerScene" ref="ad4cd848fb3031b0aced010026fb9a494" args="(QGraphicsScene *scene, const QPoint &amp;coordonnees=QPoint(), const int rotation=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494">Emplacement::registerScene</a> </td>
+          <td>(</td>
+          <td class="paramtype">QGraphicsScene *&#160;</td>
+          <td class="paramname"><em>scene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QPoint &amp;&#160;</td>
+          <td class="paramname"><em>coordonnees</em> = <code>QPoint()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>rotation</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Déclare l'emplacement sur une scène. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scene</td><td>Scène sur laquelle afficher l'emplacement. </td></tr>
+    <tr><td class="paramname">coordonnees</td><td>Coordonnées de la position de l'emplacement sur la scène. </td></tr>
+    <tr><td class="paramname">rotation</td><td>Rotation de l'emplacement sur la scène. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/<a class="el" href="_emplacement_8hpp_source.html">Emplacement.hpp</a></li>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/Emplacement.cpp</li>
@@ -399,7 +550,7 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

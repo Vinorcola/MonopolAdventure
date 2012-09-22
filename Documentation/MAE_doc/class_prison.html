@@ -80,7 +80,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Fonctions membres publiques</a>  </div>
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Prison</div>  </div>
 </div><!--header-->
@@ -104,16 +105,157 @@ Graphe d'héritage de Prison:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a578a39597fe4ac9f0b3d435d0bea582b"></a><!-- doxytag: member="Prison::Prison" ref="a578a39597fe4ac9f0b3d435d0bea582b" args="()" -->
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a578a39597fe4ac9f0b3d435d0bea582b">Prison</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit une prison par défaut. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a8377f08c8e2124a702a4d6849641d23f">Prison</a> (const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;graphismeInfos, <a class="el" href="class_simple_visite.html">SimpleVisite</a> *const emplacementAssocie)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit une prison par défaut.  <a href="#a8377f08c8e2124a702a4d6849641d23f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e3f4d82bf90f9b3d97a6e8cc06445b4"></a><!-- doxytag: member="Prison::~Prison" ref="a2e3f4d82bf90f9b3d97a6e8cc06445b4" args="()" -->
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a2e3f4d82bf90f9b3d97a6e8cc06445b4">~Prison</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_visite.html">SimpleVisite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a1440547780a0645f34a19f1b6c0947ef">getEmplacementAssocie</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne l'emplacement « Simple visite » associé à la prison.  <a href="#a1440547780a0645f34a19f1b6c0947ef"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a1c8c15275ac59306301f91ae02160ed5">editEmplacementAssocie</a> (<a class="el" href="class_simple_visite.html">SimpleVisite</a> *emplacement)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace l'emplacement « Simple visite » associé à la prison par <em>emplacement</em>.  <a href="#a1c8c15275ac59306301f91ae02160ed5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a867022a42ee79bbc645ae9cf49a5cafd">getCaution</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le montant de la caution pour sortir de prison.  <a href="#a867022a42ee79bbc645ae9cf49a5cafd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a3df219e8a9495d990cfaa82d960194a3">editCaution</a> (const quint16 montant)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace le montant de la caution par <em>montant</em>.  <a href="#a3df219e8a9495d990cfaa82d960194a3"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a5c60190c7853dcca65bc47c1705e40"></a><!-- doxytag: member="Prison::m_emplacementAssocie" ref="a0a5c60190c7853dcca65bc47c1705e40" args="" -->
+<a class="el" href="class_simple_visite.html">SimpleVisite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a0a5c60190c7853dcca65bc47c1705e40">m_emplacementAssocie</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a> « Simple visite » associé à la prison. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11a47bfd537c41362b4dd224d199dc9e"></a><!-- doxytag: member="Prison::m_caution" ref="a11a47bfd537c41362b4dd224d199dc9e" args="" -->
+quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prison.html#a11a47bfd537c41362b4dd224d199dc9e">m_caution</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Montant de la caution pour sortir de prison. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p><a class="el" href="class_prison.html" title="Prison contient les informations éditables d&#39;une prison d&#39;un plateau.">Prison</a> contient les informations éditables d'une prison d'un plateau. </p>
-</div><hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+</div><hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="a8377f08c8e2124a702a4d6849641d23f"></a><!-- doxytag: member="Prison::Prison" ref="a8377f08c8e2124a702a4d6849641d23f" args="(const GraphismeEmplacementInfos &amp;graphismeInfos, SimpleVisite *const emplacementAssocie)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_prison.html#a8377f08c8e2124a702a4d6849641d23f">Prison::Prison</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td>
+          <td class="paramname"><em>graphismeInfos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_simple_visite.html">SimpleVisite</a> *const&#160;</td>
+          <td class="paramname"><em>emplacementAssocie</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Construit une prison par défaut. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graphismeInfos</td><td>Informations concernant le graphisme. </td></tr>
+    <tr><td class="paramname">emplacementAssocie</td><td><a class="el" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a> « Simple visite » associé à la prison. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a3df219e8a9495d990cfaa82d960194a3"></a><!-- doxytag: member="Prison::editCaution" ref="a3df219e8a9495d990cfaa82d960194a3" args="(const quint16 montant)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_prison.html#a3df219e8a9495d990cfaa82d960194a3">Prison::editCaution</a> </td>
+          <td>(</td>
+          <td class="paramtype">const quint16&#160;</td>
+          <td class="paramname"><em>montant</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Remplace le montant de la caution par <em>montant</em>. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">montant</td><td>Montant de la nouvelle caution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1c8c15275ac59306301f91ae02160ed5"></a><!-- doxytag: member="Prison::editEmplacementAssocie" ref="a1c8c15275ac59306301f91ae02160ed5" args="(SimpleVisite *emplacement)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_prison.html#a1c8c15275ac59306301f91ae02160ed5">Prison::editEmplacementAssocie</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_simple_visite.html">SimpleVisite</a> *&#160;</td>
+          <td class="paramname"><em>emplacement</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Remplace l'emplacement « Simple visite » associé à la prison par <em>emplacement</em>. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">emplacement</td><td>Nouvel emplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a867022a42ee79bbc645ae9cf49a5cafd"></a><!-- doxytag: member="Prison::getCaution" ref="a867022a42ee79bbc645ae9cf49a5cafd" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint16 <a class="el" href="class_prison.html#a867022a42ee79bbc645ae9cf49a5cafd">Prison::getCaution</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne le montant de la caution pour sortir de prison. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Montant de la caution pour sortir de prison. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1440547780a0645f34a19f1b6c0947ef"></a><!-- doxytag: member="Prison::getEmplacementAssocie" ref="a1440547780a0645f34a19f1b6c0947ef" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_simple_visite.html">SimpleVisite</a> * <a class="el" href="class_prison.html#a1440547780a0645f34a19f1b6c0947ef">Prison::getEmplacementAssocie</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne l'emplacement « Simple visite » associé à la prison. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd><a class="el" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a> « Simple visite » associé à la prison. </dd></dl>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/<a class="el" href="_prison_8hpp_source.html">Prison.hpp</a></li>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/Prison.cpp</li>
 </ul>
@@ -135,7 +277,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

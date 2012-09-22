@@ -97,31 +97,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00019"></a>00019         
 <a name="l00020"></a>00020         
 <a name="l00021"></a>00021         
-<a name="l00022"></a>00022     <span class="keyword">public</span>:
-<a name="l00027"></a>00027         <a class="code" href="class_propriete.html#a0fcb9f478fb0c40b5988078ba98a0445" title="Construit une propriété par défaut.">Propriete</a>(<span class="keyword">const</span> Type::Emplacement type);
-<a name="l00028"></a>00028         
-<a name="l00029"></a>00029         
-<a name="l00030"></a>00030         
-<a name="l00034"></a>00034         <span class="keyword">virtual</span> <a class="code" href="class_propriete.html#adb1a8f9bdb27dc234605ff05461ba52c" title="Destructeur virtuel.">~Propriete</a>();
-<a name="l00035"></a>00035         
-<a name="l00036"></a>00036         
+<a name="l00022"></a>00022     <span class="keyword">protected</span>:
+<a name="l00023"></a><a class="code" href="class_propriete.html#abdda74892dd5775cccd69577d0509393">00023</a>         <span class="keyword">const</span> QString&amp; <a class="code" href="class_propriete.html#abdda74892dd5775cccd69577d0509393" title="Référence constante vers la devise du plateau.">m_devise</a>;
+<a name="l00024"></a>00024         
+<a name="l00025"></a>00025         
+<a name="l00026"></a>00026         
+<a name="l00027"></a>00027     <span class="keyword">public</span>:
+<a name="l00034"></a>00034         <a class="code" href="class_propriete.html#a99c09b91859c7349351ce58dc13d5bd3" title="Construit une propriété par défaut.">Propriete</a>(<span class="keyword">const</span> Type::Emplacement type,
+<a name="l00035"></a>00035                   <span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; graphismeInfos,
+<a name="l00036"></a>00036                   <span class="keyword">const</span> QString&amp; devise);
 <a name="l00037"></a>00037         
-<a name="l00042"></a>00042         quint16 <a class="code" href="class_propriete.html#a0ca0118ce88ea8a213ea8d1a7bc4f931" title="Renseigne le montant du prix d&#39;achat de la propriété.">getPrixAchat</a>() <span class="keyword">const</span>;
-<a name="l00043"></a>00043         
+<a name="l00038"></a>00038         
+<a name="l00039"></a>00039         
+<a name="l00043"></a>00043         <span class="keyword">virtual</span> <a class="code" href="class_propriete.html#adb1a8f9bdb27dc234605ff05461ba52c" title="Destructeur virtuel.">~Propriete</a>();
 <a name="l00044"></a>00044         
 <a name="l00045"></a>00045         
-<a name="l00050"></a>00050         <span class="keywordtype">void</span> <a class="code" href="class_propriete.html#ae60e857f2e3ed6eb8fe3277406960afa" title="Remplace le montant du prix d&#39;achat de la propriété par montant.">editPrixAchat</a>(<span class="keyword">const</span> quint16 montant);
-<a name="l00051"></a>00051         
+<a name="l00046"></a>00046         
+<a name="l00051"></a>00051         quint16 <a class="code" href="class_propriete.html#a0ca0118ce88ea8a213ea8d1a7bc4f931" title="Renseigne le montant du prix d&#39;achat de la propriété.">getPrixAchat</a>() <span class="keyword">const</span>;
 <a name="l00052"></a>00052         
 <a name="l00053"></a>00053         
-<a name="l00058"></a>00058         quint16 <a class="code" href="class_propriete.html#ada7dd05f7049848442fa2bfaeaa1c5d3" title="Renseigne le montant de la valeur de l&#39;hypothèque de la propriété.">getValeurHypotheque</a>() <span class="keyword">const</span>;
-<a name="l00059"></a>00059         
+<a name="l00054"></a>00054         
+<a name="l00059"></a>00059         <span class="keywordtype">void</span> <a class="code" href="class_propriete.html#ae60e857f2e3ed6eb8fe3277406960afa" title="Remplace le montant du prix d&#39;achat de la propriété par montant.">editPrixAchat</a>(<span class="keyword">const</span> quint16 montant);
 <a name="l00060"></a>00060         
 <a name="l00061"></a>00061         
-<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="class_propriete.html#a5670ad9e47aa3c5f19ce404d30962ad7" title="Remplace le montant de la valeur de l&#39;hypothèque de la propriété par montant.">editValeurHypotheque</a>(<span class="keyword">const</span> quint16 montant);
-<a name="l00067"></a>00067 };
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="preprocessor">#endif // PROPRIETEINFOS_HPP</span>
+<a name="l00062"></a>00062         
+<a name="l00067"></a>00067         quint16 <a class="code" href="class_propriete.html#ada7dd05f7049848442fa2bfaeaa1c5d3" title="Renseigne le montant de la valeur de l&#39;hypothèque de la propriété.">getValeurHypotheque</a>() <span class="keyword">const</span>;
+<a name="l00068"></a>00068         
+<a name="l00069"></a>00069         
+<a name="l00070"></a>00070         
+<a name="l00075"></a>00075         <span class="keywordtype">void</span> <a class="code" href="class_propriete.html#a5670ad9e47aa3c5f19ce404d30962ad7" title="Remplace le montant de la valeur de l&#39;hypothèque de la propriété par montant.">editValeurHypotheque</a>(<span class="keyword">const</span> quint16 montant);
+<a name="l00076"></a>00076         
+<a name="l00077"></a>00077         
+<a name="l00078"></a>00078         
+<a name="l00079"></a>00079     <span class="keyword">protected</span>:
+<a name="l00080"></a>00080         <span class="keyword">virtual</span> QString <a class="code" href="class_propriete.html#a807aa9fbef30ee6da0831529d13a94d5" title="Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé.">helper_getPrix</a>() <span class="keyword">const</span>;
+<a name="l00081"></a>00081 };
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="preprocessor">#endif // PROPRIETEINFOS_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -140,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Jeudi Septembre 20 2012 20:36:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Septembre 23 2012 01:49:08 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
