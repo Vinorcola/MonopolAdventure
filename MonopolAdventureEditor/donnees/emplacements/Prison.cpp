@@ -37,7 +37,7 @@ SimpleVisite* Prison::getEmplacementAssocie() const
 
 void Prison::editEmplacementAssocie(SimpleVisite* emplacement)
 {
-    if (emplacement)
+    if (emplacement && emplacement->getType() == Type::SimpleVisite)
     {
         m_emplacementAssocie = emplacement;
     }

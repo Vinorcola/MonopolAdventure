@@ -142,6 +142,20 @@ class Emplacement
         
         
         /**
+         * Notifie à l'emplacement qu'il se situe dans un coin du plateau.
+         */
+        void setEmplacementEnCoin();
+        
+        
+        
+        /**
+         * Notifie à l'emplacement qu'il ne se situe pas dans un coin du plateau.
+         */
+        void setEmplacementNormal();
+        
+        
+        
+        /**
          * Déclare l'emplacement sur une scène.
          * @param scene Scène sur laquelle afficher l'emplacement.
          * @param coordonnees Coordonnées de la position de l'emplacement sur la scène.

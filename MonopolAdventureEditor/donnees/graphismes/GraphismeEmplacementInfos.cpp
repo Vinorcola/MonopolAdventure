@@ -46,6 +46,20 @@ void GraphismeEmplacementInfos::editTaille(const QSize taille)
     m_tailleNormale = taille;
     m_tailleEnCoin.setHeight(taille.height());
     m_tailleEnCoin.setWidth(taille.height());
+    
+    /*
+     * Correction : taille minimale = 50 x 50.
+     */
+    if (m_tailleNormale.height() < 50)
+    {
+        m_tailleNormale.setHeight(50);
+        m_tailleEnCoin.setHeight(50);
+        m_tailleEnCoin.setWidth(50);
+    }
+    if (m_tailleNormale.width() < 50)
+    {
+        m_tailleNormale.setWidth(50);
+    }
 }
 
 

@@ -139,6 +139,24 @@ void Emplacement::editImage(const QPixmap& image)
 
 
 
+void Emplacement::setEmplacementEnCoin()
+{
+    m_enCoin = true;
+}
+
+
+
+
+
+void Emplacement::setEmplacementNormal()
+{
+    m_enCoin = false;
+}
+
+
+
+
+
 void Emplacement::registerScene(QGraphicsScene* scene,
                                 const QPoint& coordonnees,
                                 const int rotation)
