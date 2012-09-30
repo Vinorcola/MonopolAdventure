@@ -79,7 +79,15 @@ class Regroupement : private QList<Terrain*>
          * Renseigne le nombre de terrains contenus dans le regroupement.
          * @return Nombre de terrains contenus dans le regroupement.
          */
-        int getNombreTerrain() const;
+        int getNombreTerrains() const;
+        
+        
+        
+        /**
+         * Retourne le terrain situé à l'index @a index.
+         * @return Terrain situé à l'index @a index.
+         */
+        Terrain* getTerrain(int index);
 };
 
 #endif // REGROUPEMENTINFOS_HPP

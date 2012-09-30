@@ -78,8 +78,17 @@ void Regroupement::editCouleur(const QColor& couleur)
 
 
 
-int Regroupement::getNombreTerrain() const
+int Regroupement::getNombreTerrains() const
 {
     return count();
+}
+
+
+
+
+
+Terrain* Regroupement::getTerrain(int index)
+{
+    return QList::at(index);
 }
 
