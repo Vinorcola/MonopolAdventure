@@ -41,7 +41,8 @@ SOURCES += main.cpp \
         widgetsSelecteurs/FileSelectWidget.cpp \
         widgetsSelecteurs/FontSelectWidget.cpp \
         widgetsSelecteurs/ImageSelectWidget.cpp \
-        MainWindow.cpp
+        MainWindow.cpp \
+    modeles/TerrainListModel.cpp
 
 HEADERS  += global.hpp \
         assistants/creationPlateau/AssistantCreationPlateau.hpp \
@@ -74,4 +75,5 @@ HEADERS  += global.hpp \
         widgetsSelecteurs/FileSelectWidget.hpp \
         widgetsSelecteurs/FontSelectWidget.hpp \
         widgetsSelecteurs/ImageSelectWidget.hpp \
-        MainWindow.hpp
+        MainWindow.hpp \
+    modeles/TerrainListModel.hpp
