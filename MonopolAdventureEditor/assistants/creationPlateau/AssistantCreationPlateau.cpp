@@ -11,6 +11,7 @@ AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
      */
     setWindowTitle(tr("Assistant de création de plateau"));
     setMinimumSize(800, 450);
+    setAttribute(Qt::WA_DeleteOnClose);
     
     
     
