@@ -54,7 +54,7 @@ Qt::ItemFlags SelectionRegroupementListModel::flags(const QModelIndex& index) co
 
 
 
-int SelectionRegroupementListModel::rowCount(const QModelIndex& parent) const
+int SelectionRegroupementListModel::rowCount(const QModelIndex&) const
 {
     return m_regroupements.count();
 }

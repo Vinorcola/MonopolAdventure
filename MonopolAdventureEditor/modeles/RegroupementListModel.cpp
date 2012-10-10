@@ -83,7 +83,7 @@ void RegroupementListModel::deleteRegroupement(int row)
 
 
 
-int RegroupementListModel::rowCount(const QModelIndex& parent) const
+int RegroupementListModel::rowCount(const QModelIndex&) const
 {
     return m_regroupements.count();
 }
@@ -96,7 +96,7 @@ void RegroupementListModel::notifyRegroupementSelectionne(int row)
 {
     if (row >= 0 && row < rowCount())
     {
-        m_modeleSecondaire->notifyRegroupementInactif(row);
+        m_modeleSecondaire->m_rangRegroupementInactif = row;
     }
 }
 

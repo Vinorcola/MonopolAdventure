@@ -4,6 +4,7 @@
 #include <QAbstractListModel>
 
 #include "donnees/emplacements/Regroupement.hpp"
+class RegroupementListModel;
 
 
 
@@ -20,6 +21,9 @@
 class SelectionRegroupementListModel : public QAbstractListModel
 {
         Q_OBJECT
+        
+        
+        friend class RegroupementListModel;
         
         
     private:

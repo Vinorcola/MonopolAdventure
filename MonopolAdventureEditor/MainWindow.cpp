@@ -76,6 +76,7 @@ void MainWindow::startAssistant()
     if (assistant->exec())
     {
         m_barreOutils->show();
+        m_actionAssistantCreation->setEnabled(false);// Désactivation de la création de nouveau plateau.
     }
 }
 
