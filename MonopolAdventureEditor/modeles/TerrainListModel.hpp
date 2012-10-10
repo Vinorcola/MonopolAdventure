@@ -25,7 +25,7 @@ class TerrainListModel : public QAbstractListModel
         
     public:
         /**
-         * Construit un nouveau modèle de données avec les Terrains contenus dans le Regroupement @a regroupement.
+         * Construit un nouveau modèle de données avec les terrains contenus dans le regroupement @a regroupement.
          * @param regroupement Regroupement.
          * @param parent QObject parent.
          */

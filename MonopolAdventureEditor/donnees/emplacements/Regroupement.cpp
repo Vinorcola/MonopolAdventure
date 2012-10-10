@@ -89,6 +89,6 @@ int Regroupement::getNombreTerrains() const
 
 Terrain* Regroupement::getTerrain(int index)
 {
-    return QList::at(index);
+    return at(index);
 }
 

@@ -37,12 +37,14 @@ SOURCES += main.cpp \
         donnees/emplacements/Taxe.cpp \
         donnees/emplacements/Terrain.cpp \
         donnees/Plateau.cpp \
+        modeles/TerrainListModel.cpp \
+        modeles/SelectionRegroupementListModel.cpp \
+        modeles/RegroupementListModel.cpp \
         widgetsSelecteurs/ColorSelectWidget.cpp \
         widgetsSelecteurs/FileSelectWidget.cpp \
         widgetsSelecteurs/FontSelectWidget.cpp \
         widgetsSelecteurs/ImageSelectWidget.cpp \
-        MainWindow.cpp \
-    modeles/TerrainListModel.cpp
+        MainWindow.cpp
 
 HEADERS  += global.hpp \
         assistants/creationPlateau/AssistantCreationPlateau.hpp \
@@ -71,9 +73,11 @@ HEADERS  += global.hpp \
         donnees/emplacements/Taxe.hpp \
         donnees/emplacements/Terrain.hpp \
         donnees/Plateau.hpp \
+        modeles/TerrainListModel.hpp \
+        modeles/SelectionRegroupementListModel.hpp \
+        modeles/RegroupementListModel.hpp \
         widgetsSelecteurs/ColorSelectWidget.hpp \
         widgetsSelecteurs/FileSelectWidget.hpp \
         widgetsSelecteurs/FontSelectWidget.hpp \
         widgetsSelecteurs/ImageSelectWidget.hpp \
-        MainWindow.hpp \
-    modeles/TerrainListModel.hpp
+        MainWindow.hpp
