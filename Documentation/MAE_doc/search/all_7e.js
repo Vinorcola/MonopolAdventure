@@ -6,6 +6,7 @@ var searchData=
   ['_7eemplacement',['~Emplacement',['../class_emplacement.html#ae3dbc48571ad347ea73cb777cae5fedb',1,'Emplacement']]],
   ['_7eparcgratuit',['~ParcGratuit',['../class_parc_gratuit.html#a306d1f924496ee5448482f4e4e69a9c8',1,'ParcGratuit']]],
   ['_7epioche',['~Pioche',['../class_pioche.html#a70916e0713ecb21802fb29730a0fe0e8',1,'Pioche']]],
+  ['_7eplateau',['~Plateau',['../class_plateau.html#a0e6ae72e4d7e9923f996c1247e6a6c8b',1,'Plateau']]],
   ['_7eprison',['~Prison',['../class_prison.html#a2e3f4d82bf90f9b3d97a6e8cc06445b4',1,'Prison']]],
   ['_7epropriete',['~Propriete',['../class_propriete.html#adb1a8f9bdb27dc234605ff05461ba52c',1,'Propriete']]],
   ['_7eregroupement',['~Regroupement',['../class_regroupement.html#a18646f7ad1defb3627d6ff31cd193d56',1,'Regroupement']]],

@@ -1,8 +1,15 @@
 var searchData=
 [
+  ['pagegraphisme',['PageGraphisme',['../class_page_graphisme.html#a73a933de0f11ee9a5218165051e036b3',1,'PageGraphisme']]],
+  ['pageimage',['PageImage',['../class_page_image.html#a6f8406bd7889d57c7144a44c1251ea76',1,'PageImage']]],
+  ['pageintro',['PageIntro',['../class_page_intro.html#a5482e56b55501b9dd5ca19b056b34891',1,'PageIntro']]],
+  ['pageouvrir',['PageOuvrir',['../class_page_ouvrir.html#aa642c3261f9566118f930b237448bdce',1,'PageOuvrir']]],
+  ['pageprix',['PagePrix',['../class_page_prix.html#a9c3b3d16809701c2f16ceec576bb82e9',1,'PagePrix']]],
+  ['pagetaille',['PageTaille',['../class_page_taille.html#ab1390dd27eb7c36bb97e44f2b5d25c94',1,'PageTaille']]],
   ['parcgratuit',['ParcGratuit',['../class_parc_gratuit.html#abfe8585ea8993eda4bba59213f316099',1,'ParcGratuit']]],
   ['pilecartes',['pileCartes',['../class_action.html#a2d1c2dfb390ee544f92fe6a77506b751',1,'Action']]],
   ['pioche',['Pioche',['../class_pioche.html#ad7a840deb88b877230deac8a5560ad09',1,'Pioche']]],
+  ['plateau',['Plateau',['../class_plateau.html#a07026170529dd928238ee45de0a797d7',1,'Plateau']]],
   ['positionnedescription',['positionneDescription',['../class_graphisme_emplacement.html#aaa18ba301c17784c350af2870a0e55e8',1,'GraphismeEmplacement']]],
   ['positionneimage',['positionneImage',['../class_graphisme_emplacement.html#a1d60215d978b877c0a7ba13125422959',1,'GraphismeEmplacement']]],
   ['positionneprix',['positionnePrix',['../class_graphisme_emplacement.html#af08694431a94d6513fb2d3af1e4fe860',1,'GraphismeEmplacement']]],

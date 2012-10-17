@@ -49,6 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -87,7 +88,8 @@ Liste complète des membres de <a class="el" href="class_regroupement.html">Regr
   <tr class="memlist"><td><a class="el" href="class_regroupement.html#a66c2b71647e44d673162f6012e879d21">editCouleur</a>(const QColor &amp;couleur)</td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_regroupement.html#aeb800f21410592ca753132d8f5126cc4">editTitre</a>(const QString &amp;titre)</td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_regroupement.html#ae8401ccb2ba37b60b60cdbde4c70fb91">getCouleur</a>() const </td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_regroupement.html#a8ad1631509c408fc217031f1690b7b8e">getNombreTerrain</a>() const </td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement.html#a4e6379bf42ad07bae5005ed0947df8e4">getNombreTerrains</a>() const </td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement.html#add3a7664d28eff20d1d1f05864e24cf4">getTerrain</a>(int index)</td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_regroupement.html#a561d9f21a46ff1943a31ff5f81166265">getTitre</a>() const </td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_regroupement.html#a5904ac03af799280385c657079cfd9bd">m_couleur</a></td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_regroupement.html#a738ad767c10f60be401655bf4421e0d2">m_titre</a></td><td><a class="el" href="class_regroupement.html">Regroupement</a></td><td><code> [private]</code></td></tr>
@@ -100,7 +102,7 @@ Liste complète des membres de <a class="el" href="class_regroupement.html">Regr
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,7 +114,7 @@ Liste complète des membres de <a class="el" href="class_regroupement.html">Regr
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

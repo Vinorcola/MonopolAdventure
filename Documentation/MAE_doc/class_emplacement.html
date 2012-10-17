@@ -49,6 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -142,6 +143,12 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'image de l'emplacement.  <a href="#a2ac65ae52b536f341d9520b3be990edf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a7918ec2ac9b2105e608ba3a975dfa471">editImage</a> (const QPixmap &amp;image)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace l'image de l'emplacement par <em>image</em>.  <a href="#a7918ec2ac9b2105e608ba3a975dfa471"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed09d931df260bdbcb2a0625ca0325ff"></a><!-- doxytag: member="Emplacement::setEmplacementEnCoin" ref="aed09d931df260bdbcb2a0625ca0325ff" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#aed09d931df260bdbcb2a0625ca0325ff">setEmplacementEnCoin</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifie à l'emplacement qu'il se situe dans un coin du plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa73761ee9dd97984c5e7ec207ec53c9a"></a><!-- doxytag: member="Emplacement::setEmplacementNormal" ref="aa73761ee9dd97984c5e7ec207ec53c9a" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#aa73761ee9dd97984c5e7ec207ec53c9a">setEmplacementNormal</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifie à l'emplacement qu'il ne se situe pas dans un coin du plateau. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494">registerScene</a> (QGraphicsScene *scene, const QPoint &amp;coordonnees=QPoint(), const int rotation=0)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Déclare l'emplacement sur une scène.  <a href="#ad4cd848fb3031b0aced010026fb9a494"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a4b162cf2b05f59ede8a6e62a8ac24cbb">dessiner</a> (QGraphicsScene *scene=0)</td></tr>
@@ -538,7 +545,7 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -550,7 +557,7 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -49,6 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -79,6 +80,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-methods">Fonctions membres privées</a> &#124;
+<a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Plateau</div>  </div>
 </div><!--header-->
@@ -90,9 +95,1089 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <p><code>#include &lt;<a class="el" href="_plateau_8hpp_source.html">donnees/Plateau.hpp</a>&gt;</code></p>
 
 <p><a href="class_plateau-members.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07026170529dd928238ee45de0a797d7"></a><!-- doxytag: member="Plateau::Plateau" ref="a07026170529dd928238ee45de0a797d7" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a07026170529dd928238ee45de0a797d7">Plateau</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un nouveau plateau par défaut. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a0e6ae72e4d7e9923f996c1247e6a6c8b">~Plateau</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur.  <a href="#a0e6ae72e4d7e9923f996c1247e6a6c8b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#aa7a7eeaea9083851c78e9f14f1df7380">dessiner</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine tous les emplacements sur le plateau.  <a href="#aa7a7eeaea9083851c78e9f14f1df7380"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a4acea77ec2639152f2a5ecc3987da9fd">getTitre</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le titre du plateau.  <a href="#a4acea77ec2639152f2a5ecc3987da9fd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a9b709a294525a333588aaf9e40e1335c">editTitre</a> (const QString &amp;titre)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le titre du plateau.  <a href="#a9b709a294525a333588aaf9e40e1335c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QSize &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#abb10a27c61271d1211c32530802d98d2">getTaille</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne la taille du plateau (en nombre d'emplacements).  <a href="#abb10a27c61271d1211c32530802d98d2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#aed20e1ea04bf84bd354bb6f9bfa0ef7f">editTaille</a> (const QSize &amp;taille)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la taille du plateau.  <a href="#aed20e1ea04bf84bd354bb6f9bfa0ef7f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ae047a5dfbc287602f2a07b5de2c7338e">getDevise</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne la devise utilisée sur le plateau.  <a href="#ae047a5dfbc287602f2a07b5de2c7338e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#abc37f1f91196ceb16ea0b40882ab9fb0">editDevise</a> (const QString &amp;devise)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la devise utilisée sur le plateau.  <a href="#abc37f1f91196ceb16ea0b40882ab9fb0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">quint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a5e6006e0a12095b2f6bbc11b31f47979">getCoefficientPrix</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le coefficient à appliquer sur les prix.  <a href="#a5e6006e0a12095b2f6bbc11b31f47979"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a8bc00e99c0a9b6eca5bd4c875eca7362">editCoefficientPrix</a> (const quint32 coefficient)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le coefficient à appliquer sur les prix.  <a href="#a8bc00e99c0a9b6eca5bd4c875eca7362"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a90868e341ec3c8552e2578c25741e635">affichageIntegraleActif</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si les prix sont à afficher en intégralité, ou en forme compressée.  <a href="#a90868e341ec3c8552e2578c25741e635"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a3ddd5f41eb1f5e356f9bdee1a12df355">editAffichageIntegrale</a> (const bool actif)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Active ou désactive l'affichage intégrale des prix.  <a href="#a3ddd5f41eb1f5e356f9bdee1a12df355"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QColor &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a0b440265159c65b98eb515e621ad2c2d">getCouleurFond</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne la couleur de fond du plateau.  <a href="#a0b440265159c65b98eb515e621ad2c2d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ab5dc2a682a0be03b602f3c6e37e021bf">editCouleurFond</a> (const QColor &amp;couleur)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la couleur de fond du plateau.  <a href="#ab5dc2a682a0be03b602f3c6e37e021bf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QPixmap &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#acc0455a329fa500627e847c593617cf5">getImage</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'image du centre du plateau.  <a href="#acc0455a329fa500627e847c593617cf5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ad2c4d1da94bfceb8b21dc64b98094186">editImage</a> (const QPixmap &amp;image)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change l'image du centre du plateau.  <a href="#ad2c4d1da94bfceb8b21dc64b98094186"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QSize &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a34a95d303538e8ff0d168caff082b7a6">getTailleEmplacementsNormaux</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne la taille des emplacements normaux sur le plateau (en pixel).  <a href="#a34a95d303538e8ff0d168caff082b7a6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QSize &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ae90bf6a93fab1772c4458b9e00a77305">getTailleEmplacementsEnCoin</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la taille des emplacements en coin de plateau (en pixel).  <a href="#ae90bf6a93fab1772c4458b9e00a77305"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a07da6c88bdb54f1caea7a8806a832d68">editTailleEmplacements</a> (const QSize &amp;taille)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la taille des emplacements sur le plateau.  <a href="#a07da6c88bdb54f1caea7a8806a832d68"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ad2cb2ee3b17e0e6bf5ddc6dc30e6b9a5">getHauteurRectangleCouleur</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne la hauteur du rectangle de couleur des terrains (en pixel).  <a href="#ad2cb2ee3b17e0e6bf5ddc6dc30e6b9a5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a3ecab779f84d09f0625e6aafb300a641">editHauteurRectangleCouleur</a> (const quint16 hauteur)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la hauteur du rectangle de couleur des terrains.  <a href="#a3ecab779f84d09f0625e6aafb300a641"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QPen &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a2c3b255e1a8f269116814fa4e5ee48ea">getCrayonBordureEmplacement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le crayon à utiliser pour dessiner les bordures des emplacements sur le plateau.  <a href="#a2c3b255e1a8f269116814fa4e5ee48ea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#acc68c3dff2106cdb965b4a918cbfb28d">editCrayonBordureEmplacement</a> (const QPen &amp;crayon)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le crayon utilisé pour dessiner les bordures des emplacements sur le plateau.  <a href="#acc68c3dff2106cdb965b4a918cbfb28d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">quint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#aa38c7135fb8103a374e14f9b1ece482f">getMarge</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne la marge minimale entre le texte et la bordure de l'emplacement (en pixel).  <a href="#aa38c7135fb8103a374e14f9b1ece482f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a8f02d75bc245328d5092a96ec8183236">editMarge</a> (quint8 marge)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la marge minimale entre le texte et la bordure de la case (en pixel).  <a href="#a8f02d75bc245328d5092a96ec8183236"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QColor &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a7c2dfdd0fecd031b01ea8887ab15eb4e">getCouleurFondEmplacement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne la couleur de fond des emplacements.  <a href="#a7c2dfdd0fecd031b01ea8887ab15eb4e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ae364a13bf7537f7b4b765ade2b1ea8e6">editCouleurFondEmplacement</a> (const QColor &amp;couleur)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la couleur de fond des emplacements.  <a href="#ae364a13bf7537f7b4b765ade2b1ea8e6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QFont &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a1d166ba9b3994d26b026e37a026aa010">getFonteTitreEmplacement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la fonte à utiliser pour afficher le titre des emplacements sur le plateau.  <a href="#a1d166ba9b3994d26b026e37a026aa010"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ac21d895b59cfe3c1a560393a26d937ff">editFonteTitreEmplacement</a> (const QFont &amp;fonte)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la fonte utilisée pour afficher le titre des emplacements sur le plateau.  <a href="#ac21d895b59cfe3c1a560393a26d937ff"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QFont &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ac7aed546a75dc905af46048b91bd014d">getFonteSousTitreEmplacement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la fonte à utiliser pour afficher le sous-titre des emplacements sur le plateau.  <a href="#ac7aed546a75dc905af46048b91bd014d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a109b00ae377a73b756f4d641d0f10998">editFonteSousTitreEmplacement</a> (const QFont &amp;fonte)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la fonte utilisée pour afficher le sous-titre des emplacements sur le plateau.  <a href="#a109b00ae377a73b756f4d641d0f10998"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QFont &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a99e0361eb7c51cea9d6216c7901048ee">getFonteDescriptionEmplacement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la fonte à utiliser pour afficher la descripiton des emplacements sur le plateau.  <a href="#a99e0361eb7c51cea9d6216c7901048ee"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a229119e88c9aa2d8d88020d0d2554568">editFonteDescriptionEmplacement</a> (const QFont &amp;fonte)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la fonte utilisée pour afficher la description des emplacements sur le plateau.  <a href="#a229119e88c9aa2d8d88020d0d2554568"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QFont &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#af7726c79920925cc8c0da53f65174e48">getFontePrixEmplacement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la fonte à utiliser pour afficher le prix des propriétés ou des emplacements taxes sur le plateau.  <a href="#af7726c79920925cc8c0da53f65174e48"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a08d543c8c90027960437d6da9ad33376">editFontePrixEmplacement</a> (const QFont &amp;fonte)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la fonte utilisée pour afficher le prix des propriétés ou des emplacements taxes sur le plateau.  <a href="#a08d543c8c90027960437d6da9ad33376"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#af5ec8740a842aee3ca668754c0a2bbba">getInformationGraphismeEmplacement</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne les informations concernant le graphisme des emplacements.  <a href="#af5ec8740a842aee3ca668754c0a2bbba"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a985015e36f8ce85f2cba084fb72130e3">getListeRegroupement</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fourni la liste des Regroupements du plateau.  <a href="#a985015e36f8ce85f2cba084fb72130e3"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a1fbb14e49c43b9fdb00f0c6488fa4636">helper_isEmplacementEnCoin</a> (int id) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si l'emplacement est situé dans un coin du plateau.  <a href="#a1fbb14e49c43b9fdb00f0c6488fa4636"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a34c9ea473da4a91ca9958288d78926b4">helper_getPositionEmplacement</a> (int id) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne les coordonnées de l'emplacement sur le plateau.  <a href="#a34c9ea473da4a91ca9958288d78926b4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ab0cbb3913ec5e2616f8edbfe3a5c83ac">helper_getRotationEmplacement</a> (int id) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'angle de rotation (en °) de l'emplacement sur le plateau.  <a href="#ab0cbb3913ec5e2616f8edbfe3a5c83ac"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0aef28ac639a620327d030f36db59e9c"></a><!-- doxytag: member="Plateau::m_titre" ref="a0aef28ac639a620327d030f36db59e9c" args="" -->
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a0aef28ac639a620327d030f36db59e9c">m_titre</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Titre du plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a438045bc9f63273367511a96f62cbfeb"></a><!-- doxytag: member="Plateau::m_taille" ref="a438045bc9f63273367511a96f62cbfeb" args="" -->
+QSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a438045bc9f63273367511a96f62cbfeb">m_taille</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Taille du plateau (en nombre d'emplacements). <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a266c5f5e6d7a4947887c482da26b9872"></a><!-- doxytag: member="Plateau::m_devise" ref="a266c5f5e6d7a4947887c482da26b9872" args="" -->
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a266c5f5e6d7a4947887c482da26b9872">m_devise</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Devise utilisée sur le plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">quint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ac7306c046d5fd1a4dadfcc2075a44a57">m_prixCoefficient</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient utilisé pour les prix.  <a href="#ac7306c046d5fd1a4dadfcc2075a44a57"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a7e5097947fac1f89f6235feb8d654452">m_prixAffichageComplet</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage complet des prix.  <a href="#a7e5097947fac1f89f6235feb8d654452"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e780a02acb304555982981f62bdf01e"></a><!-- doxytag: member="Plateau::m_couleurFond" ref="a9e780a02acb304555982981f62bdf01e" args="" -->
+QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a9e780a02acb304555982981f62bdf01e">m_couleurFond</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Couleur de fond du plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fbe364f46873bb7ce546d89df881e04"></a><!-- doxytag: member="Plateau::m_image" ref="a3fbe364f46873bb7ce546d89df881e04" args="" -->
+QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a3fbe364f46873bb7ce546d89df881e04">m_image</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Image au centre du plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1368795c831bae26d2de1b5456a53f10"></a><!-- doxytag: member="Plateau::m_graphismeEmplacement" ref="a1368795c831bae26d2de1b5456a53f10" args="" -->
+<a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a1368795c831bae26d2de1b5456a53f10">m_graphismeEmplacement</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Détails du graphisme des emplacements. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad48e3a005cf82582076af62e23756e02"></a><!-- doxytag: member="Plateau::m_pilesCartes" ref="ad48e3a005cf82582076af62e23756e02" args="" -->
+QList&lt; <a class="el" href="class_pile_cartes.html">PileCartes</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#ad48e3a005cf82582076af62e23756e02">m_pilesCartes</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste des piles de cartes du plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa627c3a31f911c0e4acfc91741dac574"></a><!-- doxytag: member="Plateau::m_emplacements" ref="aa627c3a31f911c0e4acfc91741dac574" args="" -->
+QList&lt; <a class="el" href="class_emplacement.html">Emplacement</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#aa627c3a31f911c0e4acfc91741dac574">m_emplacements</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste des emplacements du plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e07052b8bb0b0ecb167916fcd514450"></a><!-- doxytag: member="Plateau::m_regroupements" ref="a6e07052b8bb0b0ecb167916fcd514450" args="" -->
+QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a6e07052b8bb0b0ecb167916fcd514450">m_regroupements</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste des regroupements de terrains. <br/></td></tr>
+</table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p><a class="el" href="class_plateau.html" title="Plateau contient les informations éditables d&#39;un plateau.">Plateau</a> contient les informations éditables d'un plateau. </p>
-</div><hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+</div><hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="a0e6ae72e4d7e9923f996c1247e6a6c8b"></a><!-- doxytag: member="Plateau::~Plateau" ref="a0e6ae72e4d7e9923f996c1247e6a6c8b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_plateau.html#a0e6ae72e4d7e9923f996c1247e6a6c8b">Plateau::~Plateau</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destructeur. </p>
+<p>Détruit tous les emplacements, les piles de cartes et les regroupements. </p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a90868e341ec3c8552e2578c25741e635"></a><!-- doxytag: member="Plateau::affichageIntegraleActif" ref="a90868e341ec3c8552e2578c25741e635" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_plateau.html#a90868e341ec3c8552e2578c25741e635">Plateau::affichageIntegraleActif</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Indique si les prix sont à afficher en intégralité, ou en forme compressée. </p>
+<p>Si cette méthode retourne <b><code>true</code>,</b> les prix sont à afficher intégralement. Par exemple, avec un coefficient très gros : </p>
+<ul>
+<li>1 500 000 000; </li>
+<li>20 000 000 ; </li>
+<li>14 500 000 ; </li>
+<li>500 000.</li>
+</ul>
+<p>Si cette méthode retourne <b><code>false</code>,</b> les prix sont à afficher avec des lettres. Par exemple, avec les prix ci-dessus : </p>
+<ul>
+<li>1 500M ; </li>
+<li>20M ; </li>
+<li>14,5M; </li>
+<li>500k.</li>
+</ul>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd><b><code>true</code> si</b> les nombres sont à afficher en intégralité. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa7a7eeaea9083851c78e9f14f1df7380"></a><!-- doxytag: member="Plateau::dessiner" ref="aa7a7eeaea9083851c78e9f14f1df7380" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#aa7a7eeaea9083851c78e9f14f1df7380">Plateau::dessiner</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dessine tous les emplacements sur le plateau. </p>
+<p>Appel la méthode <a class="el" href="class_emplacement.html#a4b162cf2b05f59ede8a6e62a8ac24cbb" title="Dessine l&#39;emplacement sur la scène passée en argument.">Emplacement::dessiner()</a> de tous les emplacements après avoir enregistrer le plateau avec <a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494" title="Déclare l&#39;emplacement sur une scène.">Emplacement::registerScene()</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3ddd5f41eb1f5e356f9bdee1a12df355"></a><!-- doxytag: member="Plateau::editAffichageIntegrale" ref="a3ddd5f41eb1f5e356f9bdee1a12df355" args="(const bool actif)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a3ddd5f41eb1f5e356f9bdee1a12df355">Plateau::editAffichageIntegrale</a> </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>actif</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Active ou désactive l'affichage intégrale des prix. </p>
+<p>Si l'affichage intégrale est activé, les prix sont affichés intégralement. Par exemple, avec un coefficient très gros : </p>
+<ul>
+<li>1 500 000 000; </li>
+<li>20 000 000 ; </li>
+<li>14 500 000 ; </li>
+<li>500 000.</li>
+</ul>
+<p>Si l'affichage intégrale est désactivé, les nombres sont affichés avec des lettres. Par exemple, avec les prix ci-dessus : </p>
+<ul>
+<li>1 500M ; </li>
+<li>20M ; </li>
+<li>14,5M; </li>
+<li>500k.</li>
+</ul>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actif</td><td>Indique si l'affichage intégrale des prix doit être activé ou désactivé. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8bc00e99c0a9b6eca5bd4c875eca7362"></a><!-- doxytag: member="Plateau::editCoefficientPrix" ref="a8bc00e99c0a9b6eca5bd4c875eca7362" args="(const quint32 coefficient)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a8bc00e99c0a9b6eca5bd4c875eca7362">Plateau::editCoefficientPrix</a> </td>
+          <td>(</td>
+          <td class="paramtype">const quint32&#160;</td>
+          <td class="paramname"><em>coefficient</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change le coefficient à appliquer sur les prix. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coefficient</td><td>Nouveau coefficient. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>Coefficients acceptés : 1, 10, 100, 1 000, 10 000, 100 000, 1 000 000, 10 000 000, 100 000 000. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab5dc2a682a0be03b602f3c6e37e021bf"></a><!-- doxytag: member="Plateau::editCouleurFond" ref="ab5dc2a682a0be03b602f3c6e37e021bf" args="(const QColor &amp;couleur)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#ab5dc2a682a0be03b602f3c6e37e021bf">Plateau::editCouleurFond</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QColor &amp;&#160;</td>
+          <td class="paramname"><em>couleur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la couleur de fond du plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">couleur</td><td>Nouvelle couleur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae364a13bf7537f7b4b765ade2b1ea8e6"></a><!-- doxytag: member="Plateau::editCouleurFondEmplacement" ref="ae364a13bf7537f7b4b765ade2b1ea8e6" args="(const QColor &amp;couleur)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#ae364a13bf7537f7b4b765ade2b1ea8e6">Plateau::editCouleurFondEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QColor &amp;&#160;</td>
+          <td class="paramname"><em>couleur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la couleur de fond des emplacements. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">couleur</td><td>Nouvelle couleur. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acc68c3dff2106cdb965b4a918cbfb28d"></a><!-- doxytag: member="Plateau::editCrayonBordureEmplacement" ref="acc68c3dff2106cdb965b4a918cbfb28d" args="(const QPen &amp;crayon)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#acc68c3dff2106cdb965b4a918cbfb28d">Plateau::editCrayonBordureEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QPen &amp;&#160;</td>
+          <td class="paramname"><em>crayon</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change le crayon utilisé pour dessiner les bordures des emplacements sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">crayon</td><td>Nouveau crayon. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="abc37f1f91196ceb16ea0b40882ab9fb0"></a><!-- doxytag: member="Plateau::editDevise" ref="abc37f1f91196ceb16ea0b40882ab9fb0" args="(const QString &amp;devise)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#abc37f1f91196ceb16ea0b40882ab9fb0">Plateau::editDevise</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>devise</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la devise utilisée sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devise</td><td>Nouvelle devise. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>Pour rester cohérent, la devise est limitée à 5 caractères. Mais cette règle pourra être assouplie s'il le faut. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a229119e88c9aa2d8d88020d0d2554568"></a><!-- doxytag: member="Plateau::editFonteDescriptionEmplacement" ref="a229119e88c9aa2d8d88020d0d2554568" args="(const QFont &amp;fonte)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a229119e88c9aa2d8d88020d0d2554568">Plateau::editFonteDescriptionEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QFont &amp;&#160;</td>
+          <td class="paramname"><em>fonte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la fonte utilisée pour afficher la description des emplacements sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fonte</td><td>Nouvelle fonte. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a08d543c8c90027960437d6da9ad33376"></a><!-- doxytag: member="Plateau::editFontePrixEmplacement" ref="a08d543c8c90027960437d6da9ad33376" args="(const QFont &amp;fonte)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a08d543c8c90027960437d6da9ad33376">Plateau::editFontePrixEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QFont &amp;&#160;</td>
+          <td class="paramname"><em>fonte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la fonte utilisée pour afficher le prix des propriétés ou des emplacements taxes sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fonte</td><td>Nouvelle fonte. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a109b00ae377a73b756f4d641d0f10998"></a><!-- doxytag: member="Plateau::editFonteSousTitreEmplacement" ref="a109b00ae377a73b756f4d641d0f10998" args="(const QFont &amp;fonte)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a109b00ae377a73b756f4d641d0f10998">Plateau::editFonteSousTitreEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QFont &amp;&#160;</td>
+          <td class="paramname"><em>fonte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la fonte utilisée pour afficher le sous-titre des emplacements sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fonte</td><td>Nouvelle fonte. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac21d895b59cfe3c1a560393a26d937ff"></a><!-- doxytag: member="Plateau::editFonteTitreEmplacement" ref="ac21d895b59cfe3c1a560393a26d937ff" args="(const QFont &amp;fonte)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#ac21d895b59cfe3c1a560393a26d937ff">Plateau::editFonteTitreEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QFont &amp;&#160;</td>
+          <td class="paramname"><em>fonte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la fonte utilisée pour afficher le titre des emplacements sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fonte</td><td>Nouvelle fonte. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3ecab779f84d09f0625e6aafb300a641"></a><!-- doxytag: member="Plateau::editHauteurRectangleCouleur" ref="a3ecab779f84d09f0625e6aafb300a641" args="(const quint16 hauteur)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a3ecab779f84d09f0625e6aafb300a641">Plateau::editHauteurRectangleCouleur</a> </td>
+          <td>(</td>
+          <td class="paramtype">const quint16&#160;</td>
+          <td class="paramname"><em>hauteur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la hauteur du rectangle de couleur des terrains. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hauteur</td><td>Nouvelle hauteur (en pixel). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad2c4d1da94bfceb8b21dc64b98094186"></a><!-- doxytag: member="Plateau::editImage" ref="ad2c4d1da94bfceb8b21dc64b98094186" args="(const QPixmap &amp;image)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#ad2c4d1da94bfceb8b21dc64b98094186">Plateau::editImage</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QPixmap &amp;&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change l'image du centre du plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>Nouvelle image. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8f02d75bc245328d5092a96ec8183236"></a><!-- doxytag: member="Plateau::editMarge" ref="a8f02d75bc245328d5092a96ec8183236" args="(quint8 marge)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a8f02d75bc245328d5092a96ec8183236">Plateau::editMarge</a> </td>
+          <td>(</td>
+          <td class="paramtype">quint8&#160;</td>
+          <td class="paramname"><em>marge</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la marge minimale entre le texte et la bordure de la case (en pixel). </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">marge</td><td>Nouvelle marge. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aed20e1ea04bf84bd354bb6f9bfa0ef7f"></a><!-- doxytag: member="Plateau::editTaille" ref="aed20e1ea04bf84bd354bb6f9bfa0ef7f" args="(const QSize &amp;taille)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#aed20e1ea04bf84bd354bb6f9bfa0ef7f">Plateau::editTaille</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QSize &amp;&#160;</td>
+          <td class="paramname"><em>taille</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la taille du plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taille</td><td>Nouvelle taille (en nombre d'emplacements). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>La taille doit être comprise entre 3x3 et 50x50 inclus, pour éviter la création de plateau inutilement trop grand. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a07da6c88bdb54f1caea7a8806a832d68"></a><!-- doxytag: member="Plateau::editTailleEmplacements" ref="a07da6c88bdb54f1caea7a8806a832d68" args="(const QSize &amp;taille)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a07da6c88bdb54f1caea7a8806a832d68">Plateau::editTailleEmplacements</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QSize &amp;&#160;</td>
+          <td class="paramname"><em>taille</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change la taille des emplacements sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taille</td><td>Nouvelle taile (en pixel). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>La taille d'un emplacement doit être suppérieur à 50x50. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9b709a294525a333588aaf9e40e1335c"></a><!-- doxytag: member="Plateau::editTitre" ref="a9b709a294525a333588aaf9e40e1335c" args="(const QString &amp;titre)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_plateau.html#a9b709a294525a333588aaf9e40e1335c">Plateau::editTitre</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Change le titre du plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td>Nouveau titre. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5e6006e0a12095b2f6bbc11b31f47979"></a><!-- doxytag: member="Plateau::getCoefficientPrix" ref="a5e6006e0a12095b2f6bbc11b31f47979" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint32 <a class="el" href="class_plateau.html#a5e6006e0a12095b2f6bbc11b31f47979">Plateau::getCoefficientPrix</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne le coefficient à appliquer sur les prix. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Coefficient à appliquer sur les prix. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0b440265159c65b98eb515e621ad2c2d"></a><!-- doxytag: member="Plateau::getCouleurFond" ref="a0b440265159c65b98eb515e621ad2c2d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QColor &amp; <a class="el" href="class_plateau.html#a0b440265159c65b98eb515e621ad2c2d">Plateau::getCouleurFond</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne la couleur de fond du plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Couleur de fond du plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7c2dfdd0fecd031b01ea8887ab15eb4e"></a><!-- doxytag: member="Plateau::getCouleurFondEmplacement" ref="a7c2dfdd0fecd031b01ea8887ab15eb4e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QColor &amp; <a class="el" href="class_plateau.html#a7c2dfdd0fecd031b01ea8887ab15eb4e">Plateau::getCouleurFondEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne la couleur de fond des emplacements. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Couleur de fond des emplacements. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2c3b255e1a8f269116814fa4e5ee48ea"></a><!-- doxytag: member="Plateau::getCrayonBordureEmplacement" ref="a2c3b255e1a8f269116814fa4e5ee48ea" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QPen &amp; <a class="el" href="class_plateau.html#a2c3b255e1a8f269116814fa4e5ee48ea">Plateau::getCrayonBordureEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne le crayon à utiliser pour dessiner les bordures des emplacements sur le plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Crayon à utiliser pour dessiner les bordures des emplacements sur le plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae047a5dfbc287602f2a07b5de2c7338e"></a><!-- doxytag: member="Plateau::getDevise" ref="ae047a5dfbc287602f2a07b5de2c7338e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString &amp; <a class="el" href="class_plateau.html#ae047a5dfbc287602f2a07b5de2c7338e">Plateau::getDevise</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne la devise utilisée sur le plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Devise utilisée sur le plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a99e0361eb7c51cea9d6216c7901048ee"></a><!-- doxytag: member="Plateau::getFonteDescriptionEmplacement" ref="a99e0361eb7c51cea9d6216c7901048ee" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QFont &amp; <a class="el" href="class_plateau.html#a99e0361eb7c51cea9d6216c7901048ee">Plateau::getFonteDescriptionEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne la fonte à utiliser pour afficher la descripiton des emplacements sur le plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Fonte à utiliser pour afficher la descripiton des emplacements sur le plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af7726c79920925cc8c0da53f65174e48"></a><!-- doxytag: member="Plateau::getFontePrixEmplacement" ref="af7726c79920925cc8c0da53f65174e48" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QFont &amp; <a class="el" href="class_plateau.html#af7726c79920925cc8c0da53f65174e48">Plateau::getFontePrixEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne la fonte à utiliser pour afficher le prix des propriétés ou des emplacements taxes sur le plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Fonte à utiliser pour afficher le prix des propriétés ou des emplacements taxes sur le plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac7aed546a75dc905af46048b91bd014d"></a><!-- doxytag: member="Plateau::getFonteSousTitreEmplacement" ref="ac7aed546a75dc905af46048b91bd014d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QFont &amp; <a class="el" href="class_plateau.html#ac7aed546a75dc905af46048b91bd014d">Plateau::getFonteSousTitreEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne la fonte à utiliser pour afficher le sous-titre des emplacements sur le plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Fonte à utiliser pour afficher le sous-titre des emplacements sur le plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1d166ba9b3994d26b026e37a026aa010"></a><!-- doxytag: member="Plateau::getFonteTitreEmplacement" ref="a1d166ba9b3994d26b026e37a026aa010" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QFont &amp; <a class="el" href="class_plateau.html#a1d166ba9b3994d26b026e37a026aa010">Plateau::getFonteTitreEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne la fonte à utiliser pour afficher le titre des emplacements sur le plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Fonte à utiliser pour afficher le titre des emplacements sur le plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad2cb2ee3b17e0e6bf5ddc6dc30e6b9a5"></a><!-- doxytag: member="Plateau::getHauteurRectangleCouleur" ref="ad2cb2ee3b17e0e6bf5ddc6dc30e6b9a5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint16 <a class="el" href="class_plateau.html#ad2cb2ee3b17e0e6bf5ddc6dc30e6b9a5">Plateau::getHauteurRectangleCouleur</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne la hauteur du rectangle de couleur des terrains (en pixel). </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Hauteur du rectangle de couleur des terrains (en pixel). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acc0455a329fa500627e847c593617cf5"></a><!-- doxytag: member="Plateau::getImage" ref="acc0455a329fa500627e847c593617cf5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QPixmap &amp; <a class="el" href="class_plateau.html#acc0455a329fa500627e847c593617cf5">Plateau::getImage</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne l'image du centre du plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Image du centre du plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af5ec8740a842aee3ca668754c0a2bbba"></a><!-- doxytag: member="Plateau::getInformationGraphismeEmplacement" ref="af5ec8740a842aee3ca668754c0a2bbba" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp; <a class="el" href="class_plateau.html#af5ec8740a842aee3ca668754c0a2bbba">Plateau::getInformationGraphismeEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne les informations concernant le graphisme des emplacements. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Informations concernant le graphisme des emplacements. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a985015e36f8ce85f2cba084fb72130e3"></a><!-- doxytag: member="Plateau::getListeRegroupement" ref="a985015e36f8ce85f2cba084fb72130e3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp; <a class="el" href="class_plateau.html#a985015e36f8ce85f2cba084fb72130e3">Plateau::getListeRegroupement</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fourni la liste des Regroupements du plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Liste des Regroupements du plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa38c7135fb8103a374e14f9b1ece482f"></a><!-- doxytag: member="Plateau::getMarge" ref="aa38c7135fb8103a374e14f9b1ece482f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint8 <a class="el" href="class_plateau.html#aa38c7135fb8103a374e14f9b1ece482f">Plateau::getMarge</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne la marge minimale entre le texte et la bordure de l'emplacement (en pixel). </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Marge minimale entre le texte et la bordure de l'emplacement (en pixel). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abb10a27c61271d1211c32530802d98d2"></a><!-- doxytag: member="Plateau::getTaille" ref="abb10a27c61271d1211c32530802d98d2" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QSize &amp; <a class="el" href="class_plateau.html#abb10a27c61271d1211c32530802d98d2">Plateau::getTaille</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne la taille du plateau (en nombre d'emplacements). </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Taille du plateau (en nombre d'emplacements). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae90bf6a93fab1772c4458b9e00a77305"></a><!-- doxytag: member="Plateau::getTailleEmplacementsEnCoin" ref="ae90bf6a93fab1772c4458b9e00a77305" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QSize &amp; <a class="el" href="class_plateau.html#ae90bf6a93fab1772c4458b9e00a77305">Plateau::getTailleEmplacementsEnCoin</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne la taille des emplacements en coin de plateau (en pixel). </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Taille des emplacements en coin de plateau (en pixel). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a34a95d303538e8ff0d168caff082b7a6"></a><!-- doxytag: member="Plateau::getTailleEmplacementsNormaux" ref="a34a95d303538e8ff0d168caff082b7a6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QSize &amp; <a class="el" href="class_plateau.html#a34a95d303538e8ff0d168caff082b7a6">Plateau::getTailleEmplacementsNormaux</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne la taille des emplacements normaux sur le plateau (en pixel). </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Taille des emplacements normaux sur le plateau (en pixel). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4acea77ec2639152f2a5ecc3987da9fd"></a><!-- doxytag: member="Plateau::getTitre" ref="a4acea77ec2639152f2a5ecc3987da9fd" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString &amp; <a class="el" href="class_plateau.html#a4acea77ec2639152f2a5ecc3987da9fd">Plateau::getTitre</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne le titre du plateau. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Titre du plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a34c9ea473da4a91ca9958288d78926b4"></a><!-- doxytag: member="Plateau::helper_getPositionEmplacement" ref="a34c9ea473da4a91ca9958288d78926b4" args="(int id) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPoint <a class="el" href="class_plateau.html#a34c9ea473da4a91ca9958288d78926b4">Plateau::helper_getPositionEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne les coordonnées de l'emplacement sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Numéro d'iddentification de l'emplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Coordonnées de l'emplacement sur le plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab0cbb3913ec5e2616f8edbfe3a5c83ac"></a><!-- doxytag: member="Plateau::helper_getRotationEmplacement" ref="ab0cbb3913ec5e2616f8edbfe3a5c83ac" args="(int id) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_plateau.html#ab0cbb3913ec5e2616f8edbfe3a5c83ac">Plateau::helper_getRotationEmplacement</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne l'angle de rotation (en °) de l'emplacement sur le plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Numéro d'iddentification de l'emplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Angle de rotation (en °) de l'emplacement sur le plateau. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1fbb14e49c43b9fdb00f0c6488fa4636"></a><!-- doxytag: member="Plateau::helper_isEmplacementEnCoin" ref="a1fbb14e49c43b9fdb00f0c6488fa4636" args="(int id) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_plateau.html#a1fbb14e49c43b9fdb00f0c6488fa4636">Plateau::helper_isEmplacementEnCoin</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Indique si l'emplacement est situé dans un coin du plateau. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Numéro d'iddentification de l'emplacement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd><b><code>true</code> si</b> l'emplacement est situé en coin de plateau. </dd></dl>
+
+</div>
+</div>
+<hr/><h2>Documentation des données membres</h2>
+<a class="anchor" id="a7e5097947fac1f89f6235feb8d654452"></a><!-- doxytag: member="Plateau::m_prixAffichageComplet" ref="a7e5097947fac1f89f6235feb8d654452" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_plateau.html#a7e5097947fac1f89f6235feb8d654452">Plateau::m_prixAffichageComplet</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Affichage complet des prix. </p>
+<p>Si cet attribut vaut <b><code>true</code>,</b> les prix sont affichés intégralement. Par exemple, avec un coefficient très gros : </p>
+<ul>
+<li>1 500 000 000; </li>
+<li>20 000 000 ; </li>
+<li>14 500 000 ; </li>
+<li>500 000.</li>
+</ul>
+<p>Si cet attribut vaut <b><code>false</code>,</b> les prix sont affichés avec des lettres. Par exemple, avec les prix ci-dessus : </p>
+<ul>
+<li>1 500M ; </li>
+<li>20M ; </li>
+<li>14,5M; </li>
+<li>500k. </li>
+</ul>
+
+</div>
+</div>
+<a class="anchor" id="ac7306c046d5fd1a4dadfcc2075a44a57"></a><!-- doxytag: member="Plateau::m_prixCoefficient" ref="ac7306c046d5fd1a4dadfcc2075a44a57" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint8 <a class="el" href="class_plateau.html#ac7306c046d5fd1a4dadfcc2075a44a57">Plateau::m_prixCoefficient</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Coefficient utilisé pour les prix. </p>
+<p>Peut aller de 0 à 8. Le coefficient réel vaut 10^m_nombreCoefficient. Par exemple, si m_prixCoefficient vaut 2, le coefficient est de 100, si m_prixCoefficient vaut 5, le coefficient est de 100 000.</p>
+<p>En interne, les prix sont enregistrés dans des quint16 et doivent être compris entre 0 et 50 000. Il est donc possible d'appliquer un coefficient à tous les prix afin d'obtenir 20M € (au lieu de 200 €) en passant par la case Départ par exemple. </p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/<a class="el" href="_plateau_8hpp_source.html">Plateau.hpp</a></li>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/Plateau.cpp</li>
 </ul>
@@ -102,7 +1187,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,7 +1199,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

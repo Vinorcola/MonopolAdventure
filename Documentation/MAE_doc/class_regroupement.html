@@ -49,6 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -110,8 +111,10 @@ Fonctions membres publiques</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne la couleur du regroupement.  <a href="#ae8401ccb2ba37b60b60cdbde4c70fb91"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_regroupement.html#a66c2b71647e44d673162f6012e879d21">editCouleur</a> (const QColor &amp;couleur)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace la couleur du regroupement par <em>couleur</em>.  <a href="#a66c2b71647e44d673162f6012e879d21"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_regroupement.html#a8ad1631509c408fc217031f1690b7b8e">getNombreTerrain</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le nombre de terrains contenus dans le regroupement.  <a href="#a8ad1631509c408fc217031f1690b7b8e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_regroupement.html#a4e6379bf42ad07bae5005ed0947df8e4">getNombreTerrains</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le nombre de terrains contenus dans le regroupement.  <a href="#a4e6379bf42ad07bae5005ed0947df8e4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_terrain.html">Terrain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_regroupement.html#add3a7664d28eff20d1d1f05864e24cf4">getTerrain</a> (int index)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le terrain situé à l'index <em>index</em>.  <a href="#add3a7664d28eff20d1d1f05864e24cf4"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a738ad767c10f60be401655bf4421e0d2"></a><!-- doxytag: member="Regroupement::m_titre" ref="a738ad767c10f60be401655bf4421e0d2" args="" -->
@@ -217,12 +220,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b></td></tr
 
 </div>
 </div>
-<a class="anchor" id="a8ad1631509c408fc217031f1690b7b8e"></a><!-- doxytag: member="Regroupement::getNombreTerrain" ref="a8ad1631509c408fc217031f1690b7b8e" args="() const " -->
+<a class="anchor" id="a4e6379bf42ad07bae5005ed0947df8e4"></a><!-- doxytag: member="Regroupement::getNombreTerrains" ref="a4e6379bf42ad07bae5005ed0947df8e4" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="class_regroupement.html#a8ad1631509c408fc217031f1690b7b8e">Regroupement::getNombreTerrain</a> </td>
+          <td class="memname">int <a class="el" href="class_regroupement.html#a4e6379bf42ad07bae5005ed0947df8e4">Regroupement::getNombreTerrains</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -233,6 +236,26 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b></td></tr
 
 <p>Renseigne le nombre de terrains contenus dans le regroupement. </p>
 <dl class="return"><dt><b>Renvoie:</b></dt><dd>Nombre de terrains contenus dans le regroupement. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="add3a7664d28eff20d1d1f05864e24cf4"></a><!-- doxytag: member="Regroupement::getTerrain" ref="add3a7664d28eff20d1d1f05864e24cf4" args="(int index)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_terrain.html">Terrain</a> * <a class="el" href="class_regroupement.html#add3a7664d28eff20d1d1f05864e24cf4">Regroupement::getTerrain</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne le terrain situé à l'index <em>index</em>. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd><a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a> situé à l'index <em>index</em>. </dd></dl>
 
 </div>
 </div>
@@ -265,7 +288,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b></td></tr
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -277,7 +300,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b></td></tr
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

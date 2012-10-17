@@ -1,8 +1,15 @@
 var searchData=
 [
+  ['selectionregroupementlistmodel',['SelectionRegroupementListModel',['../class_selection_regroupement_list_model.html',1,'SelectionRegroupementListModel'],['../class_selection_regroupement_list_model.html#a103c514888833b9adf59c300a15ab62c',1,'SelectionRegroupementListModel::SelectionRegroupementListModel()']]],
   ['service',['Service',['../class_service.html',1,'Service'],['../class_service.html#ade8d4216ef0806b53b721cc6fa5beb25',1,'Service::Service()']]],
+  ['setbackgroundcolor',['setBackgroundColor',['../class_image_select_widget.html#ab85b21a8e473d5963bcfecd185a246aa',1,'ImageSelectWidget']]],
+  ['setcolor',['setColor',['../class_color_select_widget.html#abaa2bd954db36f0c9a63a6e852e5c6b7',1,'ColorSelectWidget']]],
   ['setdeplacement',['setDeplacement',['../class_action.html#a92e00c85b2ac67a2cdbdc9f02b710803',1,'Action::setDeplacement(const bool avance, Emplacement *emplacement, const quint8 coefficientLoyer=1, const bool relanceDes=false)'],['../class_action.html#a9c470407650a632cf1fe7254b6c37bd6',1,'Action::setDeplacement(const bool avance, const quint8 nombreEmplacements, const quint8 coefficientLoyer=1, const bool relanceDes=false)']]],
   ['setdeplacementjusquauprochain',['setDeplacementJusquauProchain',['../class_action.html#a29da92af6ede574524122255cdf5c6f4',1,'Action']]],
+  ['setemplacementencoin',['setEmplacementEnCoin',['../class_emplacement.html#aed09d931df260bdbcb2a0625ca0325ff',1,'Emplacement']]],
+  ['setemplacementnormal',['setEmplacementNormal',['../class_emplacement.html#aa73761ee9dd97984c5e7ec207ec53c9a',1,'Emplacement']]],
+  ['setfilepath',['setFilePath',['../class_file_select_widget.html#a14b8514171b0ee5414b35f638c7929f2',1,'FileSelectWidget']]],
+  ['setfont',['setFont',['../class_font_select_widget.html#a936c22273d3e9e11b432c9479e43281e',1,'FontSelectWidget']]],
   ['setliberedeprison',['setLibereDePrison',['../class_action.html#ae64411690abaa4dbb76b56403ccd8b24',1,'Action']]],
   ['setpayeoupioche',['setPayeOuPioche',['../class_action.html#ae788729d7443eee5956a80db7cf893c8',1,'Action']]],
   ['setpioche',['setPioche',['../class_action.html#a4bc553534e0c81a3e5929b61407c9930',1,'Action']]],
@@ -20,5 +27,6 @@ var searchData=
   ['setupprix',['setupPrix',['../class_graphisme_emplacement.html#a9cbe0ab438d80b074fbdf40d148a8a21',1,'GraphismeEmplacement']]],
   ['setupsoustitre',['setupSousTitre',['../class_graphisme_emplacement.html#ab2dcded7dcce0736d0431f44febedf43',1,'GraphismeEmplacement']]],
   ['setuptitre',['setupTitre',['../class_graphisme_emplacement.html#aa38433950081a4e8473145a42e81d02d',1,'GraphismeEmplacement']]],
-  ['simplevisite',['SimpleVisite',['../class_simple_visite.html',1,'SimpleVisite'],['../class_simple_visite.html#a1e237071f74b10976d5db3ed19b4a679',1,'SimpleVisite::SimpleVisite()']]]
+  ['simplevisite',['SimpleVisite',['../class_simple_visite.html',1,'SimpleVisite'],['../class_simple_visite.html#a1e237071f74b10976d5db3ed19b4a679',1,'SimpleVisite::SimpleVisite()']]],
+  ['startassistant',['startAssistant',['../class_main_window.html#a9744edba31bf274538f222a78008b7d6',1,'MainWindow']]]
 ];

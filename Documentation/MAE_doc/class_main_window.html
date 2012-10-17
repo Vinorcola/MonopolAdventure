@@ -49,6 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -79,6 +80,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-slots">Connecteurs publics</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe MainWindow</div>  </div>
 </div><!--header-->
@@ -90,6 +95,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <p><code>#include &lt;<a class="el" href="_main_window_8hpp_source.html">MainWindow.hpp</a>&gt;</code></p>
 
 <p><a href="class_main_window-members.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-slots"></a>
+Connecteurs publics</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae42bf481bea20776e658e9fdc02a7d67"></a><!-- doxytag: member="MainWindow::quitter" ref="ae42bf481bea20776e658e9fdc02a7d67" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae42bf481bea20776e658e9fdc02a7d67">quitter</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Ferme l'application. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9744edba31bf274538f222a78008b7d6"></a><!-- doxytag: member="MainWindow::startAssistant" ref="a9744edba31bf274538f222a78008b7d6" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a9744edba31bf274538f222a78008b7d6">startAssistant</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Lance l'assistant de création de plateau. <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34c4b4207b46d11a4100c9b19f0e81bb"></a><!-- doxytag: member="MainWindow::MainWindow" ref="a34c4b4207b46d11a4100c9b19f0e81bb" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a34c4b4207b46d11a4100c9b19f0e81bb">MainWindow</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit le fenêtre principale du programme. <br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8444d2993f96decc7083fdc0e0d24f1"></a><!-- doxytag: member="MainWindow::m_plateau" ref="ad8444d2993f96decc7083fdc0e0d24f1" args="" -->
+<a class="el" href="class_plateau.html">Plateau</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ad8444d2993f96decc7083fdc0e0d24f1">m_plateau</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_plateau.html" title="Plateau contient les informations éditables d&#39;un plateau.">Plateau</a> en cours d'édition. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a442d74cc4db3c83ff49421804e578a58"></a><!-- doxytag: member="MainWindow::m_vueCentrale" ref="a442d74cc4db3c83ff49421804e578a58" args="" -->
+QGraphicsView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a442d74cc4db3c83ff49421804e578a58">m_vueCentrale</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Widget central de la fenêtre. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64e583d6f4b9369f97efffaaf2d920c4"></a><!-- doxytag: member="MainWindow::m_barreOutils" ref="a64e583d6f4b9369f97efffaaf2d920c4" args="" -->
+QToolBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a64e583d6f4b9369f97efffaaf2d920c4">m_barreOutils</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Barre d'outils d'édition. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41cc6c97f60ca1393378c83dac8372da"></a><!-- doxytag: member="MainWindow::m_actionQuitter" ref="a41cc6c97f60ca1393378c83dac8372da" args="" -->
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a41cc6c97f60ca1393378c83dac8372da">m_actionQuitter</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_action.html" title="Action contient les informations éditables d&#39;une action à éxécuter après avoir piocher une carte...">Action</a> permettant de quitter l'éditeur. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcc8a5151a6bedf3f332ebe38ce05780"></a><!-- doxytag: member="MainWindow::m_actionAssistantCreation" ref="adcc8a5151a6bedf3f332ebe38ce05780" args="" -->
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#adcc8a5151a6bedf3f332ebe38ce05780">m_actionAssistantCreation</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_action.html" title="Action contient les informations éditables d&#39;une action à éxécuter après avoir piocher une carte...">Action</a> permettant de lancer l'assistant de création de plateau. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a873fb5e08f65b387524971a2bdcbab0f"></a><!-- doxytag: member="MainWindow::m_actionRegroupement" ref="a873fb5e08f65b387524971a2bdcbab0f" args="" -->
+QAction *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a873fb5e08f65b387524971a2bdcbab0f">m_actionRegroupement</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_action.html" title="Action contient les informations éditables d&#39;une action à éxécuter après avoir piocher une carte...">Action</a> permettant d'éditer la liste des regroupements du plateau. <br/></td></tr>
+</table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p><a class="el" href="class_main_window.html" title="MainWindow représente la fenêtre principale de l&#39;éditeur de plateau MonopolAdventure.">MainWindow</a> représente la fenêtre principale de l'éditeur de plateau MonopolAdventure. </p>
 </div><hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
@@ -102,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

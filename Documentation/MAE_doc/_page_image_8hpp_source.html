@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/assistants/creationPlateau/PageImage.hpp</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="MonopolAdventureEditorIcon.png"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">MonopolAdventureEditor
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/assistants/creationPlateau/PageImage.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef PAGEIMAGE_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define PAGEIMAGE_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QFormLayout&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QWizardPage&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;widgetsSelecteurs/ColorSelectWidget.hpp&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;widgetsSelecteurs/ImageSelectWidget.hpp&quot;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00022"></a><a class="code" href="class_page_image.html">00022</a> <span class="keyword">class </span><a class="code" href="class_page_image.html" title="Cette classe représente une page de l&#39;assistant de création de plateau.">PageImage</a> : <span class="keyword">public</span> QWizardPage
+<a name="l00023"></a>00023 {
+<a name="l00024"></a>00024         Q_OBJECT
+<a name="l00025"></a>00025         
+<a name="l00026"></a>00026         
+<a name="l00027"></a>00027         
+<a name="l00028"></a>00028     <span class="keyword">private</span>:
+<a name="l00029"></a><a class="code" href="class_page_image.html#a44de28c295118ff129894aa28338be82">00029</a>         <a class="code" href="class_color_select_widget.html" title="Widget proposant à l&#39;utilisateur de sélectionner une couleur.">ColorSelectWidget</a>* <a class="code" href="class_page_image.html#a44de28c295118ff129894aa28338be82" title="Champ permettant de configurer la couleur de fond du plateau.">m_champCouleur</a>;
+<a name="l00030"></a><a class="code" href="class_page_image.html#a781a5e68758cac5d28b8a51ed814e5f2">00030</a>         <a class="code" href="class_image_select_widget.html" title="Widget proposant à l&#39;utilisateur de sélectionner une image.">ImageSelectWidget</a>* <a class="code" href="class_page_image.html#a781a5e68758cac5d28b8a51ed814e5f2" title="Champ permettant de configurer l&#39;image centrale du plateau.">m_champImage</a>;
+<a name="l00031"></a>00031         
+<a name="l00032"></a>00032         
+<a name="l00033"></a>00033         
+<a name="l00034"></a>00034     <span class="keyword">public</span>:
+<a name="l00038"></a>00038         <a class="code" href="class_page_image.html#a6f8406bd7889d57c7144a44c1251ea76" title="Construit une nouvelle page.">PageImage</a>();
+<a name="l00039"></a>00039         
+<a name="l00040"></a>00040         
+<a name="l00041"></a>00041         
+<a name="l00045"></a>00045         <span class="keywordtype">int</span> <a class="code" href="class_page_image.html#a1157c189e2d239d654a5f705b2712edd" title="Renvoie l&#39;iddentifiant de la page suivante.">nextId</a>() <span class="keyword">const</span>;
+<a name="l00046"></a>00046 };
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="preprocessor">#endif // PAGEIMAGE_HPP</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi Octobre 17 2012 20:09:44 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

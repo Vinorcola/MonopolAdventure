@@ -49,6 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -82,20 +83,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
       <li class="current"><a href="functions.html"><span>Tout</span></a></li>
       <li><a href="functions_func.html"><span>Fonctions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_prop.html"><span>Propriétés</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
       <li><a href="functions.html#index_a"><span>a</span></a></li>
+      <li><a href="functions_0x62.html#index_b"><span>b</span></a></li>
       <li><a href="functions_0x63.html#index_c"><span>c</span></a></li>
       <li><a href="functions_0x64.html#index_d"><span>d</span></a></li>
       <li><a href="functions_0x65.html#index_e"><span>e</span></a></li>
+      <li><a href="functions_0x66.html#index_f"><span>f</span></a></li>
       <li><a href="functions_0x67.html#index_g"><span>g</span></a></li>
       <li class="current"><a href="functions_0x68.html#index_h"><span>h</span></a></li>
       <li><a href="functions_0x69.html#index_i"><span>i</span></a></li>
       <li><a href="functions_0x6a.html#index_j"><span>j</span></a></li>
       <li><a href="functions_0x6d.html#index_m"><span>m</span></a></li>
+      <li><a href="functions_0x6e.html#index_n"><span>n</span></a></li>
       <li><a href="functions_0x70.html#index_p"><span>p</span></a></li>
+      <li><a href="functions_0x71.html#index_q"><span>q</span></a></li>
       <li><a href="functions_0x72.html#index_r"><span>r</span></a></li>
       <li><a href="functions_0x73.html#index_s"><span>s</span></a></li>
       <li><a href="functions_0x74.html#index_t"><span>t</span></a></li>
@@ -112,10 +118,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 : <a class="el" href="class_emplacement.html#a879e48d61cca1b1360df29f1f1ac7f6e">Emplacement</a>
 , <a class="el" href="class_terrain.html#acbdaf16e3231b838b4246054a4eb5918">Terrain</a>
 </li>
+<li>helper_getPositionEmplacement()
+: <a class="el" href="class_plateau.html#a34c9ea473da4a91ca9958288d78926b4">Plateau</a>
+</li>
 <li>helper_getPrix()
-: <a class="el" href="class_taxe.html#acde5ebe8e5c6dde0c8d0395f75c53d29">Taxe</a>
+: <a class="el" href="class_emplacement.html#af70384de48681d9091f2be8955c0dd56">Emplacement</a>
 , <a class="el" href="class_propriete.html#a807aa9fbef30ee6da0831529d13a94d5">Propriete</a>
-, <a class="el" href="class_emplacement.html#af70384de48681d9091f2be8955c0dd56">Emplacement</a>
+, <a class="el" href="class_taxe.html#acde5ebe8e5c6dde0c8d0395f75c53d29">Taxe</a>
+</li>
+<li>helper_getRotationEmplacement()
+: <a class="el" href="class_plateau.html#ab0cbb3913ec5e2616f8edbfe3a5c83ac">Plateau</a>
+</li>
+<li>helper_isEmplacementEnCoin()
+: <a class="el" href="class_plateau.html#a1fbb14e49c43b9fdb00f0c6488fa4636">Plateau</a>
 </li>
 <li>helper_setupGraphicsTextItem()
 : <a class="el" href="class_graphisme_emplacement.html#a5283ac3f0e5acb5e689225b1e7e13d1c">GraphismeEmplacement</a>
@@ -127,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -139,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Septembre 23 2012 01:49:09 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
