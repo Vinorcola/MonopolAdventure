@@ -71,6 +71,22 @@ void Plateau::dessiner()
 
 
 
+void Plateau::updateCouleurRegroupement()
+{
+    for (int i(0), iEnd(m_emplacements.size()); i < iEnd; ++i)
+    {
+        if (m_emplacements.at(i)->getType() == Type::Terrain)
+        {
+            Terrain* terrain(static_cast<Terrain*>(m_emplacements.at(i)));
+            terrain->updateAffichageCouleurRegroupement(this);
+        }
+    }
+}
+
+
+
+
+
 const QString& Plateau::getTitre() const
 {
     return m_titre;

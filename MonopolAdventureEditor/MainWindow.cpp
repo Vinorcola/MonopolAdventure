@@ -99,6 +99,6 @@ void MainWindow::editRegroupements()
     dialog->exec();
     
     // Actualisation de l'affichage du plateau.
-    m_plateau->dessiner();
+    m_plateau->updateCouleurRegroupement();
 }
 

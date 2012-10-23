@@ -90,6 +90,13 @@ class Plateau : public QGraphicsScene
         
         
         /**
+         * Met à jour l'affichage de la couleur du regroupement de tous les terrains.
+         */
+        void updateCouleurRegroupement();
+        
+        
+        
+        /**
          * Renseigne le titre du plateau.
          * @return Titre du plateau.
          */

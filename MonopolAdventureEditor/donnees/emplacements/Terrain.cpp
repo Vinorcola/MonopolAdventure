@@ -71,6 +71,31 @@ void Terrain::editRegroupement(Regroupement* const regroupement)
 
 
 
+void Terrain::updateAffichageCouleurRegroupement(QGraphicsScene* scene)
+{
+    if (scene)
+    {
+        if (m_scenes.contains(scene))
+        {
+            if (m_scenes[scene].elementGraphique)
+            {
+                m_scenes[scene].elementGraphique->updateCouleurRegroupement(m_regroupement->getCouleur());
+            }
+        }
+    }
+    else
+    {
+        foreach (ElementGraphique element, m_scenes)
+        {
+            element.elementGraphique->updateCouleurRegroupement(m_regroupement->getCouleur());
+        }
+    }
+}
+
+
+
+
+
 quint16 Terrain::getLoyerNu() const
 {
     return m_loyerNu;
