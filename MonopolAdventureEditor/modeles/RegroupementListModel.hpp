@@ -32,7 +32,7 @@ class RegroupementListModel : public QAbstractListModel
          * @param parent QObject parent.
          */
         RegroupementListModel(QList<Regroupement*>& regroupements,
-                              QObject* parent = 0);
+                              QObject* parent);
         
         
         
@@ -67,6 +67,15 @@ class RegroupementListModel : public QAbstractListModel
          * @return Modèle de données secondaire.
          */
         SelectionRegroupementListModel* getModeleSecondaire() const;
+        
+        
+        
+        /**
+         * Retourne le regroupement au rang @a row.
+         * @param row Rang du regroupement à retourner.
+         * @return Regroupement au rang @a row.
+         */
+        Regroupement* getRegroupement(const int row) const;
         
         
         

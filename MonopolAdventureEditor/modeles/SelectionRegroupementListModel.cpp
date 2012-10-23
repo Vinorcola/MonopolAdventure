@@ -8,7 +8,8 @@ SelectionRegroupementListModel::SelectionRegroupementListModel(QList<Regroupemen
                                                                QObject* parent) :
     QAbstractListModel(parent),
     m_regroupements(regroupements),
-    m_rangRegroupementInactif(regroupements.isEmpty() ? -1 : 0)
+    m_rangRegroupementInactif(regroupements.isEmpty() ? -1 : 0),
+    m_terrainListModels()
 {
     
 }
@@ -48,6 +49,25 @@ Qt::ItemFlags SelectionRegroupementListModel::flags(const QModelIndex& index) co
     }
     
     return Qt::NoItemFlags;
+}
+
+
+
+
+
+TerrainListModel* SelectionRegroupementListModel::getTerrainListModel(Regroupement* const regroupement)
+{
+    if (m_regroupements.contains(regroupement))
+    {
+        if (m_terrainListModels.value(regroupement, 0) == 0)
+        {
+            m_terrainListModels[regroupement] = new TerrainListModel(regroupement, this);
+        }
+        
+        return m_terrainListModels.value(regroupement);
+    }
+    
+    return 0;
 }
 
 

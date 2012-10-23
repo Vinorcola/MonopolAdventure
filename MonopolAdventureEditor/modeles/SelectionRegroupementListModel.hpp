@@ -4,6 +4,7 @@
 #include <QAbstractListModel>
 
 #include "donnees/emplacements/Regroupement.hpp"
+#include "modeles/TerrainListModel.hpp"
 class RegroupementListModel;
 
 
@@ -29,6 +30,7 @@ class SelectionRegroupementListModel : public QAbstractListModel
     private:
         QList<Regroupement*>& m_regroupements;///< Référence vers la liste de Regroupements.
         int m_rangRegroupementInactif;///< Indique l'éventuel Regroupement inactif (-1 pour aucun).
+        QHash<Regroupement*, TerrainListModel*> m_terrainListModels;///< Table des modèles de données de terains.
         
         
         
@@ -40,7 +42,7 @@ class SelectionRegroupementListModel : public QAbstractListModel
          */
     public:
         SelectionRegroupementListModel(QList<Regroupement*>& regroupements,
-                                       QObject* parent = 0);
+                                       QObject* parent);
         
         
         
@@ -60,6 +62,17 @@ class SelectionRegroupementListModel : public QAbstractListModel
          * @param index Index correspondant au Regroupement concerné.
          */
         Qt::ItemFlags flags(const QModelIndex& index) const;
+        
+        
+        
+        /**
+         * Retourne un pointeur vers le modèle de données des terrains contenu dans le regroupement @a regroupement.
+         * @param regroupement Regroupement concerné.
+         * @return Modèle de données contenant la liste des terrains contenu sous le regroupement @a regroupement.
+         * 
+         * L'utilisateur n'a pas à se soucier de la destruction du modèle de données. Il sera détruit automatiquement lorsque l'objet SelectionRegroupementListModel sera détruit.
+         */
+        TerrainListModel* getTerrainListModel(Regroupement* const regroupement);
         
         
         

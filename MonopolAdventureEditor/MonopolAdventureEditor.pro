@@ -40,6 +40,8 @@ SOURCES += main.cpp \
         modeles/TerrainListModel.cpp \
         modeles/SelectionRegroupementListModel.cpp \
         modeles/RegroupementListModel.cpp \
+        widgetsEditeurs/ListeRegroupementEditWidget.cpp \
+        widgetsEditeurs/RegroupementEditWidget.cpp \
         widgetsSelecteurs/ColorSelectWidget.cpp \
         widgetsSelecteurs/FileSelectWidget.cpp \
         widgetsSelecteurs/FontSelectWidget.cpp \
@@ -76,6 +78,8 @@ HEADERS  += global.hpp \
         modeles/TerrainListModel.hpp \
         modeles/SelectionRegroupementListModel.hpp \
         modeles/RegroupementListModel.hpp \
+        widgetsEditeurs/ListeRegroupementEditWidget.hpp \
+        widgetsEditeurs/RegroupementEditWidget.hpp \
         widgetsSelecteurs/ColorSelectWidget.hpp \
         widgetsSelecteurs/FileSelectWidget.hpp \
         widgetsSelecteurs/FontSelectWidget.hpp \

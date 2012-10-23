@@ -30,7 +30,7 @@ class TerrainListModel : public QAbstractListModel
          * @param parent QObject parent.
          */
         TerrainListModel(Regroupement* regroupement,
-                         QObject* parent = 0);
+                         QObject* parent);
         
         
         

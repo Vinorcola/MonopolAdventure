@@ -83,6 +83,29 @@ void RegroupementListModel::deleteRegroupement(int row)
 
 
 
+SelectionRegroupementListModel* RegroupementListModel::getModeleSecondaire() const
+{
+    return m_modeleSecondaire;
+}
+
+
+
+
+
+Regroupement* RegroupementListModel::getRegroupement(const int row) const
+{
+    if (row >= 0 && row < rowCount())
+    {
+        return m_regroupements.at(row);
+    }
+    
+    return 0;
+}
+
+
+
+
+
 int RegroupementListModel::rowCount(const QModelIndex&) const
 {
     return m_regroupements.count();
