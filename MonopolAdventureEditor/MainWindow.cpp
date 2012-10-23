@@ -33,6 +33,7 @@ MainWindow::MainWindow() :
     m_actionQuitter->setShortcut(Qt::CTRL + Qt::Key_Q);
     connect(m_actionQuitter, SIGNAL(triggered()), this, SLOT(quitter()));
     connect(m_actionAssistantCreation, SIGNAL(triggered()), this, SLOT(startAssistant()));
+    connect(m_actionRegroupement, SIGNAL(triggered()), this, SLOT(editRegroupements()));
     
     
     
@@ -78,5 +79,23 @@ void MainWindow::startAssistant()
         m_barreOutils->show();
         m_actionAssistantCreation->setEnabled(false);// Désactivation de la création de nouveau plateau.
     }
+}
+
+
+
+
+
+void MainWindow::editRegroupements()
+{
+    QDialog* dialog(new QDialog(this));
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    
+    ListeRegroupementEditWidget* editWidget(new ListeRegroupementEditWidget(m_plateau->getListeRegroupement()));
+    QVBoxLayout* layout(new QVBoxLayout);
+    layout->addWidget(editWidget);
+    
+    dialog->setLayout(layout);
+    
+    dialog->exec();
 }
 

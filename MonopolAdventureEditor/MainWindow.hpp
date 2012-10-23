@@ -11,6 +11,7 @@
 
 #include "assistants/creationPlateau/AssistantCreationPlateau.hpp"
 #include "donnees/Plateau.hpp"
+#include "widgetsEditeurs/ListeRegroupementEditWidget.hpp"
 
 
 
@@ -55,6 +56,13 @@ class MainWindow : public QMainWindow
         * Lance l'assistant de création de plateau.
         */
         void startAssistant();
+        
+        
+        
+        /**
+         * Lance la fenêtre d'édition des regroupements.
+         */
+        void editRegroupements();
 };
 
 #endif // MAINWINDOW_HPP
