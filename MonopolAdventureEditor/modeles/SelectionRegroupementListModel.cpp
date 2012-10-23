@@ -55,10 +55,20 @@ Qt::ItemFlags SelectionRegroupementListModel::flags(const QModelIndex& index) co
 
 
 
-TerrainListModel* SelectionRegroupementListModel::getTerrainListModel(Regroupement* const regroupement)
+int SelectionRegroupementListModel::getRow(Regroupement* regroupement) const
 {
-    if (m_regroupements.contains(regroupement))
+    return m_regroupements.indexOf(regroupement);
+}
+
+
+
+
+
+TerrainListModel* SelectionRegroupementListModel::getTerrainListModel(const int row)
+{
+    if (row >= 0 && row < rowCount())
     {
+        Regroupement* regroupement(m_regroupements.at(row));
         if (m_terrainListModels.value(regroupement, 0) == 0)
         {
             m_terrainListModels[regroupement] = new TerrainListModel(regroupement, this);
@@ -83,11 +93,11 @@ int SelectionRegroupementListModel::rowCount(const QModelIndex&) const
 
 
 
-void SelectionRegroupementListModel::notifyRegroupementInactif(int row)
+void SelectionRegroupementListModel::notifyRegroupementInactif(Regroupement* regroupement)
 {
-    if (row >= 0 && row < rowCount())
-    {
-        m_rangRegroupementInactif = row;
-    }
+    /* NOTE : Un regroupement non contenu dans la liste définiera l'attribut à -1, ce qui enlèvera toute censure de
+     * regroupement.
+     */
+    m_rangRegroupementInactif = m_regroupements.indexOf(regroupement);
 }
 

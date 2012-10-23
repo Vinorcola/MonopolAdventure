@@ -66,13 +66,22 @@ class SelectionRegroupementListModel : public QAbstractListModel
         
         
         /**
-         * Retourne un pointeur vers le modèle de données des terrains contenu dans le regroupement @a regroupement.
-         * @param regroupement Regroupement concerné.
-         * @return Modèle de données contenant la liste des terrains contenu sous le regroupement @a regroupement.
+         * Retourne le rang du regroupement @a regroupement.
+         * @param regroupement Regroupement à chercher.
+         * @return Rang du regroupement @æ regroupement.
+         */
+        int getRow(Regroupement* regroupement) const;
+        
+        
+        
+        /**
+         * Retourne un pointeur vers le modèle de données des terrains contenu dans le regroupement au rang @a row.
+         * @param row Rang du regroupement concerné.
+         * @return Modèle de données contenant la liste des terrains contenu sous le regroupement au rang @a row.
          * 
          * L'utilisateur n'a pas à se soucier de la destruction du modèle de données. Il sera détruit automatiquement lorsque l'objet SelectionRegroupementListModel sera détruit.
          */
-        TerrainListModel* getTerrainListModel(Regroupement* const regroupement);
+        TerrainListModel* getTerrainListModel(const int row);
         
         
         
@@ -87,10 +96,10 @@ class SelectionRegroupementListModel : public QAbstractListModel
         
     public slots:
         /**
-         * Notifie au modèle de données que le regroupement situé au rang @a row doit être désactivé à la sélection.
-         * @param row Rang du regroupement à désactiver.
+         * Notifie au modèle de données que le regroupement @a regroupement doit être désactivé à la sélection.
+         * @param regroupement Regroupement à désactiver.
          */
-        void notifyRegroupementInactif(int row);
+        void notifyRegroupementInactif(Regroupement* regroupement);
 };
 
 #endif // SELECTIONREGROUPEMENTLISTMODEL_HPP

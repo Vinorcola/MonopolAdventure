@@ -97,5 +97,8 @@ void MainWindow::editRegroupements()
     dialog->setLayout(layout);
     
     dialog->exec();
+    
+    // Actualisation de l'affichage du plateau.
+    m_plateau->dessiner();
 }
 

@@ -18,7 +18,13 @@ Plateau::Plateau() :
     m_emplacements(),
     m_regroupements()
 {
-    m_regroupements << new Regroupement();
+    // Création d'un regroupement pour mettre par défaut tous les terrains créés.
+    Regroupement* regroupement(new Regroupement());
+    regroupement->editCouleur(QColor(0, 128, 0));
+    regroupement->editTitre(tr("Défaut"));
+    
+    // Ajout du regroupement dans la liste
+    m_regroupements << regroupement;
 }
 
 

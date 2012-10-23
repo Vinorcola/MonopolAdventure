@@ -92,9 +92,9 @@ class RegroupementEditWidget : public QWidget
         
         /**
          * Change la liste des terrains disponibles.
-         * @param regroupement Nouveau regroupement sélectionné.
+         * @param row Nouveau rang du regroupement sélectionné.
          */
-        void selectAutreRegroupementChanged(Regroupement* regroupement);
+        void selectAutreRegroupementChanged(int row);
         
         
         

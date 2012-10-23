@@ -20,15 +20,15 @@ RegroupementEditWidget::RegroupementEditWidget(SelectionRegroupementListModel* r
 {
     /* Configuration des champs.
      */
-    m_selectAutreRegroupement->setModel(m_regroupementModel);
-    changeRegroupement(regroupement);
-    
-    
     connect(m_champTitre, SIGNAL(textChanged(QString)), this, SLOT(champTitreChanged(QString)));
     connect(m_champCouleur, SIGNAL(colorChange(QColor)), this, SLOT(champCouleurChanged(QColor)));
     connect(m_selectAutreRegroupement, SIGNAL(currentIndexChanged(int)), this, SLOT(selectAutreRegroupementChanged(int)));
     connect(m_boutonAdd, SIGNAL(clicked()), this, SLOT(boutonAddClicked()));
     connect(m_boutonRemove, SIGNAL(clicked()), this, SLOT(boutonRemoveClicked()));
+    
+    // Les slots doivent être connectés avant les deux configurations suivantes :
+    m_selectAutreRegroupement->setModel(m_regroupementModel);
+    changeRegroupement(regroupement);
     
     
     
@@ -123,9 +123,10 @@ void RegroupementEditWidget::boutonRemoveClicked()
 
 
 
-void RegroupementEditWidget::selectAutreRegroupementChanged(Regroupement* regroupement)
+void RegroupementEditWidget::selectAutreRegroupementChanged(int row)
 {
-    m_listeTerrainsDisponibles->setModel(m_regroupementModel->getTerrainListModel(regroupement));
+    // Met à jour la liste des terrains disponibles dans un autre regroupement.
+    m_listeTerrainsDisponibles->setModel(m_regroupementModel->getTerrainListModel(row));
 }
 
 
@@ -134,24 +135,37 @@ void RegroupementEditWidget::selectAutreRegroupementChanged(Regroupement* regrou
 
 void RegroupementEditWidget::updateRegroupement()
 {
-    m_champListeTerrains->setModel(m_regroupementModel->getTerrainListModel(m_regroupement));
+    int index(m_regroupementModel->getRow(m_regroupement));
     
+    // Mise à jour de la liste des terrains contenus dans le regroupement.
+    m_champListeTerrains->setModel(m_regroupementModel->getTerrainListModel(index));
+    
+    // Met à jour les champs titre et couleur.
     m_champTitre->setText(m_regroupement->getTitre());
     m_champCouleur->setColor(m_regroupement->getCouleur());
     
-    /** @todo A REVOIR */
-    /*/
-    int indexRegroupement(m_regroupementModel->getRow(m_regroupement));
-    if (m_selectAutreRegroupement->currentIndex() == indexRegroupement)
+    // Met à jour la liste de regroupements
+    m_regroupementModel->notifyRegroupementInactif(m_regroupement);
+    
+    
+    // Si il ne reste plus qu'un regroupement, on le sélectionne (les listes seront désactivés)
+    if (m_regroupementModel->rowCount() == 1)
     {
-        if (indexRegroupement == m_regroupementModel->rowCount() - 1)
+        m_selectAutreRegroupement->setCurrentIndex(0);
+    }
+    // Si le regroupement rendu inactif était déjà sélectionné :
+    else if (m_selectAutreRegroupement->currentIndex() == index)
+    {
+        if (m_regroupementModel->rowCount() - 1 == index)
+        // Si le regroupement sélectionné est le dernier, on sélectionne le précédent.
         {
-            m_selectAutreRegroupement->setCurrentIndex(indexRegroupement - 1);
+            m_selectAutreRegroupement->setCurrentIndex(index - 1);
         }
         else
+        // Sinon, on prend le suivant.
         {
-            m_selectAutreRegroupement->setCurrentIndex(indexRegroupement + 1);
+            m_selectAutreRegroupement->setCurrentIndex(index + 1);
         }
-    }//*/
+    }
 }
 
