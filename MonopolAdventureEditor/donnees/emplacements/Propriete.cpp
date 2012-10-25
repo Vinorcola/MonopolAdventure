@@ -39,6 +39,7 @@ quint16 Propriete::getPrixAchat() const
 
 void Propriete::editPrixAchat(const quint16 montant)
 {
+    // Change le prix d'achat.
     if (montant > MONTANT_MAX_EDITEUR)
     {
         m_prixAchat = MONTANT_MAX_EDITEUR;
@@ -46,6 +47,12 @@ void Propriete::editPrixAchat(const quint16 montant)
     else
     {
         m_prixAchat = montant;
+    }
+    
+    // Mise à jour de l'affichage du prix.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
     }
 }
 

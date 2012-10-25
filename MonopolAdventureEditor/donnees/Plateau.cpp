@@ -57,30 +57,14 @@ void Plateau::dessiner()
 {
     for (int i(1), iEnd(m_emplacements.size()); i < iEnd; ++i)
     {
-        m_emplacements.at(i)->registerScene(this, helper_getPositionEmplacement(i), helper_getRotationEmplacement(i));
-        m_emplacements.at(i)->dessiner(this);
+        m_emplacements.at(i)->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);/** @todo Voir si on ne peut pas faire ces config dans la méthode editTaille() plutôt qu'ici. */
+        m_emplacements.at(i)->dessiner();
     }
     
     /* On affiche la prison en dernier pour qu'elle soit au dessus de l'emplacement « Simple visite ».
      */
-    m_emplacements.first()->registerScene(this, helper_getPositionEmplacement(0), helper_getRotationEmplacement(0));
-    m_emplacements.first()->dessiner(this);
-}
-
-
-
-
-
-void Plateau::updateCouleurRegroupement()
-{
-    for (int i(0), iEnd(m_emplacements.size()); i < iEnd; ++i)
-    {
-        if (m_emplacements.at(i)->getType() == Type::Terrain)
-        {
-            Terrain* terrain(static_cast<Terrain*>(m_emplacements.at(i)));
-            terrain->updateAffichageCouleurRegroupement(this);
-        }
-    }
+    m_emplacements.first()->setupElementGraphique(helper_getPositionEmplacement(0), helper_getRotationEmplacement(0), this);
+    m_emplacements.first()->dessiner();
 }
 
 
@@ -119,6 +103,14 @@ const QSize& Plateau::getTaille() const
 
 void Plateau::editTaille(const QSize& taille)
 {
+    /* L'édition de la taille du plateau consiste en plusieurs choses :
+     *   → Si c'est la première configuration, il faut créer les emplacements obligatoires (Départ, Prison, etc.)
+     *      → Si la taille augmente, il faut créer de nouveaux emplacements (terrains par défaut appartenant au premier regroupement).
+     *   → Si la taille a diminué, il faut supprimer les derniers emplacements de la liste en trop.
+     * Ensuite, il faut repositionner tous les emplacements, indiquer les nouveaux emplacement en coin, etc.
+     */
+    
+    // Taille min : 3x3 | Taille max : 50x50
     if (taille != m_taille
      && taille.height() >= 3 && taille.height() <= 50
      && taille.width() >= 3 && taille.width() <= 50)
@@ -134,6 +126,7 @@ void Plateau::editTaille(const QSize& taille)
         Prison* prison(0);
         Depart* depart(0);
         if (m_emplacements.isEmpty())
+        // C'est la tout première configuration.
         {
             simpleVisite = new SimpleVisite(m_graphismeEmplacement);
             simpleVisite->editTitre(tr("Simple"));
@@ -154,18 +147,20 @@ void Plateau::editTaille(const QSize& taille)
         
         
         /* Modification de la liste des emplacements :
-         *   - Création de terrains si la nouvelle taille est plus grande ;
-         *   - Suppression de terrains si la nouvelle taille est plus petite.
+         *   → Création de terrains si la nouvelle taille est plus grande ;
+         *   → Suppression de terrains si la nouvelle taille est plus petite.
          */
         int nombreEmplacementPrecedent(m_emplacements.size());
-        int nombreEmplacement(taille.height() * 2 + taille.width() * 2 - 3);// - 3 => - 4 + 1 (Prison)
+        int nombreEmplacement(taille.height() * 2 + taille.width() * 2 - 3);// - 3 => - 4 (chaque coin) + 1 (Prison)
         
         if (nombreEmplacement > nombreEmplacementPrecedent)
         {
+            /* Il faut créer de nouveaux emplacements (terrain par défaut insérés dans le premier regroupement).
+             */
             for (int i(0), iEnd(nombreEmplacement - nombreEmplacementPrecedent); i < iEnd; ++i)
             {
                 Terrain* terrain(new Terrain(m_graphismeEmplacement, m_devise));
-                terrain->editTitre(tr("Terrain") + "_" + QString::number(i));
+                terrain->editTitre(tr("Terrain"));// + "_" + QString::number(i));
                 terrain->editSousTitre(tr("Nouveau"));
                 terrain->editDescription(tr("Veuillez configurer ce terrain"));
                 terrain->editRegroupement(m_regroupements.first());
@@ -175,6 +170,8 @@ void Plateau::editTaille(const QSize& taille)
         }
         else if (nombreEmplacement < nombreEmplacementPrecedent)
         {
+            /* Il faut détruire certains emplacements (les derniers de la liste).
+             */
             for (int i(0), iEnd(nombreEmplacementPrecedent - nombreEmplacement); i < iEnd; ++i)
             {
                 Emplacement* emplacement(m_emplacements.takeLast());
@@ -208,6 +205,7 @@ void Plateau::editTaille(const QSize& taille)
          */
         if (simpleVisite)
         {
+            // On le place par défaut dans le coin bas-gauche du plateau (m_taille.width() ).
             delete m_emplacements.at(m_taille.width());
             m_emplacements[m_taille.width()] = simpleVisite;
         }
@@ -218,7 +216,7 @@ void Plateau::editTaille(const QSize& taille)
          */
         for (int i(0), iEnd(m_emplacements.size()); i < iEnd; ++i)
         {
-            m_emplacements.at(i)->registerScene(this, helper_getPositionEmplacement(i), helper_getRotationEmplacement(i));
+            m_emplacements.at(i)->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);
             
             if (helper_isEmplacementEnCoin(i))
             {

@@ -64,30 +64,13 @@ void Terrain::editRegroupement(Regroupement* const regroupement)
         {
             m_regroupement->append(this);
         }
-    }
-}
-
-
-
-
-
-void Terrain::updateAffichageCouleurRegroupement(QGraphicsScene* scene)
-{
-    if (scene)
-    {
-        if (m_scenes.contains(scene))
+        
+        
+        /* Met à jour l'affichage de l'emplacement.
+         */
+        if (m_elementGraphique)
         {
-            if (m_scenes[scene].elementGraphique)
-            {
-                m_scenes[scene].elementGraphique->updateCouleurRegroupement(m_regroupement->getCouleur());
-            }
-        }
-    }
-    else
-    {
-        foreach (ElementGraphique element, m_scenes)
-        {
-            element.elementGraphique->updateCouleurRegroupement(m_regroupement->getCouleur());
+            m_elementGraphique->updateCouleurRegroupement(helper_getCouleurRegroupement());
         }
     }
 }

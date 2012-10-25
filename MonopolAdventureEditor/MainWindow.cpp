@@ -96,9 +96,9 @@ void MainWindow::editRegroupements()
     
     dialog->setLayout(layout);
     
-    dialog->exec();
-    
-    // Actualisation de l'affichage du plateau.
-    m_plateau->updateCouleurRegroupement();
+    if (dialog->exec())
+    {
+        // Mise à jour des informations ici.
+    }
 }
 

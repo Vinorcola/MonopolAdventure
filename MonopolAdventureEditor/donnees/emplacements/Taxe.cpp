@@ -58,6 +58,12 @@ void Taxe::enableMontantFixe(const quint16 montant)
     {
         m_montantFixe = montant;
     }
+    
+    // Mise à jour de l'affichage.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
+    }
 }
 
 
@@ -68,6 +74,12 @@ void Taxe::disableMontantFixe()
 {
     m_payeMontantFixe = false;
     m_montantFixe = 0;
+    
+    // Mise à jour de l'affichage.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
+    }
 }
 
 
@@ -103,6 +115,12 @@ void Taxe::enablePourcentageFortune(const quint8 pourcentage)
     {
         m_pourcentageFortune = pourcentage;
     }
+    
+    // Mise à jour de l'affichage.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
+    }
 }
 
 
@@ -113,6 +131,12 @@ void Taxe::disablePourcentageFortune()
 {
     m_payePourcentageFortune = false;
     m_pourcentageFortune = 0;
+    
+    // Mise à jour de l'affichage.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
+    }
 }
 
 
