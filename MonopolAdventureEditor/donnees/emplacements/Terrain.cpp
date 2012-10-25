@@ -93,14 +93,14 @@ void Terrain::editRegroupement(Regroupement* const regroupement)
         if (m_regroupement)
         {
             m_regroupement->append(this);
-        }
-        
-        
-        /* Met à jour l'affichage de l'emplacement.
-         */
-        if (m_elementGraphique)
-        {
-            m_elementGraphique->updateCouleurRegroupement(helper_getCouleurRegroupement());
+            
+            
+            /* Met à jour l'affichage de l'emplacement.
+             */
+            if (m_elementGraphique)
+            {
+                m_elementGraphique->updateCouleurRegroupement(helper_getCouleurRegroupement());
+            }
         }
     }
 }

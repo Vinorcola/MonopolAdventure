@@ -64,6 +64,7 @@ MainWindow::MainWindow() :
 
 void MainWindow::quitter()
 {
+    delete m_plateau;
     qApp->quit();
 }
 
