@@ -32,9 +32,25 @@ class CompagnieTranspot : public Propriete
         
         
         /**
+         * Construit une copie la compagnie de transport @compagnieTransport.
+         * @param compagnieTransport Compagnie de transport à copier.
+         */
+        CompagnieTranspot(const CompagnieTranspot& compagnieTransport);
+        
+        
+        
+        /**
          * Destructeur virtuel.
          */
         virtual ~CompagnieTranspot();
+        
+        
+        
+        /**
+         * Copie les informations de la compagnie de transport @a compagnieTransport.
+         * @param compagnieTransport Compagnie de transport à copier.
+         */
+        CompagnieTranspot& operator =(const CompagnieTranspot& compagnieTransport);
         
         
         

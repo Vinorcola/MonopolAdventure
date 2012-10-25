@@ -20,6 +20,21 @@ Terrain::Terrain(const GraphismeEmplacementInfos& graphismeInfos,
 
 
 
+Terrain::Terrain(const Terrain &terrain) :
+    Propriete(terrain),
+    m_regroupement(0),
+    m_loyerNu(terrain.m_loyerNu),
+    m_loyerNuExtra(terrain.m_loyerNuExtra),
+    m_loyersMaison(terrain.m_loyersMaison),
+    m_loyersHotel(terrain.m_loyersHotel)
+{
+    
+}
+
+
+
+
+
 Terrain::~Terrain()
 {
     /* Enlève le terrain du regroupement.
@@ -28,6 +43,21 @@ Terrain::~Terrain()
     {
         m_regroupement->removeOne(this);
     }
+}
+
+
+
+
+
+Terrain& Terrain::operator =(const Terrain& terrain)
+{
+    Propriete::operator =(terrain);
+    m_loyerNu = terrain.m_loyerNu;
+    m_loyerNuExtra = terrain.m_loyerNuExtra;
+    m_loyersMaison = terrain.m_loyersMaison;
+    m_loyersHotel = terrain.m_loyersHotel;
+    
+    return *this;
 }
 
 

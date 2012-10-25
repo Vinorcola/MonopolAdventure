@@ -32,9 +32,25 @@ class Service : public Propriete
         
         
         /**
+         * Construit une copie du service @a service.
+         * @param service Service à copier.
+         */
+        Service(const Service& service);
+        
+        
+        
+        /**
          * Destructeur virtuel.
          */
         virtual ~Service();
+        
+        
+        
+        /**
+         * Copie les informations du service @a service.
+         * @param service Service à copier.
+         */
+        Service& operator =(const Service& service);
         
         
         

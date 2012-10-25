@@ -36,6 +36,14 @@ class Regroupement : private QList<Terrain*>
         
         
         /**
+         * Construit une copie du regroupement @a regroupement.
+         * @param regroupement Regroupement à copier.
+         */
+        Regroupement(const Regroupement& regroupement);
+        
+        
+        
+        /**
          * Destructeur.
          * Enlève tous les terraisn contenus avant la suppression.
          */

@@ -6,7 +6,19 @@
 
 CompagnieTranspot::CompagnieTranspot(const GraphismeEmplacementInfos& graphismeInfos,
                                      const QString& devise) :
-    Propriete(Type::CompagnieTransport, graphismeInfos, devise)
+    Propriete(Type::CompagnieTransport, graphismeInfos, devise),
+    m_loyers()
+{
+    
+}
+
+
+
+
+
+CompagnieTranspot::CompagnieTranspot(const CompagnieTranspot& compagnieTransport) :
+    Propriete(compagnieTransport),
+    m_loyers(compagnieTransport.m_loyers)
 {
     
 }
@@ -18,6 +30,18 @@ CompagnieTranspot::CompagnieTranspot(const GraphismeEmplacementInfos& graphismeI
 CompagnieTranspot::~CompagnieTranspot()
 {
     
+}
+
+
+
+
+
+CompagnieTranspot &CompagnieTranspot::operator =(const CompagnieTranspot& compagnieTransport)
+{
+    Propriete::operator =(compagnieTransport);
+    m_loyers = compagnieTransport.m_loyers;
+    
+    return *this;
 }
 
 

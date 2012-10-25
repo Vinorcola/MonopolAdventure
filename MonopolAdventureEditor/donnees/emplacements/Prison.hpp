@@ -32,9 +32,25 @@ class Prison : public Emplacement
         
         
         /**
+         * Construit une copie de la prison @a prison.
+         * @param prison Prison à copier.
+         */
+        Prison(const Prison& prison);
+        
+        
+        
+        /**
          * Destructeur virtuel.
          */
         virtual ~Prison();
+        
+        
+        
+        /**
+         * Copie les informations de la prison @a prison.
+         * @param prison Prison à copier.
+         */
+        Prison& operator =(const Prison& prison);
         
         
         

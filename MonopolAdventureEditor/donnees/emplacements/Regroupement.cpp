@@ -5,11 +5,27 @@
 
 
 Regroupement::Regroupement() :
-    QList<Terrain*>(),
+    QList(),
     m_titre(""),
     m_couleur(255, 255, 255)
 {
     
+}
+
+
+
+
+
+Regroupement::Regroupement(const Regroupement& regroupement) :
+    QList(),
+    m_titre(regroupement.m_titre),
+    m_couleur(regroupement.m_couleur)
+{
+    for (int i(0), iEnd(regroupement.count()); i < iEnd; ++i)
+    {
+        Terrain* terrain(regroupement.at(i));
+        append(new Terrain(*terrain));
+    }
 }
 
 

@@ -70,7 +70,8 @@ class Emplacement
         
         
         /**
-         * L'emplacement copie les informations de l'emplacement @a emplacement.
+         * Copie les informations de l'emplacement @a emplacement.
+         * @param emplacement Emplacement à copier.
          * @note L'emplacement doit être de même type ! Si les emplacements ne sont pas de même type, aucune action n'est effectuée.
          */
         Emplacement& operator =(const Emplacement& emplacement);

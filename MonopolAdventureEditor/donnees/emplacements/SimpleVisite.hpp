@@ -23,9 +23,25 @@ class SimpleVisite : public Emplacement
         
         
         /**
+         * Construit une copie de l'emplacement @a simpleVisite.
+         * @param simpleVisite Emplacement « Simple visite » à copier.
+         */
+        SimpleVisite(const SimpleVisite& simpleVisite);
+        
+        
+        
+        /**
          * Destructeur virtuel.
          */
         virtual ~SimpleVisite();
+        
+        
+        
+        /**
+         * Copie les informations de l'emplacement @a simpleVisite.
+         * @param simpleVisite Emplacement « Simple visite » à copier.
+         */
+        SimpleVisite& operator =(const SimpleVisite& simpleVisite);
 };
 
 #endif // SIMPLEVISITEINFOS_HPP

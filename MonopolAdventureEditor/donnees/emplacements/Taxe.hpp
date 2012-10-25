@@ -38,9 +38,25 @@ class Taxe : public Emplacement
         
         
         /**
+         * Construit une copie de l'emplacement @a taxe.
+         * @param taxe Emplacement « Taxe » à copier.
+         */
+        Taxe(const Taxe& taxe);
+        
+        
+        
+        /**
          * Destructeur virtuel.
          */
         virtual ~Taxe();
+        
+        
+        
+        /**
+         * Copie les informations de l'emplacement @a taxe.
+         * @param taxe Emplacement « Taxe » à copier.
+         */
+        Taxe& operator =(const Taxe& taxe);
         
         
         

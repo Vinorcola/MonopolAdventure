@@ -19,9 +19,38 @@ Propriete::Propriete(const Type::Emplacement type,
 
 
 
+Propriete::Propriete(const Propriete& propriete) :
+    Emplacement(propriete),
+    m_prixAchat(propriete.m_prixAchat),
+    m_valeurHypotheque(propriete.m_valeurHypotheque),
+    m_devise(propriete.m_devise)
+{
+    
+}
+
+
+
+
+
 Propriete::~Propriete()
 {
     
+}
+
+
+
+
+
+Propriete& Propriete::operator =(const Propriete& propriete)
+{
+    if (getType() == propriete.getType())
+    {
+        Emplacement::operator =(propriete);
+        m_prixAchat = propriete.m_prixAchat;
+        m_valeurHypotheque = propriete.m_valeurHypotheque;
+    }
+    
+    return *this;
 }
 
 
