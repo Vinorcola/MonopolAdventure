@@ -136,9 +136,9 @@ void Plateau::editTaille(const QSize& taille)
             prison->editTitre(tr("Prison"));
             prison->editCaution(50);
             
-            depart = new Depart(m_graphismeEmplacement);
+            depart = new Depart(m_graphismeEmplacement, m_devise);
             depart->editTitre(tr("Départ"));
-            depart->editDescription(tr("Recevez 200 €"));
+            depart->editDescription(tr("Recevez"));
             depart->editSalaire(200);
             
             m_emplacements << prison << depart;
