@@ -1,10 +1,10 @@
-#include "CompagnieTranspot.hpp"
+#include "CompagnieTransport.hpp"
 
 
 
 
 
-CompagnieTranspot::CompagnieTranspot(const GraphismeEmplacementInfos& graphismeInfos,
+CompagnieTransport::CompagnieTransport(const GraphismeEmplacementInfos& graphismeInfos,
                                      const QString& devise) :
     Propriete(Type::CompagnieTransport, graphismeInfos, devise),
     m_loyers()
@@ -16,7 +16,7 @@ CompagnieTranspot::CompagnieTranspot(const GraphismeEmplacementInfos& graphismeI
 
 
 
-CompagnieTranspot::CompagnieTranspot(const CompagnieTranspot& compagnieTransport) :
+CompagnieTransport::CompagnieTransport(const CompagnieTransport& compagnieTransport) :
     Propriete(compagnieTransport),
     m_loyers(compagnieTransport.m_loyers)
 {
@@ -27,7 +27,7 @@ CompagnieTranspot::CompagnieTranspot(const CompagnieTranspot& compagnieTransport
 
 
 
-CompagnieTranspot::~CompagnieTranspot()
+CompagnieTransport::~CompagnieTransport()
 {
     
 }
@@ -36,7 +36,7 @@ CompagnieTranspot::~CompagnieTranspot()
 
 
 
-CompagnieTranspot &CompagnieTranspot::operator =(const CompagnieTranspot& compagnieTransport)
+CompagnieTransport &CompagnieTransport::operator =(const CompagnieTransport& compagnieTransport)
 {
     Propriete::operator =(compagnieTransport);
     m_loyers = compagnieTransport.m_loyers;
@@ -48,7 +48,7 @@ CompagnieTranspot &CompagnieTranspot::operator =(const CompagnieTranspot& compag
 
 
 
-quint16 CompagnieTranspot::getLoyer(const int nombreCompagniesPossedees) const
+quint16 CompagnieTransport::getLoyer(const int nombreCompagniesPossedees) const
 {
     return m_loyers.value(nombreCompagniesPossedees - 1, 0);
 }
@@ -57,7 +57,7 @@ quint16 CompagnieTranspot::getLoyer(const int nombreCompagniesPossedees) const
 
 
 
-void CompagnieTranspot::setupNombreCompagnies(const int quantite)
+void CompagnieTransport::setupNombreCompagnies(const int quantite)
 {
     if (quantite > 0)
     {
@@ -82,7 +82,7 @@ void CompagnieTranspot::setupNombreCompagnies(const int quantite)
 
 
 
-void CompagnieTranspot::editLoyer(const int nombreCompagniesPossedees,
+void CompagnieTransport::editLoyer(const int nombreCompagniesPossedees,
                                        const quint16 montant)
 {
     if (nombreCompagniesPossedees >= 1 && nombreCompagniesPossedees <= m_loyers.count())

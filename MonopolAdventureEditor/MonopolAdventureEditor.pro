@@ -23,7 +23,7 @@ SOURCES += main.cpp \
         donnees/cartes/PileCartes.cpp \
         donnees/graphismes/GraphismeEmplacement.cpp \
         donnees/graphismes/GraphismeEmplacementInfos.cpp \
-        donnees/emplacements/CompagnieTranspot.cpp \
+        donnees/emplacements/CompagnieTransport.cpp \
         donnees/emplacements/Depart.cpp \
         donnees/emplacements/Deplacement.cpp \
         donnees/emplacements/Emplacement.cpp \
@@ -61,7 +61,7 @@ HEADERS  += global.hpp \
         donnees/cartes/PileCartes.hpp \
         donnees/graphismes/GraphismeEmplacement.hpp \
         donnees/graphismes/GraphismeEmplacementInfos.hpp \
-        donnees/emplacements/CompagnieTranspot.hpp \
+        donnees/emplacements/CompagnieTransport.hpp \
         donnees/emplacements/Depart.hpp \
         donnees/emplacements/Deplacement.hpp \
         donnees/emplacements/Emplacement.hpp \
