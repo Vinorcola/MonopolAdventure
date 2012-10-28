@@ -17,15 +17,11 @@ Regroupement::Regroupement() :
 
 
 Regroupement::Regroupement(const Regroupement& regroupement) :
-    QList(),
+    QList(regroupement),
     m_titre(regroupement.m_titre),
     m_couleur(regroupement.m_couleur)
 {
-    for (int i(0), iEnd(regroupement.count()); i < iEnd; ++i)
-    {
-        Terrain* terrain(regroupement.at(i));
-        append(new Terrain(*terrain));
-    }
+    
 }
 
 
@@ -38,6 +34,31 @@ Regroupement::~Regroupement()
     {
         last()->editRegroupement(0);
     }
+}
+
+
+
+
+
+Regroupement& Regroupement::operator =(const Regroupement& copieRegroupement)
+{
+    m_titre = copieRegroupement.m_titre;
+    m_couleur = copieRegroupement.m_couleur;
+    
+    /* Recherche des terrains ajoutés.
+     * On n'a pas besoin de rechercher les terrains supprimés, car on parcours tous les regroupements après l'édition.
+     * Les terrains supprimés seront donc ajouté dans un autre regroupement et donc supprimé de celui-ci grâce à la
+     * méthode Terrain::editRegroupement().
+     */
+    for (int i(0), iEnd(copieRegroupement.count()); i < iEnd; ++i)
+    {
+        if (!contains(copieRegroupement.at(i)))
+        {
+            copieRegroupement.getTerrain(i)->editRegroupement(this);
+        }
+    }
+    
+    return *this;
 }
 
 
@@ -103,7 +124,7 @@ int Regroupement::getNombreTerrains() const
 
 
 
-Terrain* Regroupement::getTerrain(int index)
+Terrain* Regroupement::getTerrain(int index) const
 {
     return at(index);
 }
