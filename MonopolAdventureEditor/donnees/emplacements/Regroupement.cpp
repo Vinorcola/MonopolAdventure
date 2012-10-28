@@ -50,12 +50,17 @@ Regroupement& Regroupement::operator =(const Regroupement& copieRegroupement)
      * Les terrains supprimés seront donc ajouté dans un autre regroupement et donc supprimé de celui-ci grâce à la
      * méthode Terrain::editRegroupement().
      */
-    for (int i(0), iEnd(copieRegroupement.count()); i < iEnd; ++i)
+    for (int i(copieRegroupement.count() - 1), iEnd(0); i >= iEnd; --i)
     {
         if (!contains(copieRegroupement.at(i)))
         {
             copieRegroupement.getTerrain(i)->editRegroupement(this);
         }
+        
+        /* On supprime le terrain de la liste de la copie. Ainsi, les terrains ne seront pas modifiés à la suppression
+         * de la copie.
+         */
+        copieRegroupement.removeAt(i);
     }
     
     return *this;
