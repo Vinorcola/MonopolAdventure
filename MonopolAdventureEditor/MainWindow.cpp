@@ -88,18 +88,6 @@ void MainWindow::startAssistant()
 
 void MainWindow::editRegroupements()
 {
-    QDialog* dialog(new QDialog(this));
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    
-    ListeRegroupementEditWidget* editWidget(new ListeRegroupementEditWidget(m_plateau->getListeRegroupement()));
-    QVBoxLayout* layout(new QVBoxLayout);
-    layout->addWidget(editWidget);
-    
-    dialog->setLayout(layout);
-    
-    if (dialog->exec())
-    {
-        // Mise à jour des informations ici.
-    }
+    m_plateau->editListeRegroupement();
 }
 

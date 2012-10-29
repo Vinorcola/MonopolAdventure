@@ -1,6 +1,8 @@
 #ifndef PLATEAUINFOS_HPP
 #define PLATEAUINFOS_HPP
 
+#include <QDialog>
+#include <QDialogButtonBox>
 #include <QGraphicsScene>
 #include <QPixmap>
 #include <QSize>
@@ -14,6 +16,7 @@
 #include "donnees/emplacements/SimpleVisite.hpp"
 #include "donnees/emplacements/Terrain.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
+#include "widgetsEditeurs/ListeRegroupementEditWidget.hpp"
 
 
 
@@ -396,7 +399,14 @@ class Plateau : public QGraphicsScene
          * Fourni la liste des Regroupements du plateau.
          * @return Liste des Regroupements du plateau.
          */
-        QList<Regroupement*>& getListeRegroupement();
+        const QList<Regroupement*>& getListeRegroupement();
+        
+        
+        
+        /**
+         * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.
+         */
+        void editListeRegroupement(QWidget* parent = 0);
         
         
         

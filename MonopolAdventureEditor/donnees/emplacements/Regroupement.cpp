@@ -30,9 +30,15 @@ Regroupement::Regroupement(const Regroupement& regroupement) :
 
 Regroupement::~Regroupement()
 {
-    for (int i(0), iEnd(count()); i < iEnd; ++i)
+    /* On ne modifie les terrains uniquement si ce regroupement est leur parent. Si ce n'est pas le cas, ce regroupement
+     * est une copie. On ne modifie donc rien dans les terrains.
+     */
+    if (count() != 0 && first()->getRegroupement() == this)
     {
-        last()->editRegroupement(0);
+        for (int i(0), iEnd(count()); i < iEnd; ++i)
+        {
+            last()->editRegroupement(0);
+        }
     }
 }
 
@@ -56,11 +62,6 @@ Regroupement& Regroupement::operator =(const Regroupement& copieRegroupement)
         {
             copieRegroupement.getTerrain(i)->editRegroupement(this);
         }
-        
-        /* On supprime le terrain de la liste de la copie. Ainsi, les terrains ne seront pas modifiés à la suppression
-         * de la copie.
-         */
-        copieRegroupement.removeAt(i);
     }
     
     return *this;
