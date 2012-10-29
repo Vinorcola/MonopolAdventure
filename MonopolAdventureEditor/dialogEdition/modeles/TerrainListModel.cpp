@@ -5,10 +5,9 @@
 
 
 
-TerrainListModel::TerrainListModel(Regroupement* regroupement,
-                                   QObject *parent) :
-    QAbstractListModel(parent),
-    m_regroupement(regroupement)
+TerrainListModel::TerrainListModel(const QList<TerrainData*>& terrains) :
+    QAbstractListModel(),
+    m_TerrainsData(terrains)
 {
     
 }
@@ -24,7 +23,7 @@ QVariant TerrainListModel::data(const QModelIndex& index,
     {
         if (role == Qt::DisplayRole)
         {
-            return m_regroupement->getTerrain(index.row())->getTitre();
+            return m_TerrainsData.at(index.row())->titre;
         }
     }
     
@@ -37,25 +36,6 @@ QVariant TerrainListModel::data(const QModelIndex& index,
 
 int TerrainListModel::rowCount(const QModelIndex&) const
 {
-    return m_regroupement->getNombreTerrains();
-}
-
-
-
-
-
-void TerrainListModel::transfererTerrain(int row,
-                                         TerrainListModel* autreModele)
-{
-    if (row >= 0 && row < rowCount() && autreModele)
-    {
-        beginRemoveRows(QModelIndex(), row, row);
-        autreModele->beginInsertRows(QModelIndex(), autreModele->rowCount(), autreModele->rowCount());
-        
-        m_regroupement->getTerrain(row)->editRegroupement(autreModele->m_regroupement);
-        
-        endRemoveRows();
-        autreModele->endInsertRows();
-    }
+    return m_TerrainsData.count();
 }
 

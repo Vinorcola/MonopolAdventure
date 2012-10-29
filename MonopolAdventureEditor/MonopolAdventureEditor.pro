@@ -63,6 +63,7 @@ HEADERS  += global.hpp \
         dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
         dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
         dialogEdition/EditionListeRegroupements.hpp \
+        dialogEdition/StructuresEditionListeRegroupements.hpp \
         donnees/cartes/Action.hpp \
         donnees/cartes/Carte.hpp \
         donnees/cartes/PileCartes.hpp \

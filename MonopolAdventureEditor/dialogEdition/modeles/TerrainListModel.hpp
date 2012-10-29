@@ -3,7 +3,7 @@
 
 #include <QAbstractListModel>
 
-#include "donnees/emplacements/Regroupement.hpp"
+#include "dialogEdition/StructuresEditionListeRegroupements.hpp"
 
 
 
@@ -11,7 +11,7 @@
 
 /**
  * @class TerrainListModel TerrainListModel.hpp modeles/TerrainListModel.hpp
- * Cette classe représente un modèle de données contenant une liste de terrains.
+ * Cette classe représente un modèle de données contenant une liste affichable de terrains contenu dans un regroupement.
  */
 class TerrainListModel : public QAbstractListModel
 {
@@ -19,18 +19,16 @@ class TerrainListModel : public QAbstractListModel
         
         
     private:
-        Regroupement* m_regroupement;///< Regroupement de terrains.
+        const QList<TerrainData*>& m_TerrainsData;///< Données éditables d'un regroupement.
         
         
         
     public:
         /**
-         * Construit un nouveau modèle de données avec les terrains contenus dans le regroupement @a regroupement.
-         * @param regroupement Regroupement.
-         * @param parent QObject parent.
+         * Construit un nouveau modèle de données avec les terrains @a terrains.
+         * @param terrains Liste des terrains.
          */
-        TerrainListModel(Regroupement* regroupement,
-                         QObject* parent);
+        TerrainListModel(const QList<TerrainData*>& terrains);
         
         
         
@@ -51,16 +49,6 @@ class TerrainListModel : public QAbstractListModel
          * @return Nombre de rangs contenus dans le modèle de données.
          */
         int rowCount(const QModelIndex& parent = QModelIndex()) const;
-        
-        
-        
-        /**
-         * Transfère un Terrain vers un autre modèle de données.
-         * @param row Rang du Terrain à transférer.
-         * @param autreModele Modèle de données vers lequel transférer le Terrain.
-         */
-        void transfererTerrain(int row,
-                               TerrainListModel* autreModele);
 };
 
 #endif // TERRAINLISTMODEL_HPP
