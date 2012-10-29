@@ -18,6 +18,12 @@ SOURCES += main.cpp \
         assistants/creationPlateau/PageOuvrir.cpp \
         assistants/creationPlateau/PagePrix.cpp \
         assistants/creationPlateau/PageTaille.cpp \
+        dialogEdition/modeles/TerrainListModel.cpp \
+        dialogEdition/modeles/SelectionRegroupementListModel.cpp \
+        dialogEdition/modeles/RegroupementListModel.cpp \
+        dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.cpp \
+        dialogEdition/widgetsEditeurs/RegroupementEditWidget.cpp \
+        dialogEdition/EditionListeRegroupements.cpp \
         donnees/cartes/Action.cpp \
         donnees/cartes/Carte.cpp \
         donnees/cartes/PileCartes.cpp \
@@ -37,11 +43,6 @@ SOURCES += main.cpp \
         donnees/emplacements/Taxe.cpp \
         donnees/emplacements/Terrain.cpp \
         donnees/Plateau.cpp \
-        modeles/TerrainListModel.cpp \
-        modeles/SelectionRegroupementListModel.cpp \
-        modeles/RegroupementListModel.cpp \
-        widgetsEditeurs/ListeRegroupementEditWidget.cpp \
-        widgetsEditeurs/RegroupementEditWidget.cpp \
         widgetsSelecteurs/ColorSelectWidget.cpp \
         widgetsSelecteurs/FileSelectWidget.cpp \
         widgetsSelecteurs/FontSelectWidget.cpp \
@@ -56,6 +57,12 @@ HEADERS  += global.hpp \
         assistants/creationPlateau/PageOuvrir.hpp \
         assistants/creationPlateau/PagePrix.hpp \
         assistants/creationPlateau/PageTaille.hpp \
+        dialogEdition/modeles/TerrainListModel.hpp \
+        dialogEdition/modeles/SelectionRegroupementListModel.hpp \
+        dialogEdition/modeles/RegroupementListModel.hpp \
+        dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
+        dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
+        dialogEdition/EditionListeRegroupements.hpp \
         donnees/cartes/Action.hpp \
         donnees/cartes/Carte.hpp \
         donnees/cartes/PileCartes.hpp \
@@ -75,11 +82,6 @@ HEADERS  += global.hpp \
         donnees/emplacements/Taxe.hpp \
         donnees/emplacements/Terrain.hpp \
         donnees/Plateau.hpp \
-        modeles/TerrainListModel.hpp \
-        modeles/SelectionRegroupementListModel.hpp \
-        modeles/RegroupementListModel.hpp \
-        widgetsEditeurs/ListeRegroupementEditWidget.hpp \
-        widgetsEditeurs/RegroupementEditWidget.hpp \
         widgetsSelecteurs/ColorSelectWidget.hpp \
         widgetsSelecteurs/FileSelectWidget.hpp \
         widgetsSelecteurs/FontSelectWidget.hpp \
