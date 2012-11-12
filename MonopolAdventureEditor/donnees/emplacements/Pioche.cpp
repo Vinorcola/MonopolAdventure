@@ -5,7 +5,19 @@
 
 
 Pioche::Pioche(const GraphismeEmplacementInfos& graphismeInfos) :
-    Emplacement(Type::Pioche, graphismeInfos)
+    Emplacement(Type::Pioche, graphismeInfos),
+    m_pileCartes(0)
+{
+    
+}
+
+
+
+
+
+Pioche::Pioche(const Pioche& pioche) :
+    Emplacement(pioche),
+    m_pileCartes(pioche.m_pileCartes)
 {
     
 }
@@ -17,6 +29,18 @@ Pioche::Pioche(const GraphismeEmplacementInfos& graphismeInfos) :
 Pioche::~Pioche()
 {
     
+}
+
+
+
+
+
+Pioche& Pioche::operator =(const Pioche& pioche)
+{
+    Emplacement::operator =(pioche);
+    m_pileCartes = pioche.m_pileCartes;
+    
+    return *this;
 }
 
 

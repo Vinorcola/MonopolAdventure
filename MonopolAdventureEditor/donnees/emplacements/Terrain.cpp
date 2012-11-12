@@ -20,6 +20,21 @@ Terrain::Terrain(const GraphismeEmplacementInfos& graphismeInfos,
 
 
 
+Terrain::Terrain(const Terrain &terrain) :
+    Propriete(terrain),
+    m_regroupement(0),
+    m_loyerNu(terrain.m_loyerNu),
+    m_loyerNuExtra(terrain.m_loyerNuExtra),
+    m_loyersMaison(terrain.m_loyersMaison),
+    m_loyersHotel(terrain.m_loyersHotel)
+{
+    editRegroupement(terrain.getRegroupement());
+}
+
+
+
+
+
 Terrain::~Terrain()
 {
     /* Enlève le terrain du regroupement.
@@ -28,6 +43,22 @@ Terrain::~Terrain()
     {
         m_regroupement->removeOne(this);
     }
+}
+
+
+
+
+
+Terrain& Terrain::operator =(const Terrain& terrain)
+{
+    Propriete::operator =(terrain);
+    editRegroupement(terrain.getRegroupement());
+    m_loyerNu = terrain.m_loyerNu;
+    m_loyerNuExtra = terrain.m_loyerNuExtra;
+    m_loyersMaison = terrain.m_loyersMaison;
+    m_loyersHotel = terrain.m_loyersHotel;
+    
+    return *this;
 }
 
 
@@ -63,31 +94,17 @@ void Terrain::editRegroupement(Regroupement* const regroupement)
         if (m_regroupement)
         {
             m_regroupement->append(this);
-        }
-    }
-}
-
-
-
-
-
-void Terrain::updateAffichageCouleurRegroupement(QGraphicsScene* scene)
-{
-    if (scene)
-    {
-        if (m_scenes.contains(scene))
-        {
-            if (m_scenes[scene].elementGraphique)
+            
+            
+            /* Met à jour l'affichage de l'emplacement.
+             * NOTE : On ne met à jour l'affichage que s'il y a un nouveau regroupement. S'il n'y a pas de nouveau
+             * regroupement, c'est que le terrain va être supprimé. Il n'est donc pas nécessaire d'actualiser
+             * l'affichage graphique.
+             */
+            if (m_elementGraphique)
             {
-                m_scenes[scene].elementGraphique->updateCouleurRegroupement(m_regroupement->getCouleur());
+                m_elementGraphique->updateCouleurRegroupement(helper_getCouleurRegroupement());
             }
-        }
-    }
-    else
-    {
-        foreach (ElementGraphique element, m_scenes)
-        {
-            element.elementGraphique->updateCouleurRegroupement(m_regroupement->getCouleur());
         }
     }
 }
@@ -256,6 +273,13 @@ void Terrain::editLoyerHotel(const int nombreHotelsConstruits,
 
 QColor Terrain::helper_getCouleurRegroupement() const
 {
-    return m_regroupement->getCouleur();
+    if (m_regroupement)
+    {
+        return m_regroupement->getCouleur();
+    }
+    
+    /* Couleur blanche par défaut, si le terrain n'appartient à aucun regroupement.
+     */
+    return QColor(255, 255, 255);
 }
 

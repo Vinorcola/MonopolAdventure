@@ -3,7 +3,7 @@
 
 #include <QAbstractListModel>
 
-#include "donnees/emplacements/Regroupement.hpp"
+#include "dialogEdition/donnees/TerrainData.hpp"
 
 
 
@@ -11,7 +11,7 @@
 
 /**
  * @class TerrainListModel TerrainListModel.hpp modeles/TerrainListModel.hpp
- * Cette classe représente un modèle de données contenant une liste de terrains.
+ * Cette classe représente un modèle de données contenant une liste affichable de terrains contenu dans un regroupement.
  */
 class TerrainListModel : public QAbstractListModel
 {
@@ -19,18 +19,16 @@ class TerrainListModel : public QAbstractListModel
         
         
     private:
-        Regroupement* m_regroupement;///< Regroupement de terrains.
+        QList<TerrainData*>& m_TerrainsData;///< Données éditables d'un regroupement.
         
         
         
     public:
         /**
-         * Construit un nouveau modèle de données avec les terrains contenus dans le regroupement @a regroupement.
-         * @param regroupement Regroupement.
-         * @param parent QObject parent.
+         * Construit un nouveau modèle de données avec les terrains @a terrains.
+         * @param terrains Liste des terrains.
          */
-        TerrainListModel(Regroupement* regroupement,
-                         QObject* parent);
+        TerrainListModel(QList<TerrainData*>& terrains);
         
         
         
@@ -55,12 +53,19 @@ class TerrainListModel : public QAbstractListModel
         
         
         /**
-         * Transfère un Terrain vers un autre modèle de données.
-         * @param row Rang du Terrain à transférer.
-         * @param autreModele Modèle de données vers lequel transférer le Terrain.
+         * Insère le terrain @a terrain dans le modèle de données.
+         * @param terrain Terrain à insérer.
          */
-        void transfererTerrain(int row,
-                               TerrainListModel* autreModele);
+        void insertTerrain(TerrainData* terrain);
+        
+        
+        
+        /**
+         * Enlève, du modèle de données, le terrain situé au rang @a row, puis retourne son pointeur.
+         * @param row Rang auquel se situe le terrain.
+         * @return Pointeur du terrain enlevé.
+         */
+        TerrainData* enleveTerrain(int row);
 };
 
 #endif // TERRAINLISTMODEL_HPP

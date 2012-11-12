@@ -38,10 +38,27 @@ class Terrain : public Propriete
         
         
         /**
+         * Construit une copie du terrain @a terrain.
+         * @param terrain Terrain à copier.
+         * @note La copie créée n'appartient à aucun regroupement.
+         */
+        Terrain(const Terrain& terrain);
+        
+        
+        
+        /**
          * Destructeur virtuel.
          * Enlève le terrain du regroupement avant la suppression.
          */
         virtual ~Terrain();
+        
+        
+        
+        /**
+         * Le terrain copie les informations de @a terrain.
+         * @param terrain Terrain à copier.
+         */
+        Terrain& operator =(const Terrain& terrain);
         
         
         
@@ -58,16 +75,6 @@ class Terrain : public Propriete
          * @param regroupement Nouveau regroupement.
          */
         void editRegroupement(Regroupement* const regroupement);
-        
-        
-        
-        /**
-         * Met à jour l'affichage graphique de la couleur du regroupement.
-         * @param scene Scène sur laquelle mettre à jour l'affichage (0 pour toutes).
-         * 
-         * Pour plus d'information concernant la mémorisation des scène, voir la méthode Emplacement::dessiner(). Pour actualiser l'affichage graphique de l'emplacement sur une scène précise, il suffit d'appeler cette méthode avec la scène en paramètre. Si aucune scène n'est passée en argument, toutes les scènes sont mises à jour.
-         */
-        void updateAffichageCouleurRegroupement(QGraphicsScene* scene = 0);
         
         
         

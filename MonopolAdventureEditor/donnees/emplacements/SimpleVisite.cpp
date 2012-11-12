@@ -14,8 +14,29 @@ SimpleVisite::SimpleVisite(const GraphismeEmplacementInfos& graphismeInfos) :
 
 
 
+SimpleVisite::SimpleVisite(const SimpleVisite& simpleVisite) :
+    Emplacement(simpleVisite)
+{
+    
+}
+
+
+
+
+
 SimpleVisite::~SimpleVisite()
 {
     
+}
+
+
+
+
+
+SimpleVisite& SimpleVisite::operator =(const SimpleVisite& simpleVisite)
+{
+    Emplacement::operator =(simpleVisite);
+    
+    return *this;
 }
 

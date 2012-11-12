@@ -23,9 +23,25 @@ class ParcGratuit : public Emplacement
         
         
         /**
+         * Construit une copie du parc gratuit @a parcGratuit.
+         * @param parcGratuit Parc gratuit à copier.
+         */
+        ParcGratuit(const ParcGratuit& parcGratuit);
+        
+        
+        
+        /**
          * Destructeur virtuel.
          */
         virtual ~ParcGratuit();
+        
+        
+        
+        /**
+         * Copie les informations du parc gratuit @a parcGratuit.
+         * @param parcGratuit Parc gratuit à copier.
+         */
+        ParcGratuit& operator =(const ParcGratuit& parcGratuit);
 };
 
 #endif // PARCGRATUITINFOS_HPP

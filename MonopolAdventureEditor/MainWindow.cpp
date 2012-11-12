@@ -64,6 +64,7 @@ MainWindow::MainWindow() :
 
 void MainWindow::quitter()
 {
+    delete m_plateau;
     qApp->quit();
 }
 
@@ -87,18 +88,6 @@ void MainWindow::startAssistant()
 
 void MainWindow::editRegroupements()
 {
-    QDialog* dialog(new QDialog(this));
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    
-    ListeRegroupementEditWidget* editWidget(new ListeRegroupementEditWidget(m_plateau->getListeRegroupement()));
-    QVBoxLayout* layout(new QVBoxLayout);
-    layout->addWidget(editWidget);
-    
-    dialog->setLayout(layout);
-    
-    dialog->exec();
-    
-    // Actualisation de l'affichage du plateau.
-    m_plateau->updateCouleurRegroupement();
+    m_plateau->editListeRegroupement();
 }
 

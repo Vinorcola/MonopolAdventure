@@ -10,10 +10,10 @@
 
 
 /**
- * @class CompagnieTranspot CompagnieTranspot.hpp donnees/emplacements/CompagnieTranspot.hpp
- * CompagnieTranspot contient les informations éditables d'une compagnie de transport d'un plateau.
+ * @class CompagnieTransport CompagnieTransport.hpp donnees/emplacements/CompagnieTransport.hpp
+ * CompagnieTransport contient les informations éditables d'une compagnie de transport d'un plateau.
  */
-class CompagnieTranspot : public Propriete
+class CompagnieTransport : public Propriete
 {
     private:
         QList<quint16> m_loyers;///< Liste des loyers en fonction du nombre de compagnies de transport possédées par le propriétaire.
@@ -26,15 +26,31 @@ class CompagnieTranspot : public Propriete
          * @param graphismeInfos Informations concernant le graphisme.
          * @param devise Référence vers la devise servant à l'affichage du prix sur le plateau.
          */
-        CompagnieTranspot(const GraphismeEmplacementInfos& graphismeInfos,
+        CompagnieTransport(const GraphismeEmplacementInfos& graphismeInfos,
                           const QString& devise);
+        
+        
+        
+        /**
+         * Construit une copie la compagnie de transport @compagnieTransport.
+         * @param compagnieTransport Compagnie de transport à copier.
+         */
+        CompagnieTransport(const CompagnieTransport& compagnieTransport);
         
         
         
         /**
          * Destructeur virtuel.
          */
-        virtual ~CompagnieTranspot();
+        virtual ~CompagnieTransport();
+        
+        
+        
+        /**
+         * Copie les informations de la compagnie de transport @a compagnieTransport.
+         * @param compagnieTransport Compagnie de transport à copier.
+         */
+        CompagnieTransport& operator =(const CompagnieTransport& compagnieTransport);
         
         
         

@@ -16,9 +16,34 @@ Deplacement::Deplacement(const GraphismeEmplacementInfos& graphismeInfos) :
 
 
 
+Deplacement::Deplacement(const Deplacement& deplacement) :
+    Emplacement(deplacement),
+    m_destination(deplacement.m_destination),
+    m_amende(deplacement.m_amende)
+{
+    
+}
+
+
+
+
+
 Deplacement::~Deplacement()
 {
     
+}
+
+
+
+
+
+Deplacement& Deplacement::operator =(const Deplacement& deplacement)
+{
+    Emplacement::operator =(deplacement);
+    m_destination = deplacement.m_destination;
+    m_amende = deplacement.m_amende;
+    
+    return *this;
 }
 
 

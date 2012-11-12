@@ -4,12 +4,11 @@
 
 
 
-SelectionRegroupementListModel::SelectionRegroupementListModel(QList<Regroupement*>& regroupements,
+SelectionRegroupementListModel::SelectionRegroupementListModel(QList<RegroupementData*>& regroupements,
                                                                QObject* parent) :
     QAbstractListModel(parent),
     m_regroupements(regroupements),
-    m_rangRegroupementInactif(regroupements.isEmpty() ? -1 : 0),
-    m_terrainListModels()
+    m_rangRegroupementInactif(regroupements.isEmpty() ? -1 : 0)// Sélection du premier regroupement.
 {
     
 }
@@ -55,29 +54,23 @@ Qt::ItemFlags SelectionRegroupementListModel::flags(const QModelIndex& index) co
 
 
 
-int SelectionRegroupementListModel::getRow(Regroupement* regroupement) const
+RegroupementData* SelectionRegroupementListModel::getRegroupementAt(int row) const
 {
-    return m_regroupements.indexOf(regroupement);
+    if (row >= 0 && row < rowCount())
+    {
+        return m_regroupements.at(row);
+    }
+    
+    return 0;
 }
 
 
 
 
 
-TerrainListModel* SelectionRegroupementListModel::getTerrainListModel(const int row)
+bool SelectionRegroupementListModel::isSelectionnable(int row) const
 {
-    if (row >= 0 && row < rowCount())
-    {
-        Regroupement* regroupement(m_regroupements.at(row));
-        if (m_terrainListModels.value(regroupement, 0) == 0)
-        {
-            m_terrainListModels[regroupement] = new TerrainListModel(regroupement, this);
-        }
-        
-        return m_terrainListModels.value(regroupement);
-    }
-    
-    return 0;
+    return row != m_rangRegroupementInactif;
 }
 
 
@@ -93,11 +86,8 @@ int SelectionRegroupementListModel::rowCount(const QModelIndex&) const
 
 
 
-void SelectionRegroupementListModel::notifyRegroupementInactif(Regroupement* regroupement)
+void SelectionRegroupementListModel::notifyRegroupementInactif(RegroupementData* regroupement)
 {
-    /* NOTE : Un regroupement non contenu dans la liste définiera l'attribut à -1, ce qui enlèvera toute censure de
-     * regroupement.
-     */
     m_rangRegroupementInactif = m_regroupements.indexOf(regroupement);
 }
 

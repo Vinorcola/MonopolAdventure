@@ -34,7 +34,6 @@ void AssistantCreationPlateau::accept()
     if (field("nouveau").toBool())
     {
         m_plateau->editTitre(field("titre_plateau").toString());
-        m_plateau->editTaille(QSize(field("largeur_plateau").toInt(), field("hauteur_plateau").toInt()));
         m_plateau->editDevise(field("devise_plateau").toString());
         m_plateau->editCoefficientPrix(field("coefficient_prix").toInt());
         m_plateau->editAffichageIntegrale(field("affichage_complet_prix").toBool());
@@ -49,6 +48,11 @@ void AssistantCreationPlateau::accept()
         m_plateau->editFonteSousTitreEmplacement(field("police_sousTitre_emplacement").value<QFont>());
         m_plateau->editFonteDescriptionEmplacement(field("police_description_emplacement").value<QFont>());
         m_plateau->editFontePrixEmplacement(field("police_prix_emplacement").value<QFont>());
+        
+        /* La configuration de la taille du plateau doit être faite en dernière car le plateau à besoin des informations
+         * concernant la taille des emplacements.
+         */
+        m_plateau->editTaille(QSize(field("largeur_plateau").toInt(), field("hauteur_plateau").toInt()));
     }
     else
     {

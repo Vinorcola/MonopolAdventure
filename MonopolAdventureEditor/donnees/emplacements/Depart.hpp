@@ -18,12 +18,27 @@ class Depart : public Emplacement
         
         
         
+    protected:
+        const QString& m_devise;///< Référence constante vers la devise du plateau.
+        
+        
+        
     public:
         /**
          * Construit un emplacement « Départ » par défaut.
          * @param graphismeInfos Informations concernant le graphisme.
+         * @param devise Référence vers la devise servant à l'affichage du prix sur le plateau.
          */
-        Depart(const GraphismeEmplacementInfos& graphismeInfos);
+        Depart(const GraphismeEmplacementInfos& graphismeInfos,
+               const QString& devise);
+        
+        
+        
+        /**
+         * Construit une copie de l'emplacement @a depart.
+         * @param depart Emplacement « Départ » à copier.
+         */
+        Depart(const Depart& depart);
         
         
         
@@ -31,6 +46,14 @@ class Depart : public Emplacement
          * Destructeur virtuel.
          */
         virtual ~Depart();
+        
+        
+        
+        /**
+         * Copie les informations de l'emplacement @a depart.
+         * @param depart Emplacement « Départ » à copier.
+         */
+        Depart& operator =(const Depart& depart);
         
         
         
@@ -47,6 +70,11 @@ class Depart : public Emplacement
          * @param montant Montant du nouveau salaire.
          */
         void editSalaire(const quint16 montant);
+        
+        
+        
+    protected:
+        virtual QString helper_getPrix() const;
 };
 
 #endif // DEPARTINFOS_HPP

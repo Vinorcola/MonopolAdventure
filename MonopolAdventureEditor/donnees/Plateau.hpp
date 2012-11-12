@@ -1,12 +1,15 @@
 #ifndef PLATEAUINFOS_HPP
 #define PLATEAUINFOS_HPP
 
+#include <QDialog>
+#include <QDialogButtonBox>
 #include <QGraphicsScene>
 #include <QPixmap>
 #include <QSize>
 #include <QString>
 #include <QtCore/qmath.h>
 
+#include "dialogEdition/EditionListeRegroupements.hpp"
 #include "donnees/cartes/PileCartes.hpp"
 #include "donnees/emplacements/Depart.hpp"
 #include "donnees/emplacements/Prison.hpp"
@@ -86,13 +89,6 @@ class Plateau : public QGraphicsScene
          * Appel la méthode Emplacement::dessiner() de tous les emplacements après avoir enregistrer le plateau avec Emplacement::registerScene().
          */
         void dessiner();
-        
-        
-        
-        /**
-         * Met à jour l'affichage de la couleur du regroupement de tous les terrains.
-         */
-        void updateCouleurRegroupement();
         
         
         
@@ -403,7 +399,14 @@ class Plateau : public QGraphicsScene
          * Fourni la liste des Regroupements du plateau.
          * @return Liste des Regroupements du plateau.
          */
-        QList<Regroupement*>& getListeRegroupement();
+        const QList<Regroupement*>& getListeRegroupement();
+        
+        
+        
+        /**
+         * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.
+         */
+        void editListeRegroupement(QWidget* parent = 0);
         
         
         

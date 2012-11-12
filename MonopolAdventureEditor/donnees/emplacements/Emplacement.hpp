@@ -19,6 +19,8 @@
 /**
  * @class Emplacement Emplacement.hpp donnees/emplacements/Emplacement.hpp
  * Emplacement contient les informations éditables communes à tous les emplacements d'un plateau.
+ * 
+ * L'objet graphique est placé dans une classe à part. De cette manière, l'élément graphique n'est créé que si nécessaire. Par exemple, pour l'édition de la liste des regroupements, les regroupements et les terrains sont copiés. Mais les éléments graphiques ne sont pas créés dans les objets terrains copiés.
  */
 class Emplacement
 {
@@ -32,22 +34,12 @@ class Emplacement
         
         
     protected:
-        /**
-         * Structure de données servant à la déclaration des scène sur lesquelles est affiché l'emplacement.
-         */
-        class ElementGraphique
-        {
-            public:
-                GraphismeEmplacement* elementGraphique;///< Élement graphique.
-                QPoint coordonnees;///< Coordonnées de l'élément dans la scène.
-                int rotation;///< Rotation de l'élément dans la scène.
-        };
-        
-        
-        
         const GraphismeEmplacementInfos& m_graphismeInfos;///< Informations concernant le graphisme.
+        QGraphicsScene* m_scene;///< 
+        GraphismeEmplacement* m_elementGraphique;///< Élement graphique.
+        QPoint m_coordonnees;///< Coordonnées de l'élément dans la scène.
+        int m_rotation;///< Rotation de l'élément dans la scène.
         bool m_enCoin;///< Indique si l'emplacement se situe dans un coin du plateau.
-        QHash<QGraphicsScene*, ElementGraphique> m_scenes;///< Table des éléments graphiques et de leur scène.
         
         
         
@@ -63,9 +55,26 @@ class Emplacement
         
         
         /**
+         * Construit une copie de l'emplacement @a emplacement.
+         * @param emplacement Emplacement à copier.
+         */
+        Emplacement(const Emplacement& emplacement);
+        
+        
+        
+        /**
          * Destructeur virtuel.
          */
         virtual ~Emplacement();
+        
+        
+        
+        /**
+         * Copie les informations de l'emplacement @a emplacement.
+         * @param emplacement Emplacement à copier.
+         * @note L'emplacement doit être de même type ! Si les emplacements ne sont pas de même type, aucune action n'est effectuée.
+         */
+        Emplacement& operator =(const Emplacement& emplacement);
         
         
         
@@ -156,25 +165,22 @@ class Emplacement
         
         
         /**
-         * Déclare l'emplacement sur une scène.
-         * @param scene Scène sur laquelle afficher l'emplacement.
-         * @param coordonnees Coordonnées de la position de l'emplacement sur la scène.
-         * @param rotation Rotation de l'emplacement sur la scène.
+         * Met à jour les informations concernant la disposition de l'emplacement sur la scène.
+         * @param position Position de l'emplacement sur la scène.
+         * @param rotation Angle de rotation de l'emplacement sur la scène.
+         * @param scene Scène sur laquelle est afficher l'emplacement.
+         * @note Il faut appeler la méthode Emplacement::dessiner() pour mettre à jour l'affichage avec la nouvelle configuration.
          */
-        void registerScene(QGraphicsScene* scene,
-                           const QPoint& coordonnees = QPoint(),
-                           const int rotation = 0);
+        void setupElementGraphique(const QPoint& position,
+                                   const int rotation,
+                                   QGraphicsScene* scene = 0);
         
         
         
         /**
-         * Dessine l'emplacement sur la scène passée en argument.
-         * @param scene Scène sur laquelle mettre à jour l'affichage (0 pour toutes).
-         * 
-         * L'emplacement va garder en mémoire les scènes sur lesquelles il est affiché. Il va créer un nouveau QGraphicsItem à chaque fois qu'il doit être affiché sur une nouvelle scène. Pour déclarer une scène, il faut appeler au préalale la méthode Emplacement::registerScene() afin de renseigner les coordonnées et la rotation de l'emplacement sur la scène.
-         * Pour actualiser l'affichage graphique de l'emplacement sur une scène précise, il suffit d'appeler cette méthode avec la scène en paramètre. Si aucune scène n'est passée en argument, toutes les scènes sont mises à jour.
+         * Dessine l'emplacement sur la scène configurée dans le constructeur.
          */
-        void dessiner(QGraphicsScene* scene = 0);
+        void dessiner();
         
         
         

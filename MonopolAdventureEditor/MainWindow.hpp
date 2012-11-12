@@ -11,7 +11,6 @@
 
 #include "assistants/creationPlateau/AssistantCreationPlateau.hpp"
 #include "donnees/Plateau.hpp"
-#include "widgetsEditeurs/ListeRegroupementEditWidget.hpp"
 
 
 

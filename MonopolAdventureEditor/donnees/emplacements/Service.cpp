@@ -16,9 +16,32 @@ Service::Service(const GraphismeEmplacementInfos& graphismeInfos,
 
 
 
+Service::Service(const Service& service) :
+    Propriete(service),
+    m_loyers(service.m_loyers)
+{
+    
+}
+
+
+
+
+
 Service::~Service()
 {
     
+}
+
+
+
+
+
+Service& Service::operator =(const Service& service)
+{
+    Propriete::operator =(service);
+    m_loyers = service.m_loyers;
+    
+    return *this;
 }
 
 

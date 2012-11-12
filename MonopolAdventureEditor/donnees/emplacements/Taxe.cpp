@@ -20,9 +20,39 @@ Taxe::Taxe(const GraphismeEmplacementInfos& graphismeInfos,
 
 
 
+Taxe::Taxe(const Taxe& taxe) :
+    Emplacement(taxe),
+    m_payeMontantFixe(taxe.m_payeMontantFixe),
+    m_montantFixe(taxe.m_montantFixe),
+    m_payePourcentageFortune(taxe.m_payePourcentageFortune),
+    m_pourcentageFortune(taxe.m_pourcentageFortune),
+    m_devise(taxe.m_devise)
+{
+    
+}
+
+
+
+
+
 Taxe::~Taxe()
 {
     
+}
+
+
+
+
+
+Taxe& Taxe::operator =(const Taxe& taxe)
+{
+    Emplacement::operator =(taxe);
+    m_payeMontantFixe = taxe.m_payeMontantFixe;
+    m_montantFixe = taxe.m_montantFixe;
+    m_payePourcentageFortune = taxe.m_payePourcentageFortune;
+    m_pourcentageFortune = taxe.m_pourcentageFortune;
+    
+    return *this;
 }
 
 
@@ -58,6 +88,12 @@ void Taxe::enableMontantFixe(const quint16 montant)
     {
         m_montantFixe = montant;
     }
+    
+    // Mise à jour de l'affichage.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
+    }
 }
 
 
@@ -68,6 +104,12 @@ void Taxe::disableMontantFixe()
 {
     m_payeMontantFixe = false;
     m_montantFixe = 0;
+    
+    // Mise à jour de l'affichage.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
+    }
 }
 
 
@@ -103,6 +145,12 @@ void Taxe::enablePourcentageFortune(const quint8 pourcentage)
     {
         m_pourcentageFortune = pourcentage;
     }
+    
+    // Mise à jour de l'affichage.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
+    }
 }
 
 
@@ -113,6 +161,12 @@ void Taxe::disablePourcentageFortune()
 {
     m_payePourcentageFortune = false;
     m_pourcentageFortune = 0;
+    
+    // Mise à jour de l'affichage.
+    if (m_elementGraphique)
+    {
+        m_elementGraphique->updatePrix(helper_getPrix());
+    }
 }
 
 
