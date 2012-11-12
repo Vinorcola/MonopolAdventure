@@ -67,6 +67,7 @@ void ListeRegroupementEditWidget::changeRegroupementEdite(int index)
 void ListeRegroupementEditWidget::createRegroupement()
 {
     m_vueRegroupements->setCurrentIndex(m_modeleRegroupement->createRegroupement());
+    m_boutonSupprimer->setEnabled(true);
 }
 
 
@@ -85,6 +86,11 @@ void ListeRegroupementEditWidget::deleteRegroupement()
     }
     else
     {
+        /* Suppression du regroupement.
+         */
+        m_modeleRegroupement->deleteRegroupementAt(rowSelectionne);
+        
+        
         /* Sélection d'un nouveau regroupement pour l'édition.
          * Si le regroupement à supprimer est le dernier de la liste, on sélectionne le précédent. Sinon, on sélectionne
          * le suivant.
@@ -97,10 +103,15 @@ void ListeRegroupementEditWidget::deleteRegroupement()
         {
             m_widgetEditionRegroupement->changeRegroupement(m_modeleRegroupement->getRegroupementAt(rowSelectionne + 1));
         }
-        
-        /* Suppression du regroupement.
-         */
-        m_modeleRegroupement->deleteRegroupementAt(rowSelectionne);
+    }
+    
+    
+    
+    /* S'il n'y a plus qu'un seul regroupement, on désactive la suppression.
+     */
+    if (m_modeleRegroupement->rowCount() == 1)
+    {
+        m_boutonSupprimer->setEnabled(false);
     }
 }
 
