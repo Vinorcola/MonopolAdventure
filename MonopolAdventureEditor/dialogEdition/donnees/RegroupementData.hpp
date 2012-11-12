@@ -85,6 +85,14 @@ class RegroupementData
         
         
         /**
+         * Retourne la liste des terrains contenus dans le regroupement.
+         * @return Liste des terrains contenus dans le regroupement.
+         */
+        const QList<TerrainData*>& getListeTerrains() const;
+        
+        
+        
+        /**
          * Transfère un terrain vers un autre regroupement.
          * @param regroupement Regroupement récupérant le terrain.
          * @param rowTerrain Rang désignant le terrains à transférer.

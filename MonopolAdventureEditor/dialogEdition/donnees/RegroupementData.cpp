@@ -104,6 +104,15 @@ TerrainListModel* RegroupementData::getModeleTerrains() const
 
 
 
+const QList<TerrainData*>& RegroupementData::getListeTerrains() const
+{
+    return m_terrains;
+}
+
+
+
+
+
 void RegroupementData::transfereTerrainA(RegroupementData* regroupement,
                                          int rowTerrain)
 {
