@@ -107,6 +107,9 @@ TerrainListModel* RegroupementData::getModeleTerrains() const
 void RegroupementData::transfereTerrainA(RegroupementData* regroupement,
                                          int rowTerrain)
 {
-    regroupement->m_modeleTerrains->insertTerrain(m_modeleTerrains->enleveTerrain(rowTerrain));
+    if (rowTerrain >= 0 && rowTerrain < m_terrains.count())
+    {
+        regroupement->m_modeleTerrains->insertTerrain(m_modeleTerrains->enleveTerrain(rowTerrain));
+    }
 }
 

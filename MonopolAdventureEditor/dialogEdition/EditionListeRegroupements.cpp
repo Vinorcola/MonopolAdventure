@@ -6,10 +6,9 @@
 
 EditionListeRegroupements::EditionListeRegroupements(QList<Regroupement*>& regroupements,
                                                      QWidget* parent) :
-    QDialog(parent),
+    m_dialog(new QDialog(parent)),
     m_listeOriginale(regroupements),
-    m_listeEditable(),
-    m_modeleRegroupementsEditables(0)
+    m_listeEditable()
 {
     /* Création de la liste éditable.
      */
@@ -17,12 +16,6 @@ EditionListeRegroupements::EditionListeRegroupements(QList<Regroupement*>& regro
     {
         m_listeEditable << new RegroupementData(m_listeOriginale.at(i));
     }
-    
-    
-    
-    /* Création du modèle de données de regroupements.
-     */
-    m_modeleRegroupementsEditables = new RegroupementListModel(m_listeEditable);
     
     
     
@@ -34,17 +27,17 @@ EditionListeRegroupements::EditionListeRegroupements(QList<Regroupement*>& regro
     
     /* Aménagement de la fenêtre de dialogue.
      */
-    setAttribute(Qt::WA_DeleteOnClose);
+    m_dialog->setAttribute(Qt::WA_DeleteOnClose);
     
     QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));
-    QObject::connect(boutons, SIGNAL(accepted()), this, SLOT(accept()));
-    QObject::connect(boutons, SIGNAL(rejected()), this, SLOT(reject()));
+    QObject::connect(boutons, SIGNAL(accepted()), m_dialog, SLOT(accept()));
+    QObject::connect(boutons, SIGNAL(rejected()), m_dialog, SLOT(reject()));
     
     QVBoxLayout* layout(new QVBoxLayout);
     layout->addWidget(m_widgetEditionListeRegroupements);
     layout->addWidget(boutons);
     
-    setLayout(layout);
+    m_dialog->setLayout(layout);
 }
 
 
@@ -58,12 +51,6 @@ EditionListeRegroupements::~EditionListeRegroupements()
     {
         delete m_listeEditable.takeLast();
     }
-    
-    // Destruction des modèles.
-    if (m_modeleRegroupementsEditables)
-    {
-        delete m_modeleRegroupementsEditables;
-    }
 }
 
 
@@ -74,7 +61,7 @@ bool EditionListeRegroupements::executer()
 {
     /* Execution de la fenêtre.
      */
-    if (exec())
+    if (m_dialog->exec())
     {
         /* Sauvegarde des données.
          */

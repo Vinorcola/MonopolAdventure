@@ -18,15 +18,12 @@
  * @class EditionListeRegroupements EditionListeRegroupements.hpp dialogEdition/EditionListeRegroupements.hpp
  * Cette classe contrôle l'édition de la liste des regroupements.
  */
-class EditionListeRegroupements : private QDialog
+class EditionListeRegroupements
 {
-        Q_OBJECT
-        
-        
     private:
+        QDialog* m_dialog;///< Boîte de dialogue affichant le widget d'édition.
         QList<Regroupement*>& m_listeOriginale;///< Référence vers la liste originale des regroupements.
         QList<RegroupementData*> m_listeEditable;///< Liste de structures de données contenant les informations éditable des regroupements.
-        RegroupementListModel* m_modeleRegroupementsEditables;///< Modèle de données contenant une liste affichable des regroupements éditables.
         ListeRegroupementEditWidget* m_widgetEditionListeRegroupements;///< Widget d'édition de la liste de regroupements.
         
         

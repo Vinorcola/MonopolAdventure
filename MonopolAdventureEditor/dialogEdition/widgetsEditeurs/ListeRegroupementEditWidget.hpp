@@ -39,12 +39,6 @@ class ListeRegroupementEditWidget : public QWidget
         ListeRegroupementEditWidget(QList<RegroupementData*>& regroupements);
         
         
-        ~ListeRegroupementEditWidget()
-        {
-            
-        }
-        
-        
         
         /**
          * Sélectionne un regroupement précis pour l'édition.
