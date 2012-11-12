@@ -18,6 +18,8 @@ SOURCES += main.cpp \
         assistants/creationPlateau/PageOuvrir.cpp \
         assistants/creationPlateau/PagePrix.cpp \
         assistants/creationPlateau/PageTaille.cpp \
+        dialogEdition/donnees/RegroupementData.cpp \
+        dialogEdition/donnees/TerrainData.cpp \
         dialogEdition/modeles/TerrainListModel.cpp \
         dialogEdition/modeles/SelectionRegroupementListModel.cpp \
         dialogEdition/modeles/RegroupementListModel.cpp \
@@ -57,13 +59,14 @@ HEADERS  += global.hpp \
         assistants/creationPlateau/PageOuvrir.hpp \
         assistants/creationPlateau/PagePrix.hpp \
         assistants/creationPlateau/PageTaille.hpp \
+        dialogEdition/donnees/RegroupementData.hpp \
+        dialogEdition/donnees/TerrainData.hpp \
         dialogEdition/modeles/TerrainListModel.hpp \
         dialogEdition/modeles/SelectionRegroupementListModel.hpp \
         dialogEdition/modeles/RegroupementListModel.hpp \
         dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
         dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
         dialogEdition/EditionListeRegroupements.hpp \
-        dialogEdition/StructuresEditionListeRegroupements.hpp \
         donnees/cartes/Action.hpp \
         donnees/cartes/Carte.hpp \
         donnees/cartes/PileCartes.hpp \

@@ -37,7 +37,7 @@ class ColorSelectWidget : public QWidget
          * @param defaultColor Couleur sélectionnée par défaut.
          */
         ColorSelectWidget(QWidget* parent,
-                          const QColor& defaultColor = QColor(0, 0, 0));
+                          const QColor& defaultColor = QColor(255, 255, 255));
         
         
         

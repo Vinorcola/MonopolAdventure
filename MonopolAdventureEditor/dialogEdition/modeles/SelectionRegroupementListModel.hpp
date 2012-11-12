@@ -3,9 +3,7 @@
 
 #include <QAbstractListModel>
 
-#include "donnees/emplacements/Regroupement.hpp"
-#include "modeles/TerrainListModel.hpp"
-class RegroupementListModel;
+#include "dialogEdition/donnees/RegroupementData.hpp"
 
 
 
@@ -13,11 +11,11 @@ class RegroupementListModel;
 
 /**
  * @class SelectionRegroupementListModel SelectionRegroupementListModel.hpp modeles/SelectionRegroupementListModel.hpp
- * Cette classe représente un modèle de données contenant une liste de regroupements. Un de ces regroupement peut-être désactivé à la sélection.
+ * Cette classe représente un modèle de données contenant une liste de regroupements sélectionnable. Un de ces regroupement peut-être désactivé à la sélection.
  * 
  * Ce modèle sert pour la configuration des terrains d'un regroupement. Le regroupement en cours d'édition est masqué, ainsi, l'utilisateur peut sélectionné un des autres regroupements existant et transférer des terrains d'un regroupement à un autre.
  * 
- * Cette classe ne devrait pas être manipulée directement. Elle est utilisée par la classe RegroupementListModel.
+ * Cette classe ne devrait pas être manipulée directement. Elle fonctionne de pair avec la classe RegroupementListModel.
  */
 class SelectionRegroupementListModel : public QAbstractListModel
 {
@@ -28,24 +26,23 @@ class SelectionRegroupementListModel : public QAbstractListModel
         
         
     private:
-        QList<Regroupement*>& m_regroupements;///< Référence vers la liste de Regroupements.
-        int m_rangRegroupementInactif;///< Indique l'éventuel Regroupement inactif (-1 pour aucun).
-        QHash<Regroupement*, TerrainListModel*> m_terrainListModels;///< Table des modèles de données de terains.
+        QList<RegroupementData*>& m_regroupements;///< Référence vers la liste de regroupements.
+        int m_rangRegroupementInactif;///< Indique l'éventuel regroupement inactif (-1 pour aucun).
         
         
         
-    public:
+    private:
         /**
          * Construit un nouveau modèle de données avec les regroupements contenus dans la liste @a regroupements.
          * @param regroupements Liste des regroupements.
          * @param parent QObject parent.
          */
-    public:
-        SelectionRegroupementListModel(QList<Regroupement*>& regroupements,
+        SelectionRegroupementListModel(QList<RegroupementData*>& regroupements,
                                        QObject* parent);
         
         
         
+    public:
         /**
          * Renseigne diverses informations nécessaires aux QWidgets vues.
          * @param index Index correspondant au Terrain concerné.
@@ -66,22 +63,18 @@ class SelectionRegroupementListModel : public QAbstractListModel
         
         
         /**
-         * Retourne le rang du regroupement @a regroupement.
-         * @param regroupement Regroupement à chercher.
-         * @return Rang du regroupement @æ regroupement.
+         * Retourne le regroupement situé au rang @a row.
+         * @param row Rang du regroupement à retourner.
          */
-        int getRow(Regroupement* regroupement) const;
+        RegroupementData* getRegroupementAt(int row) const;
         
         
         
         /**
-         * Retourne un pointeur vers le modèle de données des terrains contenu dans le regroupement au rang @a row.
-         * @param row Rang du regroupement concerné.
-         * @return Modèle de données contenant la liste des terrains contenu sous le regroupement au rang @a row.
-         * 
-         * L'utilisateur n'a pas à se soucier de la destruction du modèle de données. Il sera détruit automatiquement lorsque l'objet SelectionRegroupementListModel sera détruit.
+         * Indique si le regroupement au rang @a row est sélectionnable.
+         * @return @b @c true si le regroupement est sélectionnable.
          */
-        TerrainListModel* getTerrainListModel(const int row);
+        bool isSelectionnable(int row) const;
         
         
         
@@ -99,7 +92,7 @@ class SelectionRegroupementListModel : public QAbstractListModel
          * Notifie au modèle de données que le regroupement @a regroupement doit être désactivé à la sélection.
          * @param regroupement Regroupement à désactiver.
          */
-        void notifyRegroupementInactif(Regroupement* regroupement);
+        void notifyRegroupementInactif(RegroupementData* regroupement);
 };
 
 #endif // SELECTIONREGROUPEMENTLISTMODEL_HPP

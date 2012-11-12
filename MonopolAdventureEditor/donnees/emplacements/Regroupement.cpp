@@ -135,3 +135,12 @@ Terrain* Regroupement::getTerrain(int index) const
     return at(index);
 }
 
+
+
+
+
+QList<Terrain*> Regroupement::getListeTerrains() const
+{
+    return *this;
+}
+

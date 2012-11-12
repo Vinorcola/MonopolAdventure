@@ -5,35 +5,22 @@
 
 
 
-RegroupementListModel::RegroupementListModel(QList<Regroupement*>& regroupements,
-                                             QObject* parent) :
-    QAbstractListModel(parent),
+RegroupementListModel::RegroupementListModel(QList<RegroupementData*>& regroupements) :
+    QAbstractListModel(),
     m_regroupements(regroupements),
-    m_modeleSecondaire(new SelectionRegroupementListModel(regroupements, this))
+    m_modeleRegroupementsSelectionnables(new SelectionRegroupementListModel(regroupements, this))
 {
-    
-}
-
-
-
-
-
-void RegroupementListModel::createRegroupement()
-{
-    /* Création du nouveau regroupement.
+    /* Si le modèle de données ne possède qu'un seul regroupement, on l'interdit à la sélection. Sinon, on
+     * interdit le deuxième à la sélection.
      */
-    Regroupement* regroupement(new Regroupement);
-    
-    
-    /* Insertion du nouveau regroupement dans le modèle de données.
-     */
-    beginInsertRows(QModelIndex(), m_regroupements.count(), m_regroupements.count());
-    m_modeleSecondaire->beginInsertRows(QModelIndex(), m_regroupements.count(), m_regroupements.count());
-    
-    m_regroupements.append(regroupement);
-    
-    endInsertRows();
-    m_modeleSecondaire->endInsertRows();
+    if (regroupements.count() > 1)
+    {
+        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(m_regroupements.at(1));
+    }
+    else
+    {
+        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(m_regroupements.first());
+    }
 }
 
 
@@ -63,36 +50,16 @@ QVariant RegroupementListModel::data(const QModelIndex& index,
 
 
 
-void RegroupementListModel::deleteRegroupement(int row)
+SelectionRegroupementListModel* RegroupementListModel::getModeleRegroupementsSelectionnables() const
 {
-    if (row >= 0 && row < rowCount())
-    {
-        /* On enlève le regroupement du modèle de données et on le supprime.
-         */
-        beginRemoveRows(QModelIndex(), row, row);
-        m_modeleSecondaire->beginRemoveRows(QModelIndex(), row, row);
-        
-        delete m_regroupements.takeAt(row);
-        
-        endRemoveRows();
-        m_modeleSecondaire->endRemoveRows();
-    }
+    return m_modeleRegroupementsSelectionnables;
 }
 
 
 
 
 
-SelectionRegroupementListModel* RegroupementListModel::getModeleSecondaire() const
-{
-    return m_modeleSecondaire;
-}
-
-
-
-
-
-Regroupement* RegroupementListModel::getRegroupement(const int row) const
+RegroupementData* RegroupementListModel::getRegroupementAt(int row) const
 {
     if (row >= 0 && row < rowCount())
     {
@@ -115,11 +82,37 @@ int RegroupementListModel::rowCount(const QModelIndex&) const
 
 
 
-void RegroupementListModel::notifyRegroupementSelectionne(int row)
+int RegroupementListModel::createRegroupement()
 {
-    if (row >= 0 && row < rowCount())
+    int rang(m_regroupements.count());
+    beginInsertRows(QModelIndex(), rang, rang);
+    m_modeleRegroupementsSelectionnables->beginInsertRows(QModelIndex(), rang, rang);
+    
+    m_regroupements.append(new RegroupementData);
+    
+    endInsertRows();
+    m_modeleRegroupementsSelectionnables->endInsertRows();
+    
+    return rang;
+}
+
+
+
+
+
+void RegroupementListModel::deleteRegroupementAt(int row)
+{
+    /* On vérifie bien que le regroupement ne possède plus aucun terrainavant de la supprimer.
+     */
+    if (row >= 0 && row < rowCount() && m_regroupements.at(row)->getModeleTerrains()->rowCount() == 0)
     {
-        m_modeleSecondaire->m_rangRegroupementInactif = row;
+        beginRemoveRows(QModelIndex(), row, row);
+        m_modeleRegroupementsSelectionnables->beginRemoveRows(QModelIndex(), row, row);
+        
+        delete m_regroupements.takeAt(row);
+        
+        endRemoveRows();
+        m_modeleRegroupementsSelectionnables->endRemoveRows();
     }
 }
 

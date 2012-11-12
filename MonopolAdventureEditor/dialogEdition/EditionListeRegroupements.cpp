@@ -4,46 +4,88 @@
 
 
 
-EditionListeRegroupements::EditionListeRegroupements(QList<Regroupement*>& regroupements) :
+EditionListeRegroupements::EditionListeRegroupements(QList<Regroupement*>& regroupements,
+                                                     QWidget* parent) :
+    QDialog(parent),
     m_listeOriginale(regroupements),
     m_listeEditable(),
-    m_modeleRegroupementsEditables(0),
-    m_modeleRegroupementsSelectionnables(0)
+    m_modeleRegroupementsEditables(0)
 {
     /* Création de la liste éditable.
-     * L'index des terrains va servir à ordonner les terrains. On attribut à chaque terrain un index unique qui
-     * s'incrémente au fur et à mesure.
      */
-    int indexTerrain(0);
     for (int i(0), iEnd(m_listeOriginale.count()); i < iEnd; ++i)
     {
-        Regroupement* regroupement(m_listeOriginale.at(i));
-        
-        /* Création et configuration d'un nouveau regroupementData.
+        m_listeEditable << new RegroupementData(m_listeOriginale.at(i));
+    }
+    
+    
+    
+    /* Création du modèle de données de regroupements.
+     */
+    m_modeleRegroupementsEditables = new RegroupementListModel(m_listeEditable);
+    
+    
+    
+    /* Création du widget d'édition.
+     */
+    m_widgetEditionListeRegroupements = new ListeRegroupementEditWidget(m_listeEditable);
+    
+    
+    
+    /* Aménagement de la fenêtre de dialogue.
+     */
+    setAttribute(Qt::WA_DeleteOnClose);
+    
+    QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));
+    QObject::connect(boutons, SIGNAL(accepted()), this, SLOT(accept()));
+    QObject::connect(boutons, SIGNAL(rejected()), this, SLOT(reject()));
+    
+    QVBoxLayout* layout(new QVBoxLayout);
+    layout->addWidget(m_widgetEditionListeRegroupements);
+    layout->addWidget(boutons);
+    
+    setLayout(layout);
+}
+
+
+
+
+
+EditionListeRegroupements::~EditionListeRegroupements()
+{
+    // Destruction des regroupementData.
+    for (int i(0), iEnd(m_listeEditable.count()); i < iEnd; ++i)
+    {
+        delete m_listeEditable.takeLast();
+    }
+    
+    // Destruction des modèles.
+    if (m_modeleRegroupementsEditables)
+    {
+        delete m_modeleRegroupementsEditables;
+    }
+}
+
+
+
+
+
+bool EditionListeRegroupements::executer()
+{
+    /* Execution de la fenêtre.
+     */
+    if (exec())
+    {
+        /* Sauvegarde des données.
          */
-        RegroupementData* regroupementData;
-        regroupementData->titre = regroupement->getTitre();
-        regroupementData->couleur = regroupement->getCouleur();
         
-        /* Configuration de la liste des terrains.
-         */
-        for (int j(0), jEnd(regroupement->getNombreTerrains()); j < jEnd; ++j)
-        {
-            Terrain* terrain(regroupement->getTerrain(j));
-            regroupementData->terrains.at(i)->index = indexTerrain;
-            regroupementData->terrains.at(i)->titre = terrain->getTitre();
-            regroupementData->terrains.at(i)->pointeur = terrain;
-            
-            indexTerrain++;
-        }
         
-        /* Configuration du modèle de données.
-         */
-        regroupementData->modeleTerrains = new TerrainListModel(regroupementData->terrains);
         
-        /* Ajout du nouveau regroupementData dans la liste.
-         */
-        m_listeEditable << regroupementData;
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 

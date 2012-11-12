@@ -3,8 +3,7 @@
 
 #include <QAbstractListModel>
 
-#include "donnees/emplacements/Regroupement.hpp"
-#include "modeles/SelectionRegroupementListModel.hpp"
+#include "dialogEdition/modeles/SelectionRegroupementListModel.hpp"
 
 
 
@@ -20,8 +19,8 @@ class RegroupementListModel : public QAbstractListModel
         
         
     private:
-        QList<Regroupement*>& m_regroupements;///< Référence vers la liste de Regroupements.
-        SelectionRegroupementListModel* m_modeleSecondaire;///< Modèle de données secondaire permettant l'édition de terrains.
+        QList<RegroupementData*>& m_regroupements;///< Référence vers la liste de regroupements.
+        SelectionRegroupementListModel* m_modeleRegroupementsSelectionnables;///< Modèle de données secondaire contenant une liste des regroupements sélectionnables.
         
         
         
@@ -29,17 +28,8 @@ class RegroupementListModel : public QAbstractListModel
         /**
          * Construit un nouveau modèle de données avec les regroupements contenus dans la liste @a regroupements.
          * @param regroupements Liste des regroupements.
-         * @param parent QObject parent.
          */
-        RegroupementListModel(QList<Regroupement*>& regroupements,
-                              QObject* parent);
-        
-        
-        
-        /**
-         * Créé un nouveau regroupement et l'ajoute dans le modèle de données.
-         */
-        void createRegroupement();
+        RegroupementListModel(QList<RegroupementData*>& regroupements);
         
         
         
@@ -55,27 +45,19 @@ class RegroupementListModel : public QAbstractListModel
         
         
         /**
-         * Supprime le regroupement situé au rang @a row.
-         * @param row Rang du regroupement à supprimer.
+         * Retourne le modèle de données des regroupements sélectionnables.
+         * @return Modèle de données des regroupements sélectionnables.
          */
-        void deleteRegroupement(int row);
+        SelectionRegroupementListModel* getModeleRegroupementsSelectionnables() const;
         
         
         
         /**
-         * Retourne le modèle de données secondaire servant à éditer les terrains présents dans un regroupement en cours d'édition.
-         * @return Modèle de données secondaire.
-         */
-        SelectionRegroupementListModel* getModeleSecondaire() const;
-        
-        
-        
-        /**
-         * Retourne le regroupement au rang @a row.
+         * Retourne le regroupement situé au rang @a row.
          * @param row Rang du regroupement à retourner.
-         * @return Regroupement au rang @a row.
+         * @return Regroupement situé au rang @a row.
          */
-        Regroupement* getRegroupement(const int row) const;
+        RegroupementData* getRegroupementAt(int row) const;
         
         
         
@@ -88,12 +70,18 @@ class RegroupementListModel : public QAbstractListModel
         
         
         
-    public slots:
         /**
-         * Notifie au modèle de données le regroupement sélectionné dans la vue.
-         * @param row Rang du regroupement sélectionné.
+         * Créé un nouveau regroupement et l'insert dans le modèle de données.
          */
-        void notifyRegroupementSelectionne(int row);
+        int createRegroupement();
+        
+        
+        
+        /**
+         * Enlève un regroupement du modèle de données (seulement si le regroupement ne possède plus aucun terrain) et le supprime.
+         * @param row Rang du regroupement à supprimer dans le modèle de données.
+         */
+        void deleteRegroupementAt(int row);
 };
 
 #endif // REGROUPEMENTLISTMODEL_HPP

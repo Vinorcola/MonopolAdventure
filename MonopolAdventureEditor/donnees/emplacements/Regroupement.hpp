@@ -107,6 +107,14 @@ class Regroupement : private QList<Terrain*>
          * @return Terrain situé à l'index @a index.
          */
         Terrain* getTerrain(int index) const;
+        
+        
+        
+        /**
+         * Retourne la liste des terrains contenus.
+         * @return Liste des terrains contenus.
+         */
+        QList<Terrain*> getListeTerrains() const;
 };
 
 #endif // REGROUPEMENTINFOS_HPP

@@ -9,6 +9,7 @@
 #include <QString>
 #include <QtCore/qmath.h>
 
+#include "dialogEdition/EditionListeRegroupements.hpp"
 #include "donnees/cartes/PileCartes.hpp"
 #include "donnees/emplacements/Depart.hpp"
 #include "donnees/emplacements/Prison.hpp"
@@ -16,7 +17,6 @@
 #include "donnees/emplacements/SimpleVisite.hpp"
 #include "donnees/emplacements/Terrain.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
-#include "widgetsEditeurs/ListeRegroupementEditWidget.hpp"
 
 
 

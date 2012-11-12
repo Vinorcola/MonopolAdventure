@@ -4,53 +4,82 @@
 
 
 
-RegroupementEditWidget::RegroupementEditWidget(SelectionRegroupementListModel* regroupementModel,
-                                               Regroupement* regroupement) :
+RegroupementEditWidget::RegroupementEditWidget(RegroupementData* regroupement,
+                                               SelectionRegroupementListModel* modeleRegroupementsSelectionnables) :
     QWidget(),
-    m_regroupementModel(regroupementModel),
-    m_regroupement(0),
-    m_champTitre(new QLineEdit),
-    m_champCouleur(new ColorSelectWidget(this)),
-    m_champListeTerrains(new QListView),
-    m_boutonAdd(new QPushButton(tr("< Ajouter <"))),
-    m_boutonRemove(new QPushButton(tr("> Enlever >"))),
-    m_selectAutreRegroupement(new QComboBox),
-    m_listeTerrainsDisponibles(new QListView)
-    
+    m_regroupement(regroupement),
+    m_champTitre(new QLineEdit(m_regroupement ? m_regroupement->getTitre() : "")),
+    m_champCouleur(new ColorSelectWidget(this, m_regroupement ? m_regroupement->getCouleur() : QColor(255, 255, 255))),
+    m_modeleRegroupementsSelectionnables(modeleRegroupementsSelectionnables),
+    m_vueRegroupementsSelectionnables(new QComboBox),
+    m_vueTerrainsInternes(new QListView),
+    m_vueTerrainsExternes(new QListView),
+    m_boutonAjouter(new QPushButton("< " + tr("Ajouter") + " <")),
+    m_boutonEnlever(new QPushButton("> " + tr("Enlever") + " >"))
 {
+    /* Détermination du regroupement sélectionné (pour l'importation des terrains dans le regroupement en cours 
+     * d'édition).
+     */
+    int rowSelectionne(0);
+    if (m_modeleRegroupementsSelectionnables->rowCount() > 1)
+    {
+        if (m_regroupement == m_modeleRegroupementsSelectionnables->getRegroupementAt(rowSelectionne))
+        {
+            /* Si le regroupement en cours d'édition est le premier de la liste, alors on sélectionne le deuxième.
+             */
+            rowSelectionne = 1;
+        }
+    }
+    else
+    {
+        /* On désactive les champs car il n'y a qu'un seul regroupement dans le modèle de données.
+         */
+        m_vueRegroupementsSelectionnables->setEnabled(false);
+        m_vueTerrainsExternes->setEnabled(false);
+        m_boutonAjouter->setEnabled(false);
+        m_boutonEnlever->setEnabled(false);
+    }
+    
+    
+    
+    /* Associations modèles/vues.
+     */
+    m_vueRegroupementsSelectionnables->setModel(m_modeleRegroupementsSelectionnables);
+    m_vueRegroupementsSelectionnables->setCurrentIndex(rowSelectionne);
+    m_vueTerrainsInternes->setModel(m_regroupement->getModeleTerrains());
+    m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(rowSelectionne)->getModeleTerrains());
+    
+    
+    
     /* Configuration des champs.
      */
-    connect(m_champTitre, SIGNAL(textChanged(QString)), this, SLOT(champTitreChanged(QString)));
-    connect(m_champCouleur, SIGNAL(colorChange(QColor)), this, SLOT(champCouleurChanged(QColor)));
-    connect(m_selectAutreRegroupement, SIGNAL(currentIndexChanged(int)), this, SLOT(selectAutreRegroupementChanged(int)));
-    connect(m_boutonAdd, SIGNAL(clicked()), this, SLOT(boutonAddClicked()));
-    connect(m_boutonRemove, SIGNAL(clicked()), this, SLOT(boutonRemoveClicked()));
-    
-    // Les slots doivent être connectés avant les deux configurations suivantes :
-    m_selectAutreRegroupement->setModel(m_regroupementModel);
-    changeRegroupement(regroupement);
+    connect(m_champTitre, SIGNAL(textChanged(QString)), this, SLOT(changeTitre(QString)));
+    connect(m_champCouleur, SIGNAL(colorChange(QColor)), this, SLOT(changeCouleur(QColor)));
+    connect(m_vueRegroupementsSelectionnables, SIGNAL(currentIndexChanged(int)), this, SLOT(changeModeleTerrainsExterne(int)));
+    connect(m_boutonAjouter, SIGNAL(clicked()), this, SLOT(ajouterTerrain()));
+    connect(m_boutonEnlever, SIGNAL(clicked()), this, SLOT(enleverTerrain()));
     
     
     
     /* Mise en forme.
      */
     QVBoxLayout* layoutBouton(new QVBoxLayout);
-    layoutBouton->addWidget(m_boutonAdd);
-    layoutBouton->addWidget(m_boutonRemove);
+    layoutBouton->addWidget(m_boutonAjouter);
+    layoutBouton->addWidget(m_boutonEnlever);
     
-    QVBoxLayout* layoutTerrainDispo(new QVBoxLayout);
-    layoutTerrainDispo->addWidget(m_selectAutreRegroupement);
-    layoutTerrainDispo->addWidget(m_listeTerrainsDisponibles);
+    QVBoxLayout* layoutTerrainsExternes(new QVBoxLayout);
+    layoutTerrainsExternes->addWidget(m_vueRegroupementsSelectionnables);
+    layoutTerrainsExternes->addWidget(m_vueTerrainsExternes);
     
-    QHBoxLayout* layoutListe(new QHBoxLayout);
-    layoutListe->addWidget(m_champListeTerrains);
-    layoutListe->addLayout(layoutBouton);
-    layoutListe->addLayout(layoutTerrainDispo);
+    QHBoxLayout* layoutTerrains(new QHBoxLayout);
+    layoutTerrains->addWidget(m_vueTerrainsInternes);
+    layoutTerrains->addLayout(layoutBouton);
+    layoutTerrains->addLayout(layoutTerrainsExternes);
     
     QFormLayout* layout(new QFormLayout);
     layout->addRow(tr("Titre"), m_champTitre);
     layout->addRow(tr("Couleur"), m_champCouleur);
-    layout->addRow(tr("Terrains"), layoutListe);
+    layout->addRow(tr("Terrains"), layoutTerrains);
     
     setLayout(layout);
 }
@@ -59,27 +88,64 @@ RegroupementEditWidget::RegroupementEditWidget(SelectionRegroupementListModel* r
 
 
 
-void RegroupementEditWidget::changeRegroupement(Regroupement* regroupement)
+void RegroupementEditWidget::changeRegroupement(RegroupementData* regroupement)
 {
     if (regroupement)
     {
+        /* Mise à jour des champs d'édition.
+         */
         m_regroupement = regroupement;
-        updateRegroupement();
+        m_champTitre->setText(m_regroupement->getTitre());
+        m_champCouleur->setColor(m_regroupement->getCouleur());
+        m_vueTerrainsInternes->setModel(m_regroupement->getModeleTerrains());
         
-        if (m_regroupementModel->rowCount() <= 1)
+        
+        
+        /* Configuration de la liste des regroupements sélectionnables.
+         */
+        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(m_regroupement);
+        int indexCourant(m_vueRegroupementsSelectionnables->currentIndex());
+        if (m_modeleRegroupementsSelectionnables->rowCount() == 1)
         {
-            m_boutonAdd->setEnabled(false);
-            m_boutonRemove->setEnabled(false);
-            m_selectAutreRegroupement->setEnabled(false);
-            m_listeTerrainsDisponibles->setEnabled(false);
+            /* Dans le cas où il ne reste plus qu'un regroupement dans le modèle de données, alors on le sélectionne,
+             * puis on désactive les champs associés.
+             */
+            indexCourant = 0;
+            m_vueRegroupementsSelectionnables->setCurrentIndex(indexCourant);
+            m_vueRegroupementsSelectionnables->setEnabled(false);
+            m_vueTerrainsExternes->setEnabled(false);
+            m_boutonAjouter->setEnabled(false);
+            m_boutonEnlever->setEnabled(false);
         }
         else
         {
-            m_boutonAdd->setEnabled(true);
-            m_boutonRemove->setEnabled(true);
-            m_selectAutreRegroupement->setEnabled(true);
-            m_listeTerrainsDisponibles->setEnabled(true);
+            /* Dans le cas où il y a plusieurs regroupements dans le modèle de données, alors on active les champs. Si
+             * le regroupement en cours d'édition était celui sélectionné au préalable, alors on sélectionne le suivant
+             * (ou le précédent s'il était le dernier de la liste).
+             */
+            if (!m_modeleRegroupementsSelectionnables->isSelectionnable(indexCourant))
+            {
+                if (indexCourant == m_modeleRegroupementsSelectionnables->rowCount() - 1)
+                {
+                    indexCourant--;
+                }
+                else
+                {
+                    indexCourant++;
+                }
+                
+                m_vueRegroupementsSelectionnables->setCurrentIndex(indexCourant);
+            }
+            
+            m_vueRegroupementsSelectionnables->setEnabled(true);
+            m_vueTerrainsExternes->setEnabled(true);
+            m_boutonAjouter->setEnabled(true);
+            m_boutonEnlever->setEnabled(true);
         }
+        
+        /* Mise à jour de la liste des terrains importable.
+         */
+        m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(indexCourant)->getModeleTerrains());
     }
 }
 
@@ -87,7 +153,34 @@ void RegroupementEditWidget::changeRegroupement(Regroupement* regroupement)
 
 
 
-void RegroupementEditWidget::champTitreChanged(const QString& titre)
+void RegroupementEditWidget::changeModeleTerrainsExterne(int rowRegroupementSelectionne)
+{
+    m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(rowRegroupementSelectionne)->getModeleTerrains());
+}
+
+
+
+
+
+void RegroupementEditWidget::ajouterTerrain()
+{
+    m_modeleRegroupementsSelectionnables->getRegroupementAt(m_vueRegroupementsSelectionnables->currentIndex())->transfereTerrainA(m_regroupement, m_vueTerrainsExternes->currentIndex().row());
+}
+
+
+
+
+
+void RegroupementEditWidget::enleverTerrain()
+{
+    m_regroupement->transfereTerrainA(m_modeleRegroupementsSelectionnables->getRegroupementAt(m_vueRegroupementsSelectionnables->currentIndex()), m_vueTerrainsInternes->currentIndex().row());
+}
+
+
+
+
+
+void RegroupementEditWidget::changeTitre(QString titre)
 {
     m_regroupement->editTitre(titre);
 }
@@ -96,76 +189,8 @@ void RegroupementEditWidget::champTitreChanged(const QString& titre)
 
 
 
-void RegroupementEditWidget::champCouleurChanged(const QColor& couleur)
+void RegroupementEditWidget::changeCouleur(QColor couleur)
 {
     m_regroupement->editCouleur(couleur);
-}
-
-
-
-
-
-void RegroupementEditWidget::boutonAddClicked()
-{
-    static_cast<TerrainListModel*>(m_listeTerrainsDisponibles->model())->transfererTerrain(m_listeTerrainsDisponibles->currentIndex().row(), static_cast<TerrainListModel*>(m_champListeTerrains->model()));
-}
-
-
-
-
-
-void RegroupementEditWidget::boutonRemoveClicked()
-{
-    static_cast<TerrainListModel*>(m_champListeTerrains->model())->transfererTerrain(m_champListeTerrains->currentIndex().row(), static_cast<TerrainListModel*>(m_listeTerrainsDisponibles->model()));
-}
-
-
-
-
-
-void RegroupementEditWidget::selectAutreRegroupementChanged(int row)
-{
-    // Met à jour la liste des terrains disponibles dans un autre regroupement.
-    m_listeTerrainsDisponibles->setModel(m_regroupementModel->getTerrainListModel(row));
-}
-
-
-
-
-
-void RegroupementEditWidget::updateRegroupement()
-{
-    int index(m_regroupementModel->getRow(m_regroupement));
-    
-    // Mise à jour de la liste des terrains contenus dans le regroupement.
-    m_champListeTerrains->setModel(m_regroupementModel->getTerrainListModel(index));
-    
-    // Met à jour les champs titre et couleur.
-    m_champTitre->setText(m_regroupement->getTitre());
-    m_champCouleur->setColor(m_regroupement->getCouleur());
-    
-    // Met à jour la liste de regroupements
-    m_regroupementModel->notifyRegroupementInactif(m_regroupement);
-    
-    
-    // Si il ne reste plus qu'un regroupement, on le sélectionne (les listes seront désactivés)
-    if (m_regroupementModel->rowCount() == 1)
-    {
-        m_selectAutreRegroupement->setCurrentIndex(0);
-    }
-    // Si le regroupement rendu inactif était déjà sélectionné :
-    else if (m_selectAutreRegroupement->currentIndex() == index)
-    {
-        if (m_regroupementModel->rowCount() - 1 == index)
-        // Si le regroupement sélectionné est le dernier, on sélectionne le précédent.
-        {
-            m_selectAutreRegroupement->setCurrentIndex(index - 1);
-        }
-        else
-        // Sinon, on prend le suivant.
-        {
-            m_selectAutreRegroupement->setCurrentIndex(index + 1);
-        }
-    }
 }
 

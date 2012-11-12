@@ -3,7 +3,7 @@
 
 #include <QAbstractListModel>
 
-#include "dialogEdition/StructuresEditionListeRegroupements.hpp"
+#include "dialogEdition/donnees/TerrainData.hpp"
 
 
 
@@ -19,7 +19,7 @@ class TerrainListModel : public QAbstractListModel
         
         
     private:
-        const QList<TerrainData*>& m_TerrainsData;///< Données éditables d'un regroupement.
+        QList<TerrainData*>& m_TerrainsData;///< Données éditables d'un regroupement.
         
         
         
@@ -28,7 +28,7 @@ class TerrainListModel : public QAbstractListModel
          * Construit un nouveau modèle de données avec les terrains @a terrains.
          * @param terrains Liste des terrains.
          */
-        TerrainListModel(const QList<TerrainData*>& terrains);
+        TerrainListModel(QList<TerrainData*>& terrains);
         
         
         
@@ -49,6 +49,23 @@ class TerrainListModel : public QAbstractListModel
          * @return Nombre de rangs contenus dans le modèle de données.
          */
         int rowCount(const QModelIndex& parent = QModelIndex()) const;
+        
+        
+        
+        /**
+         * Insère le terrain @a terrain dans le modèle de données.
+         * @param terrain Terrain à insérer.
+         */
+        void insertTerrain(TerrainData* terrain);
+        
+        
+        
+        /**
+         * Enlève, du modèle de données, le terrain situé au rang @a row, puis retourne son pointeur.
+         * @param row Rang auquel se situe le terrain.
+         * @return Pointeur du terrain enlevé.
+         */
+        TerrainData* enleveTerrain(int row);
 };
 
 #endif // TERRAINLISTMODEL_HPP

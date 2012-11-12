@@ -547,76 +547,8 @@ const QList<Regroupement*>& Plateau::getListeRegroupement()
 
 void Plateau::editListeRegroupement(QWidget* parent)
 {
-    /* Création de la liste intermédiaire à éditer.
-     */
-    QList<Regroupement*> listeEdition;
-    
-    for (int i(0), iEnd(m_regroupements.count()); i < iEnd; ++i)
-    {
-        listeEdition << new Regroupement(*(m_regroupements.at(i)));
-    }
-    
-    
-    
-    /* Création de la fenêtre d'édition.
-     */
-    QDialog* dialog(new QDialog(parent));
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    
-    QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));
-    connect(boutons, SIGNAL(accepted()), dialog, SLOT(accept()));
-    connect(boutons, SIGNAL(rejected()), dialog, SLOT(reject()));
-    
-    ListeRegroupementEditWidget* editWidget(new ListeRegroupementEditWidget(listeEdition));
-    QVBoxLayout* layout(new QVBoxLayout);
-    layout->addWidget(editWidget);
-    layout->addWidget(boutons);
-    
-    dialog->setLayout(layout);
-    
-    if (dialog->exec())
-    {
-        /* Suppression / création de regroupements.
-         */
-        int difference(listeEdition.count() - m_regroupements.count());
-        if (difference > 0)
-        // Création
-        {
-            for (int i(0); i < difference; ++i)
-            {
-                m_regroupements << new Regroupement();
-            }
-        }
-        else if (difference < 0)
-        // Suppression
-        {
-            for (int i(0); i < difference; ++i)
-            {
-                /* Ici, les regroupements vont être supprimé, donc les terrains vont se retrouver sans regroupement 
-                 * parent (0). Mais la sauvegarde des information juste après va réorganiser tous les terrains.
-                 */
-                delete m_regroupements.takeLast();
-            }
-        }
-        
-        
-        
-        /* Sauvegarde des informations éditées dans la copie dans la liste originale.
-         */
-        for (int i(0), iEnd(listeEdition.count()); i < iEnd; ++i)
-        {
-            *(m_regroupements[i]) = *(listeEdition.at(i));
-        }
-    }
-    
-    
-    
-    /* Suppression des copies de regroupements.
-     */
-    for (int i(0), iEnd(listeEdition.count()); i < iEnd; ++i)
-    {
-        delete listeEdition.takeLast();
-    }
+    EditionListeRegroupements fenetre(m_regroupements, parent);
+    fenetre.executer();
 }
 
 
@@ -625,8 +557,8 @@ void Plateau::editListeRegroupement(QWidget* parent)
 
 bool Plateau::helper_isEmplacementEnCoin(int id) const
 {
-    return (id == 0
-         || id == 1
+    return (id == 0 // Prison
+         || id == 1 // Départ
          || id == m_taille.width()
          || id == m_taille.width() + m_taille.height() - 1
          || id == m_taille.width() * 2 + m_taille.height() - 2);
