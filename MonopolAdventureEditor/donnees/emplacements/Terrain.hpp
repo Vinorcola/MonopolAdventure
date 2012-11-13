@@ -38,27 +38,10 @@ class Terrain : public Propriete
         
         
         /**
-         * Construit une copie du terrain @a terrain.
-         * @param terrain Terrain à copier.
-         * @note La copie créée n'appartient à aucun regroupement.
-         */
-        Terrain(const Terrain& terrain);
-        
-        
-        
-        /**
          * Destructeur virtuel.
          * Enlève le terrain du regroupement avant la suppression.
          */
         virtual ~Terrain();
-        
-        
-        
-        /**
-         * Le terrain copie les informations de @a terrain.
-         * @param terrain Terrain à copier.
-         */
-        Terrain& operator =(const Terrain& terrain);
         
         
         

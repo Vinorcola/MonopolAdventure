@@ -16,55 +16,12 @@ Regroupement::Regroupement() :
 
 
 
-Regroupement::Regroupement(const Regroupement& regroupement) :
-    QList(regroupement),
-    m_titre(regroupement.m_titre),
-    m_couleur(regroupement.m_couleur)
-{
-    
-}
-
-
-
-
-
 Regroupement::~Regroupement()
 {
-    /* On ne modifie les terrains uniquement si ce regroupement est leur parent. Si ce n'est pas le cas, ce regroupement
-     * est une copie. On ne modifie donc rien dans les terrains.
-     */
-    if (count() != 0 && first()->getRegroupement() == this)
+    for (int i(0), iEnd(count()); i < iEnd; ++i)
     {
-        for (int i(0), iEnd(count()); i < iEnd; ++i)
-        {
-            last()->editRegroupement(0);
-        }
+        last()->editRegroupement(0);
     }
-}
-
-
-
-
-
-Regroupement& Regroupement::operator =(const Regroupement& copieRegroupement)
-{
-    m_titre = copieRegroupement.m_titre;
-    m_couleur = copieRegroupement.m_couleur;
-    
-    /* Recherche des terrains ajoutés.
-     * On n'a pas besoin de rechercher les terrains supprimés, car on parcours tous les regroupements après l'édition.
-     * Les terrains supprimés seront donc ajouté dans un autre regroupement et donc supprimé de celui-ci grâce à la
-     * méthode Terrain::editRegroupement().
-     */
-    for (int i(copieRegroupement.count() - 1), iEnd(0); i >= iEnd; --i)
-    {
-        if (!contains(copieRegroupement.at(i)))
-        {
-            copieRegroupement.getTerrain(i)->editRegroupement(this);
-        }
-    }
-    
-    return *this;
 }
 
 

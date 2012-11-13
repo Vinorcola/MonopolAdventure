@@ -36,29 +36,10 @@ class Regroupement : private QList<Terrain*>
         
         
         /**
-         * Construit une copie du regroupement @a regroupement pour l'édition.
-         * @param regroupement Regroupement à copier.
-         * 
-         * La copie du regroupement ne pourra servir que pour l'édition temporaire. En effet, la liste des terrains est copiée (pas les terrains à l'intérieur). Aussi les terrains pointent toujours vers le regroupement à copier (@a regroupement). Par la suite, lorsque l'édition est validée par l'utilisateur, on utilise l'operateur d'affectation pour sauvegarder le regroupement initial (@a regroupement) à partir de l'instance copiée ici.
-         */
-        Regroupement(const Regroupement& regroupement);
-        
-        
-        
-        /**
          * Destructeur.
-         * Enlève tous les terraisn contenus avant la suppression.
+         * Enlève tous les terrains contenus avant la suppression.
          */
         ~Regroupement();
-        
-        
-        
-        /**
-         * Sauvegarde les informations édités par l'utilisateur dans la copie @a copieRegroupement.
-         * @param copieRegroupement Copie du regroupement effectuée avant l'édition des informations par l'utilisateur.
-         */
-        Regroupement& operator =(const Regroupement& copieRegroupement);
-        
         
         
         
