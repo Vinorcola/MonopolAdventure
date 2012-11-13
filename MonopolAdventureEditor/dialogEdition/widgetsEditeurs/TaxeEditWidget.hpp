@@ -35,7 +35,7 @@ class TaxeEditWidget : public QWidget
     public:
         /**
          * Construit un nouveau widget d'édition d'emplacement « Taxe ».
-         * @param taxe Empalcement à éditer.
+         * @param taxe Emplacement à éditer.
          */
         TaxeEditWidget(Taxe* const taxe);
         
@@ -51,6 +51,7 @@ class TaxeEditWidget : public QWidget
     public slots:
         /**
          * Active ou désactive les champs de configuration du montant fixe en fonction de si m_champPayeMontantFixe est coché ou non.
+         * @param state Statut du champ m_champPayeMontantFixe.
          */
         void champPayeMontantFixeChanged(int state);
         
@@ -58,6 +59,7 @@ class TaxeEditWidget : public QWidget
         
         /**
          * Active ou désactive les champs de configuration du pourcentage sur la fortune en fonction de si m_champPayePourcentage est coché ou non.
+         * @param state Statut du champ m_champPayePourcentage.
          */
         void champPayePourcentageChanged(int state);
 };

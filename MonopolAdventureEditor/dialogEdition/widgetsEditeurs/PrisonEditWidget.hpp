@@ -10,6 +10,10 @@
 
 
 
+/**
+ * @class PrisonEditWidget PrisonEditWidget.hpp dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp
+ * Cette classe fournit une interface d'édition des informations caractéristiques d'une prison.
+ */
 class PrisonEditWidget : public QWidget
 {
         Q_OBJECT
