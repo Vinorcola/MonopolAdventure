@@ -8,7 +8,8 @@ Carte::Carte() :
     m_pileCartes(0),
     m_consigne(""),
     m_image(),
-    m_dispositionImage(GAUCHE)
+    m_dispositionImage(GAUCHE),
+    m_action()
 {
     
 }
@@ -25,6 +26,15 @@ Carte::~Carte()
     {
         m_pileCartes->removeOne(this);
     }
+}
+
+
+
+
+
+Action &Carte::getAction() const
+{
+    return m_action;
 }
 
 

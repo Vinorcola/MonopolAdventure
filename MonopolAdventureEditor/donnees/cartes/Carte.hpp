@@ -4,6 +4,7 @@
 #include <QPixmap>
 #include <QString>
 
+#include "donnees/cartes/Action.hpp"
 class PileCartes;
 #include "donnees/cartes/PileCartes.hpp"
 
@@ -34,6 +35,7 @@ class Carte
         QString m_consigne;///< Consigne à afficher au joueur.
         QPixmap m_image;///< Image à afficher sur la carte.
         CarteImageDisposition m_dispositionImage;///< Disposition de l'image par rapport à la consigne.
+        Action m_action;///< Action associée à la carte.
         
         
         
@@ -50,6 +52,13 @@ class Carte
          * Enlève la carte de la pile de carte associée avant la suppression.
          */
         ~Carte();
+        
+        
+        
+        /**
+         * Retourne l'action associée à la carte.
+         */
+        Action& getAction() const;
         
         
         
