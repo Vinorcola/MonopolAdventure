@@ -17,7 +17,7 @@ class PrisonEditWidget : public QWidget
         
     private:
         Prison* m_prison;///< Prison en cours d'édition.
-        QSpinBox m_champCaution;///< Champ d'édition de la caution.
+        QSpinBox* m_champCaution;///< Champ d'édition de la caution.
         
         
         

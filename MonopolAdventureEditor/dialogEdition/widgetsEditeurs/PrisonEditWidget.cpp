@@ -31,6 +31,6 @@ PrisonEditWidget::PrisonEditWidget(Prison* const prison) :
 
 void PrisonEditWidget::sauvegarde()
 {
-    m_prison->editCaution(m_champCaution.value());
+    m_prison->editCaution(m_champCaution->value());
 }
 

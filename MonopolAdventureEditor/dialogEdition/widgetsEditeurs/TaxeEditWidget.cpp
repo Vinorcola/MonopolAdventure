@@ -44,6 +44,13 @@ TaxeEditWidget::TaxeEditWidget(Taxe *const taxe) :
     layout->addRow(m_labelPourcentage, m_champPourcentage);
     
     setLayout(layout);
+    
+    
+    
+    /* Connexion des champs aux slots.
+     */
+    connect(m_champPayeMontantFixe, SIGNAL(stateChanged(int)), this, SLOT(champPayeMontantFixeChanged(int)));
+    connect(m_champPayePourcentage, SIGNAL(stateChanged(int)), this, SLOT(champPayePourcentageChanged(int)));
 }
 
 
@@ -68,6 +75,44 @@ void TaxeEditWidget::sauvegarde()
     else
     {
         m_taxe->disablePourcentageFortune();
+    }
+}
+
+
+
+
+
+void TaxeEditWidget::champPayeMontantFixeChanged(int state)
+{
+    if (state == Qt::Unchecked)
+    {
+        m_labelMontantFixe->setEnabled(false);
+        m_champMontantFixe->setEnabled(false);
+        m_champMontantFixe->setValue(0);
+    }
+    else
+    {
+        m_labelMontantFixe->setEnabled(true);
+        m_champMontantFixe->setEnabled(true);
+    }
+}
+
+
+
+
+
+void TaxeEditWidget::champPayePourcentageChanged(int state)
+{
+    if (state == Qt::Unchecked)
+    {
+        m_labelPourcentage->setEnabled(false);
+        m_champPourcentage->setEnabled(false);
+        m_champPourcentage->setValue(0);
+    }
+    else
+    {
+        m_labelPourcentage->setEnabled(true);
+        m_champPourcentage->setEnabled(true);
     }
 }
 

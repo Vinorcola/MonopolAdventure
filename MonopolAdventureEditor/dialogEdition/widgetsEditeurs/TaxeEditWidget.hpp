@@ -3,6 +3,7 @@
 
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QSpinBox>
 
 #include "donnees/emplacements/Taxe.hpp"
@@ -44,6 +45,21 @@ class TaxeEditWidget : public QWidget
          * Edite les informations de l'emplacement « Taxe » en fonction de la configuration des champs.
          */
         void sauvegarde();
+        
+        
+        
+    public slots:
+        /**
+         * Active ou désactive les champs de configuration du montant fixe en fonction de si m_champPayeMontantFixe est coché ou non.
+         */
+        void champPayeMontantFixeChanged(int state);
+        
+        
+        
+        /**
+         * Active ou désactive les champs de configuration du pourcentage sur la fortune en fonction de si m_champPayePourcentage est coché ou non.
+         */
+        void champPayePourcentageChanged(int state);
 };
 
 #endif // TAXEEDITWIDGET_HPP
