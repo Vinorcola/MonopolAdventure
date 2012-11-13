@@ -25,6 +25,7 @@ SOURCES += main.cpp \
         dialogEdition/modeles/RegroupementListModel.cpp \
         dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.cpp \
         dialogEdition/widgetsEditeurs/RegroupementEditWidget.cpp \
+        dialogEdition/widgetsEditeurs/TaxeEditWidget.cpp \
         dialogEdition/EditionListeRegroupements.cpp \
         donnees/cartes/Action.cpp \
         donnees/cartes/Carte.cpp \
@@ -66,6 +67,7 @@ HEADERS  += global.hpp \
         dialogEdition/modeles/RegroupementListModel.hpp \
         dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
         dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
+        dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp \
         dialogEdition/EditionListeRegroupements.hpp \
         donnees/cartes/Action.hpp \
         donnees/cartes/Carte.hpp \
