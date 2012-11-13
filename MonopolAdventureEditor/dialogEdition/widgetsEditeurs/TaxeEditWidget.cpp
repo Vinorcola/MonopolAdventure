@@ -7,23 +7,23 @@
 TaxeEditWidget::TaxeEditWidget(Taxe *const taxe) :
     QWidget(),
     m_taxe(taxe),
-    m_champPayeMontant(new QCheckBox(tr("Le joueur verse un montant fixe"))),
-    m_labelMontant(new QLabel(tr("Montant fixe à verser"))),
-    m_champMontant(new QSpinBox),
+    m_champPayeMontantFixe(new QCheckBox(tr("Le joueur verse un montant fixe"))),
+    m_labelMontantFixe(new QLabel(tr("Montant fixe à verser"))),
+    m_champMontantFixe(new QSpinBox),
     m_champPayePourcentage(new QCheckBox(tr("Le joueur verse un pourcentage de sa fortune"))),
     m_labelPourcentage(new QLabel(tr("Pourcentage de la fortune à verser"))),
     m_champPourcentage(new QSpinBox)
 {
     /* Configuration des champs.
      */
-    m_champPayeMontant->setChecked(m_taxe->isMontantFixe());
+    m_champPayeMontantFixe->setChecked(m_taxe->isMontantFixe());
     
-    m_labelMontant->setEnabled(m_taxe->isMontantFixe());
+    m_labelMontantFixe->setEnabled(m_taxe->isMontantFixe());
     
-    m_champMontant->setSingleStep(10);
-    m_champMontant->setMaximum(MONTANT_MAX_EDITEUR);
-    m_champMontant->setEnabled(m_taxe->isMontantFixe());
-    m_champMontant->setValue(m_taxe->isMontantFixe() ? m_taxe->getMontantFixe() : 0);
+    m_champMontantFixe->setSingleStep(10);
+    m_champMontantFixe->setMaximum(MONTANT_MAX_EDITEUR);
+    m_champMontantFixe->setEnabled(m_taxe->isMontantFixe());
+    m_champMontantFixe->setValue(m_taxe->isMontantFixe() ? m_taxe->getMontantFixe() : 0);
     
     m_champPayePourcentage->setChecked(m_taxe->isPourcentageFortune());
     
@@ -38,8 +38,8 @@ TaxeEditWidget::TaxeEditWidget(Taxe *const taxe) :
     /* Mise en forme du widget.
      */
     QFormLayout* layout = new QFormLayout;
-    layout->addRow(m_champPayeMontant);
-    layout->addRow(m_labelMontant, m_champMontant);
+    layout->addRow(m_champPayeMontantFixe);
+    layout->addRow(m_labelMontantFixe, m_champMontantFixe);
     layout->addRow(m_champPayePourcentage);
     layout->addRow(m_labelPourcentage, m_champPourcentage);
     
@@ -52,9 +52,9 @@ TaxeEditWidget::TaxeEditWidget(Taxe *const taxe) :
 
 void TaxeEditWidget::sauvegarde()
 {
-    if (m_champPayeMontant->isChecked())
+    if (m_champPayeMontantFixe->isChecked())
     {
-        m_taxe->enableMontantFixe(m_champMontant->value());
+        m_taxe->enableMontantFixe(m_champMontantFixe->value());
     }
     else
     {

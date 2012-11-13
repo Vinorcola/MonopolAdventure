@@ -20,14 +20,14 @@ class TaxeEditWidget : public QWidget
         Q_OBJECT
         
         
-    protected:
-        Taxe* m_taxe;
-        QCheckBox* m_champPayeMontant;
-        QLabel* m_labelMontant;
-        QSpinBox* m_champMontant;
-        QCheckBox* m_champPayePourcentage;
-        QLabel* m_labelPourcentage;
-        QSpinBox* m_champPourcentage;
+    private:
+        Taxe* m_taxe;///< Emplacement « Taxe » en cour d'édition.
+        QCheckBox* m_champPayeMontantFixe;///< Champ d'édition du moyen de paiement (1/2).
+        QLabel* m_labelMontantFixe;///< Étiquette associée à m_champMontant.
+        QSpinBox* m_champMontantFixe;///< Champ d'édition du montant fixe de la taxe.
+        QCheckBox* m_champPayePourcentage;///< Champ d'édition du moyen de paiement (2/2).
+        QLabel* m_labelPourcentage;///< Étiquette asociée à m_champPourcentage.
+        QSpinBox* m_champPourcentage;///< Champ d'édition du pourcentage sur la fortune de la taxe.
         
         
         
