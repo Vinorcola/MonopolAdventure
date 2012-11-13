@@ -32,7 +32,7 @@ Carte::~Carte()
 
 
 
-Action &Carte::getAction() const
+Action &Carte::getAction()
 {
     return m_action;
 }

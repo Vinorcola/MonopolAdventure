@@ -1,7 +1,7 @@
 #ifndef ACTIONINFOS_HPP
 #define ACTIONINFOS_HPP
 
-#include "donnees/cartes/PileCartes.hpp"
+class PileCartes;
 #include "donnees/emplacements/Emplacement.hpp"
 
 

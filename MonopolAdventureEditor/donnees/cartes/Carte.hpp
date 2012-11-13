@@ -58,7 +58,7 @@ class Carte
         /**
          * Retourne l'action associée à la carte.
          */
-        Action& getAction() const;
+        Action& getAction();
         
         
         
