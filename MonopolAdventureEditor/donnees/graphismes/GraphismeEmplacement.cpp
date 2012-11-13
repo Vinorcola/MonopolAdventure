@@ -15,10 +15,12 @@ GraphismeEmplacement::GraphismeEmplacement(const GraphismeEmplacementInfos& info
                                            const QString& prix,
                                            const QPixmap& image,
                                            const QColor& couleurRegroupement,
-                                           const bool emplacementEnCoin) :
+                                           const bool emplacementEnCoin,
+                                           const bool eventOn) :
     QGraphicsRectItem(QRectF(QPointF(0, 0), (emplacementEnCoin ? infosGraphiques.getTailleEnCoin() : infosGraphiques.getTailleNormale()))),
     m_infosGraphiques(infosGraphiques),
     m_emplacement(emplacement),
+    m_eventOn(eventOn),
     m_position(position),
     m_rotation(rotation),
     m_titre(titre),
@@ -810,5 +812,26 @@ void GraphismeEmplacement::helper_setupGraphicsTextItem(QGraphicsTextItem* item,
     item->setTextWidth(rect().width() - m_infosGraphiques.getMarge() * 2);
     item->setFont(font);
     item->setDefaultTextColor(couleur);
+}
+
+
+
+
+
+void GraphismeEmplacement::mousePressEvent(QGraphicsSceneMouseEvent*)
+{
+    
+}
+
+
+
+
+
+void GraphismeEmplacement::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
+{
+    if (m_eventOn && event->button() == Qt::LeftButton)
+    {
+        /** @todo L'emplacement a été cliqué. */
+    }
 }
 

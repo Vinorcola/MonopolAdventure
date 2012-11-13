@@ -6,6 +6,7 @@
                                  */
 
 #include <QGraphicsRectItem>
+#include <QGraphicsSceneMouseEvent>
 #include <QString>
 #include <QtCore/qmath.h>
 
@@ -14,6 +15,7 @@ class Emplacement;
 
 
 
+#include <QMessageBox>
 
 
 /**
@@ -28,6 +30,7 @@ class GraphismeEmplacement : public QGraphicsRectItem
         const GraphismeEmplacementInfos& m_infosGraphiques;///< Détails du graphisme des emplacements.
         Emplacement* const m_emplacement;///< Pointeur vers l'emplacement à dessiner.
         
+        bool m_eventOn;///< Indique si les événement (clique sur l'emplacement) sont activés.
         QPoint m_position;///< Position à laquelle est dessiné l'élément sur la scène.
         int m_rotation;///< Angle de rotation à appliquer à l'élément avant de l'afficher sur la scène.
         QString m_titre;///< Titre à afficher sur l'emplacement.
@@ -62,7 +65,8 @@ class GraphismeEmplacement : public QGraphicsRectItem
          * @param image Image à afficher sur l'emplacement.
          * @param couleurRegroupement Couleur du regroupement auquel appartient le terrain.
          * @param emplacementEnCoin Indique si l'emplacement à représenter se situe dans un coin du plateau.
-         * @note Le constructeur dessine automatiquement l'élément graphique. Veillez donc à renseigner le maximum d'attributs plutôt que de faire appel aux différentes méthodes @c setXXX().
+         * @param enventOn Indique si les événement (clique sur l'emplacement) sont activés.
+         * @note Le constructeur dessine automatiquement l'élément graphique. Veillez donc à renseigner le maximum d'attributs plutôt que de faire appel aux différentes méthodes @c updateXXX().
          */
         GraphismeEmplacement(const GraphismeEmplacementInfos& infosGraphiques,
                              Emplacement* const emplacement,
@@ -74,7 +78,8 @@ class GraphismeEmplacement : public QGraphicsRectItem
                              const QString& prix = QString(),
                              const QPixmap& image = QPixmap(),
                              const QColor& couleurRegroupement = QColor(),
-                             const bool emplacementEnCoin = false);
+                             const bool emplacementEnCoin = false,
+                             const bool eventOn = false);
         
         
         
@@ -333,6 +338,22 @@ class GraphismeEmplacement : public QGraphicsRectItem
                                           const QString& texte,
                                           const QFont& font,
                                           const QColor& couleur = QColor(0, 0, 0));
+        
+        
+        
+        /**
+         * Active la boucle d'événement.
+         * 
+         * Cette méthode ne fait rien, mais elle est nécessaire pour activer la réception des événements sur l'emplacement.
+         */
+        void mousePressEvent(QGraphicsSceneMouseEvent* event);
+        
+        
+        
+        /**
+         * Détecte un clic gauche de la souris (si m_eventOn est @b @c true).
+         */
+        void mouseReleaseEvent(QGraphicsSceneMouseEvent* event);
 };
 
 #endif // GRAPHISMEEMPLACEMENT_HPP

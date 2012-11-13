@@ -225,6 +225,7 @@ void Emplacement::setEmplacementEnCoin()
                                                           helper_getPrix(),
                                                           m_image,
                                                           helper_getCouleurRegroupement(),
+                                                          true,
                                                           true);
             m_scene->addItem(m_elementGraphique);
         }
@@ -257,7 +258,8 @@ void Emplacement::setEmplacementNormal()
                                                           helper_getPrix(),
                                                           m_image,
                                                           helper_getCouleurRegroupement(),
-                                                          false);
+                                                          false,
+                                                          true);
             m_scene->addItem(m_elementGraphique);
         }
     }
@@ -300,7 +302,8 @@ void Emplacement::dessiner()
                                                       helper_getPrix(),
                                                       m_image,
                                                       helper_getCouleurRegroupement(),
-                                                      m_enCoin);
+                                                      m_enCoin,
+                                                      true);
         m_scene->addItem(m_elementGraphique);
     }
 }
