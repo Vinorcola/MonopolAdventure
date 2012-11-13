@@ -25,6 +25,7 @@ SOURCES += main.cpp \
     dialogEdition/modeles/RegroupementListModel.cpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/ProprieteEditWidget.cpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/TaxeEditWidget.cpp \
     dialogEdition/EditionListeRegroupements.cpp \
@@ -68,6 +69,7 @@ HEADERS  += global.hpp \
     dialogEdition/modeles/RegroupementListModel.hpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp \
     dialogEdition/EditionListeRegroupements.hpp \
