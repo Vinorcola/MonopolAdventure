@@ -271,6 +271,15 @@ void Emplacement::setEmplacementNormal()
 
 
 
+const GraphismeEmplacementInfos& Emplacement::getGraphismeInfos() const
+{
+    return m_graphismeInfos;
+}
+
+
+
+
+
 void Emplacement::setupElementGraphique(const QPoint& position,
                                         const int rotation,
                                         QGraphicsScene* scene)

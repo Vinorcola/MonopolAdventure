@@ -165,6 +165,14 @@ class Emplacement
         
         
         /**
+         * Renseigne les informations concernant le graphisme des emplacements.
+         * @return Informations concernant le graphisme des emplacements.
+         */
+        const GraphismeEmplacementInfos& getGraphismeInfos() const;
+        
+        
+        
+        /**
          * Met à jour les informations concernant la disposition de l'emplacement sur la scène.
          * @param position Position de l'emplacement sur la scène.
          * @param rotation Angle de rotation de l'emplacement sur la scène.
