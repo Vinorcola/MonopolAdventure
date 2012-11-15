@@ -45,7 +45,7 @@ class ProprieteEditWidget : public QWidget
         
         
         
-    public slots:
+    private slots:
         /**
          * Met à jour le prix de l'hypotheque si l'option « hypothèque = moitie prix » est cochée.
          * @param prix Nouveau prix d'achat.

@@ -8,6 +8,10 @@ Terrain::Terrain(const GraphismeEmplacementInfos& graphismeInfos,
                  const QString& devise) :
     Propriete(Type::Terrain, graphismeInfos, devise),
     m_regroupement(0),
+    m_prixAchatMaison(0),
+    m_prixVenteMaison(0),
+    m_prixAchatHotel(0),
+    m_prixVenteHotel(0),
     m_loyerNu(0),
     m_loyerNuExtra(0),
     m_loyersMaison(),
@@ -75,6 +79,106 @@ void Terrain::editRegroupement(Regroupement* const regroupement)
                 m_elementGraphique->updateCouleurRegroupement(helper_getCouleurRegroupement());
             }
         }
+    }
+}
+
+
+
+
+
+quint16 Terrain::getPrixAchatMaison() const
+{
+    return m_prixAchatMaison;
+}
+
+
+
+
+
+void Terrain::editPrixAchatMaison(const quint16 prix)
+{
+    if (prix > MONTANT_MAX_EDITEUR)
+    {
+        m_prixAchatMaison = MONTANT_MAX_EDITEUR;
+    }
+    else
+    {
+        m_prixAchatMaison = prix;
+    }
+}
+
+
+
+
+
+quint16 Terrain::getPrixVenteMaison() const
+{
+    return m_prixVenteMaison;
+}
+
+
+
+
+
+void Terrain::editPrixVenteMaison(const quint16 prix)
+{
+    if (prix > MONTANT_MAX_EDITEUR)
+    {
+        m_prixAchatMaison = MONTANT_MAX_EDITEUR;
+    }
+    else
+    {
+        m_prixAchatMaison = prix;
+    }
+}
+
+
+
+
+
+quint16 Terrain::getPrixAchatHotel() const
+{
+    return m_prixAchatHotel;
+}
+
+
+
+
+
+void Terrain::editPrixAchatHotel(const quint16 prix)
+{
+    if (prix > MONTANT_MAX_EDITEUR)
+    {
+        m_prixAchatHotel = MONTANT_MAX_EDITEUR;
+    }
+    else
+    {
+        m_prixAchatHotel = prix;
+    }
+}
+
+
+
+
+
+quint16 Terrain::getPrixVenteHotel() const
+{
+    return m_prixVenteHotel;
+}
+
+
+
+
+
+void Terrain::editPrixVenteHotel(const quint16 prix)
+{
+    if (prix > MONTANT_MAX_EDITEUR)
+    {
+        m_prixVenteHotel = MONTANT_MAX_EDITEUR;
+    }
+    else
+    {
+        m_prixVenteHotel = prix;
     }
 }
 

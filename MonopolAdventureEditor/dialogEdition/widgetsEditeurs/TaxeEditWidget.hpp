@@ -48,7 +48,7 @@ class TaxeEditWidget : public QWidget
         
         
         
-    public slots:
+    private slots:
         /**
          * Active ou désactive les champs de configuration du montant fixe en fonction de si m_champPayeMontantFixe est coché ou non.
          * @param state Statut du champ m_champPayeMontantFixe.

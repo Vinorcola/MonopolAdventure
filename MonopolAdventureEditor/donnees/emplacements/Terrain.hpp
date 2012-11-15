@@ -19,6 +19,10 @@ class Terrain : public Propriete
 {
     private:
         Regroupement* m_regroupement;///< Regroupement auquel appartient le terrain.
+        quint16 m_prixAchatMaison;///< Prix d'achat d'une maison.
+        quint16 m_prixVenteMaison;///< Prix de vente d'une maison.
+        quint16 m_prixAchatHotel;///< Prix d'achat d'un hôtel.
+        quint16 m_prixVenteHotel;///< Prix de vente d'un hôtel.
         quint16 m_loyerNu;///< Loyer du terrain nu.
         quint16 m_loyerNuExtra;///< Loyer du terrain nu lorsque le propriétaire possède tous les terrains du regroupement.
         QList<quint16> m_loyersMaison;///< Liste des loyers en fonction du nombre de maisons construites.
@@ -62,8 +66,72 @@ class Terrain : public Propriete
         
         
         /**
+         * Renseigne le prix d'achat d'une maison.
+         * @return Prix d'achat d'une maison.
+         */
+        quint16 getPrixAchatMaison() const;
+        
+        
+        
+        /**
+         * Remplace le prix d'achat d'une maison.
+         * @param prix Nouveau prix.
+         */
+        void editPrixAchatMaison(const quint16 prix);
+        
+        
+        
+        /**
+         * Renseigne le prix de vente d'une maison.
+         * @return Prix de vente d'une maison.
+         */
+        quint16 getPrixVenteMaison() const;
+        
+        
+        
+        /**
+         * Remplace le prix de vente d'une maison.
+         * @param prix Nouveau prix.
+         */
+        void editPrixVenteMaison(const quint16 prix);
+        
+        
+        
+        /**
+         * Renseigne le prix d'achat d'un hôtel.
+         * @return Prix d'achat d'un hôtel.
+         */
+        quint16 getPrixAchatHotel() const;
+        
+        
+        
+        /**
+         * Remplace le prix d'achat d'un hotel.
+         * @param prix Nouveau prix.
+         */
+        void editPrixAchatHotel(const quint16 prix);
+        
+        
+        
+        /**
+         * Renseigne le prix de vente d'un hôtel.
+         * @return Prix de vente d'un hôtel.
+         */
+        quint16 getPrixVenteHotel() const;
+        
+        
+        
+        /**
+         * Remplace le prix de vente d'un hôtel.
+         * @param prix Nouveau prix.
+         */
+        void editPrixVenteHotel(const quint16 prix);
+        
+        
+        
+        /**
          * Renseigne le montant du loyer du terrain nu.
-         * @return montant du loyer du terrain nu.
+         * @return Montant du loyer du terrain nu.
          */
         quint16 getLoyerNu() const;
         

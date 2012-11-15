@@ -12,7 +12,6 @@ ProprieteEditWidget::ProprieteEditWidget(Propriete* const propriete) :
     m_labelValeurHypotheque(new QLabel(tr("Valeur hypothécaire de la propriété"))),
     m_champValeurHypotheque(new QSpinBox)
 {
-    
     /* Configuration des champs.
      */
     bool hypothequeMoitiePrix(m_propriete->getValeurHypotheque() * 2 == m_propriete->getPrixAchat());
