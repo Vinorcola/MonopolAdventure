@@ -23,6 +23,7 @@ SOURCES += main.cpp \
     dialogEdition/modeles/TerrainListModel.cpp \
     dialogEdition/modeles/SelectionRegroupementListModel.cpp \
     dialogEdition/modeles/RegroupementListModel.cpp \
+    dialogEdition/widgetsEditeurs/DepartEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.cpp \
@@ -67,6 +68,7 @@ HEADERS  += global.hpp \
     dialogEdition/modeles/TerrainListModel.hpp \
     dialogEdition/modeles/SelectionRegroupementListModel.hpp \
     dialogEdition/modeles/RegroupementListModel.hpp \
+    dialogEdition/widgetsEditeurs/DepartEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \
