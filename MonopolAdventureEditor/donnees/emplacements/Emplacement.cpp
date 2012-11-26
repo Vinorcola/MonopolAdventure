@@ -25,49 +25,12 @@ Emplacement::Emplacement(Type::Emplacement type,
 
 
 
-Emplacement::Emplacement(const Emplacement& emplacement) :
-    m_type(emplacement.m_type),
-    m_titre(emplacement.m_titre),
-    m_sousTitre(emplacement.m_sousTitre),
-    m_description(emplacement.m_description),
-    m_image(emplacement.m_image),
-    m_graphismeInfos(emplacement.m_graphismeInfos),
-    m_scene(0),
-    m_elementGraphique(0),
-    m_coordonnees(),
-    m_rotation(0),
-    m_enCoin(false)
-{
-    
-}
-
-
-
-
-
 Emplacement::~Emplacement()
 {
     if (m_elementGraphique)
     {
         delete m_elementGraphique;
     }
-}
-
-
-
-
-
-Emplacement& Emplacement::operator =(const Emplacement& emplacement)
-{
-    if (m_type == emplacement.m_type)
-    {
-        editTitre(emplacement.m_titre);
-        editSousTitre(emplacement.m_sousTitre);
-        editDescription(emplacement.m_description);
-        editImage(emplacement.m_image);
-    }
-    
-    return *this;
 }
 
 
@@ -315,6 +278,16 @@ void Emplacement::dessiner()
                                                       true);
         m_scene->addItem(m_elementGraphique);
     }
+}
+
+
+
+
+
+void Emplacement::lanceFenetreEdition()
+{
+    EditionEmplacement fenetre(this);
+    fenetre.executer();
 }
 
 

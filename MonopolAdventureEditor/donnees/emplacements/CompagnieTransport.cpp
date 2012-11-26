@@ -16,32 +16,9 @@ CompagnieTransport::CompagnieTransport(const GraphismeEmplacementInfos& graphism
 
 
 
-CompagnieTransport::CompagnieTransport(const CompagnieTransport& compagnieTransport) :
-    Propriete(compagnieTransport),
-    m_loyers(compagnieTransport.m_loyers)
-{
-    
-}
-
-
-
-
-
 CompagnieTransport::~CompagnieTransport()
 {
     
-}
-
-
-
-
-
-CompagnieTransport &CompagnieTransport::operator =(const CompagnieTransport& compagnieTransport)
-{
-    Propriete::operator =(compagnieTransport);
-    m_loyers = compagnieTransport.m_loyers;
-    
-    return *this;
 }
 
 

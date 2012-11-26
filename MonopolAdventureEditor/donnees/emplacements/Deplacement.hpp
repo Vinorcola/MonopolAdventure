@@ -29,25 +29,9 @@ class Deplacement : public Emplacement
         
         
         /**
-         * Construit une copie de l'emplacement @a deplacement.
-         * @param deplacement Emplacement « Déplacement » à copier.
-         */
-        Deplacement(const Deplacement& deplacement);
-        
-        
-        
-        /**
          * Destructeur virtuel.
          */
         virtual ~Deplacement();
-        
-        
-        
-        /**
-         * Copie les informations de l'emplacement @a deplacement.
-         * @param deplacement Emplacement « Déplacement » à copier.
-         */
-        Deplacement& operator =(const Deplacement& deplacement);
         
         
         

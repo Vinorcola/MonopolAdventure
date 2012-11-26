@@ -20,39 +20,9 @@ Taxe::Taxe(const GraphismeEmplacementInfos& graphismeInfos,
 
 
 
-Taxe::Taxe(const Taxe& taxe) :
-    Emplacement(taxe),
-    m_payeMontantFixe(taxe.m_payeMontantFixe),
-    m_montantFixe(taxe.m_montantFixe),
-    m_payePourcentageFortune(taxe.m_payePourcentageFortune),
-    m_pourcentageFortune(taxe.m_pourcentageFortune),
-    m_devise(taxe.m_devise)
-{
-    
-}
-
-
-
-
-
 Taxe::~Taxe()
 {
     
-}
-
-
-
-
-
-Taxe& Taxe::operator =(const Taxe& taxe)
-{
-    Emplacement::operator =(taxe);
-    m_payeMontantFixe = taxe.m_payeMontantFixe;
-    m_montantFixe = taxe.m_montantFixe;
-    m_payePourcentageFortune = taxe.m_payePourcentageFortune;
-    m_pourcentageFortune = taxe.m_pourcentageFortune;
-    
-    return *this;
 }
 
 

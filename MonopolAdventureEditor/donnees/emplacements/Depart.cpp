@@ -17,33 +17,9 @@ Depart::Depart(const GraphismeEmplacementInfos& graphismeInfos,
 
 
 
-Depart::Depart(const Depart& depart) :
-    Emplacement(depart),
-    m_salaire(depart.m_salaire),
-    m_devise(depart.m_devise)
-{
-    
-}
-
-
-
-
-
 Depart::~Depart()
 {
     
-}
-
-
-
-
-
-Depart& Depart::operator =(const Depart& depart)
-{
-    Emplacement::operator =(depart);
-    m_salaire = depart.m_salaire;
-    
-    return *this;
 }
 
 

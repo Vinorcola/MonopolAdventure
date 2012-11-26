@@ -17,34 +17,9 @@ Prison::Prison(const GraphismeEmplacementInfos& graphismeInfos,
 
 
 
-Prison::Prison(const Prison& prison) :
-    Emplacement(prison),
-    m_emplacementAssocie(prison.m_emplacementAssocie),
-    m_caution(prison.m_caution)
-{
-    
-}
-
-
-
-
-
 Prison::~Prison()
 {
     
-}
-
-
-
-
-
-Prison& Prison::operator =(const Prison& prison)
-{
-    Emplacement::operator =(prison);
-    m_emplacementAssocie = prison.m_emplacementAssocie;
-    m_caution = prison.m_caution;
-    
-    return *this;
 }
 
 

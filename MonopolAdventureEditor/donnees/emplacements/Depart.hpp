@@ -35,25 +35,9 @@ class Depart : public Emplacement
         
         
         /**
-         * Construit une copie de l'emplacement @a depart.
-         * @param depart Emplacement « Départ » à copier.
-         */
-        Depart(const Depart& depart);
-        
-        
-        
-        /**
          * Destructeur virtuel.
          */
         virtual ~Depart();
-        
-        
-        
-        /**
-         * Copie les informations de l'emplacement @a depart.
-         * @param depart Emplacement « Départ » à copier.
-         */
-        Depart& operator =(const Depart& depart);
         
         
         

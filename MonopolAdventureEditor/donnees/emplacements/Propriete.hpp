@@ -38,26 +38,9 @@ class Propriete : public Emplacement
         
         
         /**
-         * Construit une copie de la propriété @a propriete.
-         * @param propriete Propriété à copier.
-         */
-        Propriete(const Propriete& propriete);
-        
-        
-        
-        /**
          * Destructeur virtuel.
          */
         virtual ~Propriete();
-        
-        
-        
-        /**
-         * Copie les informations de la propriété @a propriete.
-         * @param propriete Propriété à copier.
-         * @note La propriété doit être de même type ! Si les propriétés ne sont pas de même type, aucune action n'est effectuée.
-         */
-        Propriete& operator =(const Propriete& propriete);
         
         
         

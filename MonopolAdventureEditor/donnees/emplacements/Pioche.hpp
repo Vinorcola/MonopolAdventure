@@ -29,25 +29,9 @@ class Pioche : public Emplacement
         
         
         /**
-         * Construit une copie de l'emplacement @a pioche.
-         * @param pioche Emplacement « Pioche » à copier.
-         */
-        Pioche(const Pioche& pioche);
-        
-        
-        
-        /**
          * Destructeur virtuel.
          */
         virtual ~Pioche();
-        
-        
-        
-        /**
-         * Copie les informations de l'emplacement @a pioche.
-         * @param pioche Emplacement « Pioche » à copier.
-         */
-        Pioche& operator =(const Pioche& pioche);
         
         
         

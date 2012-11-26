@@ -831,7 +831,7 @@ void GraphismeEmplacement::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 {
     if (m_eventOn && event->button() == Qt::LeftButton)
     {
-        /** @todo L'emplacement a été cliqué. */
+        m_emplacement->lanceFenetreEdition();
     }
 }
 

@@ -8,7 +8,7 @@
 #include <QString>
 
 #include "global.hpp"
-
+#include "dialogEdition/EditionEmplacement.hpp"
 #include "donnees/graphismes/GraphismeEmplacement.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
 
@@ -55,26 +55,9 @@ class Emplacement
         
         
         /**
-         * Construit une copie de l'emplacement @a emplacement.
-         * @param emplacement Emplacement à copier.
-         */
-        Emplacement(const Emplacement& emplacement);
-        
-        
-        
-        /**
          * Destructeur virtuel.
          */
         virtual ~Emplacement();
-        
-        
-        
-        /**
-         * Copie les informations de l'emplacement @a emplacement.
-         * @param emplacement Emplacement à copier.
-         * @note L'emplacement doit être de même type ! Si les emplacements ne sont pas de même type, aucune action n'est effectuée.
-         */
-        Emplacement& operator =(const Emplacement& emplacement);
         
         
         
@@ -189,6 +172,13 @@ class Emplacement
          * Dessine l'emplacement sur la scène configurée dans le constructeur.
          */
         void dessiner();
+        
+        
+        
+        /**
+         * Ouvre une fenêtre d'édition de l'emplacement.
+         */
+        void lanceFenetreEdition();
         
         
         
