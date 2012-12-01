@@ -17,6 +17,7 @@
 #include "donnees/emplacements/SimpleVisite.hpp"
 #include "donnees/emplacements/Terrain.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
+#include "donnees/Regle.hpp"
 
 
 
@@ -59,6 +60,7 @@ class Plateau : public QGraphicsScene
         QColor m_couleurFond;///< Couleur de fond du plateau.
         QPixmap m_image;///< Image au centre du plateau.
         GraphismeEmplacementInfos m_graphismeEmplacement;///< Détails du graphisme des emplacements.
+        Regle m_regle;///< Règle de jeu associée au plateau.
         
         QList<PileCartes*> m_pilesCartes;///< Liste des piles de cartes du plateau.
         QList<Emplacement*> m_emplacements;///< Liste des emplacements du plateau.
@@ -392,6 +394,46 @@ class Plateau : public QGraphicsScene
          * @return Informations concernant le graphisme des emplacements.
          */
         const GraphismeEmplacementInfos& getInformationGraphismeEmplacement() const;
+        
+        
+        
+        /**
+         * Renseigne le nombre de maisons nécessaires pour construire un hôtel.
+         * @return Nombre de maisons nécessaires pour construire un hôtel.
+         */
+        quint8 getNombreMaisonsPourHotel() const;
+        
+        
+        
+        /**
+         * Change le nombre de maisons nécessaire pour construire un hôtel.
+         * @param nombre Nouveau nombre de maisons.
+         */
+        void editNombreMaisonsPourHotel(const quint8 nombre);
+        
+        
+        
+        /**
+         * Renseigne le nombre maximum d'hôtels constructibles sur un terrain.
+         * @return Nombre maximum d'hôtels constructibles sur un terrain.
+         */
+        quint8 getNombreMaxHotel() const;
+        
+        
+        
+        /**
+         * Change le nombre maximum d'hôtels constructibles sur un terrain.
+         * @param nombre Nouveau nombre d'hôtel.
+         */
+        void editNombreMaxHotel(const quint8 nombre);
+        
+        
+        
+        /**
+         * Retourne les règles de jeu associées au plateau.
+         * @return Règles de jeu associées au plateau.
+         */
+        const Regle& getRegle() const;
         
         
         

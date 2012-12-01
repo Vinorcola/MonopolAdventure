@@ -52,6 +52,7 @@ SOURCES += main.cpp \
     donnees/emplacements/Taxe.cpp \
     donnees/emplacements/Terrain.cpp \
     donnees/Plateau.cpp \
+    donnees/Regle.cpp \
     widgetsSelecteurs/ColorSelectWidget.cpp \
     widgetsSelecteurs/FileSelectWidget.cpp \
     widgetsSelecteurs/FontSelectWidget.cpp \
@@ -100,6 +101,7 @@ HEADERS  += global.hpp \
     donnees/emplacements/Taxe.hpp \
     donnees/emplacements/Terrain.hpp \
     donnees/Plateau.hpp \
+    donnees/Regle.hpp \
     widgetsSelecteurs/ColorSelectWidget.hpp \
     widgetsSelecteurs/FileSelectWidget.hpp \
     widgetsSelecteurs/FontSelectWidget.hpp \
