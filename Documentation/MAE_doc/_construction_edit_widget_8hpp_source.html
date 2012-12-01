@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/widgetsEditeurs/ConstructionEditWidget.hpp</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="MonopolAdventureEditorIcon.png"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">MonopolAdventureEditor
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/widgetsEditeurs/ConstructionEditWidget.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef CONSTRUCTIONEDITWIDGET_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define CONSTRUCTIONEDITWIDGET_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QCheckBox&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QFormLayout&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QLabel&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;QSpinBox&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;donnees/emplacements/Terrain.hpp&quot;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00019"></a><a class="code" href="class_construction_edit_widget.html">00019</a> <span class="keyword">class </span><a class="code" href="class_construction_edit_widget.html" title="Cette classe fournit une interface d&#39;édition des informations de construction d&#39;un terrain...">ConstructionEditWidget</a> : <span class="keyword">public</span> QWidget
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021         Q_OBJECT
+<a name="l00022"></a>00022         
+<a name="l00023"></a>00023         
+<a name="l00024"></a>00024     <span class="keyword">private</span>:
+<a name="l00025"></a><a class="code" href="class_construction_edit_widget.html#aa8bbdbdabc42586511d514080281d233">00025</a>         <a class="code" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a>* <a class="code" href="class_construction_edit_widget.html#aa8bbdbdabc42586511d514080281d233" title="Terrain en cours d&#39;édition.">m_terrain</a>;
+<a name="l00026"></a><a class="code" href="class_construction_edit_widget.html#aa1bc683e5380ea1cfeb5984a0aa00918">00026</a>         QSpinBox* <a class="code" href="class_construction_edit_widget.html#aa1bc683e5380ea1cfeb5984a0aa00918" title="Champ d&#39;édition du prix d&#39;achat d&#39;une maison.">m_champPrixAchatMaison</a>;
+<a name="l00027"></a><a class="code" href="class_construction_edit_widget.html#a94cb09e15f31cc8012fcfe5c8c2c2d06">00027</a>         QCheckBox* <a class="code" href="class_construction_edit_widget.html#a94cb09e15f31cc8012fcfe5c8c2c2d06" title="Helper permettant l&#39;aide à la décision du prix de vente d&#39;une maison.">m_venteMaisonMoitie</a>;
+<a name="l00028"></a><a class="code" href="class_construction_edit_widget.html#ac053f2272b778c95304e3f04446d72e6">00028</a>         QLabel* <a class="code" href="class_construction_edit_widget.html#ac053f2272b778c95304e3f04446d72e6" title="Étiquette associée à m_venteMaisonMoitie.">m_labelPrixVenteMaison</a>;
+<a name="l00029"></a><a class="code" href="class_construction_edit_widget.html#ac91624000ef2aac5b3e73df70741698c">00029</a>         QSpinBox* <a class="code" href="class_construction_edit_widget.html#ac91624000ef2aac5b3e73df70741698c" title="Champ d&#39;édition du prix de vente d&#39;une maison.">m_champPrixVenteMaison</a>;
+<a name="l00030"></a><a class="code" href="class_construction_edit_widget.html#a463f4d4103f199fce5fc99685cefc8ed">00030</a>         QSpinBox* <a class="code" href="class_construction_edit_widget.html#a463f4d4103f199fce5fc99685cefc8ed" title="Champ d&#39;édition du prix d&#39;achat d&#39;un hôtel.">m_champPrixAchatHotel</a>;
+<a name="l00031"></a><a class="code" href="class_construction_edit_widget.html#a1678f89b584f7b65d5869a1752736201">00031</a>         QCheckBox* <a class="code" href="class_construction_edit_widget.html#a1678f89b584f7b65d5869a1752736201" title="Helper permettant l&#39;aide à la décision du prix de vente d&#39;un hôtel.">m_venteHotelMoitie</a>;
+<a name="l00032"></a><a class="code" href="class_construction_edit_widget.html#af2888b77d23805f4fb9a26949e74df37">00032</a>         QLabel* <a class="code" href="class_construction_edit_widget.html#af2888b77d23805f4fb9a26949e74df37" title="Étiquette associée à m_venteHotelMoitie.">m_labelPrixVenteHotel</a>;
+<a name="l00033"></a><a class="code" href="class_construction_edit_widget.html#a5e8c35482f3f3bd3a2cb1dc7a7f41ac1">00033</a>         QSpinBox* <a class="code" href="class_construction_edit_widget.html#a5e8c35482f3f3bd3a2cb1dc7a7f41ac1" title="Champ d&#39;édition du prix de vente d&#39;un hôtel.">m_champPrixVenteHotel</a>;
+<a name="l00034"></a>00034         
+<a name="l00035"></a>00035         
+<a name="l00036"></a>00036         
+<a name="l00037"></a>00037     <span class="keyword">public</span>:
+<a name="l00042"></a>00042         <a class="code" href="class_construction_edit_widget.html#aa2d93be11c5026d67350ee17256672b9" title="Construit un nouveau widget d&#39;édition de terrain.">ConstructionEditWidget</a>(<a class="code" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a>* <span class="keyword">const</span> terrain);
+<a name="l00043"></a>00043         
+<a name="l00044"></a>00044         
+<a name="l00045"></a>00045         
+<a name="l00046"></a>00046     <span class="keyword">private</span> slots:
+<a name="l00051"></a>00051         <span class="keywordtype">void</span> <a class="code" href="class_construction_edit_widget.html#a53e29116dc725fb4cb19c18fea35eaf7" title="Met à jour le prix de vente d&#39;une maison si l&#39;option « prix vente = moitie prix achat » est cochée...">champPrixAchatMaisonChanged</a>(<span class="keywordtype">int</span> prix);
+<a name="l00052"></a>00052         
+<a name="l00053"></a>00053         
+<a name="l00054"></a>00054         
+<a name="l00059"></a>00059         <span class="keywordtype">void</span> <a class="code" href="class_construction_edit_widget.html#a4d83e8c6bd5a61feec82b4843ccf7fb9" title="Active ou désactive les champs de configuration de la vente de maisons en fonction de si m_venteMaiso...">venteMaisonMoitieChanged</a>(<span class="keywordtype">int</span> state);
+<a name="l00060"></a>00060         
+<a name="l00061"></a>00061         
+<a name="l00062"></a>00062         
+<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_construction_edit_widget.html#a2b31bf9a5d1c14487c2aeddc2d285f71" title="Met à jour le prix de vente d&#39;un hôtel si l&#39;option « prix vente = moitie prix achat » est cochée...">champPrixAchatHotelChanged</a>(<span class="keywordtype">int</span> prix);
+<a name="l00068"></a>00068         
+<a name="l00069"></a>00069         
+<a name="l00070"></a>00070         
+<a name="l00075"></a>00075         <span class="keywordtype">void</span> <a class="code" href="class_construction_edit_widget.html#ad237c56db73e8518f9a80dafebfa559e" title="Active ou désactive les champs de configuration de la vente d&#39;hôtels en fonction de si m_venteHotelMo...">venteHotelMoitieChanged</a>(<span class="keywordtype">int</span> state);
+<a name="l00076"></a>00076 };
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="preprocessor">#endif // CONSTRUCTIONEDITWIDGET_HPP</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Samedi Décembre 1 2012 20:13:31 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

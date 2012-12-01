@@ -84,17 +84,82 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef CARTEINFOS_HPP</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define CARTEINFOS_HPP</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 
-<a name="l00005"></a>00005 
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QPixmap&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QString&gt;</span>
 <a name="l00006"></a>00006 
-<a name="l00007"></a>00007 
-<a name="l00012"></a><a class="code" href="class_carte.html">00012</a> <span class="keyword">class </span><a class="code" href="class_carte.html" title="Carte contient les informations éditables d&#39;une carte.">Carte</a>
-<a name="l00013"></a>00013 {
-<a name="l00014"></a>00014     <span class="keyword">public</span>:
-<a name="l00015"></a>00015         <a class="code" href="class_carte.html" title="Carte contient les informations éditables d&#39;une carte.">Carte</a>();
-<a name="l00016"></a>00016 };
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="preprocessor">#endif // CARTEINFOS_HPP</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;donnees/cartes/Action.hpp&quot;</span>
+<a name="l00008"></a>00008 <span class="keyword">class </span><a class="code" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a>;
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;donnees/cartes/PileCartes.hpp&quot;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00018"></a>00018 <span class="keyword">enum</span> CarteImageDisposition
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020     GAUCHE, DROITE, HAUT, BAS
+<a name="l00021"></a>00021 };
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00031"></a><a class="code" href="class_carte.html">00031</a> <span class="keyword">class </span><a class="code" href="class_carte.html" title="Carte contient les informations éditables d&#39;une carte.">Carte</a>
+<a name="l00032"></a>00032 {
+<a name="l00033"></a>00033     <span class="keyword">private</span>:
+<a name="l00034"></a><a class="code" href="class_carte.html#ae7e76b40d968501a3c05b8ff619af7a9">00034</a>         <a class="code" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a>* <a class="code" href="class_carte.html#ae7e76b40d968501a3c05b8ff619af7a9" title="Pile de cartes à laquelle appartient la carte.">m_pileCartes</a>;
+<a name="l00035"></a><a class="code" href="class_carte.html#aa0cf0771396d24d9b595482d37de6a09">00035</a>         QString <a class="code" href="class_carte.html#aa0cf0771396d24d9b595482d37de6a09" title="Consigne à afficher au joueur.">m_consigne</a>;
+<a name="l00036"></a><a class="code" href="class_carte.html#acdcab787d5c97d38c4b50514b8895b73">00036</a>         QPixmap <a class="code" href="class_carte.html#acdcab787d5c97d38c4b50514b8895b73" title="Image à afficher sur la carte.">m_image</a>;
+<a name="l00037"></a><a class="code" href="class_carte.html#aa3347bd79af63dcbe76a769723c6d3ce">00037</a>         CarteImageDisposition <a class="code" href="class_carte.html#aa3347bd79af63dcbe76a769723c6d3ce" title="Disposition de l&#39;image par rapport à la consigne.">m_dispositionImage</a>;
+<a name="l00038"></a><a class="code" href="class_carte.html#a137d886699fe3fbab9b5be0e979f5bfb">00038</a>         <a class="code" href="class_action.html" title="Action contient les informations éditables d&#39;une action à éxécuter après avoir piocher une carte...">Action</a> <a class="code" href="class_carte.html#a137d886699fe3fbab9b5be0e979f5bfb" title="Action associée à la carte.">m_action</a>;
+<a name="l00039"></a>00039         
+<a name="l00040"></a>00040         
+<a name="l00041"></a>00041         
+<a name="l00042"></a>00042     <span class="keyword">public</span>:
+<a name="l00046"></a>00046         <a class="code" href="class_carte.html#a06daaca86c31c80f8308f4a81d46dc9b" title="Construit une carte par défaut.">Carte</a>();
+<a name="l00047"></a>00047         
+<a name="l00048"></a>00048         
+<a name="l00049"></a>00049         
+<a name="l00054"></a>00054         <a class="code" href="class_carte.html#a63300ff55c58b5d5b1674a3fc8f25910" title="Destructeur.">~Carte</a>();
+<a name="l00055"></a>00055         
+<a name="l00056"></a>00056         
+<a name="l00057"></a>00057         
+<a name="l00061"></a>00061         <a class="code" href="class_action.html" title="Action contient les informations éditables d&#39;une action à éxécuter après avoir piocher une carte...">Action</a>&amp; <a class="code" href="class_carte.html#a90fdca1d6e9136e81145fcf1be5f0140" title="Retourne l&#39;action associée à la carte.">getAction</a>();
+<a name="l00062"></a>00062         
+<a name="l00063"></a>00063         
+<a name="l00064"></a>00064         
+<a name="l00069"></a>00069         <a class="code" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a>* <a class="code" href="class_carte.html#a87d8434ef828a615219bc05e32f7993e" title="Renseigne la pile de cartes à laquelle appartient la carte.">getPileCartes</a>() <span class="keyword">const</span>;
+<a name="l00070"></a>00070         
+<a name="l00071"></a>00071         
+<a name="l00072"></a>00072         
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="class_carte.html#a84fe8df6e1f14adb1dee9f88b23e709c" title="Remplace la pile de cartes à laquelle appartient la carte.">editPileCartes</a>(<a class="code" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a>* <span class="keyword">const</span> pileCartes);
+<a name="l00078"></a>00078         
+<a name="l00079"></a>00079         
+<a name="l00080"></a>00080         
+<a name="l00085"></a>00085         <span class="keyword">const</span> QString&amp; <a class="code" href="class_carte.html#ab715d0aa7440cadc10977578c1ca2ea2" title="Renseigne la consigne de la carte.">getConsigne</a>() <span class="keyword">const</span>;
+<a name="l00086"></a>00086         
+<a name="l00087"></a>00087         
+<a name="l00088"></a>00088         
+<a name="l00093"></a>00093         <span class="keywordtype">void</span> <a class="code" href="class_carte.html#a3f074ca1929348e3303a2b73e2be86ca" title="Remplace la consigne de la carte par consigne.">editConsigne</a>(<span class="keyword">const</span> QString&amp; consigne);
+<a name="l00094"></a>00094         
+<a name="l00095"></a>00095         
+<a name="l00096"></a>00096         
+<a name="l00101"></a>00101         <span class="keyword">const</span> QPixmap&amp; <a class="code" href="class_carte.html#a749383e47331033a6bd7f7773d23a58e" title="Renseigne l&#39;image de la carte.">getImage</a>() <span class="keyword">const</span>;
+<a name="l00102"></a>00102         
+<a name="l00103"></a>00103         
+<a name="l00104"></a>00104         
+<a name="l00109"></a>00109         <span class="keywordtype">void</span> <a class="code" href="class_carte.html#a9c3c3c3b4f9742cf01240f82b94ea714" title="Remplace l&#39;image de la carte par image.">editImage</a>(<span class="keyword">const</span> QPixmap&amp; image);
+<a name="l00110"></a>00110         
+<a name="l00111"></a>00111         
+<a name="l00112"></a>00112         
+<a name="l00117"></a>00117         CarteImageDisposition <a class="code" href="class_carte.html#af2d1b61787be29f4eb45a1a42a00600e" title="Renseigne la disposition de l&#39;image sur la carte.">getDispositionImage</a>() <span class="keyword">const</span>;
+<a name="l00118"></a>00118         
+<a name="l00119"></a>00119         
+<a name="l00120"></a>00120         
+<a name="l00125"></a>00125         <span class="keywordtype">void</span> <a class="code" href="class_carte.html#aa137a727520416e4838a6edc920b53d2" title="Modifie la disposition de l&#39;image sur la carte.">editDispositionImage</a>(<span class="keyword">const</span> CarteImageDisposition disposition);
+<a name="l00126"></a>00126 };
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 <span class="preprocessor">#endif // CARTEINFOS_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -113,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:44 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:31 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -11,5 +11,7 @@ var searchData=
   ['pioche',['Pioche',['../class_pioche.html',1,'']]],
   ['plateau',['Plateau',['../class_plateau.html',1,'']]],
   ['prison',['Prison',['../class_prison.html',1,'']]],
-  ['propriete',['Propriete',['../class_propriete.html',1,'']]]
+  ['prisoneditwidget',['PrisonEditWidget',['../class_prison_edit_widget.html',1,'']]],
+  ['propriete',['Propriete',['../class_propriete.html',1,'']]],
+  ['proprieteeditwidget',['ProprieteEditWidget',['../class_propriete_edit_widget.html',1,'']]]
 ];

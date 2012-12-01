@@ -35,7 +35,7 @@ class Emplacement
         
     protected:
         const GraphismeEmplacementInfos& m_graphismeInfos;///< Informations concernant le graphisme.
-        QGraphicsScene* m_scene;///< 
+        QGraphicsScene* m_scene;///< Scène sur laquelle sera affiché l'élément graphique.
         GraphismeEmplacement* m_elementGraphique;///< Élement graphique.
         QPoint m_coordonnees;///< Coordonnées de l'élément dans la scène.
         int m_rotation;///< Rotation de l'élément dans la scène.

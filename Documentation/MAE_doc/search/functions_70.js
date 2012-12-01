@@ -7,7 +7,7 @@ var searchData=
   ['pageprix',['PagePrix',['../class_page_prix.html#a9c3b3d16809701c2f16ceec576bb82e9',1,'PagePrix']]],
   ['pagetaille',['PageTaille',['../class_page_taille.html#ab1390dd27eb7c36bb97e44f2b5d25c94',1,'PageTaille']]],
   ['parcgratuit',['ParcGratuit',['../class_parc_gratuit.html#abfe8585ea8993eda4bba59213f316099',1,'ParcGratuit']]],
-  ['pilecartes',['pileCartes',['../class_action.html#a2d1c2dfb390ee544f92fe6a77506b751',1,'Action']]],
+  ['pilecartes',['PileCartes',['../class_pile_cartes.html#a732517098e2d253826eadceefb7705ba',1,'PileCartes::PileCartes()'],['../class_action.html#a2d1c2dfb390ee544f92fe6a77506b751',1,'Action::pileCartes()']]],
   ['pioche',['Pioche',['../class_pioche.html#ad7a840deb88b877230deac8a5560ad09',1,'Pioche']]],
   ['plateau',['Plateau',['../class_plateau.html#a07026170529dd928238ee45de0a797d7',1,'Plateau']]],
   ['positionnedescription',['positionneDescription',['../class_graphisme_emplacement.html#aaa18ba301c17784c350af2870a0e55e8',1,'GraphismeEmplacement']]],
@@ -16,5 +16,7 @@ var searchData=
   ['positionnesoustitre',['positionneSousTitre',['../class_graphisme_emplacement.html#ad9f79a87ff27d91af84655eebb2af946',1,'GraphismeEmplacement']]],
   ['positionnetitre',['positionneTitre',['../class_graphisme_emplacement.html#ab79febd84931dfaf7fd8dcce06128854',1,'GraphismeEmplacement']]],
   ['prison',['Prison',['../class_prison.html#a8377f08c8e2124a702a4d6849641d23f',1,'Prison']]],
-  ['propriete',['Propriete',['../class_propriete.html#a99c09b91859c7349351ce58dc13d5bd3',1,'Propriete']]]
+  ['prisoneditwidget',['PrisonEditWidget',['../class_prison_edit_widget.html#a13b5fd7d0c74a2a36ff6b5334ec2874b',1,'PrisonEditWidget']]],
+  ['propriete',['Propriete',['../class_propriete.html#a99c09b91859c7349351ce58dc13d5bd3',1,'Propriete']]],
+  ['proprieteeditwidget',['ProprieteEditWidget',['../class_propriete_edit_widget.html#ae8971b6acd035db8cab860e9947826c8',1,'ProprieteEditWidget']]]
 ];

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/modeles/RegroupementListModel.hpp</title>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/modeles/RegroupementListModel.hpp</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/modeles/RegroupementListModel.hpp</div>  </div>
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/modeles/RegroupementListModel.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef REGROUPEMENTLISTMODEL_HPP</span>
@@ -86,56 +86,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QAbstractListModel&gt;</span>
 <a name="l00005"></a>00005 
-<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;donnees/emplacements/Regroupement.hpp&quot;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;modeles/SelectionRegroupementListModel.hpp&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;dialogEdition/modeles/SelectionRegroupementListModel.hpp&quot;</span>
+<a name="l00007"></a>00007 
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 
-<a name="l00017"></a><a class="code" href="class_regroupement_list_model.html">00017</a> <span class="keyword">class </span><a class="code" href="class_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements.">RegroupementListModel</a> : <span class="keyword">public</span> QAbstractListModel
-<a name="l00018"></a>00018 {
-<a name="l00019"></a>00019         Q_OBJECT
+<a name="l00016"></a><a class="code" href="class_regroupement_list_model.html">00016</a> <span class="keyword">class </span><a class="code" href="class_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements.">RegroupementListModel</a> : <span class="keyword">public</span> QAbstractListModel
+<a name="l00017"></a>00017 {
+<a name="l00018"></a>00018         Q_OBJECT
+<a name="l00019"></a>00019         
 <a name="l00020"></a>00020         
-<a name="l00021"></a>00021         
-<a name="l00022"></a>00022     <span class="keyword">private</span>:
-<a name="l00023"></a><a class="code" href="class_regroupement_list_model.html#a188ca9990ec6e6a61bf8d91034827077">00023</a>         QList&lt;Regroupement*&gt;&amp; <a class="code" href="class_regroupement_list_model.html#a188ca9990ec6e6a61bf8d91034827077" title="Référence vers la liste de Regroupements.">m_regroupements</a>;
-<a name="l00024"></a><a class="code" href="class_regroupement_list_model.html#a06f368b835bb04a20aca7872b62bfcfe">00024</a>         <a class="code" href="class_selection_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements.">SelectionRegroupementListModel</a>* <a class="code" href="class_regroupement_list_model.html#a06f368b835bb04a20aca7872b62bfcfe" title="Modèle de données secondaire permettant l&#39;édition de terrains.">m_modeleSecondaire</a>;
+<a name="l00021"></a>00021     <span class="keyword">private</span>:
+<a name="l00022"></a><a class="code" href="class_regroupement_list_model.html#a6ae25c1a4de1cadb4485b603804541a4">00022</a>         QList&lt;RegroupementData*&gt;&amp; <a class="code" href="class_regroupement_list_model.html#a6ae25c1a4de1cadb4485b603804541a4" title="Référence vers la liste de regroupements.">m_regroupements</a>;
+<a name="l00023"></a><a class="code" href="class_regroupement_list_model.html#a765df4848529530664b5bcb5dc130579">00023</a>         <a class="code" href="class_selection_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements sélectionnable...">SelectionRegroupementListModel</a>* <a class="code" href="class_regroupement_list_model.html#a765df4848529530664b5bcb5dc130579" title="Modèle de données secondaire contenant une liste des regroupements sélectionnables.">m_modeleRegroupementsSelectionnables</a>;
+<a name="l00024"></a>00024         
 <a name="l00025"></a>00025         
 <a name="l00026"></a>00026         
-<a name="l00027"></a>00027         
-<a name="l00028"></a>00028     <span class="keyword">public</span>:
-<a name="l00034"></a>00034         <a class="code" href="class_regroupement_list_model.html#a9d09b027c2922e95f089c47017ac178d" title="Construit un nouveau modèle de données avec les regroupements contenus dans la liste regroupements...">RegroupementListModel</a>(QList&lt;Regroupement*&gt;&amp; regroupements,
-<a name="l00035"></a>00035                               QObject* parent = 0);
-<a name="l00036"></a>00036         
-<a name="l00037"></a>00037         
-<a name="l00038"></a>00038         
-<a name="l00042"></a>00042         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_list_model.html#a0a72a023126efed043f451a442de25b6" title="Créé un nouveau regroupement et l&#39;ajoute dans le modèle de données.">createRegroupement</a>();
-<a name="l00043"></a>00043         
+<a name="l00027"></a>00027     <span class="keyword">public</span>:
+<a name="l00032"></a>00032         <a class="code" href="class_regroupement_list_model.html#a1a28a63dcd579b2f2b3521398b24aa8d" title="Construit un nouveau modèle de données avec les regroupements contenus dans la liste regroupements...">RegroupementListModel</a>(QList&lt;RegroupementData*&gt;&amp; regroupements);
+<a name="l00033"></a>00033         
+<a name="l00034"></a>00034         
+<a name="l00035"></a>00035         
+<a name="l00042"></a>00042         QVariant <a class="code" href="class_regroupement_list_model.html#a714fbcadb7511fb51becebc73833179b" title="Renseigne diverses informations nécessaires aux QWidgets vues.">data</a>(<span class="keyword">const</span> QModelIndex&amp; index,
+<a name="l00043"></a>00043                       <span class="keywordtype">int</span> role = Qt::DisplayRole) <span class="keyword">const</span>;
 <a name="l00044"></a>00044         
 <a name="l00045"></a>00045         
-<a name="l00052"></a>00052         QVariant <a class="code" href="class_regroupement_list_model.html#a714fbcadb7511fb51becebc73833179b" title="Renseigne diverses informations nécessaires aux QWidgets vues.">data</a>(<span class="keyword">const</span> QModelIndex&amp; index,
-<a name="l00053"></a>00053                       <span class="keywordtype">int</span> role = Qt::DisplayRole) <span class="keyword">const</span>;
+<a name="l00046"></a>00046         
+<a name="l00051"></a>00051         <a class="code" href="class_selection_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements sélectionnable...">SelectionRegroupementListModel</a>* <a class="code" href="class_regroupement_list_model.html#a4bd0ab9d2c13b9bf3c4ea4cb0887af8d" title="Retourne le modèle de données des regroupements sélectionnables.">getModeleRegroupementsSelectionnables</a>() <span class="keyword">const</span>;
+<a name="l00052"></a>00052         
+<a name="l00053"></a>00053         
 <a name="l00054"></a>00054         
-<a name="l00055"></a>00055         
-<a name="l00056"></a>00056         
-<a name="l00061"></a>00061         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_list_model.html#aa7f8d56c499ecf3482f898243db6471b" title="Supprime le regroupement situé au rang row.">deleteRegroupement</a>(<span class="keywordtype">int</span> row);
+<a name="l00060"></a>00060         <a class="code" href="class_regroupement_data.html" title="Structure de données contenant les informations d&#39;un regroupement à éditer.">RegroupementData</a>* <a class="code" href="class_regroupement_list_model.html#aafbb05509ede43c033b37f7e77ff1573" title="Retourne le regroupement situé au rang row.">getRegroupementAt</a>(<span class="keywordtype">int</span> row) <span class="keyword">const</span>;
+<a name="l00061"></a>00061         
 <a name="l00062"></a>00062         
 <a name="l00063"></a>00063         
-<a name="l00064"></a>00064         
-<a name="l00069"></a>00069         <a class="code" href="class_selection_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements.">SelectionRegroupementListModel</a>* <a class="code" href="class_regroupement_list_model.html#a6ce7c7e7c0767df60257ceacb89c8caf" title="Retourne le modèle de données secondaire servant à éditer les terrains présents dans un regroupement ...">getModeleSecondaire</a>() <span class="keyword">const</span>;
+<a name="l00069"></a>00069         <span class="keywordtype">int</span> <a class="code" href="class_regroupement_list_model.html#a70b830db2c3db0972cff7b3e7a662683" title="Renseigne le nombre de rangs contenus dans le modèle de données.">rowCount</a>(<span class="keyword">const</span> QModelIndex&amp; parent = QModelIndex()) <span class="keyword">const</span>;
 <a name="l00070"></a>00070         
 <a name="l00071"></a>00071         
 <a name="l00072"></a>00072         
-<a name="l00078"></a>00078         <span class="keywordtype">int</span> <a class="code" href="class_regroupement_list_model.html#a70b830db2c3db0972cff7b3e7a662683" title="Renseigne le nombre de rangs contenus dans le modèle de données.">rowCount</a>(<span class="keyword">const</span> QModelIndex&amp; parent = QModelIndex()) <span class="keyword">const</span>;
+<a name="l00076"></a>00076         <span class="keywordtype">int</span> <a class="code" href="class_regroupement_list_model.html#ad12852695cdf0257c090529de2cfe3a7" title="Créé un nouveau regroupement et l&#39;insert dans le modèle de données.">createRegroupement</a>();
+<a name="l00077"></a>00077         
+<a name="l00078"></a>00078         
 <a name="l00079"></a>00079         
-<a name="l00080"></a>00080         
-<a name="l00081"></a>00081         
-<a name="l00082"></a>00082     <span class="keyword">public</span> slots:
-<a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_list_model.html#a79b2469ba69bed6dc7b67701ae450e3a" title="Notifie au modèle de données le regroupement sélectionné dans la vue.">notifyRegroupementSelectionne</a>(<span class="keywordtype">int</span> row);
-<a name="l00088"></a>00088 };
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090 <span class="preprocessor">#endif // REGROUPEMENTLISTMODEL_HPP</span>
+<a name="l00084"></a>00084         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_list_model.html#a5ab3f38cf4ea5ec6d2da8021a3334c23" title="Enlève un regroupement du modèle de données (seulement si le regroupement ne possède plus aucun terra...">deleteRegroupementAt</a>(<span class="keywordtype">int</span> row);
+<a name="l00085"></a>00085 };
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="preprocessor">#endif // REGROUPEMENTLISTMODEL_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -154,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:44 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:31 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

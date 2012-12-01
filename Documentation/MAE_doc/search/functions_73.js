@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['selectionregroupementlistmodel',['SelectionRegroupementListModel',['../class_selection_regroupement_list_model.html#a103c514888833b9adf59c300a15ab62c',1,'SelectionRegroupementListModel']]],
+  ['sauvegarde',['sauvegarde',['../class_depart_edit_widget.html#a79b0469d552339b651b9865cc8745858',1,'DepartEditWidget::sauvegarde()'],['../class_emplacement_edit_widget.html#a4824618fa3473908c55b994b72a11f51',1,'EmplacementEditWidget::sauvegarde()'],['../class_prison_edit_widget.html#a6c735bd418b8c600b81a850ce096c18f',1,'PrisonEditWidget::sauvegarde()'],['../class_propriete_edit_widget.html#ada6f6726968241d7ad3d35c40f184a1a',1,'ProprieteEditWidget::sauvegarde()'],['../class_taxe_edit_widget.html#a336069ef3a7783aed291512763f49c23',1,'TaxeEditWidget::sauvegarde()']]],
+  ['selectionneregroupement',['selectionneRegroupement',['../class_liste_regroupement_edit_widget.html#acab2d6b2bef0713fc871842732b5dcb5',1,'ListeRegroupementEditWidget']]],
+  ['selectionregroupementlistmodel',['SelectionRegroupementListModel',['../class_selection_regroupement_list_model.html#a81402981e8ddf22be8f67f7665f8a831',1,'SelectionRegroupementListModel']]],
   ['service',['Service',['../class_service.html#ade8d4216ef0806b53b721cc6fa5beb25',1,'Service']]],
   ['setbackgroundcolor',['setBackgroundColor',['../class_image_select_widget.html#ab85b21a8e473d5963bcfecd185a246aa',1,'ImageSelectWidget']]],
   ['setcolor',['setColor',['../class_color_select_widget.html#abaa2bd954db36f0c9a63a6e852e5c6b7',1,'ColorSelectWidget']]],
@@ -19,8 +21,9 @@ var searchData=
   ['settransactionavectouslesjoueurs',['setTransactionAvecTousLesJoueurs',['../class_action.html#acb0232aa2a6b5be60495899f39eb5dd4',1,'Action']]],
   ['setupcouleurregroupement',['setupCouleurRegroupement',['../class_graphisme_emplacement.html#a7b53759509af3f34279295b5fd782f34',1,'GraphismeEmplacement']]],
   ['setupdescription',['setupDescription',['../class_graphisme_emplacement.html#aacc70f6451670a1fd511ebb6dc9ae15e',1,'GraphismeEmplacement']]],
+  ['setupelementgraphique',['setupElementGraphique',['../class_emplacement.html#ab2375b4d53c7b2336774127ba9cc9f4f',1,'Emplacement']]],
   ['setupimage',['setupImage',['../class_graphisme_emplacement.html#ac8aeb1bdd279814bf0f5b8084d3896e3',1,'GraphismeEmplacement']]],
-  ['setupnombrecompagnies',['setupNombreCompagnies',['../class_compagnie_transpot.html#aaa7a749674bf5bd42e057208f734116a',1,'CompagnieTranspot']]],
+  ['setupnombrecompagnies',['setupNombreCompagnies',['../class_compagnie_transport.html#a2ca1e77fa780a16c59e898dd92ab9c53',1,'CompagnieTransport']]],
   ['setupnombremaxhotel',['setupNombreMaxHotel',['../class_terrain.html#aa7883da3a10daca8ea6a840b6b15f2ba',1,'Terrain']]],
   ['setupnombremaxmaison',['setupNombreMaxMaison',['../class_terrain.html#adced8114132bbaa1df79db9005df4382',1,'Terrain']]],
   ['setupnombreservices',['setupNombreServices',['../class_service.html#ac0aba58e610bf120f60500dd2df83d9a',1,'Service']]],

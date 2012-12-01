@@ -98,8 +98,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#a131c370a5cc7b037f1fe13151df9925e">GraphismeEmplacement</a> (const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;infosGraphiques, <a class="el" href="class_emplacement.html">Emplacement</a> *const emplacement, const QPoint &amp;position, const int rotation, const QString &amp;titre, const QString &amp;sousTitre=QString(), const QString &amp;description=QString(), const QString &amp;prix=QString(), const QPixmap &amp;image=QPixmap(), const QColor &amp;couleurRegroupement=QColor(), const bool emplacementEnCoin=false)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un nouvel objet graphique.  <a href="#a131c370a5cc7b037f1fe13151df9925e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#af4ac56ef09a6c433102ee5a94db6ed85">GraphismeEmplacement</a> (const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;infosGraphiques, <a class="el" href="class_emplacement.html">Emplacement</a> *const emplacement, const QPoint &amp;position, const int rotation, const QString &amp;titre, const QString &amp;sousTitre=QString(), const QString &amp;description=QString(), const QString &amp;prix=QString(), const QPixmap &amp;image=QPixmap(), const QColor &amp;couleurRegroupement=QColor(), const bool emplacementEnCoin=false, const bool eventOn=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un nouvel objet graphique.  <a href="#af4ac56ef09a6c433102ee5a94db6ed85"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#ada9e5ae0d73861f1dad250553726b212">updateCouleurRegroupement</a> (const QColor &amp;couleur)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour la couleur du regroupement.  <a href="#ada9e5ae0d73861f1dad250553726b212"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#a0195f66450472b4508cc0fad3c22b140">updateTitre</a> (const QString &amp;titre)</td></tr>
@@ -194,6 +194,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Positionne <code>m_graphPrix</code>. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#a5283ac3f0e5acb5e689225b1e7e13d1c">helper_setupGraphicsTextItem</a> (QGraphicsTextItem *item, const QString &amp;texte, const QFont &amp;font, const QColor &amp;couleur=QColor(0, 0, 0))</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le QGraphicsTextItem pour qu'il affiche correctement le texte <em>texte</em>.  <a href="#a5283ac3f0e5acb5e689225b1e7e13d1c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#a1f207a8d29a7787c992ffea69d57603f">mousePressEvent</a> (QGraphicsSceneMouseEvent *event)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Active la boucle d'événement.  <a href="#a1f207a8d29a7787c992ffea69d57603f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ceb0f5dfb23a1c5e308f20a8fd26e1a"></a><!-- doxytag: member="GraphismeEmplacement::mouseReleaseEvent" ref="a1ceb0f5dfb23a1c5e308f20a8fd26e1a" args="(QGraphicsSceneMouseEvent *event)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#a1ceb0f5dfb23a1c5e308f20a8fd26e1a">mouseReleaseEvent</a> (QGraphicsSceneMouseEvent *event)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Détecte un clic gauche de la souris (si m_eventOn est <b><code>true</code>)</b>. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4db9cc3a308c2074f517e79cbacafbc"></a><!-- doxytag: member="GraphismeEmplacement::m_infosGraphiques" ref="ac4db9cc3a308c2074f517e79cbacafbc" args="" -->
@@ -202,6 +207,9 @@ const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmpla
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81dad7dd90478a52e6edd3a88b980cec"></a><!-- doxytag: member="GraphismeEmplacement::m_emplacement" ref="a81dad7dd90478a52e6edd3a88b980cec" args="" -->
 <a class="el" href="class_emplacement.html">Emplacement</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#a81dad7dd90478a52e6edd3a88b980cec">m_emplacement</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointeur vers l'emplacement à dessiner. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a56551543e399679aedd6ec6f84c644"></a><!-- doxytag: member="GraphismeEmplacement::m_eventOn" ref="a4a56551543e399679aedd6ec6f84c644" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#a4a56551543e399679aedd6ec6f84c644">m_eventOn</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si les événement (clique sur l'emplacement) sont activés. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a652e0319d245e8a47e92a3917230cb18"></a><!-- doxytag: member="GraphismeEmplacement::m_position" ref="a652e0319d245e8a47e92a3917230cb18" args="" -->
 QPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphisme_emplacement.html#a652e0319d245e8a47e92a3917230cb18">m_position</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Position à laquelle est dessiné l'élément sur la scène. <br/></td></tr>
@@ -255,12 +263,12 @@ QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a clas
 <div class="textblock"><p><a class="el" href="class_graphisme_emplacement.html" title="GraphismeEmplacement permet l&#39;affichage graphique des emplacements sur un plateau.">GraphismeEmplacement</a> permet l'affichage graphique des emplacements sur un plateau. </p>
 <p>Cette classe hérite directement de QGraphicsRectItem. Ce sont les instances de cette classe qui seront dessinées sur le plateau ou dans des fenêtres d'édition afin de représenter les emplacements. </p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a131c370a5cc7b037f1fe13151df9925e"></a><!-- doxytag: member="GraphismeEmplacement::GraphismeEmplacement" ref="a131c370a5cc7b037f1fe13151df9925e" args="(const GraphismeEmplacementInfos &amp;infosGraphiques, Emplacement *const emplacement, const QPoint &amp;position, const int rotation, const QString &amp;titre, const QString &amp;sousTitre=QString(), const QString &amp;description=QString(), const QString &amp;prix=QString(), const QPixmap &amp;image=QPixmap(), const QColor &amp;couleurRegroupement=QColor(), const bool emplacementEnCoin=false)" -->
+<a class="anchor" id="af4ac56ef09a6c433102ee5a94db6ed85"></a><!-- doxytag: member="GraphismeEmplacement::GraphismeEmplacement" ref="af4ac56ef09a6c433102ee5a94db6ed85" args="(const GraphismeEmplacementInfos &amp;infosGraphiques, Emplacement *const emplacement, const QPoint &amp;position, const int rotation, const QString &amp;titre, const QString &amp;sousTitre=QString(), const QString &amp;description=QString(), const QString &amp;prix=QString(), const QPixmap &amp;image=QPixmap(), const QColor &amp;couleurRegroupement=QColor(), const bool emplacementEnCoin=false, const bool eventOn=false)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_graphisme_emplacement.html#a131c370a5cc7b037f1fe13151df9925e">GraphismeEmplacement::GraphismeEmplacement</a> </td>
+          <td class="memname"><a class="el" href="class_graphisme_emplacement.html#af4ac56ef09a6c433102ee5a94db6ed85">GraphismeEmplacement::GraphismeEmplacement</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td>
           <td class="paramname"><em>infosGraphiques</em>, </td>
@@ -323,7 +331,13 @@ QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a clas
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>emplacementEnCoin</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>emplacementEnCoin</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>eventOn</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -348,10 +362,11 @@ QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a clas
     <tr><td class="paramname">image</td><td>Image à afficher sur l'emplacement. </td></tr>
     <tr><td class="paramname">couleurRegroupement</td><td>Couleur du regroupement auquel appartient le terrain. </td></tr>
     <tr><td class="paramname">emplacementEnCoin</td><td>Indique si l'emplacement à représenter se situe dans un coin du plateau. </td></tr>
+    <tr><td class="paramname">eventOn</td><td>Indique si les événement (clique sur l'emplacement) sont activés. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="note"><dt><b>Note:</b></dt><dd>Le constructeur dessine automatiquement l'élément graphique. Veillez donc à renseigner le maximum d'attributs plutôt que de faire appel aux différentes méthodes <code>setXXX()</code>. </dd></dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>Le constructeur dessine automatiquement l'élément graphique. Veillez donc à renseigner le maximum d'attributs plutôt que de faire appel aux différentes méthodes <code>updateXXX()</code>. </dd></dl>
 
 </div>
 </div>
@@ -403,6 +418,26 @@ QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a clas
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a1f207a8d29a7787c992ffea69d57603f"></a><!-- doxytag: member="GraphismeEmplacement::mousePressEvent" ref="a1f207a8d29a7787c992ffea69d57603f" args="(QGraphicsSceneMouseEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_graphisme_emplacement.html#a1f207a8d29a7787c992ffea69d57603f">GraphismeEmplacement::mousePressEvent</a> </td>
+          <td>(</td>
+          <td class="paramtype">QGraphicsSceneMouseEvent *&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Active la boucle d'événement. </p>
+<p>Cette méthode ne fait rien, mais elle est nécessaire pour activer la réception des événements sur l'emplacement. </p>
 
 </div>
 </div>
@@ -635,7 +670,7 @@ QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><a clas
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

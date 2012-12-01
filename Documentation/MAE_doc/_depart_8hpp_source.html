@@ -97,23 +97,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00018"></a>00018         
 <a name="l00019"></a>00019         
 <a name="l00020"></a>00020         
-<a name="l00021"></a>00021     <span class="keyword">public</span>:
-<a name="l00026"></a>00026         <a class="code" href="class_depart.html#a0f6e1d849143b32e00035a4c7c4e0791" title="Construit un emplacement « Départ » par défaut.">Depart</a>(<span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; graphismeInfos);
-<a name="l00027"></a>00027         
-<a name="l00028"></a>00028         
-<a name="l00029"></a>00029         
-<a name="l00033"></a>00033         <span class="keyword">virtual</span> <a class="code" href="class_depart.html#a8ae9660aefcce4a37b11c50a9df93654" title="Destructeur virtuel.">~Depart</a>();
+<a name="l00021"></a>00021     <span class="keyword">protected</span>:
+<a name="l00022"></a><a class="code" href="class_depart.html#a2835527b90efdf6127e34aa147f950e2">00022</a>         <span class="keyword">const</span> QString&amp; <a class="code" href="class_depart.html#a2835527b90efdf6127e34aa147f950e2" title="Référence constante vers la devise du plateau.">m_devise</a>;
+<a name="l00023"></a>00023         
+<a name="l00024"></a>00024         
+<a name="l00025"></a>00025         
+<a name="l00026"></a>00026     <span class="keyword">public</span>:
+<a name="l00032"></a>00032         <a class="code" href="class_depart.html#a173dc69178a766a8467073e57b90db51" title="Construit un emplacement « Départ » par défaut.">Depart</a>(<span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; graphismeInfos,
+<a name="l00033"></a>00033                <span class="keyword">const</span> QString&amp; devise);
 <a name="l00034"></a>00034         
 <a name="l00035"></a>00035         
 <a name="l00036"></a>00036         
-<a name="l00041"></a>00041         quint16 <a class="code" href="class_depart.html#a888dbe37e57607041e8c42d2d14cc844" title="Renseigne le montant du salaire perçu au passage.">getSalaire</a>() <span class="keyword">const</span>;
+<a name="l00040"></a>00040         <span class="keyword">virtual</span> <a class="code" href="class_depart.html#a8ae9660aefcce4a37b11c50a9df93654" title="Destructeur virtuel.">~Depart</a>();
+<a name="l00041"></a>00041         
 <a name="l00042"></a>00042         
 <a name="l00043"></a>00043         
-<a name="l00044"></a>00044         
-<a name="l00049"></a>00049         <span class="keywordtype">void</span> <a class="code" href="class_depart.html#a6ec7cfad722ebf62eaab6e75dcd17643" title="Remplace le montant du salaire par montant.">editSalaire</a>(<span class="keyword">const</span> quint16 montant);
-<a name="l00050"></a>00050 };
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="preprocessor">#endif // DEPARTINFOS_HPP</span>
+<a name="l00048"></a>00048         quint16 <a class="code" href="class_depart.html#a888dbe37e57607041e8c42d2d14cc844" title="Renseigne le montant du salaire perçu au passage.">getSalaire</a>() <span class="keyword">const</span>;
+<a name="l00049"></a>00049         
+<a name="l00050"></a>00050         
+<a name="l00051"></a>00051         
+<a name="l00056"></a>00056         <span class="keywordtype">void</span> <a class="code" href="class_depart.html#a6ec7cfad722ebf62eaab6e75dcd17643" title="Remplace le montant du salaire par montant.">editSalaire</a>(<span class="keyword">const</span> quint16 montant);
+<a name="l00057"></a>00057         
+<a name="l00058"></a>00058         
+<a name="l00059"></a>00059         
+<a name="l00060"></a>00060     <span class="keyword">protected</span>:
+<a name="l00061"></a>00061         <span class="keyword">virtual</span> QString <a class="code" href="class_depart.html#afd6d2a028f0412f80e637ac95a7d057f" title="Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé.">helper_getPrix</a>() <span class="keyword">const</span>;
+<a name="l00062"></a>00062 };
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="preprocessor">#endif // DEPARTINFOS_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -132,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:44 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:31 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -80,6 +80,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-attribs">Attributs privés</a> &#124;
+<a href="#friends">Amis</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe PileCartes</div>  </div>
 </div><!--header-->
@@ -91,9 +95,160 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <p><code>#include &lt;<a class="el" href="_pile_cartes_8hpp_source.html">donnees/cartes/PileCartes.hpp</a>&gt;</code></p>
 
 <p><a href="class_pile_cartes-members.html">Liste de tous les membres</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a732517098e2d253826eadceefb7705ba"></a><!-- doxytag: member="PileCartes::PileCartes" ref="a732517098e2d253826eadceefb7705ba" args="()" -->
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pile_cartes.html#a732517098e2d253826eadceefb7705ba">PileCartes</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit une pile de cartes par défaut. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pile_cartes.html#a6648342741b75d6d040f4b829e5ff017">~PileCartes</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur.  <a href="#a6648342741b75d6d040f4b829e5ff017"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pile_cartes.html#a207baa90fd7eec9e77b9b1c87111ca1a">getTitre</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le titre de la pile de cartes.  <a href="#a207baa90fd7eec9e77b9b1c87111ca1a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pile_cartes.html#a56834af7ec154d77b11a33cefccc9a4a">editTitre</a> (const QString &amp;titre)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace le titre de la pile de cartes par <em>titre</em>.  <a href="#a56834af7ec154d77b11a33cefccc9a4a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pile_cartes.html#a144a8c0319bfe6d5c16dceaba593986a">getNombreCartes</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le nombre de cartes contenus dans la pile de cartes.  <a href="#a144a8c0319bfe6d5c16dceaba593986a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_carte.html">Carte</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pile_cartes.html#a1e605d91cf663a149f99510f23668d4b">getCarte</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la carte situé à l'index <em>index</em>.  <a href="#a1e605d91cf663a149f99510f23668d4b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_carte.html">Carte</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pile_cartes.html#a351f917c7006b00dc6a6dbd38274ffaa">getListeCartes</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la liste des cartes contenus.  <a href="#a351f917c7006b00dc6a6dbd38274ffaa"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab79e60917f0193c1cc31d1c3995fccf3"></a><!-- doxytag: member="PileCartes::m_titre" ref="ab79e60917f0193c1cc31d1c3995fccf3" args="" -->
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pile_cartes.html#ab79e60917f0193c1cc31d1c3995fccf3">m_titre</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Titre de la pile de cartes. <br/></td></tr>
+<tr><td colspan="2"><h2><a name="friends"></a>
+Amis</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad37d947a9ab6963684ab02acbc9ce2a"></a><!-- doxytag: member="PileCartes::Carte" ref="aad37d947a9ab6963684ab02acbc9ce2a" args="" -->
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Carte</b></td></tr>
+</table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p><a class="el" href="class_pile_cartes.html" title="PileCartes contient les informations éditables d&#39;une pile de cartes.">PileCartes</a> contient les informations éditables d'une pile de cartes. </p>
-</div><hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+</div><hr/><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="a6648342741b75d6d040f4b829e5ff017"></a><!-- doxytag: member="PileCartes::~PileCartes" ref="a6648342741b75d6d040f4b829e5ff017" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_pile_cartes.html#a6648342741b75d6d040f4b829e5ff017">PileCartes::~PileCartes</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destructeur. </p>
+<p>Enlève toutes les cartes contenues avant la suppression. </p>
+
+</div>
+</div>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a56834af7ec154d77b11a33cefccc9a4a"></a><!-- doxytag: member="PileCartes::editTitre" ref="a56834af7ec154d77b11a33cefccc9a4a" args="(const QString &amp;titre)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pile_cartes.html#a56834af7ec154d77b11a33cefccc9a4a">PileCartes::editTitre</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>titre</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Remplace le titre de la pile de cartes par <em>titre</em>. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">titre</td><td>Nouveau titre. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1e605d91cf663a149f99510f23668d4b"></a><!-- doxytag: member="PileCartes::getCarte" ref="a1e605d91cf663a149f99510f23668d4b" args="(int index) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_carte.html">Carte</a> * <a class="el" href="class_pile_cartes.html#a1e605d91cf663a149f99510f23668d4b">PileCartes::getCarte</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne la carte situé à l'index <em>index</em>. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd><a class="el" href="class_carte.html" title="Carte contient les informations éditables d&#39;une carte.">Carte</a> situé à l'index <em>index</em>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a351f917c7006b00dc6a6dbd38274ffaa"></a><!-- doxytag: member="PileCartes::getListeCartes" ref="a351f917c7006b00dc6a6dbd38274ffaa" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; <a class="el" href="class_carte.html">Carte</a> * &gt; <a class="el" href="class_pile_cartes.html#a351f917c7006b00dc6a6dbd38274ffaa">PileCartes::getListeCartes</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne la liste des cartes contenus. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Liste des cartes contenus. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a144a8c0319bfe6d5c16dceaba593986a"></a><!-- doxytag: member="PileCartes::getNombreCartes" ref="a144a8c0319bfe6d5c16dceaba593986a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_pile_cartes.html#a144a8c0319bfe6d5c16dceaba593986a">PileCartes::getNombreCartes</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne le nombre de cartes contenus dans la pile de cartes. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Nombre de cartes contenus dans la pile de cartes. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a207baa90fd7eec9e77b9b1c87111ca1a"></a><!-- doxytag: member="PileCartes::getTitre" ref="a207baa90fd7eec9e77b9b1c87111ca1a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString &amp; <a class="el" href="class_pile_cartes.html#a207baa90fd7eec9e77b9b1c87111ca1a">PileCartes::getTitre</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne le titre de la pile de cartes. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Titre de la pile de cartes. </dd></dl>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/cartes/<a class="el" href="_pile_cartes_8hpp_source.html">PileCartes.hpp</a></li>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/cartes/PileCartes.cpp</li>
 </ul>
@@ -115,7 +270,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -81,7 +81,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
 <a href="#pro-methods">Fonctions membres protégées</a> &#124;
 <a href="#pro-attribs">Attributs protégés</a> &#124;
@@ -114,10 +113,6 @@ Graphe d'héritage de Emplacement:</div>
 
 <p><a href="class_emplacement-members.html">Liste de tous les membres</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement_1_1_element_graphique.html">ElementGraphique</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données servant à la déclaration des scène sur lesquelles est affiché l'emplacement.  <a href="class_emplacement_1_1_element_graphique.html#details">Plus de détails...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a0ab91b1c6fc0a9566efeac2a46b05c27">Emplacement</a> (Type::Emplacement type, const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;graphismeInfos)</td></tr>
@@ -149,10 +144,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa73761ee9dd97984c5e7ec207ec53c9a"></a><!-- doxytag: member="Emplacement::setEmplacementNormal" ref="aa73761ee9dd97984c5e7ec207ec53c9a" args="()" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#aa73761ee9dd97984c5e7ec207ec53c9a">setEmplacementNormal</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifie à l'emplacement qu'il ne se situe pas dans un coin du plateau. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494">registerScene</a> (QGraphicsScene *scene, const QPoint &amp;coordonnees=QPoint(), const int rotation=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Déclare l'emplacement sur une scène.  <a href="#ad4cd848fb3031b0aced010026fb9a494"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a4b162cf2b05f59ede8a6e62a8ac24cbb">dessiner</a> (QGraphicsScene *scene=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'emplacement sur la scène passée en argument.  <a href="#a4b162cf2b05f59ede8a6e62a8ac24cbb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a65457a53480eaefe237fc27c1f34e9d1">getGraphismeInfos</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne les informations concernant le graphisme des emplacements.  <a href="#a65457a53480eaefe237fc27c1f34e9d1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#ab2375b4d53c7b2336774127ba9cc9f4f">setupElementGraphique</a> (const QPoint &amp;position, const int rotation, QGraphicsScene *scene=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour les informations concernant la disposition de l'emplacement sur la scène.  <a href="#ab2375b4d53c7b2336774127ba9cc9f4f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af98e0ad5673d1b1118c9af21ab9faa77"></a><!-- doxytag: member="Emplacement::dessiner" ref="af98e0ad5673d1b1118c9af21ab9faa77" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#af98e0ad5673d1b1118c9af21ab9faa77">dessiner</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'emplacement sur la scène configurée dans le constructeur. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b73774417d0d7d87dbc2357bd3f0924"></a><!-- doxytag: member="Emplacement::lanceFenetreEdition" ref="a5b73774417d0d7d87dbc2357bd3f0924" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a5b73774417d0d7d87dbc2357bd3f0924">lanceFenetreEdition</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Ouvre une fenêtre d'édition de l'emplacement. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Fonctions membres protégées</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#af70384de48681d9091f2be8955c0dd56">helper_getPrix</a> () const </td></tr>
@@ -164,13 +165,21 @@ Attributs protégés</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94042bfe01af919092343f85814b63ef"></a><!-- doxytag: member="Emplacement::m_graphismeInfos" ref="a94042bfe01af919092343f85814b63ef" args="" -->
 const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a94042bfe01af919092343f85814b63ef">m_graphismeInfos</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Informations concernant le graphisme. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a997bc32e9bab846c2a13bd856b7016bc"></a><!-- doxytag: member="Emplacement::m_scene" ref="a997bc32e9bab846c2a13bd856b7016bc" args="" -->
+QGraphicsScene *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a997bc32e9bab846c2a13bd856b7016bc">m_scene</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Scène sur laquelle sera affiché l'élément graphique. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74f37a231588ebcf743899ec7652244d"></a><!-- doxytag: member="Emplacement::m_elementGraphique" ref="a74f37a231588ebcf743899ec7652244d" args="" -->
+<a class="el" href="class_graphisme_emplacement.html">GraphismeEmplacement</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a74f37a231588ebcf743899ec7652244d">m_elementGraphique</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Élement graphique. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9435b72eeb4a22bd2d1300f29236b706"></a><!-- doxytag: member="Emplacement::m_coordonnees" ref="a9435b72eeb4a22bd2d1300f29236b706" args="" -->
+QPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a9435b72eeb4a22bd2d1300f29236b706">m_coordonnees</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordonnées de l'élément dans la scène. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66061b213a76cf23ef8d59db76e26d08"></a><!-- doxytag: member="Emplacement::m_rotation" ref="a66061b213a76cf23ef8d59db76e26d08" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#a66061b213a76cf23ef8d59db76e26d08">m_rotation</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation de l'élément dans la scène. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6b28f62f37da80e45248b6543904fb7"></a><!-- doxytag: member="Emplacement::m_enCoin" ref="ac6b28f62f37da80e45248b6543904fb7" args="" -->
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#ac6b28f62f37da80e45248b6543904fb7">m_enCoin</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si l'emplacement se situe dans un coin du plateau. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec90add4f33ae8a1de2bdd2970503970"></a><!-- doxytag: member="Emplacement::m_scenes" ref="aec90add4f33ae8a1de2bdd2970503970" args="" -->
-QHash&lt; QGraphicsScene <br class="typebreak"/>
-*, <a class="el" href="class_emplacement_1_1_element_graphique.html">ElementGraphique</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_emplacement.html#aec90add4f33ae8a1de2bdd2970503970">m_scenes</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Table des éléments graphiques et de leur scène. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a301c57161d39c6458ee645553742e9f6"></a><!-- doxytag: member="Emplacement::m_type" ref="a301c57161d39c6458ee645553742e9f6" args="" -->
@@ -191,6 +200,7 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p><a class="el" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a> contient les informations éditables communes à tous les emplacements d'un plateau. </p>
+<p>L'objet graphique est placé dans une classe à part. De cette manière, l'élément graphique n'est créé que si nécessaire. Par exemple, pour l'édition de la liste des regroupements, les regroupements et les terrains sont copiés. Mais les éléments graphiques ne sont pas créés dans les objets terrains copiés. </p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
 <a class="anchor" id="a0ab91b1c6fc0a9566efeac2a46b05c27"></a><!-- doxytag: member="Emplacement::Emplacement" ref="a0ab91b1c6fc0a9566efeac2a46b05c27" args="(Type::Emplacement type, const GraphismeEmplacementInfos &amp;graphismeInfos)" -->
 <div class="memitem">
@@ -229,32 +239,6 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div>
 </div>
 <hr/><h2>Documentation des fonctions membres</h2>
-<a class="anchor" id="a4b162cf2b05f59ede8a6e62a8ac24cbb"></a><!-- doxytag: member="Emplacement::dessiner" ref="a4b162cf2b05f59ede8a6e62a8ac24cbb" args="(QGraphicsScene *scene=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_emplacement.html#a4b162cf2b05f59ede8a6e62a8ac24cbb">Emplacement::dessiner</a> </td>
-          <td>(</td>
-          <td class="paramtype">QGraphicsScene *&#160;</td>
-          <td class="paramname"><em>scene</em> = <code>0</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Dessine l'emplacement sur la scène passée en argument. </p>
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">scene</td><td>Scène sur laquelle mettre à jour l'affichage (0 pour toutes).</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>L'emplacement va garder en mémoire les scènes sur lesquelles il est affiché. Il va créer un nouveau QGraphicsItem à chaque fois qu'il doit être affiché sur une nouvelle scène. Pour déclarer une scène, il faut appeler au préalale la méthode <a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494" title="Déclare l&#39;emplacement sur une scène.">Emplacement::registerScene()</a> afin de renseigner les coordonnées et la rotation de l'emplacement sur la scène. Pour actualiser l'affichage graphique de l'emplacement sur une scène précise, il suffit d'appeler cette méthode avec la scène en paramètre. Si aucune scène n'est passée en argument, toutes les scènes sont mises à jour. </p>
-
-</div>
-</div>
 <a class="anchor" id="ab1154b990b7b49bf473439358d57ba47"></a><!-- doxytag: member="Emplacement::editDescription" ref="ab1154b990b7b49bf473439358d57ba47" args="(const QString &amp;description)" -->
 <div class="memitem">
 <div class="memproto">
@@ -374,6 +358,25 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 </div>
 </div>
+<a class="anchor" id="a65457a53480eaefe237fc27c1f34e9d1"></a><!-- doxytag: member="Emplacement::getGraphismeInfos" ref="a65457a53480eaefe237fc27c1f34e9d1" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp; <a class="el" href="class_emplacement.html#a65457a53480eaefe237fc27c1f34e9d1">Emplacement::getGraphismeInfos</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Renseigne les informations concernant le graphisme des emplacements. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Informations concernant le graphisme des emplacements. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a2ac65ae52b536f341d9520b3be990edf"></a><!-- doxytag: member="Emplacement::getImage" ref="a2ac65ae52b536f341d9520b3be990edf" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -488,31 +491,31 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé. </p>
 <p>Cette méthode est réimplémentée dans les emplacements <a class="el" href="class_propriete.html" title="Propriete contient les informations éditables communes à toutes les propriétés d&#39;un plateau...">Propriete</a> et <a class="el" href="class_taxe.html" title="Taxe contient les informations éditables d&#39;un emplacement « Taxe » d&#39;un plateau.">Taxe</a>. Pour plus de facilité, elle renvoie un QString directement utilisable. </p>
 
-<p>Réimplémentée dans <a class="el" href="class_taxe.html#acde5ebe8e5c6dde0c8d0395f75c53d29">Taxe</a>, et <a class="el" href="class_propriete.html#a807aa9fbef30ee6da0831529d13a94d5">Propriete</a>.</p>
+<p>Réimplémentée dans <a class="el" href="class_taxe.html#acde5ebe8e5c6dde0c8d0395f75c53d29">Taxe</a>, <a class="el" href="class_propriete.html#a807aa9fbef30ee6da0831529d13a94d5">Propriete</a>, et <a class="el" href="class_depart.html#afd6d2a028f0412f80e637ac95a7d057f">Depart</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad4cd848fb3031b0aced010026fb9a494"></a><!-- doxytag: member="Emplacement::registerScene" ref="ad4cd848fb3031b0aced010026fb9a494" args="(QGraphicsScene *scene, const QPoint &amp;coordonnees=QPoint(), const int rotation=0)" -->
+<a class="anchor" id="ab2375b4d53c7b2336774127ba9cc9f4f"></a><!-- doxytag: member="Emplacement::setupElementGraphique" ref="ab2375b4d53c7b2336774127ba9cc9f4f" args="(const QPoint &amp;position, const int rotation, QGraphicsScene *scene=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494">Emplacement::registerScene</a> </td>
+          <td class="memname">void <a class="el" href="class_emplacement.html#ab2375b4d53c7b2336774127ba9cc9f4f">Emplacement::setupElementGraphique</a> </td>
           <td>(</td>
-          <td class="paramtype">QGraphicsScene *&#160;</td>
-          <td class="paramname"><em>scene</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const QPoint &amp;&#160;</td>
-          <td class="paramname"><em>coordonnees</em> = <code>QPoint()</code>, </td>
+          <td class="paramname"><em>position</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>rotation</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QGraphicsScene *&#160;</td>
+          <td class="paramname"><em>scene</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -523,15 +526,16 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div>
 <div class="memdoc">
 
-<p>Déclare l'emplacement sur une scène. </p>
+<p>Met à jour les informations concernant la disposition de l'emplacement sur la scène. </p>
 <dl class="params"><dt><b>Paramètres:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>Scène sur laquelle afficher l'emplacement. </td></tr>
-    <tr><td class="paramname">coordonnees</td><td>Coordonnées de la position de l'emplacement sur la scène. </td></tr>
-    <tr><td class="paramname">rotation</td><td>Rotation de l'emplacement sur la scène. </td></tr>
+    <tr><td class="paramname">position</td><td>Position de l'emplacement sur la scène. </td></tr>
+    <tr><td class="paramname">rotation</td><td>Angle de rotation de l'emplacement sur la scène. </td></tr>
+    <tr><td class="paramname">scene</td><td>Scène sur laquelle est afficher l'emplacement. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>Il faut appeler la méthode <a class="el" href="class_emplacement.html#af98e0ad5673d1b1118c9af21ab9faa77" title="Dessine l&#39;emplacement sur la scène configurée dans le constructeur.">Emplacement::dessiner()</a> pour mettre à jour l'affichage avec la nouvelle configuration. </dd></dl>
 
 </div>
 </div>
@@ -557,7 +561,7 @@ QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

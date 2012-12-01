@@ -23,7 +23,6 @@ class TerrainData
     public:
         /**
          * Construit une structure de données à partir d'un terrain.
-         * @param index Index du terrain sur le plateau (utilisé pour le classement des terrains dans l'affichage).
          * @param terrain Terrain fournissant les informations.
          */
         TerrainData(Terrain* terrain);

@@ -173,8 +173,11 @@ Fonctions membres publiques</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Change la fonte utilisée pour afficher le prix des propriétés ou des emplacements taxes sur le plateau.  <a href="#a08d543c8c90027960437d6da9ad33376"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#af5ec8740a842aee3ca668754c0a2bbba">getInformationGraphismeEmplacement</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne les informations concernant le graphisme des emplacements.  <a href="#af5ec8740a842aee3ca668754c0a2bbba"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a985015e36f8ce85f2cba084fb72130e3">getListeRegroupement</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fourni la liste des Regroupements du plateau.  <a href="#a985015e36f8ce85f2cba084fb72130e3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#acda443bfee79fa3054d2351271e817e9">getListeRegroupement</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fourni la liste des Regroupements du plateau.  <a href="#acda443bfee79fa3054d2351271e817e9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a463d4619afe6721161d8e333abf81908"></a><!-- doxytag: member="Plateau::editListeRegroupement" ref="a463d4619afe6721161d8e333abf81908" args="(QWidget *parent=0)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a463d4619afe6721161d8e333abf81908">editListeRegroupement</a> (QWidget *parent=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Fonctions membres privées</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plateau.html#a1fbb14e49c43b9fdb00f0c6488fa4636">helper_isEmplacementEnCoin</a> (int id) const </td></tr>
@@ -288,7 +291,8 @@ QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt;&#
 <div class="memdoc">
 
 <p>Dessine tous les emplacements sur le plateau. </p>
-<p>Appel la méthode <a class="el" href="class_emplacement.html#a4b162cf2b05f59ede8a6e62a8ac24cbb" title="Dessine l&#39;emplacement sur la scène passée en argument.">Emplacement::dessiner()</a> de tous les emplacements après avoir enregistrer le plateau avec <a class="el" href="class_emplacement.html#ad4cd848fb3031b0aced010026fb9a494" title="Déclare l&#39;emplacement sur une scène.">Emplacement::registerScene()</a>. </p>
+<p>Appel la méthode <a class="el" href="class_emplacement.html#af98e0ad5673d1b1118c9af21ab9faa77" title="Dessine l&#39;emplacement sur la scène configurée dans le constructeur.">Emplacement::dessiner()</a> de tous les emplacements après avoir enregistrer le plateau avec Emplacement::registerScene(). </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">A faire:</a></b></dt><dd>Voir si on ne peut pas faire ces config dans la méthode <a class="el" href="class_plateau.html#aed20e1ea04bf84bd354bb6f9bfa0ef7f" title="Change la taille du plateau.">editTaille()</a> plutôt qu'ici. </dd></dl>
 
 </div>
 </div>
@@ -938,12 +942,12 @@ QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt;&#
 
 </div>
 </div>
-<a class="anchor" id="a985015e36f8ce85f2cba084fb72130e3"></a><!-- doxytag: member="Plateau::getListeRegroupement" ref="a985015e36f8ce85f2cba084fb72130e3" args="()" -->
+<a class="anchor" id="acda443bfee79fa3054d2351271e817e9"></a><!-- doxytag: member="Plateau::getListeRegroupement" ref="acda443bfee79fa3054d2351271e817e9" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp; <a class="el" href="class_plateau.html#a985015e36f8ce85f2cba084fb72130e3">Plateau::getListeRegroupement</a> </td>
+          <td class="memname">const QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp; <a class="el" href="class_plateau.html#acda443bfee79fa3054d2351271e817e9">Plateau::getListeRegroupement</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1199,7 +1203,7 @@ QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt;&#
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

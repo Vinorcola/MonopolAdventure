@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/EditionEmplacement.hpp</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="MonopolAdventureEditorIcon.png"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">MonopolAdventureEditor
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/EditionEmplacement.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef EDITIONEMPLACEMENT_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define EDITIONEMPLACEMENT_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QDialog&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QDialogButtonBox&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QTabWidget&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;QVBoxLayout&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="keyword">class </span><a class="code" href="class_emplacement_edit_widget.html" title="Cette classe fournit une interface d&#39;édition des informations générales d&#39;un emplacement.">EmplacementEditWidget</a>;
+<a name="l00010"></a>00010 <span class="keyword">class </span><a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>;
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;donnees/emplacements/Emplacement.hpp&quot;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00021"></a><a class="code" href="class_edition_emplacement.html">00021</a> <span class="keyword">class </span><a class="code" href="class_edition_emplacement.html" title="Cette classe contrôle l&#39;édition d&#39;un emplacement.">EditionEmplacement</a>
+<a name="l00022"></a>00022 {
+<a name="l00023"></a>00023     <span class="keyword">private</span>:
+<a name="l00024"></a><a class="code" href="class_edition_emplacement.html#a9e0432fa821d68ddfd618d26ed593370">00024</a>         QDialog* <a class="code" href="class_edition_emplacement.html#a9e0432fa821d68ddfd618d26ed593370" title="Boîte de dialogue affichant le widget d&#39;édition.">m_dialog</a>;
+<a name="l00025"></a><a class="code" href="class_edition_emplacement.html#a1645b1d8cfd00c0afc1a782e9b470376">00025</a>         <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <a class="code" href="class_edition_emplacement.html#a1645b1d8cfd00c0afc1a782e9b470376" title="Emplacement en cours d&#39;édition.">m_emplacement</a>;
+<a name="l00026"></a><a class="code" href="class_edition_emplacement.html#a0cac4ff67be868f3d571d20dfb8b3387">00026</a>         QTabWidget* <a class="code" href="class_edition_emplacement.html#a0cac4ff67be868f3d571d20dfb8b3387" title="Onglets d&#39;édition.">m_onglets</a>;
+<a name="l00027"></a><a class="code" href="class_edition_emplacement.html#abb7e72cd53c9515903bde4870a63edab">00027</a>         <a class="code" href="class_emplacement_edit_widget.html" title="Cette classe fournit une interface d&#39;édition des informations générales d&#39;un emplacement.">EmplacementEditWidget</a>* <a class="code" href="class_edition_emplacement.html#abb7e72cd53c9515903bde4870a63edab" title="1er onglet (informations générales).">m_onglet1</a>;
+<a name="l00028"></a><a class="code" href="class_edition_emplacement.html#a69256d7bbc515f749ee1d6ddb60258eb">00028</a>         QWidget* <a class="code" href="class_edition_emplacement.html#a69256d7bbc515f749ee1d6ddb60258eb" title="2ème onglet (dépend du type d&#39;emplacement).">m_onglet2</a>;
+<a name="l00029"></a><a class="code" href="class_edition_emplacement.html#a6324157aa50e0c1c0df34928fd10e2ee">00029</a>         QWidget* <a class="code" href="class_edition_emplacement.html#a6324157aa50e0c1c0df34928fd10e2ee" title="3ème onglet (dépend du type d&#39;emplacement).">m_onglet3</a>;
+<a name="l00030"></a><a class="code" href="class_edition_emplacement.html#a283fc32b4d20ee1ec731a0fa09cbe5aa">00030</a>         QWidget* <a class="code" href="class_edition_emplacement.html#a283fc32b4d20ee1ec731a0fa09cbe5aa" title="4ème onglet (dépend du type d&#39;emplacement).">m_onglet4</a>;
+<a name="l00031"></a>00031         
+<a name="l00032"></a>00032         
+<a name="l00033"></a>00033         
+<a name="l00034"></a>00034     <span class="keyword">public</span>:
+<a name="l00040"></a>00040         <a class="code" href="class_edition_emplacement.html#a794faf656bfb010d17ba1a0748c47be7" title="Construit un contrôleur d&#39;édition d&#39;emplacement.">EditionEmplacement</a>(<a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* emplacement,
+<a name="l00041"></a>00041                            QWidget* parent = 0);
+<a name="l00042"></a>00042         
+<a name="l00043"></a>00043         
+<a name="l00044"></a>00044         
+<a name="l00048"></a>00048         <span class="keywordtype">bool</span> <a class="code" href="class_edition_emplacement.html#a3c04b5ac9345234fe4ecb855751e1740" title="Lance la fenêtre d&#39;édition de l&#39;emplacement.">executer</a>();
+<a name="l00049"></a>00049 };
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="preprocessor">#endif // EDITIONEMPLACEMENT_HPP</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Samedi Décembre 1 2012 20:13:31 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

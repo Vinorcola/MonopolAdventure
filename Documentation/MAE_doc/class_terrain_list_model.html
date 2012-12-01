@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="TerrainListModel" -->
-<p>Cette classe représente un modèle de données contenant une liste de terrains.  
+<p>Cette classe représente un modèle de données contenant une liste affichable de terrains contenu dans un regroupement.  
  <a href="class_terrain_list_model.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_terrain_list_model_8hpp_source.html">modeles/TerrainListModel.hpp</a>&gt;</code></p>
@@ -97,53 +97,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#aaae775d8326d65a7e633628f7103a115">TerrainListModel</a> (<a class="el" href="class_regroupement.html">Regroupement</a> *regroupement, QObject *parent=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un nouveau modèle de données avec les terrains contenus dans le regroupement <em>regroupement</em>.  <a href="#aaae775d8326d65a7e633628f7103a115"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#a32beb396ff3d93e452e96773158822f2">TerrainListModel</a> (QList&lt; <a class="el" href="class_terrain_data.html">TerrainData</a> * &gt; &amp;terrains)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un nouveau modèle de données avec les terrains <em>terrains</em>.  <a href="#a32beb396ff3d93e452e96773158822f2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#a2d14f8ee068af04a1df25cc640c70224">data</a> (const QModelIndex &amp;index, int role=Qt::DisplayRole) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne diverses informations nécessaires aux QWidgets vues.  <a href="#a2d14f8ee068af04a1df25cc640c70224"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#ab202b0cd4f3ce32942b6f9527291a95e">rowCount</a> (const QModelIndex &amp;parent=QModelIndex()) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le nombre de rangs contenus dans le modèle de données.  <a href="#ab202b0cd4f3ce32942b6f9527291a95e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#ab06da1e409ed9755a6f7283c9912e15d">transfererTerrain</a> (int row, <a class="el" href="class_terrain_list_model.html">TerrainListModel</a> *autreModele)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfère un <a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a> vers un autre modèle de données.  <a href="#ab06da1e409ed9755a6f7283c9912e15d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#a64dd3472ea04c56badd3f64b5584e678">insertTerrain</a> (<a class="el" href="class_terrain_data.html">TerrainData</a> *terrain)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insère le terrain <em>terrain</em> dans le modèle de données.  <a href="#a64dd3472ea04c56badd3f64b5584e678"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_terrain_data.html">TerrainData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#ad72331a7cdb1e1187bcdb21e44709e48">enleveTerrain</a> (int row)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Enlève, du modèle de données, le terrain situé au rang <em>row</em>, puis retourne son pointeur.  <a href="#ad72331a7cdb1e1187bcdb21e44709e48"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d5f37f33950a3835b4e8916d0aaf3a9"></a><!-- doxytag: member="TerrainListModel::m_regroupement" ref="a6d5f37f33950a3835b4e8916d0aaf3a9" args="" -->
-<a class="el" href="class_regroupement.html">Regroupement</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#a6d5f37f33950a3835b4e8916d0aaf3a9">m_regroupement</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_regroupement.html" title="Regroupement contient les informations éditables d&#39;un regroupement de terrains.">Regroupement</a> de terrains. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a191a9b3877a4376fede21bea6d8ccedf"></a><!-- doxytag: member="TerrainListModel::m_TerrainsData" ref="a191a9b3877a4376fede21bea6d8ccedf" args="" -->
+QList&lt; <a class="el" href="class_terrain_data.html">TerrainData</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain_list_model.html#a191a9b3877a4376fede21bea6d8ccedf">m_TerrainsData</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Données éditables d'un regroupement. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
-<div class="textblock"><p>Cette classe représente un modèle de données contenant une liste de terrains. </p>
+<div class="textblock"><p>Cette classe représente un modèle de données contenant une liste affichable de terrains contenu dans un regroupement. </p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="aaae775d8326d65a7e633628f7103a115"></a><!-- doxytag: member="TerrainListModel::TerrainListModel" ref="aaae775d8326d65a7e633628f7103a115" args="(Regroupement *regroupement, QObject *parent=0)" -->
+<a class="anchor" id="a32beb396ff3d93e452e96773158822f2"></a><!-- doxytag: member="TerrainListModel::TerrainListModel" ref="a32beb396ff3d93e452e96773158822f2" args="(QList&lt; TerrainData * &gt; &amp;terrains)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_terrain_list_model.html#aaae775d8326d65a7e633628f7103a115">TerrainListModel::TerrainListModel</a> </td>
+          <td class="memname"><a class="el" href="class_terrain_list_model.html#a32beb396ff3d93e452e96773158822f2">TerrainListModel::TerrainListModel</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_regroupement.html">Regroupement</a> *&#160;</td>
-          <td class="paramname"><em>regroupement</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">QList&lt; <a class="el" href="class_terrain_data.html">TerrainData</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>terrains</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">QObject *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Construit un nouveau modèle de données avec les terrains contenus dans le regroupement <em>regroupement</em>. </p>
+<p>Construit un nouveau modèle de données avec les terrains <em>terrains</em>. </p>
 <dl class="params"><dt><b>Paramètres:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">regroupement</td><td><a class="el" href="class_regroupement.html" title="Regroupement contient les informations éditables d&#39;un regroupement de terrains.">Regroupement</a>. </td></tr>
-    <tr><td class="paramname">parent</td><td>QObject parent. </td></tr>
+    <tr><td class="paramname">terrains</td><td>Liste des terrains. </td></tr>
   </table>
   </dd>
 </dl>
@@ -188,6 +179,57 @@ Attributs privés</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad72331a7cdb1e1187bcdb21e44709e48"></a><!-- doxytag: member="TerrainListModel::enleveTerrain" ref="ad72331a7cdb1e1187bcdb21e44709e48" args="(int row)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_terrain_data.html">TerrainData</a> * <a class="el" href="class_terrain_list_model.html#ad72331a7cdb1e1187bcdb21e44709e48">TerrainListModel::enleveTerrain</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Enlève, du modèle de données, le terrain situé au rang <em>row</em>, puis retourne son pointeur. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Rang auquel se situe le terrain. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Pointeur du terrain enlevé. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a64dd3472ea04c56badd3f64b5584e678"></a><!-- doxytag: member="TerrainListModel::insertTerrain" ref="a64dd3472ea04c56badd3f64b5584e678" args="(TerrainData *terrain)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_terrain_list_model.html#a64dd3472ea04c56badd3f64b5584e678">TerrainListModel::insertTerrain</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_terrain_data.html">TerrainData</a> *&#160;</td>
+          <td class="paramname"><em>terrain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Insère le terrain <em>terrain</em> dans le modèle de données. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">terrain</td><td><a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a> à insérer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ab202b0cd4f3ce32942b6f9527291a95e"></a><!-- doxytag: member="TerrainListModel::rowCount" ref="ab202b0cd4f3ce32942b6f9527291a95e" args="(const QModelIndex &amp;parent=QModelIndex()) const " -->
 <div class="memitem">
 <div class="memproto">
@@ -214,45 +256,9 @@ Attributs privés</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab06da1e409ed9755a6f7283c9912e15d"></a><!-- doxytag: member="TerrainListModel::transfererTerrain" ref="ab06da1e409ed9755a6f7283c9912e15d" args="(int row, TerrainListModel *autreModele)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_terrain_list_model.html#ab06da1e409ed9755a6f7283c9912e15d">TerrainListModel::transfererTerrain</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_terrain_list_model.html">TerrainListModel</a> *&#160;</td>
-          <td class="paramname"><em>autreModele</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Transfère un <a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a> vers un autre modèle de données. </p>
-<dl class="params"><dt><b>Paramètres:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">row</td><td>Rang du <a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a> à transférer. </td></tr>
-    <tr><td class="paramname">autreModele</td><td>Modèle de données vers lequel transférer le <a class="el" href="class_terrain.html" title="Terrain contient les informations éditables d&#39;un terrain d&#39;un plateau.">Terrain</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
-<li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/modeles/<a class="el" href="_terrain_list_model_8hpp_source.html">TerrainListModel.hpp</a></li>
-<li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/modeles/TerrainListModel.cpp</li>
+<li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/modeles/<a class="el" href="_terrain_list_model_8hpp_source.html">TerrainListModel.hpp</a></li>
+<li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/modeles/TerrainListModel.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -272,7 +278,7 @@ Attributs privés</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

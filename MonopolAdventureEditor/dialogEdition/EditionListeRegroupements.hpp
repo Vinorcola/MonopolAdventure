@@ -32,6 +32,7 @@ class EditionListeRegroupements
         /**
          * Construit un controleur d'édition de liste de regroupements.
          * @param regroupements Liste originale des regroupements à éditer.
+         * @param parent QWidget parent à la fenêtre d'édition.
          */
         EditionListeRegroupements(QList<Regroupement*>& regroupements,
                                   QWidget* parent);

@@ -85,14 +85,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!--header-->
 <div class="contents">
 Liste complète des membres de <a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a>, y compris les membres hérités :<table>
-  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a0a72a023126efed043f451a442de25b6">createRegroupement</a>()</td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#ad12852695cdf0257c090529de2cfe3a7">createRegroupement</a>()</td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a714fbcadb7511fb51becebc73833179b">data</a>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const </td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#aa7f8d56c499ecf3482f898243db6471b">deleteRegroupement</a>(int row)</td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a6ce7c7e7c0767df60257ceacb89c8caf">getModeleSecondaire</a>() const </td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a06f368b835bb04a20aca7872b62bfcfe">m_modeleSecondaire</a></td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a188ca9990ec6e6a61bf8d91034827077">m_regroupements</a></td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td><code> [private]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a79b2469ba69bed6dc7b67701ae450e3a">notifyRegroupementSelectionne</a>(int row)</td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td><code> [slot]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a9d09b027c2922e95f089c47017ac178d">RegroupementListModel</a>(QList&lt; Regroupement * &gt; &amp;regroupements, QObject *parent=0)</td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a5ab3f38cf4ea5ec6d2da8021a3334c23">deleteRegroupementAt</a>(int row)</td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a4bd0ab9d2c13b9bf3c4ea4cb0887af8d">getModeleRegroupementsSelectionnables</a>() const </td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#aafbb05509ede43c033b37f7e77ff1573">getRegroupementAt</a>(int row) const </td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a765df4848529530664b5bcb5dc130579">m_modeleRegroupementsSelectionnables</a></td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a6ae25c1a4de1cadb4485b603804541a4">m_regroupements</a></td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a1a28a63dcd579b2f2b3521398b24aa8d">RegroupementListModel</a>(QList&lt; RegroupementData * &gt; &amp;regroupements)</td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_regroupement_list_model.html#a70b830db2c3db0972cff7b3e7a662683">rowCount</a>(const QModelIndex &amp;parent=QModelIndex()) const </td><td><a class="el" href="class_regroupement_list_model.html">RegroupementListModel</a></td><td></td></tr>
 </table></div><!-- contents -->
 <!-- window showing the filter options -->
@@ -112,7 +112,7 @@ Liste complète des membres de <a class="el" href="class_regroupement_list_model
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

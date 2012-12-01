@@ -82,6 +82,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
 <a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Depart</div>  </div>
@@ -106,8 +108,8 @@ Graphe d'héritage de Depart:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depart.html#a0f6e1d849143b32e00035a4c7c4e0791">Depart</a> (const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;graphismeInfos)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un emplacement « Départ » par défaut.  <a href="#a0f6e1d849143b32e00035a4c7c4e0791"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depart.html#a173dc69178a766a8467073e57b90db51">Depart</a> (const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;graphismeInfos, const QString &amp;devise)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un emplacement « Départ » par défaut.  <a href="#a173dc69178a766a8467073e57b90db51"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ae9660aefcce4a37b11c50a9df93654"></a><!-- doxytag: member="Depart::~Depart" ref="a8ae9660aefcce4a37b11c50a9df93654" args="()" -->
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depart.html#a8ae9660aefcce4a37b11c50a9df93654">~Depart</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel. <br/></td></tr>
@@ -115,6 +117,15 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le montant du salaire perçu au passage.  <a href="#a888dbe37e57607041e8c42d2d14cc844"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depart.html#a6ec7cfad722ebf62eaab6e75dcd17643">editSalaire</a> (const quint16 montant)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace le montant du salaire par <em>montant</em>.  <a href="#a6ec7cfad722ebf62eaab6e75dcd17643"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depart.html#afd6d2a028f0412f80e637ac95a7d057f">helper_getPrix</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé.  <a href="#afd6d2a028f0412f80e637ac95a7d057f"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2835527b90efdf6127e34aa147f950e2"></a><!-- doxytag: member="Depart::m_devise" ref="a2835527b90efdf6127e34aa147f950e2" args="" -->
+const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depart.html#a2835527b90efdf6127e34aa147f950e2">m_devise</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Référence constante vers la devise du plateau. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a098e3e4d7d77e3762f15269c3132310a"></a><!-- doxytag: member="Depart::m_salaire" ref="a098e3e4d7d77e3762f15269c3132310a" args="" -->
@@ -124,16 +135,26 @@ quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p><a class="el" href="class_depart.html" title="Depart contient les informations éditables d&#39;un emplacement « Départ » d&#39;un plateau.">Depart</a> contient les informations éditables d'un emplacement « Départ » d'un plateau. </p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a0f6e1d849143b32e00035a4c7c4e0791"></a><!-- doxytag: member="Depart::Depart" ref="a0f6e1d849143b32e00035a4c7c4e0791" args="(const GraphismeEmplacementInfos &amp;graphismeInfos)" -->
+<a class="anchor" id="a173dc69178a766a8467073e57b90db51"></a><!-- doxytag: member="Depart::Depart" ref="a173dc69178a766a8467073e57b90db51" args="(const GraphismeEmplacementInfos &amp;graphismeInfos, const QString &amp;devise)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_depart.html#a0f6e1d849143b32e00035a4c7c4e0791">Depart::Depart</a> </td>
+          <td class="memname"><a class="el" href="class_depart.html#a173dc69178a766a8467073e57b90db51">Depart::Depart</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_graphisme_emplacement_infos.html">GraphismeEmplacementInfos</a> &amp;&#160;</td>
-          <td class="paramname"><em>graphismeInfos</em></td><td>)</td>
+          <td class="paramname"><em>graphismeInfos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>devise</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -143,6 +164,7 @@ quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <dl class="params"><dt><b>Paramètres:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">graphismeInfos</td><td>Informations concernant le graphisme. </td></tr>
+    <tr><td class="paramname">devise</td><td>Référence vers la devise servant à l'affichage du prix sur le plateau. </td></tr>
   </table>
   </dd>
 </dl>
@@ -194,6 +216,27 @@ quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 </div>
 </div>
+<a class="anchor" id="afd6d2a028f0412f80e637ac95a7d057f"></a><!-- doxytag: member="Depart::helper_getPrix" ref="afd6d2a028f0412f80e637ac95a7d057f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="class_depart.html#afd6d2a028f0412f80e637ac95a7d057f">Depart::helper_getPrix</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé. </p>
+<p>Cette méthode est réimplémentée dans les emplacements <a class="el" href="class_propriete.html" title="Propriete contient les informations éditables communes à toutes les propriétés d&#39;un plateau...">Propriete</a> et <a class="el" href="class_taxe.html" title="Taxe contient les informations éditables d&#39;un emplacement « Taxe » d&#39;un plateau.">Taxe</a>. Pour plus de facilité, elle renvoie un QString directement utilisable. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_emplacement.html#af70384de48681d9091f2be8955c0dd56">Emplacement</a>.</p>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/<a class="el" href="_depart_8hpp_source.html">Depart.hpp</a></li>
 <li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/donnees/emplacements/Depart.cpp</li>
@@ -216,7 +259,7 @@ quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

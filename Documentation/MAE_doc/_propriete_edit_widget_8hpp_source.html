@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="MonopolAdventureEditorIcon.png"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">MonopolAdventureEditor
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef PROPRIETEEDITWIDGET_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define PROPRIETEEDITWIDGET_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QCheckBox&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QFormLayout&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QLabel&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;QSpinBox&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;donnees/emplacements/Propriete.hpp&quot;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00019"></a><a class="code" href="class_propriete_edit_widget.html">00019</a> <span class="keyword">class </span><a class="code" href="class_propriete_edit_widget.html" title="Cette classe fournit une interface d&#39;édition des informations caractéristiques d&#39;achat et d&#39;hypothèqu...">ProprieteEditWidget</a> : <span class="keyword">public</span> QWidget
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021         Q_OBJECT
+<a name="l00022"></a>00022         
+<a name="l00023"></a>00023         
+<a name="l00024"></a>00024     <span class="keyword">private</span>:
+<a name="l00025"></a><a class="code" href="class_propriete_edit_widget.html#a0c02081cdd3cc68533f9b96c93af7c49">00025</a>         <a class="code" href="class_propriete.html" title="Propriete contient les informations éditables communes à toutes les propriétés d&#39;un plateau...">Propriete</a>* <a class="code" href="class_propriete_edit_widget.html#a0c02081cdd3cc68533f9b96c93af7c49" title="Propriété en cours d&#39;édition.">m_propriete</a>;
+<a name="l00026"></a><a class="code" href="class_propriete_edit_widget.html#adb641d9ab85add1c8e1aa02dcc8e10d1">00026</a>         QSpinBox* <a class="code" href="class_propriete_edit_widget.html#adb641d9ab85add1c8e1aa02dcc8e10d1" title="Champ d&#39;édition du prix d&#39;achat.">m_champPrixAchat</a>;
+<a name="l00027"></a><a class="code" href="class_propriete_edit_widget.html#a19cc59e6f10f6263d8fdce08ef43c668">00027</a>         QCheckBox* <a class="code" href="class_propriete_edit_widget.html#a19cc59e6f10f6263d8fdce08ef43c668" title="Champ qui indique que la valeur de l&#39;hypothèque est égale à la moitié du prix d&#39;achat.">m_hypothequeMoitiePrix</a>;
+<a name="l00028"></a><a class="code" href="class_propriete_edit_widget.html#a1f6689cc0523d92fc61e94b04047ce5e">00028</a>         QLabel* <a class="code" href="class_propriete_edit_widget.html#a1f6689cc0523d92fc61e94b04047ce5e" title="Étiquette associé à m_champValeurHypotheque.">m_labelValeurHypotheque</a>;
+<a name="l00029"></a><a class="code" href="class_propriete_edit_widget.html#a167198720a02049eb2ec6fde447b5c93">00029</a>         QSpinBox* <a class="code" href="class_propriete_edit_widget.html#a167198720a02049eb2ec6fde447b5c93" title="Champ d&#39;édition de la valeur d&#39;hypothèque.">m_champValeurHypotheque</a>;
+<a name="l00030"></a>00030         
+<a name="l00031"></a>00031                 
+<a name="l00032"></a>00032     <span class="keyword">public</span>:
+<a name="l00037"></a>00037         <a class="code" href="class_propriete_edit_widget.html#ae8971b6acd035db8cab860e9947826c8" title="Construit un nouveau widget d&#39;édition de propriété.">ProprieteEditWidget</a>(<a class="code" href="class_propriete.html" title="Propriete contient les informations éditables communes à toutes les propriétés d&#39;un plateau...">Propriete</a>* <span class="keyword">const</span> propriete);
+<a name="l00038"></a>00038         
+<a name="l00039"></a>00039         
+<a name="l00040"></a>00040         
+<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="class_propriete_edit_widget.html#ada6f6726968241d7ad3d35c40f184a1a" title="Edite les informations de la propriété en fonction de la configuration des champs.">sauvegarde</a>();
+<a name="l00045"></a>00045         
+<a name="l00046"></a>00046         
+<a name="l00047"></a>00047         
+<a name="l00048"></a>00048     <span class="keyword">private</span> slots:
+<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="class_propriete_edit_widget.html#a9238235463dda8bccedf7a22da701d31" title="Met à jour le prix de l&#39;hypotheque si l&#39;option « hypothèque = moitie prix » est cochée.">champPrixAchatChanged</a>(<span class="keywordtype">int</span> prix);
+<a name="l00054"></a>00054         
+<a name="l00055"></a>00055         
+<a name="l00056"></a>00056         
+<a name="l00061"></a>00061         <span class="keywordtype">void</span> <a class="code" href="class_propriete_edit_widget.html#a94c0b99422b9b1d5c0cb30c43b9523f4" title="Active ou désactive les champs de configuration de l&#39;hypothèque en fonction de si m_hypothequeMoitieP...">hypothequeMoitiePrixChanged</a>(<span class="keywordtype">int</span> state);
+<a name="l00062"></a>00062 };
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="preprocessor">#endif // PROPRIETEEDITWIDGET_HPP</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Samedi Décembre 1 2012 20:13:31 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

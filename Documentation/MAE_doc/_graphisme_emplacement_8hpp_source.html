@@ -89,197 +89,209 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a name="l00006"></a>00006 <span class="comment">                                 */</span>
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 <span class="preprocessor">#include &lt;QGraphicsRectItem&gt;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;QString&gt;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;QtCore/qmath.h&gt;</span>
-<a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <span class="keyword">class </span><a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>;
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;donnees/graphismes/GraphismeEmplacementInfos.hpp&quot;</span>
-<a name="l00014"></a>00014 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;QGraphicsSceneMouseEvent&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;QString&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;QtCore/qmath.h&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keyword">class </span><a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>;
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;donnees/graphismes/GraphismeEmplacementInfos.hpp&quot;</span>
 <a name="l00015"></a>00015 
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017 
-<a name="l00018"></a>00018 
-<a name="l00025"></a>00025 <span class="keyword">class </span><a class="code" href="class_graphisme_emplacement.html" title="GraphismeEmplacement permet l&#39;affichage graphique des emplacements sur un plateau.">GraphismeEmplacement</a> : <span class="keyword">public</span> QGraphicsRectItem
-<a name="l00026"></a><a class="code" href="class_graphisme_emplacement.html#ac4db9cc3a308c2074f517e79cbacafbc">00026</a> {
-<a name="l00027"></a><a class="code" href="class_graphisme_emplacement.html#a81dad7dd90478a52e6edd3a88b980cec">00027</a>     <span class="keyword">private</span>:
-<a name="l00028"></a>00028         <span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; <a class="code" href="class_graphisme_emplacement.html#ac4db9cc3a308c2074f517e79cbacafbc" title="Détails du graphisme des emplacements.">m_infosGraphiques</a>;
-<a name="l00029"></a><a class="code" href="class_graphisme_emplacement.html#a652e0319d245e8a47e92a3917230cb18">00029</a>         <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement.html#a81dad7dd90478a52e6edd3a88b980cec" title="Pointeur vers l&#39;emplacement à dessiner.">m_emplacement</a>;
-<a name="l00030"></a><a class="code" href="class_graphisme_emplacement.html#a01fd155fb7bfed5e638ccb829fcdd725">00030</a>         
-<a name="l00031"></a><a class="code" href="class_graphisme_emplacement.html#a6d164566c3687550aeb5bd6cea3c14fb">00031</a>         QPoint <a class="code" href="class_graphisme_emplacement.html#a652e0319d245e8a47e92a3917230cb18" title="Position à laquelle est dessiné l&#39;élément sur la scène.">m_position</a>;
-<a name="l00032"></a><a class="code" href="class_graphisme_emplacement.html#a9b7e71c7adb2478cf2f3b36eeb9f0a8d">00032</a>         <span class="keywordtype">int</span> <a class="code" href="class_graphisme_emplacement.html#a01fd155fb7bfed5e638ccb829fcdd725" title="Angle de rotation à appliquer à l&#39;élément avant de l&#39;afficher sur la scène.">m_rotation</a>;
-<a name="l00033"></a><a class="code" href="class_graphisme_emplacement.html#ad720a41c56ece3594beb0f5c5738345b">00033</a>         QString <a class="code" href="class_graphisme_emplacement.html#a6d164566c3687550aeb5bd6cea3c14fb" title="Titre à afficher sur l&#39;emplacement.">m_titre</a>;
-<a name="l00034"></a><a class="code" href="class_graphisme_emplacement.html#a1a80a726cee7a3c4d72f201f3f00588f">00034</a>         QString <a class="code" href="class_graphisme_emplacement.html#a9b7e71c7adb2478cf2f3b36eeb9f0a8d" title="Sous-titre à afficher sur l&#39;emplacement.">m_sousTitre</a>;
-<a name="l00035"></a><a class="code" href="class_graphisme_emplacement.html#aa08a0a445ddbd541857c54fe17a951ab">00035</a>         QString <a class="code" href="class_graphisme_emplacement.html#ad720a41c56ece3594beb0f5c5738345b" title="Description à afficher sur l&#39;emplacement.">m_description</a>;
-<a name="l00036"></a><a class="code" href="class_graphisme_emplacement.html#abaaac8f5688fabfcfb970795a47d1178">00036</a>         QString <a class="code" href="class_graphisme_emplacement.html#a1a80a726cee7a3c4d72f201f3f00588f" title="Texte directement utilisable représentant le prix d&#39;une propriété ou le montant d&#39;une taxe...">m_prix</a>;
-<a name="l00037"></a><a class="code" href="class_graphisme_emplacement.html#a0f7bd9c52e1356a5765d9d0c853260c4">00037</a>         QPixmap <a class="code" href="class_graphisme_emplacement.html#aa08a0a445ddbd541857c54fe17a951ab" title="Image à afficher sur l&#39;emplacement.">m_image</a>;
-<a name="l00038"></a>00038         QColor <a class="code" href="class_graphisme_emplacement.html#abaaac8f5688fabfcfb970795a47d1178" title="Couleur du regroupement auquel appartient le terrain.">m_couleurRegroupement</a>;
-<a name="l00039"></a><a class="code" href="class_graphisme_emplacement.html#ae1276128fbd11aecdf87d4d5ed2ee769">00039</a>         <span class="keywordtype">bool</span> <a class="code" href="class_graphisme_emplacement.html#a0f7bd9c52e1356a5765d9d0c853260c4" title="Indique si l&#39;emplacement à représenter se situe dans un coin du plateau.">m_emplacementEnCoin</a>;
-<a name="l00040"></a><a class="code" href="class_graphisme_emplacement.html#adb3cdd3d1148f9a2ef45d3f8b358e324">00040</a>         
-<a name="l00041"></a><a class="code" href="class_graphisme_emplacement.html#ad0b83d706d30ace0c89a26df29fea9af">00041</a>         QGraphicsRectItem* <a class="code" href="class_graphisme_emplacement.html#ae1276128fbd11aecdf87d4d5ed2ee769" title="Élément graphique représentant la couleur du regroupement.">m_graphCouleur</a>;
-<a name="l00042"></a><a class="code" href="class_graphisme_emplacement.html#a38fd68c7262d48b4f9d87d052b5366f1">00042</a>         QGraphicsEllipseItem* <a class="code" href="class_graphisme_emplacement.html#adb3cdd3d1148f9a2ef45d3f8b358e324" title="Élément graphique représentant la couleur du regroupement pour un emplacement en coin.">m_graphCouleurEnCoin</a>;
-<a name="l00043"></a><a class="code" href="class_graphisme_emplacement.html#a9832a4bb485635736169c13623cda6e9">00043</a>         QGraphicsTextItem* <a class="code" href="class_graphisme_emplacement.html#ad0b83d706d30ace0c89a26df29fea9af" title="Élément graphique représentant le titre.">m_graphTitre</a>;
-<a name="l00044"></a><a class="code" href="class_graphisme_emplacement.html#a5449c81decd50d820b996f251903b156">00044</a>         QGraphicsTextItem* <a class="code" href="class_graphisme_emplacement.html#a38fd68c7262d48b4f9d87d052b5366f1" title="Élément graphique représentant le sous-titre.">m_graphSousTitre</a>;
-<a name="l00045"></a><a class="code" href="class_graphisme_emplacement.html#a0725b98e3f3f02297e290710bec5cebd">00045</a>         QGraphicsTextItem* <a class="code" href="class_graphisme_emplacement.html#a9832a4bb485635736169c13623cda6e9" title="Élément graphique représentant la descripiton.">m_graphDescription</a>;
-<a name="l00046"></a>00046         QGraphicsTextItem* <a class="code" href="class_graphisme_emplacement.html#a5449c81decd50d820b996f251903b156" title="Élément graphique représentant le prix.">m_graphPrix</a>;
-<a name="l00047"></a>00047         QGraphicsPixmapItem* <a class="code" href="class_graphisme_emplacement.html#a0725b98e3f3f02297e290710bec5cebd" title="Élément graphique représentant l&#39;image.">m_graphImage</a>;
-<a name="l00048"></a>00048         
-<a name="l00049"></a>00049         
-<a name="l00050"></a>00050         
-<a name="l00051"></a>00051     <span class="keyword">public</span>:
-<a name="l00067"></a>00067         <a class="code" href="class_graphisme_emplacement.html#a131c370a5cc7b037f1fe13151df9925e" title="Construit un nouvel objet graphique.">GraphismeEmplacement</a>(<span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; infosGraphiques,
-<a name="l00068"></a>00068                              <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <span class="keyword">const</span> emplacement,
-<a name="l00069"></a>00069                              <span class="keyword">const</span> QPoint&amp; position,
-<a name="l00070"></a>00070                              <span class="keyword">const</span> <span class="keywordtype">int</span> rotation,
-<a name="l00071"></a>00071                              <span class="keyword">const</span> QString&amp; titre,
-<a name="l00072"></a>00072                              <span class="keyword">const</span> QString&amp; sousTitre = QString(),
-<a name="l00073"></a>00073                              <span class="keyword">const</span> QString&amp; description = QString(),
-<a name="l00074"></a>00074                              <span class="keyword">const</span> QString&amp; prix = QString(),
-<a name="l00075"></a>00075                              <span class="keyword">const</span> QPixmap&amp; image = QPixmap(),
-<a name="l00076"></a>00076                              <span class="keyword">const</span> QColor&amp; couleurRegroupement = QColor(),
-<a name="l00077"></a>00077                              <span class="keyword">const</span> <span class="keywordtype">bool</span> emplacementEnCoin = <span class="keyword">false</span>);
-<a name="l00078"></a>00078         
-<a name="l00079"></a>00079         
-<a name="l00080"></a>00080         
-<a name="l00085"></a>00085         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a82e0bfe5255e50184e1473c59744032f" title="Met à jour l&#39;affichage de la couleur du regroupement.">updateCouleurRegroupement</a>(<span class="keyword">const</span> QColor&amp; couleur);
-<a name="l00086"></a>00086         
-<a name="l00087"></a>00087         
-<a name="l00088"></a>00088         
-<a name="l00093"></a>00093         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a05c6903104f0f44038847b6ee007f5e7" title="Met à jour l&#39;affichage du titre.">updateTitre</a>(<span class="keyword">const</span> QString&amp; titre);
-<a name="l00094"></a>00094         
-<a name="l00095"></a>00095         
-<a name="l00096"></a>00096         
-<a name="l00101"></a>00101         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a82bdbbb20e681ab333d384436736b97f" title="Met à jour l&#39;affichage du sous-titre.">updateSousTitre</a>(<span class="keyword">const</span> QString&amp; sousTitre);
-<a name="l00102"></a>00102         
-<a name="l00103"></a>00103         
-<a name="l00104"></a>00104         
-<a name="l00109"></a>00109         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a3093a771dfaf80ff052cae5cb5232c35" title="Met à jour l&#39;affichage de l&#39;image.">updateImage</a>(<span class="keyword">const</span> QPixmap&amp; image);
-<a name="l00110"></a>00110         
-<a name="l00111"></a>00111         
-<a name="l00112"></a>00112         
-<a name="l00117"></a>00117         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a9104aaaa1ec05bf7f0364aa7d1987477" title="Met à jour l&#39;affichage de la description.">updateDescription</a>(<span class="keyword">const</span> QString&amp; description);
-<a name="l00118"></a>00118         
-<a name="l00119"></a>00119         
-<a name="l00120"></a>00120         
-<a name="l00125"></a>00125         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a8601aeefa155def4d72f1b70eb200637" title="Met à jour l&#39;affichage du prix.">updatePrix</a>(<span class="keyword">const</span> QString&amp; prix);
-<a name="l00126"></a>00126         
-<a name="l00127"></a>00127         
-<a name="l00128"></a>00128         
-<a name="l00134"></a>00134         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a18575f39be752971c21c13bc19a42250" title="Redessine tous les éléments graphiques.">updateAffichage</a>();
-<a name="l00135"></a>00135         
-<a name="l00136"></a>00136         
-<a name="l00137"></a>00137         
-<a name="l00138"></a>00138     <span class="keyword">private</span>:
-<a name="l00142"></a>00142         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a82e0bfe5255e50184e1473c59744032f" title="Met à jour l&#39;affichage de la couleur du regroupement.">updateCouleurRegroupement</a>();
-<a name="l00143"></a>00143         
-<a name="l00144"></a>00144         
-<a name="l00145"></a>00145         
-<a name="l00149"></a>00149         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a05c6903104f0f44038847b6ee007f5e7" title="Met à jour l&#39;affichage du titre.">updateTitre</a>();
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;QMessageBox&gt;</span>
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 
+<a name="l00027"></a>00027 <span class="keyword">class </span><a class="code" href="class_graphisme_emplacement.html" title="GraphismeEmplacement permet l&#39;affichage graphique des emplacements sur un plateau.">GraphismeEmplacement</a> : <span class="keyword">public</span> QGraphicsRectItem
+<a name="l00028"></a><a class="code" href="class_graphisme_emplacement.html#ac4db9cc3a308c2074f517e79cbacafbc">00028</a> {
+<a name="l00029"></a><a class="code" href="class_graphisme_emplacement.html#a81dad7dd90478a52e6edd3a88b980cec">00029</a>     <span class="keyword">private</span>:
+<a name="l00030"></a>00030         <span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; <a class="code" href="class_graphisme_emplacement.html#ac4db9cc3a308c2074f517e79cbacafbc" title="Détails du graphisme des emplacements.">m_infosGraphiques</a>;
+<a name="l00031"></a><a class="code" href="class_graphisme_emplacement.html#a4a56551543e399679aedd6ec6f84c644">00031</a>         <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement.html#a81dad7dd90478a52e6edd3a88b980cec" title="Pointeur vers l&#39;emplacement à dessiner.">m_emplacement</a>;
+<a name="l00032"></a><a class="code" href="class_graphisme_emplacement.html#a652e0319d245e8a47e92a3917230cb18">00032</a>         
+<a name="l00033"></a><a class="code" href="class_graphisme_emplacement.html#a01fd155fb7bfed5e638ccb829fcdd725">00033</a>         <span class="keywordtype">bool</span> <a class="code" href="class_graphisme_emplacement.html#a4a56551543e399679aedd6ec6f84c644" title="Indique si les événement (clique sur l&#39;emplacement) sont activés.">m_eventOn</a>;
+<a name="l00034"></a><a class="code" href="class_graphisme_emplacement.html#a6d164566c3687550aeb5bd6cea3c14fb">00034</a>         QPoint <a class="code" href="class_graphisme_emplacement.html#a652e0319d245e8a47e92a3917230cb18" title="Position à laquelle est dessiné l&#39;élément sur la scène.">m_position</a>;
+<a name="l00035"></a><a class="code" href="class_graphisme_emplacement.html#a9b7e71c7adb2478cf2f3b36eeb9f0a8d">00035</a>         <span class="keywordtype">int</span> <a class="code" href="class_graphisme_emplacement.html#a01fd155fb7bfed5e638ccb829fcdd725" title="Angle de rotation à appliquer à l&#39;élément avant de l&#39;afficher sur la scène.">m_rotation</a>;
+<a name="l00036"></a><a class="code" href="class_graphisme_emplacement.html#ad720a41c56ece3594beb0f5c5738345b">00036</a>         QString <a class="code" href="class_graphisme_emplacement.html#a6d164566c3687550aeb5bd6cea3c14fb" title="Titre à afficher sur l&#39;emplacement.">m_titre</a>;
+<a name="l00037"></a><a class="code" href="class_graphisme_emplacement.html#a1a80a726cee7a3c4d72f201f3f00588f">00037</a>         QString <a class="code" href="class_graphisme_emplacement.html#a9b7e71c7adb2478cf2f3b36eeb9f0a8d" title="Sous-titre à afficher sur l&#39;emplacement.">m_sousTitre</a>;
+<a name="l00038"></a><a class="code" href="class_graphisme_emplacement.html#aa08a0a445ddbd541857c54fe17a951ab">00038</a>         QString <a class="code" href="class_graphisme_emplacement.html#ad720a41c56ece3594beb0f5c5738345b" title="Description à afficher sur l&#39;emplacement.">m_description</a>;
+<a name="l00039"></a><a class="code" href="class_graphisme_emplacement.html#abaaac8f5688fabfcfb970795a47d1178">00039</a>         QString <a class="code" href="class_graphisme_emplacement.html#a1a80a726cee7a3c4d72f201f3f00588f" title="Texte directement utilisable représentant le prix d&#39;une propriété ou le montant d&#39;une taxe...">m_prix</a>;
+<a name="l00040"></a><a class="code" href="class_graphisme_emplacement.html#a0f7bd9c52e1356a5765d9d0c853260c4">00040</a>         QPixmap <a class="code" href="class_graphisme_emplacement.html#aa08a0a445ddbd541857c54fe17a951ab" title="Image à afficher sur l&#39;emplacement.">m_image</a>;
+<a name="l00041"></a>00041         QColor <a class="code" href="class_graphisme_emplacement.html#abaaac8f5688fabfcfb970795a47d1178" title="Couleur du regroupement auquel appartient le terrain.">m_couleurRegroupement</a>;
+<a name="l00042"></a><a class="code" href="class_graphisme_emplacement.html#ae1276128fbd11aecdf87d4d5ed2ee769">00042</a>         <span class="keywordtype">bool</span> <a class="code" href="class_graphisme_emplacement.html#a0f7bd9c52e1356a5765d9d0c853260c4" title="Indique si l&#39;emplacement à représenter se situe dans un coin du plateau.">m_emplacementEnCoin</a>;
+<a name="l00043"></a><a class="code" href="class_graphisme_emplacement.html#adb3cdd3d1148f9a2ef45d3f8b358e324">00043</a>         
+<a name="l00044"></a><a class="code" href="class_graphisme_emplacement.html#ad0b83d706d30ace0c89a26df29fea9af">00044</a>         QGraphicsRectItem* <a class="code" href="class_graphisme_emplacement.html#ae1276128fbd11aecdf87d4d5ed2ee769" title="Élément graphique représentant la couleur du regroupement.">m_graphCouleur</a>;
+<a name="l00045"></a><a class="code" href="class_graphisme_emplacement.html#a38fd68c7262d48b4f9d87d052b5366f1">00045</a>         QGraphicsEllipseItem* <a class="code" href="class_graphisme_emplacement.html#adb3cdd3d1148f9a2ef45d3f8b358e324" title="Élément graphique représentant la couleur du regroupement pour un emplacement en coin.">m_graphCouleurEnCoin</a>;
+<a name="l00046"></a><a class="code" href="class_graphisme_emplacement.html#a9832a4bb485635736169c13623cda6e9">00046</a>         QGraphicsTextItem* <a class="code" href="class_graphisme_emplacement.html#ad0b83d706d30ace0c89a26df29fea9af" title="Élément graphique représentant le titre.">m_graphTitre</a>;
+<a name="l00047"></a><a class="code" href="class_graphisme_emplacement.html#a5449c81decd50d820b996f251903b156">00047</a>         QGraphicsTextItem* <a class="code" href="class_graphisme_emplacement.html#a38fd68c7262d48b4f9d87d052b5366f1" title="Élément graphique représentant le sous-titre.">m_graphSousTitre</a>;
+<a name="l00048"></a><a class="code" href="class_graphisme_emplacement.html#a0725b98e3f3f02297e290710bec5cebd">00048</a>         QGraphicsTextItem* <a class="code" href="class_graphisme_emplacement.html#a9832a4bb485635736169c13623cda6e9" title="Élément graphique représentant la descripiton.">m_graphDescription</a>;
+<a name="l00049"></a>00049         QGraphicsTextItem* <a class="code" href="class_graphisme_emplacement.html#a5449c81decd50d820b996f251903b156" title="Élément graphique représentant le prix.">m_graphPrix</a>;
+<a name="l00050"></a>00050         QGraphicsPixmapItem* <a class="code" href="class_graphisme_emplacement.html#a0725b98e3f3f02297e290710bec5cebd" title="Élément graphique représentant l&#39;image.">m_graphImage</a>;
+<a name="l00051"></a>00051         
+<a name="l00052"></a>00052         
+<a name="l00053"></a>00053         
+<a name="l00054"></a>00054     <span class="keyword">public</span>:
+<a name="l00071"></a>00071         <a class="code" href="class_graphisme_emplacement.html#af4ac56ef09a6c433102ee5a94db6ed85" title="Construit un nouvel objet graphique.">GraphismeEmplacement</a>(<span class="keyword">const</span> <a class="code" href="class_graphisme_emplacement_infos.html" title="GraphismeEmplacementInfos contient les informations éditables permettant l&#39;affichage graphique des em...">GraphismeEmplacementInfos</a>&amp; infosGraphiques,
+<a name="l00072"></a>00072                              <a class="code" href="class_emplacement.html" title="Emplacement contient les informations éditables communes à tous les emplacements d&#39;un plateau...">Emplacement</a>* <span class="keyword">const</span> emplacement,
+<a name="l00073"></a>00073                              <span class="keyword">const</span> QPoint&amp; position,
+<a name="l00074"></a>00074                              <span class="keyword">const</span> <span class="keywordtype">int</span> rotation,
+<a name="l00075"></a>00075                              <span class="keyword">const</span> QString&amp; titre,
+<a name="l00076"></a>00076                              <span class="keyword">const</span> QString&amp; sousTitre = QString(),
+<a name="l00077"></a>00077                              <span class="keyword">const</span> QString&amp; description = QString(),
+<a name="l00078"></a>00078                              <span class="keyword">const</span> QString&amp; prix = QString(),
+<a name="l00079"></a>00079                              <span class="keyword">const</span> QPixmap&amp; image = QPixmap(),
+<a name="l00080"></a>00080                              <span class="keyword">const</span> QColor&amp; couleurRegroupement = QColor(),
+<a name="l00081"></a>00081                              <span class="keyword">const</span> <span class="keywordtype">bool</span> emplacementEnCoin = <span class="keyword">false</span>,
+<a name="l00082"></a>00082                              <span class="keyword">const</span> <span class="keywordtype">bool</span> eventOn = <span class="keyword">false</span>);
+<a name="l00083"></a>00083         
+<a name="l00084"></a>00084         
+<a name="l00085"></a>00085         
+<a name="l00090"></a>00090         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a82e0bfe5255e50184e1473c59744032f" title="Met à jour l&#39;affichage de la couleur du regroupement.">updateCouleurRegroupement</a>(<span class="keyword">const</span> QColor&amp; couleur);
+<a name="l00091"></a>00091         
+<a name="l00092"></a>00092         
+<a name="l00093"></a>00093         
+<a name="l00098"></a>00098         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a05c6903104f0f44038847b6ee007f5e7" title="Met à jour l&#39;affichage du titre.">updateTitre</a>(<span class="keyword">const</span> QString&amp; titre);
+<a name="l00099"></a>00099         
+<a name="l00100"></a>00100         
+<a name="l00101"></a>00101         
+<a name="l00106"></a>00106         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a82bdbbb20e681ab333d384436736b97f" title="Met à jour l&#39;affichage du sous-titre.">updateSousTitre</a>(<span class="keyword">const</span> QString&amp; sousTitre);
+<a name="l00107"></a>00107         
+<a name="l00108"></a>00108         
+<a name="l00109"></a>00109         
+<a name="l00114"></a>00114         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a3093a771dfaf80ff052cae5cb5232c35" title="Met à jour l&#39;affichage de l&#39;image.">updateImage</a>(<span class="keyword">const</span> QPixmap&amp; image);
+<a name="l00115"></a>00115         
+<a name="l00116"></a>00116         
+<a name="l00117"></a>00117         
+<a name="l00122"></a>00122         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a9104aaaa1ec05bf7f0364aa7d1987477" title="Met à jour l&#39;affichage de la description.">updateDescription</a>(<span class="keyword">const</span> QString&amp; description);
+<a name="l00123"></a>00123         
+<a name="l00124"></a>00124         
+<a name="l00125"></a>00125         
+<a name="l00130"></a>00130         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a8601aeefa155def4d72f1b70eb200637" title="Met à jour l&#39;affichage du prix.">updatePrix</a>(<span class="keyword">const</span> QString&amp; prix);
+<a name="l00131"></a>00131         
+<a name="l00132"></a>00132         
+<a name="l00133"></a>00133         
+<a name="l00139"></a>00139         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a18575f39be752971c21c13bc19a42250" title="Redessine tous les éléments graphiques.">updateAffichage</a>();
+<a name="l00140"></a>00140         
+<a name="l00141"></a>00141         
+<a name="l00142"></a>00142         
+<a name="l00143"></a>00143     <span class="keyword">private</span>:
+<a name="l00147"></a>00147         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a82e0bfe5255e50184e1473c59744032f" title="Met à jour l&#39;affichage de la couleur du regroupement.">updateCouleurRegroupement</a>();
+<a name="l00148"></a>00148         
+<a name="l00149"></a>00149         
 <a name="l00150"></a>00150         
-<a name="l00151"></a>00151         
-<a name="l00152"></a>00152         
-<a name="l00156"></a>00156         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a82bdbbb20e681ab333d384436736b97f" title="Met à jour l&#39;affichage du sous-titre.">updateSousTitre</a>();
+<a name="l00154"></a>00154         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a05c6903104f0f44038847b6ee007f5e7" title="Met à jour l&#39;affichage du titre.">updateTitre</a>();
+<a name="l00155"></a>00155         
+<a name="l00156"></a>00156         
 <a name="l00157"></a>00157         
-<a name="l00158"></a>00158         
-<a name="l00159"></a>00159         
-<a name="l00163"></a>00163         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a3093a771dfaf80ff052cae5cb5232c35" title="Met à jour l&#39;affichage de l&#39;image.">updateImage</a>();
+<a name="l00161"></a>00161         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a82bdbbb20e681ab333d384436736b97f" title="Met à jour l&#39;affichage du sous-titre.">updateSousTitre</a>();
+<a name="l00162"></a>00162         
+<a name="l00163"></a>00163         
 <a name="l00164"></a>00164         
-<a name="l00165"></a>00165         
-<a name="l00166"></a>00166         
-<a name="l00170"></a>00170         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a9104aaaa1ec05bf7f0364aa7d1987477" title="Met à jour l&#39;affichage de la description.">updateDescription</a>();
+<a name="l00168"></a>00168         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a3093a771dfaf80ff052cae5cb5232c35" title="Met à jour l&#39;affichage de l&#39;image.">updateImage</a>();
+<a name="l00169"></a>00169         
+<a name="l00170"></a>00170         
 <a name="l00171"></a>00171         
-<a name="l00172"></a>00172         
-<a name="l00173"></a>00173         
-<a name="l00177"></a>00177         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a8601aeefa155def4d72f1b70eb200637" title="Met à jour l&#39;affichage du prix.">updatePrix</a>();
+<a name="l00175"></a>00175         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a9104aaaa1ec05bf7f0364aa7d1987477" title="Met à jour l&#39;affichage de la description.">updateDescription</a>();
+<a name="l00176"></a>00176         
+<a name="l00177"></a>00177         
 <a name="l00178"></a>00178         
-<a name="l00179"></a>00179         
-<a name="l00180"></a>00180         
-<a name="l00184"></a>00184         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a8d099e5cd1c5a2d868bbd8d8b0115f90" title="Met à jour l&#39;affichage de la couleur du regroupement pour un emplacement en coin de plateau...">updateCouleurRegroupementEnCoin</a>();
+<a name="l00182"></a>00182         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a8601aeefa155def4d72f1b70eb200637" title="Met à jour l&#39;affichage du prix.">updatePrix</a>();
+<a name="l00183"></a>00183         
+<a name="l00184"></a>00184         
 <a name="l00185"></a>00185         
-<a name="l00186"></a>00186         
-<a name="l00187"></a>00187         
-<a name="l00191"></a>00191         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a44abc8ef5f2ccf73e05b895b08176980" title="Met à jour l&#39;affichage du titre pour un emplacement en coin de plateau.">updateTitreEnCoin</a>();
+<a name="l00189"></a>00189         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a8d099e5cd1c5a2d868bbd8d8b0115f90" title="Met à jour l&#39;affichage de la couleur du regroupement pour un emplacement en coin de plateau...">updateCouleurRegroupementEnCoin</a>();
+<a name="l00190"></a>00190         
+<a name="l00191"></a>00191         
 <a name="l00192"></a>00192         
-<a name="l00193"></a>00193         
-<a name="l00194"></a>00194         
-<a name="l00198"></a>00198         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ae375f82eeebad6b19c9c1c799404e4f6" title="Met à jour l&#39;affichage du sous-titre pour un emplacement en coin de plateau.">updateSousTitreEnCoin</a>();
+<a name="l00196"></a>00196         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a44abc8ef5f2ccf73e05b895b08176980" title="Met à jour l&#39;affichage du titre pour un emplacement en coin de plateau.">updateTitreEnCoin</a>();
+<a name="l00197"></a>00197         
+<a name="l00198"></a>00198         
 <a name="l00199"></a>00199         
-<a name="l00200"></a>00200         
-<a name="l00201"></a>00201         
-<a name="l00207"></a>00207         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a90c26a1a6675639aa2ff5c4a6f0f93bb" title="Met à jour l&#39;affichage de l&#39;image pour un emplacement en coin de plateau.">updateImageEnCoin</a>();
-<a name="l00208"></a>00208         
-<a name="l00209"></a>00209         
-<a name="l00210"></a>00210         
-<a name="l00214"></a>00214         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a497782c59f2f11e64a3393346613bc1d" title="Met à jour l&#39;affichage de la description pour un emplacement en coin de plateau.">updateDescriptionEnCoin</a>();
+<a name="l00203"></a>00203         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ae375f82eeebad6b19c9c1c799404e4f6" title="Met à jour l&#39;affichage du sous-titre pour un emplacement en coin de plateau.">updateSousTitreEnCoin</a>();
+<a name="l00204"></a>00204         
+<a name="l00205"></a>00205         
+<a name="l00206"></a>00206         
+<a name="l00212"></a>00212         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a90c26a1a6675639aa2ff5c4a6f0f93bb" title="Met à jour l&#39;affichage de l&#39;image pour un emplacement en coin de plateau.">updateImageEnCoin</a>();
+<a name="l00213"></a>00213         
+<a name="l00214"></a>00214         
 <a name="l00215"></a>00215         
-<a name="l00216"></a>00216         
-<a name="l00217"></a>00217         
-<a name="l00221"></a>00221         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a4d4d5454a4ee72990d3e1dd09b38dd21" title="Met à jour l&#39;affichage du prix pour un emplacement en coin de plateau.">updatePrixEnCoin</a>();
+<a name="l00219"></a>00219         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a497782c59f2f11e64a3393346613bc1d" title="Met à jour l&#39;affichage de la description pour un emplacement en coin de plateau.">updateDescriptionEnCoin</a>();
+<a name="l00220"></a>00220         
+<a name="l00221"></a>00221         
 <a name="l00222"></a>00222         
-<a name="l00223"></a>00223         
-<a name="l00224"></a>00224         
-<a name="l00228"></a>00228         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#aa22640fc0797fbc509365bb46af37adb" title="Met à jour l&#39;affichage du titre pour un emplacement « Simple visite » en coin de plateau.">updateTitreSimpleVisite</a>();
+<a name="l00226"></a>00226         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a4d4d5454a4ee72990d3e1dd09b38dd21" title="Met à jour l&#39;affichage du prix pour un emplacement en coin de plateau.">updatePrixEnCoin</a>();
+<a name="l00227"></a>00227         
+<a name="l00228"></a>00228         
 <a name="l00229"></a>00229         
-<a name="l00230"></a>00230         
-<a name="l00231"></a>00231         
-<a name="l00235"></a>00235         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a10e5cac853865162423d1ae42aa6aef4" title="Met à jour l&#39;affichage du sous-titre pour un emplacement « Simple visite » en coin de plateau...">updateSousTitreSimpleVisite</a>();
+<a name="l00233"></a>00233         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#aa22640fc0797fbc509365bb46af37adb" title="Met à jour l&#39;affichage du titre pour un emplacement « Simple visite » en coin de plateau.">updateTitreSimpleVisite</a>();
+<a name="l00234"></a>00234         
+<a name="l00235"></a>00235         
 <a name="l00236"></a>00236         
-<a name="l00237"></a>00237         
-<a name="l00238"></a>00238         
-<a name="l00242"></a>00242         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a001036cc9051436ba5d067ad361179f7" title="Met à jour l&#39;affichage de l&#39;image pour un emplacement « Simple visite » en coin de plateau...">updateImageSimpleVisite</a>();
+<a name="l00240"></a>00240         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a10e5cac853865162423d1ae42aa6aef4" title="Met à jour l&#39;affichage du sous-titre pour un emplacement « Simple visite » en coin de plateau...">updateSousTitreSimpleVisite</a>();
+<a name="l00241"></a>00241         
+<a name="l00242"></a>00242         
 <a name="l00243"></a>00243         
-<a name="l00244"></a>00244         
-<a name="l00245"></a>00245         
-<a name="l00251"></a>00251         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a7b53759509af3f34279295b5fd782f34" title="Configure l&#39;affichage de la couleur du regroupement.">setupCouleurRegroupement</a>();
-<a name="l00252"></a>00252         
-<a name="l00253"></a>00253         
-<a name="l00254"></a>00254         
-<a name="l00258"></a>00258         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#aa38433950081a4e8473145a42e81d02d" title="Configure l&#39;affichage du titre.">setupTitre</a>();
+<a name="l00247"></a>00247         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a001036cc9051436ba5d067ad361179f7" title="Met à jour l&#39;affichage de l&#39;image pour un emplacement « Simple visite » en coin de plateau...">updateImageSimpleVisite</a>();
+<a name="l00248"></a>00248         
+<a name="l00249"></a>00249         
+<a name="l00250"></a>00250         
+<a name="l00256"></a>00256         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a7b53759509af3f34279295b5fd782f34" title="Configure l&#39;affichage de la couleur du regroupement.">setupCouleurRegroupement</a>();
+<a name="l00257"></a>00257         
+<a name="l00258"></a>00258         
 <a name="l00259"></a>00259         
-<a name="l00260"></a>00260         
-<a name="l00261"></a>00261         
-<a name="l00265"></a>00265         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ab2dcded7dcce0736d0431f44febedf43" title="Configure l&#39;affichage du sous-titre.">setupSousTitre</a>();
+<a name="l00263"></a>00263         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#aa38433950081a4e8473145a42e81d02d" title="Configure l&#39;affichage du titre.">setupTitre</a>();
+<a name="l00264"></a>00264         
+<a name="l00265"></a>00265         
 <a name="l00266"></a>00266         
-<a name="l00267"></a>00267         
-<a name="l00268"></a>00268         
-<a name="l00272"></a>00272         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ac8aeb1bdd279814bf0f5b8084d3896e3" title="Configure l&#39;affichage de l&#39;image.">setupImage</a>();
+<a name="l00270"></a>00270         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ab2dcded7dcce0736d0431f44febedf43" title="Configure l&#39;affichage du sous-titre.">setupSousTitre</a>();
+<a name="l00271"></a>00271         
+<a name="l00272"></a>00272         
 <a name="l00273"></a>00273         
-<a name="l00274"></a>00274         
-<a name="l00275"></a>00275         
-<a name="l00279"></a>00279         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#aacc70f6451670a1fd511ebb6dc9ae15e" title="Configure l&#39;affichage du description.">setupDescription</a>();
+<a name="l00277"></a>00277         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ac8aeb1bdd279814bf0f5b8084d3896e3" title="Configure l&#39;affichage de l&#39;image.">setupImage</a>();
+<a name="l00278"></a>00278         
+<a name="l00279"></a>00279         
 <a name="l00280"></a>00280         
-<a name="l00281"></a>00281         
-<a name="l00282"></a>00282         
-<a name="l00286"></a>00286         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a9cbe0ab438d80b074fbdf40d148a8a21" title="Configure l&#39;affichage du prix.">setupPrix</a>();
+<a name="l00284"></a>00284         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#aacc70f6451670a1fd511ebb6dc9ae15e" title="Configure l&#39;affichage du description.">setupDescription</a>();
+<a name="l00285"></a>00285         
+<a name="l00286"></a>00286         
 <a name="l00287"></a>00287         
-<a name="l00288"></a>00288         
-<a name="l00289"></a>00289         
-<a name="l00293"></a>00293         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ab79febd84931dfaf7fd8dcce06128854" title="Positionne m_graphTitre.">positionneTitre</a>();
+<a name="l00291"></a>00291         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a9cbe0ab438d80b074fbdf40d148a8a21" title="Configure l&#39;affichage du prix.">setupPrix</a>();
+<a name="l00292"></a>00292         
+<a name="l00293"></a>00293         
 <a name="l00294"></a>00294         
-<a name="l00295"></a>00295         
-<a name="l00296"></a>00296         
-<a name="l00300"></a>00300         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ad9f79a87ff27d91af84655eebb2af946" title="Positionne m_graphSousTitre.">positionneSousTitre</a>();
+<a name="l00298"></a>00298         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ab79febd84931dfaf7fd8dcce06128854" title="Positionne m_graphTitre.">positionneTitre</a>();
+<a name="l00299"></a>00299         
+<a name="l00300"></a>00300         
 <a name="l00301"></a>00301         
-<a name="l00302"></a>00302         
-<a name="l00303"></a>00303         
-<a name="l00307"></a>00307         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a1d60215d978b877c0a7ba13125422959" title="Positionne m_graphImage.">positionneImage</a>();
+<a name="l00305"></a>00305         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#ad9f79a87ff27d91af84655eebb2af946" title="Positionne m_graphSousTitre.">positionneSousTitre</a>();
+<a name="l00306"></a>00306         
+<a name="l00307"></a>00307         
 <a name="l00308"></a>00308         
-<a name="l00309"></a>00309         
-<a name="l00310"></a>00310         
-<a name="l00314"></a>00314         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#aaa18ba301c17784c350af2870a0e55e8" title="Positionne m_graphDescription.">positionneDescription</a>();
+<a name="l00312"></a>00312         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a1d60215d978b877c0a7ba13125422959" title="Positionne m_graphImage.">positionneImage</a>();
+<a name="l00313"></a>00313         
+<a name="l00314"></a>00314         
 <a name="l00315"></a>00315         
-<a name="l00316"></a>00316         
-<a name="l00317"></a>00317         
-<a name="l00321"></a>00321         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#af08694431a94d6513fb2d3af1e4fe860" title="Positionne m_graphPrix.">positionnePrix</a>();
+<a name="l00319"></a>00319         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#aaa18ba301c17784c350af2870a0e55e8" title="Positionne m_graphDescription.">positionneDescription</a>();
+<a name="l00320"></a>00320         
+<a name="l00321"></a>00321         
 <a name="l00322"></a>00322         
-<a name="l00323"></a>00323         
-<a name="l00324"></a>00324         
-<a name="l00332"></a>00332         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a5283ac3f0e5acb5e689225b1e7e13d1c" title="Modifie le QGraphicsTextItem pour qu&#39;il affiche correctement le texte texte.">helper_setupGraphicsTextItem</a>(QGraphicsTextItem* item,
-<a name="l00333"></a>00333                                           <span class="keyword">const</span> QString&amp; texte,
-<a name="l00334"></a>00334                                           <span class="keyword">const</span> QFont&amp; font,
-<a name="l00335"></a>00335                                           <span class="keyword">const</span> QColor&amp; couleur = QColor(0, 0, 0));
-<a name="l00336"></a>00336 };
-<a name="l00337"></a>00337 
-<a name="l00338"></a>00338 <span class="preprocessor">#endif // GRAPHISMEEMPLACEMENT_HPP</span>
+<a name="l00326"></a>00326         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#af08694431a94d6513fb2d3af1e4fe860" title="Positionne m_graphPrix.">positionnePrix</a>();
+<a name="l00327"></a>00327         
+<a name="l00328"></a>00328         
+<a name="l00329"></a>00329         
+<a name="l00337"></a>00337         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a5283ac3f0e5acb5e689225b1e7e13d1c" title="Modifie le QGraphicsTextItem pour qu&#39;il affiche correctement le texte texte.">helper_setupGraphicsTextItem</a>(QGraphicsTextItem* item,
+<a name="l00338"></a>00338                                           <span class="keyword">const</span> QString&amp; texte,
+<a name="l00339"></a>00339                                           <span class="keyword">const</span> QFont&amp; font,
+<a name="l00340"></a>00340                                           <span class="keyword">const</span> QColor&amp; couleur = QColor(0, 0, 0));
+<a name="l00341"></a>00341         
+<a name="l00342"></a>00342         
+<a name="l00343"></a>00343         
+<a name="l00349"></a>00349         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a1f207a8d29a7787c992ffea69d57603f" title="Active la boucle d&#39;événement.">mousePressEvent</a>(QGraphicsSceneMouseEvent* event);
+<a name="l00350"></a>00350         
+<a name="l00351"></a>00351         
+<a name="l00352"></a>00352         
+<a name="l00356"></a>00356         <span class="keywordtype">void</span> <a class="code" href="class_graphisme_emplacement.html#a1ceb0f5dfb23a1c5e308f20a8fd26e1a" title="Détecte un clic gauche de la souris (si m_eventOn est true).">mouseReleaseEvent</a>(QGraphicsSceneMouseEvent* event);
+<a name="l00357"></a>00357 };
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359 <span class="preprocessor">#endif // GRAPHISMEEMPLACEMENT_HPP</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -298,7 +310,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:44 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:31 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

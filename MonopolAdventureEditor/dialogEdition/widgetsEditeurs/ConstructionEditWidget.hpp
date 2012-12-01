@@ -23,14 +23,14 @@ class ConstructionEditWidget : public QWidget
         
     private:
         Terrain* m_terrain;///< Terrain en cours d'édition.
-        QSpinBox* m_champPrixAchatMaison;
-        QCheckBox* m_venteMaisonMoitie;
-        QLabel* m_labelPrixVenteMaison;
-        QSpinBox* m_champPrixVenteMaison;
-        QSpinBox* m_champPrixAchatHotel;
-        QCheckBox* m_venteHotelMoitie;
-        QLabel* m_labelPrixVenteHotel;
-        QSpinBox* m_champPrixVenteHotel;
+        QSpinBox* m_champPrixAchatMaison;///< Champ d'édition du prix d'achat d'une maison.
+        QCheckBox* m_venteMaisonMoitie;///< Helper permettant l'aide à la décision du prix de vente d'une maison.
+        QLabel* m_labelPrixVenteMaison;///< Étiquette associée à m_venteMaisonMoitie.
+        QSpinBox* m_champPrixVenteMaison;///< Champ d'édition du prix de vente d'une maison.
+        QSpinBox* m_champPrixAchatHotel;///< Champ d'édition du prix d'achat d'un hôtel.
+        QCheckBox* m_venteHotelMoitie;///< Helper permettant l'aide à la décision du prix de vente d'un hôtel.
+        QLabel* m_labelPrixVenteHotel;///< Étiquette associée à m_venteHotelMoitie.
+        QSpinBox* m_champPrixVenteHotel;///< Champ d'édition du prix de vente d'un hôtel.
         
         
         

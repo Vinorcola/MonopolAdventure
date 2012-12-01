@@ -113,8 +113,10 @@ Fonctions membres publiques</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remplace la couleur du regroupement par <em>couleur</em>.  <a href="#a66c2b71647e44d673162f6012e879d21"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_regroupement.html#a4e6379bf42ad07bae5005ed0947df8e4">getNombreTerrains</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le nombre de terrains contenus dans le regroupement.  <a href="#a4e6379bf42ad07bae5005ed0947df8e4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_terrain.html">Terrain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_regroupement.html#add3a7664d28eff20d1d1f05864e24cf4">getTerrain</a> (int index)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le terrain situé à l'index <em>index</em>.  <a href="#add3a7664d28eff20d1d1f05864e24cf4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_terrain.html">Terrain</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_regroupement.html#a29801bbcb3d26c2b81ad381e0bea2357">getTerrain</a> (int index) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le terrain situé à l'index <em>index</em>.  <a href="#a29801bbcb3d26c2b81ad381e0bea2357"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_terrain.html">Terrain</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_regroupement.html#a36948ad02d060f84d337bc715d1c295b">getListeTerrains</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la liste des terrains contenus.  <a href="#a36948ad02d060f84d337bc715d1c295b"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a738ad767c10f60be401655bf4421e0d2"></a><!-- doxytag: member="Regroupement::m_titre" ref="a738ad767c10f60be401655bf4421e0d2" args="" -->
@@ -146,7 +148,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b></td></tr
 <div class="memdoc">
 
 <p>Destructeur. </p>
-<p>Enlève tous les terraisn contenus avant la suppression. </p>
+<p>Enlève tous les terrains contenus avant la suppression. </p>
 
 </div>
 </div>
@@ -220,6 +222,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b></td></tr
 
 </div>
 </div>
+<a class="anchor" id="a36948ad02d060f84d337bc715d1c295b"></a><!-- doxytag: member="Regroupement::getListeTerrains" ref="a36948ad02d060f84d337bc715d1c295b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; <a class="el" href="class_terrain.html">Terrain</a> * &gt; <a class="el" href="class_regroupement.html#a36948ad02d060f84d337bc715d1c295b">Regroupement::getListeTerrains</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne la liste des terrains contenus. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Liste des terrains contenus. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a4e6379bf42ad07bae5005ed0947df8e4"></a><!-- doxytag: member="Regroupement::getNombreTerrains" ref="a4e6379bf42ad07bae5005ed0947df8e4" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -239,16 +260,16 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b></td></tr
 
 </div>
 </div>
-<a class="anchor" id="add3a7664d28eff20d1d1f05864e24cf4"></a><!-- doxytag: member="Regroupement::getTerrain" ref="add3a7664d28eff20d1d1f05864e24cf4" args="(int index)" -->
+<a class="anchor" id="a29801bbcb3d26c2b81ad381e0bea2357"></a><!-- doxytag: member="Regroupement::getTerrain" ref="a29801bbcb3d26c2b81ad381e0bea2357" args="(int index) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_terrain.html">Terrain</a> * <a class="el" href="class_regroupement.html#add3a7664d28eff20d1d1f05864e24cf4">Regroupement::getTerrain</a> </td>
+          <td class="memname"><a class="el" href="class_terrain.html">Terrain</a> * <a class="el" href="class_regroupement.html#a29801bbcb3d26c2b81ad381e0bea2357">Regroupement::getTerrain</a> </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -300,7 +321,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b></td></tr
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

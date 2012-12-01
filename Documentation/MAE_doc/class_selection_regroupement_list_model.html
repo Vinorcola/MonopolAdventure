@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div class="summary">
 <a href="#pub-slots">Connecteurs publics</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-methods">Fonctions membres privées</a> &#124;
 <a href="#pri-attribs">Attributs privés</a> &#124;
 <a href="#friends">Amis</a>  </div>
   <div class="headertitle">
@@ -90,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="SelectionRegroupementListModel" -->
-<p>Cette classe représente un modèle de données contenant une liste de regroupements.  
+<p>Cette classe représente un modèle de données contenant une liste de regroupements sélectionnable.  
  <a href="class_selection_regroupement_list_model.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_selection_regroupement_list_model_8hpp_source.html">modeles/SelectionRegroupementListModel.hpp</a>&gt;</code></p>
@@ -99,57 +100,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-slots"></a>
 Connecteurs publics</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#ad18fa324de598a3aed2441f18e2b320b">notifyRegroupementInactif</a> (int row)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifie au modèle de données que le regroupement situé au rang <em>row</em> doit être désactivé à la sélection.  <a href="#ad18fa324de598a3aed2441f18e2b320b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a5ae3194049c3f40f2882f8d81fe9f2c5">notifyRegroupementInactif</a> (<a class="el" href="class_regroupement_data.html">RegroupementData</a> *regroupement)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifie au modèle de données que le regroupement <em>regroupement</em> doit être désactivé à la sélection.  <a href="#a5ae3194049c3f40f2882f8d81fe9f2c5"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a103c514888833b9adf59c300a15ab62c">SelectionRegroupementListModel</a> (QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp;regroupements, QObject *parent=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un nouveau modèle de données avec les regroupements contenus dans la liste <em>regroupements</em>.  <a href="#a103c514888833b9adf59c300a15ab62c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a067a5bf8fb57517d9483d28e44e62e4e">data</a> (const QModelIndex &amp;index, int role=Qt::DisplayRole) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne diverses informations nécessaires aux QWidgets vues.  <a href="#a067a5bf8fb57517d9483d28e44e62e4e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Qt::ItemFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#ace1119f66c9313d798a0c56046d2ca60">flags</a> (const QModelIndex &amp;index) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne diverses informations nécessaires aux widgets vues.  <a href="#ace1119f66c9313d798a0c56046d2ca60"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_regroupement_data.html">RegroupementData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a1ec90f5224127c099b5daaad17a769c5">getRegroupementAt</a> (int row) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne le regroupement situé au rang <em>row</em>.  <a href="#a1ec90f5224127c099b5daaad17a769c5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#acf9564f469f7acf69aedc8ea184081d9">isSelectionnable</a> (int row) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si le regroupement au rang <em>row</em> est sélectionnable.  <a href="#acf9564f469f7acf69aedc8ea184081d9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a84a5aff4a85553206a2a49d0e223cce4">rowCount</a> (const QModelIndex &amp;parent=QModelIndex()) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Renseigne le nombre de rangs contenus dans le modèle de données.  <a href="#a84a5aff4a85553206a2a49d0e223cce4"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a81402981e8ddf22be8f67f7665f8a831">SelectionRegroupementListModel</a> (QList&lt; <a class="el" href="class_regroupement_data.html">RegroupementData</a> * &gt; &amp;regroupements, QObject *parent)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit un nouveau modèle de données avec les regroupements contenus dans la liste <em>regroupements</em>.  <a href="#a81402981e8ddf22be8f67f7665f8a831"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c522c897ddcc683fce869bebf541499"></a><!-- doxytag: member="SelectionRegroupementListModel::m_regroupements" ref="a9c522c897ddcc683fce869bebf541499" args="" -->
-QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a9c522c897ddcc683fce869bebf541499">m_regroupements</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Référence vers la liste de Regroupements. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d3551bf1279912c46f2c5dac27ca216"></a><!-- doxytag: member="SelectionRegroupementListModel::m_regroupements" ref="a2d3551bf1279912c46f2c5dac27ca216" args="" -->
+QList&lt; <a class="el" href="class_regroupement_data.html">RegroupementData</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a2d3551bf1279912c46f2c5dac27ca216">m_regroupements</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Référence vers la liste de regroupements. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26b1c4cbecf012a424705dbf958bc2a9"></a><!-- doxytag: member="SelectionRegroupementListModel::m_rangRegroupementInactif" ref="a26b1c4cbecf012a424705dbf958bc2a9" args="" -->
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_selection_regroupement_list_model.html#a26b1c4cbecf012a424705dbf958bc2a9">m_rangRegroupementInactif</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique l'éventuel <a class="el" href="class_regroupement.html" title="Regroupement contient les informations éditables d&#39;un regroupement de terrains.">Regroupement</a> inactif (-1 pour aucun). <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique l'éventuel regroupement inactif (-1 pour aucun). <br/></td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Amis</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe022ae387b875a5c298e4bbe2f1d210"></a><!-- doxytag: member="SelectionRegroupementListModel::RegroupementListModel" ref="afe022ae387b875a5c298e4bbe2f1d210" args="" -->
 class&#160;</td><td class="memItemRight" valign="bottom"><b>RegroupementListModel</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
-<div class="textblock"><p>Cette classe représente un modèle de données contenant une liste de regroupements. </p>
+<div class="textblock"><p>Cette classe représente un modèle de données contenant une liste de regroupements sélectionnable. </p>
 <p>Un de ces regroupement peut-être désactivé à la sélection.</p>
 <p>Ce modèle sert pour la configuration des terrains d'un regroupement. Le regroupement en cours d'édition est masqué, ainsi, l'utilisateur peut sélectionné un des autres regroupements existant et transférer des terrains d'un regroupement à un autre.</p>
-<p>Cette classe ne devrait pas être manipulée directement. Elle est utilisée par la classe <a class="el" href="class_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements.">RegroupementListModel</a>. </p>
+<p>Cette classe ne devrait pas être manipulée directement. Elle fonctionne de pair avec la classe <a class="el" href="class_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements.">RegroupementListModel</a>. </p>
 </div><hr/><h2>Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a103c514888833b9adf59c300a15ab62c"></a><!-- doxytag: member="SelectionRegroupementListModel::SelectionRegroupementListModel" ref="a103c514888833b9adf59c300a15ab62c" args="(QList&lt; Regroupement * &gt; &amp;regroupements, QObject *parent=0)" -->
+<a class="anchor" id="a81402981e8ddf22be8f67f7665f8a831"></a><!-- doxytag: member="SelectionRegroupementListModel::SelectionRegroupementListModel" ref="a81402981e8ddf22be8f67f7665f8a831" args="(QList&lt; RegroupementData * &gt; &amp;regroupements, QObject *parent)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_selection_regroupement_list_model.html#a103c514888833b9adf59c300a15ab62c">SelectionRegroupementListModel::SelectionRegroupementListModel</a> </td>
+          <td class="memname"><a class="el" href="class_selection_regroupement_list_model.html#a81402981e8ddf22be8f67f7665f8a831">SelectionRegroupementListModel::SelectionRegroupementListModel</a> </td>
           <td>(</td>
-          <td class="paramtype">QList&lt; <a class="el" href="class_regroupement.html">Regroupement</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">QList&lt; <a class="el" href="class_regroupement_data.html">RegroupementData</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>regroupements</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">QObject *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>parent</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -229,25 +236,70 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RegroupementListMode
 
 </div>
 </div>
-<a class="anchor" id="ad18fa324de598a3aed2441f18e2b320b"></a><!-- doxytag: member="SelectionRegroupementListModel::notifyRegroupementInactif" ref="ad18fa324de598a3aed2441f18e2b320b" args="(int row)" -->
+<a class="anchor" id="a1ec90f5224127c099b5daaad17a769c5"></a><!-- doxytag: member="SelectionRegroupementListModel::getRegroupementAt" ref="a1ec90f5224127c099b5daaad17a769c5" args="(int row) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_selection_regroupement_list_model.html#ad18fa324de598a3aed2441f18e2b320b">SelectionRegroupementListModel::notifyRegroupementInactif</a> </td>
+          <td class="memname"><a class="el" href="class_regroupement_data.html">RegroupementData</a> * <a class="el" href="class_selection_regroupement_list_model.html#a1ec90f5224127c099b5daaad17a769c5">SelectionRegroupementListModel::getRegroupementAt</a> </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>row</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne le regroupement situé au rang <em>row</em>. </p>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Rang du regroupement à retourner. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acf9564f469f7acf69aedc8ea184081d9"></a><!-- doxytag: member="SelectionRegroupementListModel::isSelectionnable" ref="acf9564f469f7acf69aedc8ea184081d9" args="(int row) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_selection_regroupement_list_model.html#acf9564f469f7acf69aedc8ea184081d9">SelectionRegroupementListModel::isSelectionnable</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Indique si le regroupement au rang <em>row</em> est sélectionnable. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd><b><code>true</code> si</b> le regroupement est sélectionnable. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5ae3194049c3f40f2882f8d81fe9f2c5"></a><!-- doxytag: member="SelectionRegroupementListModel::notifyRegroupementInactif" ref="a5ae3194049c3f40f2882f8d81fe9f2c5" args="(RegroupementData *regroupement)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_selection_regroupement_list_model.html#a5ae3194049c3f40f2882f8d81fe9f2c5">SelectionRegroupementListModel::notifyRegroupementInactif</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_regroupement_data.html">RegroupementData</a> *&#160;</td>
+          <td class="paramname"><em>regroupement</em></td><td>)</td>
           <td><code> [slot]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Notifie au modèle de données que le regroupement situé au rang <em>row</em> doit être désactivé à la sélection. </p>
+<p>Notifie au modèle de données que le regroupement <em>regroupement</em> doit être désactivé à la sélection. </p>
 <dl class="params"><dt><b>Paramètres:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Rang du regroupement à désactiver. </td></tr>
+    <tr><td class="paramname">regroupement</td><td><a class="el" href="class_regroupement.html" title="Regroupement contient les informations éditables d&#39;un regroupement de terrains.">Regroupement</a> à désactiver. </td></tr>
   </table>
   </dd>
 </dl>
@@ -281,8 +333,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RegroupementListMode
 </div>
 </div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
-<li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/modeles/<a class="el" href="_selection_regroupement_list_model_8hpp_source.html">SelectionRegroupementListModel.hpp</a></li>
-<li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/modeles/SelectionRegroupementListModel.cpp</li>
+<li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/modeles/<a class="el" href="_selection_regroupement_list_model_8hpp_source.html">SelectionRegroupementListModel.hpp</a></li>
+<li>/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/modeles/SelectionRegroupementListModel.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -302,7 +354,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RegroupementListMode
 
 
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Octobre 17 2012 20:09:45 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Décembre 1 2012 20:13:32 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

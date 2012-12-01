@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>MonopolAdventureEditor:  Fichier source de /media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  <td id="projectlogo"><img alt="Logo" src="MonopolAdventureEditorIcon.png"/></td>
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">MonopolAdventureEditor
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">/media/Home/Vinorcola/Projets/MonopolAdventure/Sources/MonopolAdventureEditor/dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef REGROUPEMENTEDITWIDGET_HPP</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define REGROUPEMENTEDITWIDGET_HPP</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QComboBox&gt;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QFormLayout&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;QLineEdit&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;QListView&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;QPushButton&gt;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;dialogEdition/modeles/SelectionRegroupementListModel.hpp&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;widgetsSelecteurs/ColorSelectWidget.hpp&quot;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00025"></a><a class="code" href="class_regroupement_edit_widget.html">00025</a> <span class="keyword">class </span><a class="code" href="class_regroupement_edit_widget.html" title="Cette classe fournit une interface d&#39;édition pour des regroupements.">RegroupementEditWidget</a> : <span class="keyword">public</span> QWidget
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027         Q_OBJECT
+<a name="l00028"></a>00028         
+<a name="l00029"></a>00029         
+<a name="l00030"></a>00030     <span class="keyword">private</span>:
+<a name="l00031"></a><a class="code" href="class_regroupement_edit_widget.html#a4b84b6b4dcdefb4881b50f5f3b86defa">00031</a>         <a class="code" href="class_regroupement_data.html" title="Structure de données contenant les informations d&#39;un regroupement à éditer.">RegroupementData</a>* <a class="code" href="class_regroupement_edit_widget.html#a4b84b6b4dcdefb4881b50f5f3b86defa" title="Regroupement en cours d&#39;édition.">m_regroupement</a>;
+<a name="l00032"></a><a class="code" href="class_regroupement_edit_widget.html#a99a8b877caff916f404c32fa821ef905">00032</a>         QLineEdit* <a class="code" href="class_regroupement_edit_widget.html#a99a8b877caff916f404c32fa821ef905" title="Champ d&#39;édition du titre du regroupement.">m_champTitre</a>;
+<a name="l00033"></a><a class="code" href="class_regroupement_edit_widget.html#ae6e7921942be554617c9902019b21d9e">00033</a>         <a class="code" href="class_color_select_widget.html" title="Widget proposant à l&#39;utilisateur de sélectionner une couleur.">ColorSelectWidget</a>* <a class="code" href="class_regroupement_edit_widget.html#ae6e7921942be554617c9902019b21d9e" title="Champ d&#39;édition de la couleur du regroupement.">m_champCouleur</a>;
+<a name="l00034"></a><a class="code" href="class_regroupement_edit_widget.html#afad241fd8655d2a69dd4be89a97b57cd">00034</a>         <a class="code" href="class_selection_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements sélectionnable...">SelectionRegroupementListModel</a>* <a class="code" href="class_regroupement_edit_widget.html#afad241fd8655d2a69dd4be89a97b57cd" title="Modèle de données contenant la liste des regroupements sélectionnables.">m_modeleRegroupementsSelectionnables</a>;
+<a name="l00035"></a><a class="code" href="class_regroupement_edit_widget.html#a2be39198736269b1de5b5dc3f35a85eb">00035</a>         QComboBox* <a class="code" href="class_regroupement_edit_widget.html#a2be39198736269b1de5b5dc3f35a85eb" title="Vue affichant le modèle de données m_modeleRegroupementsSelectionnables.">m_vueRegroupementsSelectionnables</a>;
+<a name="l00036"></a><a class="code" href="class_regroupement_edit_widget.html#a810196eabb8fd76ecc87faf4b1afd6f8">00036</a>         QListView* <a class="code" href="class_regroupement_edit_widget.html#a810196eabb8fd76ecc87faf4b1afd6f8" title="Vue affichant le modèle de données m_modelTerrainsInternes.">m_vueTerrainsInternes</a>;
+<a name="l00037"></a><a class="code" href="class_regroupement_edit_widget.html#a4eadd1790c780a7375a1cf5c9f4ba365">00037</a>         QListView* <a class="code" href="class_regroupement_edit_widget.html#a4eadd1790c780a7375a1cf5c9f4ba365" title="Vue affichant le modèle de données m_modelTerrainsExternes.">m_vueTerrainsExternes</a>;
+<a name="l00038"></a><a class="code" href="class_regroupement_edit_widget.html#a8448f2eea7b1e01e275deab3448bf577">00038</a>         QPushButton* <a class="code" href="class_regroupement_edit_widget.html#a8448f2eea7b1e01e275deab3448bf577" title="Bouton émettant le signal ajouterClicked().">m_boutonAjouter</a>;
+<a name="l00039"></a><a class="code" href="class_regroupement_edit_widget.html#a8bd842c7f1a62ffc6979cbd1f18530ae">00039</a>         QPushButton* <a class="code" href="class_regroupement_edit_widget.html#a8bd842c7f1a62ffc6979cbd1f18530ae" title="Boutonémettant le signal enleverClicked().">m_boutonEnlever</a>;
+<a name="l00040"></a>00040         
+<a name="l00041"></a>00041         
+<a name="l00042"></a>00042         
+<a name="l00043"></a>00043     <span class="keyword">public</span>:
+<a name="l00049"></a>00049         <a class="code" href="class_regroupement_edit_widget.html#a6a7657ba0139b75b8e36a571281a2130" title="Construit un nouveau widget d&#39;édition de regroupement.">RegroupementEditWidget</a>(<a class="code" href="class_regroupement_data.html" title="Structure de données contenant les informations d&#39;un regroupement à éditer.">RegroupementData</a>* regroupement,
+<a name="l00050"></a>00050                                <a class="code" href="class_selection_regroupement_list_model.html" title="Cette classe représente un modèle de données contenant une liste de regroupements sélectionnable...">SelectionRegroupementListModel</a>* regroupementModel);
+<a name="l00051"></a>00051         
+<a name="l00052"></a>00052         
+<a name="l00053"></a>00053         
+<a name="l00058"></a>00058         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_edit_widget.html#a5b58206bb0aa8ceca6d3f58a655e3c93" title="Change le regroupement à éditer.">changeRegroupement</a>(<a class="code" href="class_regroupement_data.html" title="Structure de données contenant les informations d&#39;un regroupement à éditer.">RegroupementData</a>* regroupement);
+<a name="l00059"></a>00059         
+<a name="l00060"></a>00060         
+<a name="l00061"></a>00061         
+<a name="l00062"></a>00062     <span class="keyword">private</span> slots:
+<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_edit_widget.html#a076681888d05e4260799200fd3ef884c" title="Change le modèle de données des terrains externes.">changeModeleTerrainsExterne</a>(<span class="keywordtype">int</span> rowRegroupementSelectionne);
+<a name="l00068"></a>00068         
+<a name="l00069"></a>00069         
+<a name="l00070"></a>00070         
+<a name="l00074"></a>00074         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_edit_widget.html#a72e035f54a945bcc486fc7949da2d30f" title="Transmets un terrain du regroupement sélectionné au regroupement en cours d&#39;édition.">ajouterTerrain</a>();
+<a name="l00075"></a>00075         
+<a name="l00076"></a>00076         
+<a name="l00077"></a>00077         
+<a name="l00081"></a>00081         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_edit_widget.html#ae001af546941826ac06781fbf21918db" title="Transmet un terrain du regroupement en cours d&#39;édition au regroupement sélectionné.">enleverTerrain</a>();
+<a name="l00082"></a>00082         
+<a name="l00083"></a>00083         
+<a name="l00084"></a>00084         
+<a name="l00089"></a>00089         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_edit_widget.html#a8afc654258e19e997e612f397602275d" title="Change le titre du regroupement.">changeTitre</a>(QString titre);
+<a name="l00090"></a>00090         
+<a name="l00091"></a>00091         
+<a name="l00092"></a>00092         
+<a name="l00097"></a>00097         <span class="keywordtype">void</span> <a class="code" href="class_regroupement_edit_widget.html#a96d41790747224dbf4b95208c1ca697e" title="Change la couleur du regroupement.">changeCouleur</a>(QColor couleur);
+<a name="l00098"></a>00098 };
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <span class="preprocessor">#endif // REGROUPEMENTEDITWIDGET_HPP</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Propriétés</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Samedi Décembre 1 2012 20:13:31 pour MonopolAdventureEditor par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

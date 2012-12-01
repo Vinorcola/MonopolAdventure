@@ -65,7 +65,7 @@ class GraphismeEmplacement : public QGraphicsRectItem
          * @param image Image à afficher sur l'emplacement.
          * @param couleurRegroupement Couleur du regroupement auquel appartient le terrain.
          * @param emplacementEnCoin Indique si l'emplacement à représenter se situe dans un coin du plateau.
-         * @param enventOn Indique si les événement (clique sur l'emplacement) sont activés.
+         * @param eventOn Indique si les événement (clique sur l'emplacement) sont activés.
          * @note Le constructeur dessine automatiquement l'élément graphique. Veillez donc à renseigner le maximum d'attributs plutôt que de faire appel aux différentes méthodes @c updateXXX().
          */
         GraphismeEmplacement(const GraphismeEmplacementInfos& infosGraphiques,
