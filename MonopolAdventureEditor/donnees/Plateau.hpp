@@ -9,6 +9,7 @@
 #include <QString>
 #include <QtCore/qmath.h>
 
+#include "dialogEdition/EditionEmplacement.hpp"
 #include "dialogEdition/EditionListeRegroupements.hpp"
 #include "donnees/cartes/PileCartes.hpp"
 #include "donnees/emplacements/Depart.hpp"
@@ -29,7 +30,11 @@
  */
 class Plateau : public QGraphicsScene
 {
+        Q_OBJECT
+        
+        
     private:
+        QWidget* m_parent;///< Fenêtre parent (utilisé pour afficher les fenêtres dialogue pour l'édition).
         QString m_titre;///< Titre du plateau.
         QSize m_taille;///< Taille du plateau (en nombre d'emplacements).
         QString m_devise;///< Devise utilisée sur le plateau.
@@ -71,8 +76,9 @@ class Plateau : public QGraphicsScene
     public:
         /**
          * Construit un nouveau plateau par défaut.
+         * @param parent Fenêtre parent (utilisé pour afficher les fenêtres dialogue pour l'édition).
          */
-        Plateau();
+        Plateau(QWidget* parent);
         
         
         
@@ -448,7 +454,16 @@ class Plateau : public QGraphicsScene
         /**
          * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.
          */
-        void editListeRegroupement(QWidget* parent = 0);
+        void editListeRegroupement();
+        
+        
+        
+    public slots:
+        /**
+         * Ouvre une fenêtre de dialogue pour l'édition de l'emplacement @a emplacement.
+         * @param emplacement Emplacement à éditer.
+         */
+        void editEmplacement(Emplacement* emplacement);
         
         
         

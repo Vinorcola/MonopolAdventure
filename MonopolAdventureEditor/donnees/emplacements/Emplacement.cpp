@@ -260,7 +260,7 @@ void Emplacement::setupElementGraphique(const QPoint& position,
 
 
 
-void Emplacement::dessiner()
+GraphismeEmplacement* Emplacement::dessiner()
 {
     if (m_scene)
     {
@@ -278,16 +278,8 @@ void Emplacement::dessiner()
                                                       true);
         m_scene->addItem(m_elementGraphique);
     }
-}
-
-
-
-
-
-void Emplacement::lanceFenetreEdition()
-{
-    EditionEmplacement fenetre(this);
-    fenetre.executer();
+    
+    return m_elementGraphique;
 }
 
 

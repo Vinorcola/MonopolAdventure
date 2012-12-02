@@ -170,15 +170,9 @@ class Emplacement
         
         /**
          * Dessine l'emplacement sur la scène configurée dans le constructeur.
+         * @return Élément graphique.
          */
-        void dessiner();
-        
-        
-        
-        /**
-         * Ouvre une fenêtre d'édition de l'emplacement.
-         */
-        void lanceFenetreEdition();
+        GraphismeEmplacement* dessiner();
         
         
         

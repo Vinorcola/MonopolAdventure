@@ -24,8 +24,11 @@ class Emplacement;
  * 
  * Cette classe hérite directement de QGraphicsRectItem. Ce sont les instances de cette classe qui seront dessinées sur le plateau ou dans des fenêtres d'édition afin de représenter les emplacements.
  */
-class GraphismeEmplacement : public QGraphicsRectItem
+class GraphismeEmplacement : public QObject, public QGraphicsRectItem
 {
+        Q_OBJECT
+        
+        
     private:
         const GraphismeEmplacementInfos& m_infosGraphiques;///< Détails du graphisme des emplacements.
         Emplacement* const m_emplacement;///< Pointeur vers l'emplacement à dessiner.
@@ -137,6 +140,15 @@ class GraphismeEmplacement : public QGraphicsRectItem
          * Cette méthode doit être appelée lorsque GraphismeInfos est modifiée.
          */
         void updateAffichage();
+        
+        
+        
+    signals:
+        /**
+         * Ce signal est envoyé lorsque que l'utilisateur a demandé une fenêtre d'édition sur l'emplacement associé.
+         * @param emplacement Emplacement à éditer.
+         */
+        void editEmplacement(Emplacement* emplacement);
         
         
         

@@ -17,6 +17,7 @@ GraphismeEmplacement::GraphismeEmplacement(const GraphismeEmplacementInfos& info
                                            const QColor& couleurRegroupement,
                                            const bool emplacementEnCoin,
                                            const bool eventOn) :
+    QObject(),
     QGraphicsRectItem(QRectF(QPointF(0, 0), (emplacementEnCoin ? infosGraphiques.getTailleEnCoin() : infosGraphiques.getTailleNormale()))),
     m_infosGraphiques(infosGraphiques),
     m_emplacement(emplacement),
@@ -831,7 +832,7 @@ void GraphismeEmplacement::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 {
     if (m_eventOn && event->button() == Qt::LeftButton)
     {
-        m_emplacement->lanceFenetreEdition();
+        emit editEmplacement(m_emplacement);
     }
 }
 

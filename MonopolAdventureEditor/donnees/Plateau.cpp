@@ -4,8 +4,9 @@
 
 
 
-Plateau::Plateau() :
+Plateau::Plateau(QWidget* parent) :
     QGraphicsScene(),
+    m_parent(parent),
     m_titre(""),
     m_taille(0, 0),
     m_devise(""),
@@ -59,13 +60,15 @@ void Plateau::dessiner()
     for (int i(1), iEnd(m_emplacements.size()); i < iEnd; ++i)
     {
         m_emplacements.at(i)->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);/** @todo Voir si on ne peut pas faire ces config dans la méthode editTaille() plutôt qu'ici. */
-        m_emplacements.at(i)->dessiner();
+        GraphismeEmplacement* elementGraphique(m_emplacements.at(i)->dessiner());
+        connect(elementGraphique, SIGNAL(editEmplacement(Emplacement*)), this, SLOT(editEmplacement(Emplacement*)));
     }
     
     /* On affiche la prison en dernier pour qu'elle soit au dessus de l'emplacement « Simple visite ».
      */
     m_emplacements.first()->setupElementGraphique(helper_getPositionEmplacement(0), helper_getRotationEmplacement(0), this);
-    m_emplacements.first()->dessiner();
+    GraphismeEmplacement* elementGraphique(m_emplacements.first()->dessiner());
+    connect(elementGraphique, SIGNAL(editEmplacement(Emplacement*)), this, SLOT(editEmplacement(Emplacement*)));
 }
 
 
@@ -591,9 +594,19 @@ const QList<Regroupement*>& Plateau::getListeRegroupement()
 
 
 
-void Plateau::editListeRegroupement(QWidget* parent)
+void Plateau::editListeRegroupement()
 {
-    EditionListeRegroupements fenetre(m_regroupements, parent);
+    EditionListeRegroupements fenetre(m_regroupements, m_parent);
+    fenetre.executer();
+}
+
+
+
+
+
+void Plateau::editEmplacement(Emplacement* emplacement)
+{
+    EditionEmplacement fenetre(emplacement, m_parent);
     fenetre.executer();
 }
 

@@ -6,7 +6,7 @@
 
 MainWindow::MainWindow() :
     QMainWindow(),
-    m_plateau(new Plateau),
+    m_plateau(new Plateau(this)),
     m_vueCentrale(new QGraphicsView),
     m_barreOutils(addToolBar(tr("Outils d'édition"))),
     m_actionQuitter(new QAction(tr("Quitter"), this)),
