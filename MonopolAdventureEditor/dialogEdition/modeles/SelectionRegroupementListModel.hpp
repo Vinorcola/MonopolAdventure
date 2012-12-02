@@ -10,7 +10,7 @@
 
 
 /**
- * @class SelectionRegroupementListModel SelectionRegroupementListModel.hpp modeles/SelectionRegroupementListModel.hpp
+ * @class SelectionRegroupementListModel SelectionRegroupementListModel.hpp dialogEdition/modeles/SelectionRegroupementListModel.hpp
  * Cette classe représente un modèle de données contenant une liste de regroupements sélectionnable. Un de ces regroupement peut-être désactivé à la sélection.
  * 
  * Ce modèle sert pour la configuration des terrains d'un regroupement. Le regroupement en cours d'édition est masqué, ainsi, l'utilisateur peut sélectionné un des autres regroupements existant et transférer des terrains d'un regroupement à un autre.

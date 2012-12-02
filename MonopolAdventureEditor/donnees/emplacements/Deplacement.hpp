@@ -19,12 +19,18 @@ class Deplacement : public Emplacement
         
         
         
+    protected:
+        const QString& m_devise;///< Référence constante vers la devise du plateau.
+        
+        
+        
     public:
         /**
          * Construit un emplacement « Déplacement » par défaut.
          * @param graphismeInfos Informations concernant le graphisme.
          */
-        Deplacement(const GraphismeEmplacementInfos& graphismeInfos);
+        Deplacement(const GraphismeEmplacementInfos& graphismeInfos,
+                    const QString& devise);
         
         
         
@@ -64,6 +70,11 @@ class Deplacement : public Emplacement
          * @param montant Montant de la nouvelle amende.
          */
         void editMontantAmende(const quint16 montant);
+        
+        
+        
+    protected:
+        virtual QString helper_getPrix() const;
 };
 
 #endif // DEPLACEMENTINFOS_HPP

@@ -2,6 +2,7 @@
 
 #include "dialogEdition/widgetsEditeurs/ConstructionEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/DepartEditWidget.hpp"
+#include "dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/EmplacementEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp"
@@ -21,7 +22,7 @@ EditionEmplacement::EditionEmplacement(Emplacement* emplacement,
     m_onglet3(0),
     m_onglet4(0)
 {
-    /* Création du widget d'édition.
+    /* Configuration du widget d'édition.
      */
     m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
     switch (m_emplacement->getType())
@@ -37,7 +38,7 @@ EditionEmplacement::EditionEmplacement(Emplacement* emplacement,
             break;
             
         case Type::Deplacement:
-            
+            /* Constructeur spécialisé. */
             break;
             
         case Type::ParcGratuit:
@@ -77,17 +78,34 @@ EditionEmplacement::EditionEmplacement(Emplacement* emplacement,
     
     /* Aménagement de la fenêtre de dialogue.
      */
-    m_dialog->setAttribute(Qt::WA_DeleteOnClose);
+    amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(Deplacement* deplacement,
+                                       const QList<Emplacement*>& emplacements,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_emplacement(deplacement),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(m_emplacement)),
+    m_onglet2(new DeplacementEditWidget(deplacement, emplacements, deplacement->getDestination())),
+    m_onglet3(0),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    m_onglets->addTab(m_onglet2, QObject::tr("Déplacement"));
     
-    QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));
-    QObject::connect(boutons, SIGNAL(accepted()), m_dialog, SLOT(accept()));
-    QObject::connect(boutons, SIGNAL(rejected()), m_dialog, SLOT(reject()));
     
-    QVBoxLayout* layout(new QVBoxLayout);
-    layout->addWidget(m_onglets);
-    layout->addWidget(boutons);
     
-    m_dialog->setLayout(layout);
+    /* Aménagement de la fenêtre de dialogue.
+     */
+    amenageFenetre();
 }
 
 
@@ -106,5 +124,24 @@ bool EditionEmplacement::executer()
     {
         return false;
     }
+}
+
+
+
+
+
+void EditionEmplacement::amenageFenetre()
+{
+    m_dialog->setAttribute(Qt::WA_DeleteOnClose);
+    
+    QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));
+    QObject::connect(boutons, SIGNAL(accepted()), m_dialog, SLOT(accept()));
+    QObject::connect(boutons, SIGNAL(rejected()), m_dialog, SLOT(reject()));
+    
+    QVBoxLayout* layout(new QVBoxLayout);
+    layout->addWidget(m_onglets);
+    layout->addWidget(boutons);
+    
+    m_dialog->setLayout(layout);
 }
 

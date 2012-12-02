@@ -13,6 +13,7 @@
 #include "dialogEdition/EditionListeRegroupements.hpp"
 #include "donnees/cartes/PileCartes.hpp"
 #include "donnees/emplacements/Depart.hpp"
+#include "donnees/emplacements/Deplacement.hpp"
 #include "donnees/emplacements/Prison.hpp"
 #include "donnees/emplacements/Regroupement.hpp"
 #include "donnees/emplacements/SimpleVisite.hpp"
@@ -451,6 +452,7 @@ class Plateau : public QGraphicsScene
         
         
         
+    public slots:
         /**
          * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.
          */
@@ -458,7 +460,6 @@ class Plateau : public QGraphicsScene
         
         
         
-    public slots:
         /**
          * Ouvre une fenêtre de dialogue pour l'édition de l'emplacement @a emplacement.
          * @param emplacement Emplacement à éditer.

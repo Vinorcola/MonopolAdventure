@@ -8,7 +8,7 @@
 
 class EmplacementEditWidget;
 class Emplacement;
-#include "donnees/emplacements/Emplacement.hpp"
+class Deplacement;
 
 
 
@@ -38,7 +38,19 @@ class EditionEmplacement
          * @param parent QWidget parent de la QDialog.
          */
         EditionEmplacement(Emplacement* emplacement,
-                           QWidget* parent = 0);
+                           QWidget* parent);
+        
+        
+        
+        /**
+         * Construit un contrôleur d'édition spécialisé pour un emplacement « Déplacement »
+         * @param deplacement Emplacement « Déplacement » à éditer.
+         * @param emplacements Liste des autres emplacements du plateau.
+         * @param parent QWidget parent de la QDialog.
+         */
+        EditionEmplacement(Deplacement* deplacement,
+                           const QList<Emplacement*>& emplacements,
+                           QWidget* parent);
         
         
         
@@ -46,6 +58,14 @@ class EditionEmplacement
          * Lance la fenêtre d'édition de l'emplacement.
          */
         bool executer();
+        
+        
+        
+    private:
+        /**
+         * Helper aménageant les widgets dans la fenêtre d'édition.
+         */
+        void amenageFenetre();
 };
 
 #endif // EDITIONEMPLACEMENT_HPP

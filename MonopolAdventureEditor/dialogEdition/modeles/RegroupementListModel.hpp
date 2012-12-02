@@ -10,7 +10,7 @@
 
 
 /**
- * @class RegroupementListModel RegroupementListModel.hpp modeles/RegroupementListModel.hpp
+ * @class RegroupementListModel RegroupementListModel.hpp dialogEdition/modeles/RegroupementListModel.hpp
  * Cette classe représente un modèle de données contenant une liste de regroupements.
  */
 class RegroupementListModel : public QAbstractListModel

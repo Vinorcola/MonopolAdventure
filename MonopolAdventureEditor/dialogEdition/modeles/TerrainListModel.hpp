@@ -10,7 +10,7 @@
 
 
 /**
- * @class TerrainListModel TerrainListModel.hpp modeles/TerrainListModel.hpp
+ * @class TerrainListModel TerrainListModel.hpp dialogEdition/modeles/TerrainListModel.hpp
  * Cette classe représente un modèle de données contenant une liste affichable de terrains contenu dans un regroupement.
  */
 class TerrainListModel : public QAbstractListModel

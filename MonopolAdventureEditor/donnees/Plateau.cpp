@@ -30,7 +30,7 @@ Plateau::Plateau(QWidget* parent) :
 }
 
 
-
+ 
 
 
 Plateau::~Plateau()
@@ -231,6 +231,18 @@ void Plateau::editTaille(const QSize& taille)
                 m_emplacements.at(i)->setEmplacementNormal();
             }
         }
+        
+        
+        
+        /*/ ----- DEBUG
+        Emplacement* ancien(m_emplacements.at(31));
+        Deplacement* nouveau(new Deplacement(m_graphismeEmplacement, m_devise));
+        nouveau->editTitre("Allez en prison");
+        nouveau->editDestination(m_emplacements.first());
+        nouveau->editMontantAmende(50);
+        nouveau->setEmplacementEnCoin();
+        m_emplacements[31] = nouveau;
+        delete ancien;//*/
     }
 }
 
@@ -606,8 +618,20 @@ void Plateau::editListeRegroupement()
 
 void Plateau::editEmplacement(Emplacement* emplacement)
 {
-    EditionEmplacement fenetre(emplacement, m_parent);
-    fenetre.executer();
+    EditionEmplacement* fenetre;
+    switch (emplacement->getType())
+    {
+        case Type::Deplacement:
+            fenetre = new EditionEmplacement(static_cast<Deplacement*>(emplacement), m_emplacements, m_parent);
+            break;
+            
+        default:
+            fenetre = new EditionEmplacement(emplacement, m_parent);
+    }
+    
+    fenetre->executer();
+    
+    delete fenetre;
 }
 
 

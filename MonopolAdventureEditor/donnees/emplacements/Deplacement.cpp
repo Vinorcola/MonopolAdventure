@@ -4,10 +4,12 @@
 
 
 
-Deplacement::Deplacement(const GraphismeEmplacementInfos& graphismeInfos) :
+Deplacement::Deplacement(const GraphismeEmplacementInfos& graphismeInfos,
+                         const QString& devise) :
     Emplacement(Type::Deplacement, graphismeInfos),
     m_destination(0),
-    m_amende(0)
+    m_amende(0),
+    m_devise(devise)
 {
     
 }
@@ -63,4 +65,21 @@ void Deplacement::editMontantAmende(const quint16 montant)
         m_amende = montant;
     }
 }
+
+
+
+
+
+QString Deplacement::helper_getPrix() const
+{
+    if (m_amende == 0)
+    {
+        return QString("");
+    }
+    else
+    {
+        return QString::number(m_amende) + m_devise;
+    }
+}
+
 

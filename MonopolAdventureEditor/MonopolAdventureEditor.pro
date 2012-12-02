@@ -57,7 +57,9 @@ SOURCES += main.cpp \
     widgetsSelecteurs/FileSelectWidget.cpp \
     widgetsSelecteurs/FontSelectWidget.cpp \
     widgetsSelecteurs/ImageSelectWidget.cpp \
-    MainWindow.cpp
+    MainWindow.cpp \
+    dialogEdition/widgetsEditeurs/DeplacementEditWidget.cpp \
+    dialogEdition/modeles/EmplacementListModel.cpp
 
 HEADERS  += global.hpp \
     assistants/creationPlateau/AssistantCreationPlateau.hpp \
@@ -106,4 +108,6 @@ HEADERS  += global.hpp \
     widgetsSelecteurs/FileSelectWidget.hpp \
     widgetsSelecteurs/FontSelectWidget.hpp \
     widgetsSelecteurs/ImageSelectWidget.hpp \
-    MainWindow.hpp
+    MainWindow.hpp \
+    dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp \
+    dialogEdition/modeles/EmplacementListModel.hpp
