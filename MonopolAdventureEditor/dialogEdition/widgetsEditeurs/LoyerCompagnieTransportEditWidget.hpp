@@ -22,13 +22,13 @@ class LoyerCompagnieTransportEditWidget : public SauvegardeInterface
         
     private:
         CompagnieTransport* m_compagnieTransport;///< Compagnie de transport en cours d'édition.
-        QList<QSpinBox*> m_champsLoyer;///< Liste des champs d'édition du loyer.
+        QList<QSpinBox*> m_champsLoyer;///< Liste des champs d'édition des loyers.
         
         
         
     public:
         /**
-         * Construit un nouveau widget d'édition de compagnie de transport.
+         * Construit un nouveau widget d'édition de loyer d'une compagnie de transport.
          * @param compagnieTransport Compagnie de transport à éditer.
          * @param nombreCompagnies Nombre total de compagnies de transport sur le plateau.
          */
