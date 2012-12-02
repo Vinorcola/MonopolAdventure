@@ -5,10 +5,8 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-#include "dialogEdition/modeles/RegroupementListModel.hpp"
 #include "dialogEdition/modeles/SelectionRegroupementListModel.hpp"
 #include "dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp"
-#include "dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp"
 
 
 

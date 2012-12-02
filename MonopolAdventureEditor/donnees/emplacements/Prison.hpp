@@ -1,7 +1,6 @@
 #ifndef PRISONINFOS_HPP
 #define PRISONINFOS_HPP
 
-#include "donnees/emplacements/Emplacement.hpp"
 #include "donnees/emplacements/SimpleVisite.hpp"
 
 

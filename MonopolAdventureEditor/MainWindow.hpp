@@ -9,7 +9,6 @@
 #include <QTimer>
 #include <QToolBar>
 
-#include "assistants/creationPlateau/AssistantCreationPlateau.hpp"
 #include "donnees/Plateau.hpp"
 
 

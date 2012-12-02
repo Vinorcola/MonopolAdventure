@@ -1,5 +1,8 @@
 #include "EditionListeRegroupements.hpp"
 
+#include "dialogEdition/modeles/RegroupementListModel.hpp"
+#include "dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp"
+
 
 
 

@@ -8,7 +8,6 @@
 #include <QString>
 
 #include "global.hpp"
-#include "dialogEdition/EditionEmplacement.hpp"
 #include "donnees/graphismes/GraphismeEmplacement.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
 

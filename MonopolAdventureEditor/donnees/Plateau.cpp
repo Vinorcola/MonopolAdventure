@@ -1,5 +1,15 @@
 #include "Plateau.hpp"
 
+#include "dialogEdition/EditionListeRegroupements.hpp"
+#include "dialogEdition/EditionEmplacement.hpp"
+#include "donnees/emplacements/CompagnieTransport.hpp"
+#include "donnees/emplacements/Depart.hpp"
+#include "donnees/emplacements/Deplacement.hpp"
+#include "donnees/emplacements/Prison.hpp"
+#include "donnees/emplacements/Regroupement.hpp"
+#include "donnees/emplacements/SimpleVisite.hpp"
+#include "donnees/emplacements/Terrain.hpp"
+
 
 
 

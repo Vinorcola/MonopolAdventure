@@ -1,5 +1,7 @@
 #include "Emplacement.hpp"
 
+#include "dialogEdition/EditionEmplacement.hpp"
+
 
 
 

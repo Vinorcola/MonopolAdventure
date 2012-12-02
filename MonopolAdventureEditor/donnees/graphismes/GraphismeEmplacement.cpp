@@ -1,4 +1,5 @@
 #include "GraphismeEmplacement.hpp"
+
 #include "donnees/emplacements/Emplacement.hpp"
 
 

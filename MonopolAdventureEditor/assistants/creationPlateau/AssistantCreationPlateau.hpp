@@ -3,12 +3,6 @@
 
 #include <QWizard>
 
-#include "assistants/creationPlateau/PageGraphisme.hpp"
-#include "assistants/creationPlateau/PageImage.hpp"
-#include "assistants/creationPlateau/PageIntro.hpp"
-#include "assistants/creationPlateau/PageOuvrir.hpp"
-#include "assistants/creationPlateau/PagePrix.hpp"
-#include "assistants/creationPlateau/PageTaille.hpp"
 #include "donnees/Plateau.hpp"
 
 

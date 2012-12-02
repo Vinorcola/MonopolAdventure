@@ -1,5 +1,7 @@
 #include "MainWindow.hpp"
 
+#include "assistants/creationPlateau/AssistantCreationPlateau.hpp"
+
 
 
 
