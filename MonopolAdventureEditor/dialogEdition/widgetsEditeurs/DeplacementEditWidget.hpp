@@ -30,9 +30,20 @@ class DeplacementEditWidget : public QWidget
         
         
     public:
+        /**
+         * Construit un nouveau widget d'édition d'emplacement « Déplacement ».
+         * @param deplacement Emplacement « Déplacement » à éditer.
+         * @param emplacements Liste des emplacements du plateau.
+         */
         DeplacementEditWidget(Deplacement* const deplacement,
-                              const QList<Emplacement*>& emplacements,
-                              Emplacement* emplacementParDefaut);
+                              const QList<Emplacement*>& emplacements);
+        
+        
+        
+        /**
+         * Edite les informations de la prison en fonction de la configuration des champs.
+         */
+        void sauvegarde();
 };
 
 #endif // DEPLACEMENTEDITWIDGET_HPP

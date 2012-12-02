@@ -5,8 +5,7 @@
 
 
 DeplacementEditWidget::DeplacementEditWidget(Deplacement* const deplacement,
-                                             const QList<Emplacement*>& emplacements,
-                                             Emplacement* emplacementParDefaut) :
+                                             const QList<Emplacement*>& emplacements) :
     QWidget(),
     m_deplacement(deplacement),
     m_champDestination(new QComboBox),
@@ -16,7 +15,7 @@ DeplacementEditWidget::DeplacementEditWidget(Deplacement* const deplacement,
     /* Configuration des champs.
      */
     m_champDestination->setModel(m_modeleEmplacementSelectionnable);
-    int rangParDefaut(emplacements.indexOf(emplacementParDefaut));
+    int rangParDefaut(emplacements.indexOf(m_deplacement->getDestination()));
     m_champDestination->setCurrentIndex(rangParDefaut == -1 ? 0 : rangParDefaut);
     
     m_champAmende->setSingleStep(5);

@@ -43,6 +43,13 @@ class ConstructionEditWidget : public QWidget
         
         
         
+        /**
+         * Edite les informations du terrain en fonction de la configuration des champs.
+         */
+        void sauvegarde();
+        
+        
+        
     private slots:
         /**
          * Met à jour le prix de vente d'une maison si l'option « prix vente = moitie prix achat » est cochée.

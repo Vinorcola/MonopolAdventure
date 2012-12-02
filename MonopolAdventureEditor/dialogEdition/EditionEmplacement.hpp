@@ -7,8 +7,9 @@
 #include <QVBoxLayout>
 
 class EmplacementEditWidget;
-class Emplacement;
+class CompagnieTransport;
 class Deplacement;
+class Emplacement;
 
 
 
@@ -43,13 +44,25 @@ class EditionEmplacement
         
         
         /**
-         * Construit un contrôleur d'édition spécialisé pour un emplacement « Déplacement »
+         * Construit un contrôleur d'édition spécialisé pour un emplacement « Déplacement ».
          * @param deplacement Emplacement « Déplacement » à éditer.
          * @param emplacements Liste des autres emplacements du plateau.
          * @param parent QWidget parent de la QDialog.
          */
         EditionEmplacement(Deplacement* deplacement,
                            const QList<Emplacement*>& emplacements,
+                           QWidget* parent);
+        
+        
+        
+        /**
+         * Construit un contrôleur d'édition spécialisé pour une compagnie de transport.
+         * @param compagnieTransport Compagnie de transport à éditer.
+         * @param nombreCompagnies Nombre total de compagnies de transport sur le plateau.
+         * @param parent QWidget parent de la QDialog.
+         */
+        EditionEmplacement(CompagnieTransport* compagnieTransport,
+                           const int nombreCompagnies,
                            QWidget* parent);
         
         

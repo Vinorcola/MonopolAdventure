@@ -76,6 +76,18 @@ ConstructionEditWidget::ConstructionEditWidget(Terrain* const terrain) :
 
 
 
+void ConstructionEditWidget::sauvegarde()
+{
+    m_terrain->editPrixAchatMaison(m_champPrixAchatMaison->value());
+    m_terrain->editPrixVenteMaison(m_champPrixVenteMaison->value());
+    m_terrain->editPrixAchatHotel(m_champPrixAchatHotel->value());
+    m_terrain->editPrixVenteHotel(m_champPrixVenteHotel->value());
+}
+
+
+
+
+
 void ConstructionEditWidget::champPrixAchatMaisonChanged(int prix)
 {
     if (m_venteMaisonMoitie->isChecked())

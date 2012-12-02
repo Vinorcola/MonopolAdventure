@@ -4,6 +4,7 @@
 #include "dialogEdition/widgetsEditeurs/DepartEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/EmplacementEditWidget.hpp"
+#include "dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp"
@@ -28,8 +29,7 @@ EditionEmplacement::EditionEmplacement(Emplacement* emplacement,
     switch (m_emplacement->getType())
     {
         case Type::CompagnieTransport:
-            m_onglet2 = new ProprieteEditWidget(static_cast<Propriete*>(m_emplacement));
-            m_onglets->addTab(m_onglet2, QObject::tr("Valeur de la propriété"));
+            /* Constructeur spécialisé. */
             break;
             
         case Type::Depart:
@@ -92,7 +92,7 @@ EditionEmplacement::EditionEmplacement(Deplacement* deplacement,
     m_emplacement(deplacement),
     m_onglets(new QTabWidget),
     m_onglet1(new EmplacementEditWidget(m_emplacement)),
-    m_onglet2(new DeplacementEditWidget(deplacement, emplacements, deplacement->getDestination())),
+    m_onglet2(new DeplacementEditWidget(deplacement, emplacements)),
     m_onglet3(0),
     m_onglet4(0)
 {
@@ -106,6 +106,28 @@ EditionEmplacement::EditionEmplacement(Deplacement* deplacement,
     /* Aménagement de la fenêtre de dialogue.
      */
     amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(CompagnieTransport* compagnieTransport,
+                                       const int nombreCompagnies,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_emplacement(compagnieTransport),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(m_emplacement)),
+    m_onglet2(new ProprieteEditWidget(compagnieTransport)),
+    m_onglet3(new LoyerCompagnieTransportEditWidget(compagnieTransport, nombreCompagnies)),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    m_onglets->addTab(m_onglet2, QObject::tr("Valeur de la propriété"));
+    m_onglets->addTab(m_onglet3, QObject::tr("Loyers"));
 }
 
 

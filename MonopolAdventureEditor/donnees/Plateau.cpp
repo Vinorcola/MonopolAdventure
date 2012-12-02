@@ -619,8 +619,21 @@ void Plateau::editListeRegroupement()
 void Plateau::editEmplacement(Emplacement* emplacement)
 {
     EditionEmplacement* fenetre;
+    int compteur(0);
     switch (emplacement->getType())
     {
+        case Type::CompagnieTransport:
+            for (int i(0), iEnd(m_emplacements.count()); i < iEnd; ++i)
+            {
+                if (m_emplacements.at(i)->getType() == Type::CompagnieTransport)
+                {
+                    compteur++;
+                }
+            }
+            
+            fenetre = new EditionEmplacement(static_cast<CompagnieTransport*>(emplacement), compteur, m_parent);
+            break;
+            
         case Type::Deplacement:
             fenetre = new EditionEmplacement(static_cast<Deplacement*>(emplacement), m_emplacements, m_parent);
             break;
