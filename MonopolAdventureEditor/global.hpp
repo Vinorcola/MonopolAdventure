@@ -18,15 +18,15 @@ namespace Type
     enum Emplacement
     {
         CompagnieTransport = 0,
-        Depart = 1,
-        Deplacement = 2,
-        ParcGratuit = 3,
-        Pioche = 4,
-        Prison = 5,
-        Service = 6,
-        SimpleVisite = 7,
-        Taxe = 8,
-        Terrain = 9
+        Depart = 8,
+        Deplacement = 1,
+        ParcGratuit = 2,
+        Pioche = 3,
+        Prison = 9,
+        Service = 4,
+        SimpleVisite = 5,
+        Taxe = 6,
+        Terrain = 7
     };
 }
 
