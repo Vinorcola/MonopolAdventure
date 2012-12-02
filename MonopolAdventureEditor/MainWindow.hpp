@@ -31,6 +31,7 @@ class MainWindow : public QMainWindow
         QAction* m_actionQuitter;///< Action permettant de quitter l'éditeur.
         QAction* m_actionAssistantCreation;///< Action permettant de lancer l'assistant de création de plateau.
         QAction* m_actionRegroupement;///< Action permettant d'éditer la liste des regroupements du plateau.
+        QAction* m_actionEditionTypeEMplacement;///< Action permettant d'activer ou de désactiver l'édition du type des emplacements.
         
         
         
@@ -39,6 +40,14 @@ class MainWindow : public QMainWindow
          * Construit le fenêtre principale du programme.
          */
         MainWindow();
+        
+        
+        
+        /**
+         * Indique si le bouton d'édition du type des emplacements est activé ou non.
+         * @return @b @c true si le bouton est activé.
+         */
+        bool editionTypeActive() const;
         
         
         

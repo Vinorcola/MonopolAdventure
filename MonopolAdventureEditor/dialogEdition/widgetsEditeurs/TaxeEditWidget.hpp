@@ -35,7 +35,7 @@ class TaxeEditWidget : public QWidget
     public:
         /**
          * Construit un nouveau widget d'édition d'emplacement « Taxe ».
-         * @param taxe Emplacement à éditer.
+         * @param taxe Emplacement « Taxe » à éditer.
          */
         TaxeEditWidget(Taxe* const taxe);
         

@@ -34,3 +34,4 @@ void EmplacementEditWidget::sauvegarde()
     m_emplacement->editDescription(m_champDescription->toPlainText());
     m_emplacement->editImage(m_champImage->getImage());
 }
+

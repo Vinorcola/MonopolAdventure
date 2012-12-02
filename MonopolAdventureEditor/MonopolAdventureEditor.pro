@@ -34,6 +34,7 @@ SOURCES += main.cpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.cpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/TaxeEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.cpp \
     dialogEdition/EditionEmplacement.cpp \
     dialogEdition/EditionListeRegroupements.cpp \
     donnees/cartes/Action.cpp \
@@ -86,6 +87,7 @@ HEADERS  += global.hpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp \
     dialogEdition/EditionEmplacement.hpp \
     dialogEdition/EditionListeRegroupements.hpp \
     donnees/cartes/Action.hpp \

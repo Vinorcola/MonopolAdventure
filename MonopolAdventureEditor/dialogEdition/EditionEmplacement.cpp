@@ -76,7 +76,7 @@ EditionEmplacement::EditionEmplacement(Emplacement* emplacement,
     
     
     
-    /* Aménagement de la fenêtre de dialogue.
+    /* Configurations générales de la fenêtre de dialogue.
      */
     amenageFenetre();
 }
@@ -103,7 +103,7 @@ EditionEmplacement::EditionEmplacement(Deplacement* deplacement,
     
     
     
-    /* Aménagement de la fenêtre de dialogue.
+    /* Configurations générales de la fenêtre de dialogue.
      */
     amenageFenetre();
 }
@@ -128,6 +128,12 @@ EditionEmplacement::EditionEmplacement(CompagnieTransport* compagnieTransport,
     m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
     m_onglets->addTab(m_onglet2, QObject::tr("Valeur de la propriété"));
     m_onglets->addTab(m_onglet3, QObject::tr("Loyers"));
+    
+    
+    
+    /* Configurations générales de la fenêtre de dialogue.
+     */
+    amenageFenetre();
 }
 
 
@@ -154,6 +160,8 @@ bool EditionEmplacement::executer()
 
 void EditionEmplacement::amenageFenetre()
 {
+    /* Aménagement de la fenêtre de dialogue.
+     */
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
     
     QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));

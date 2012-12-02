@@ -1,20 +1,26 @@
 #include "Plateau.hpp"
 
+#include "dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp"
 #include "dialogEdition/EditionListeRegroupements.hpp"
 #include "dialogEdition/EditionEmplacement.hpp"
 #include "donnees/emplacements/CompagnieTransport.hpp"
 #include "donnees/emplacements/Depart.hpp"
 #include "donnees/emplacements/Deplacement.hpp"
+#include "donnees/emplacements/ParcGratuit.hpp"
+#include "donnees/emplacements/Pioche.hpp"
 #include "donnees/emplacements/Prison.hpp"
 #include "donnees/emplacements/Regroupement.hpp"
+#include "donnees/emplacements/Service.hpp"
 #include "donnees/emplacements/SimpleVisite.hpp"
+#include "donnees/emplacements/Taxe.hpp"
 #include "donnees/emplacements/Terrain.hpp"
+#include "MainWindow.hpp"
 
 
 
 
 
-Plateau::Plateau(QWidget* parent) :
+Plateau::Plateau(MainWindow* parent) :
     QGraphicsScene(),
     m_parent(parent),
     m_titre(""),
@@ -241,18 +247,6 @@ void Plateau::editTaille(const QSize& taille)
                 m_emplacements.at(i)->setEmplacementNormal();
             }
         }
-        
-        
-        
-        /*/ ----- DEBUG
-        Emplacement* ancien(m_emplacements.at(31));
-        Deplacement* nouveau(new Deplacement(m_graphismeEmplacement, m_devise));
-        nouveau->editTitre("Allez en prison");
-        nouveau->editDestination(m_emplacements.first());
-        nouveau->editMontantAmende(50);
-        nouveau->setEmplacementEnCoin();
-        m_emplacements[31] = nouveau;
-        delete ancien;//*/
     }
 }
 
@@ -628,6 +622,22 @@ void Plateau::editListeRegroupement()
 
 void Plateau::editEmplacement(Emplacement* emplacement)
 {
+    if (m_parent->editionTypeActive())
+    {
+        editEmplacementType(emplacement);
+    }
+    else
+    {
+        editEmplacementInformations(emplacement);
+    }
+}
+
+
+
+
+
+void Plateau::editEmplacementInformations(Emplacement* emplacement)
+{
     EditionEmplacement* fenetre;
     int compteur(0);
     switch (emplacement->getType())
@@ -655,6 +665,134 @@ void Plateau::editEmplacement(Emplacement* emplacement)
     fenetre->executer();
     
     delete fenetre;
+}
+
+
+
+
+
+void Plateau::editEmplacementType(Emplacement* emplacement)
+{
+    QDialog* dialog = new QDialog(m_parent);
+    
+    QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));
+    QObject::connect(boutons, SIGNAL(accepted()), dialog, SLOT(accept()));
+    QObject::connect(boutons, SIGNAL(rejected()), dialog, SLOT(reject()));
+    
+    QVBoxLayout* layout(new QVBoxLayout);
+    TypeEmplacementEditWidget* widgetEdition(new TypeEmplacementEditWidget(emplacement));
+    layout->addWidget(widgetEdition);
+    layout->addWidget(boutons);
+    
+    dialog->setLayout(layout);
+    
+    if (dialog->exec())
+    {
+        changeTypeEmplacement(emplacement, widgetEdition->getTypeEmplacement());
+    }
+    
+    delete dialog;
+}
+
+
+
+
+
+void Plateau::changeTypeEmplacement(Emplacement* emplacement,
+                                    Type::Emplacement nouveauType)
+{
+    if (emplacement->getType() != nouveauType)
+    {
+        if (static_cast<Prison*>(m_emplacements.first())->getEmplacementAssocie() == emplacement)
+        {
+            QMessageBox::information(m_parent, tr("Erreur"), tr("Impossible de changer le type de cet emplacement car la prison lui est associé. Créez d'abord un nouvel emplacement « Simple visite » puis associez ce dernier à la prison (fenêtre d'édition de la prison). Vous pourrez ensuite changer le type de cet emplacement."));
+        }
+        else
+        {
+            Emplacement* nouvelEmplacement;
+            Propriete* propriete;
+            
+            /* Création et configurations spécifiques de l'emplacement (si on change juste de type de propriété).
+             */
+            switch (nouveauType)
+            {
+                case Type::CompagnieTransport:
+                    propriete = new CompagnieTransport(m_graphismeEmplacement, m_devise);
+                    
+                    if (emplacement->getType() == Type::Service || emplacement->getType() == Type::Terrain)
+                    {
+                        propriete->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
+                        propriete->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    }
+                    
+                    nouvelEmplacement = propriete;
+                    break;
+                    
+                case Type::Deplacement:
+                    nouvelEmplacement = new Deplacement(m_graphismeEmplacement, m_devise);
+                    break;
+                    
+                case Type::ParcGratuit:
+                    nouvelEmplacement = new ParcGratuit(m_graphismeEmplacement);
+                    break;
+                    
+                case Type::Pioche:
+                    nouvelEmplacement = new Pioche(m_graphismeEmplacement);
+                    break;
+                    
+                case Type::Service:
+                    propriete = new Service(m_graphismeEmplacement, m_devise);
+                    
+                    if (emplacement->getType() == Type::CompagnieTransport || emplacement->getType() == Type::Terrain)
+                    {
+                        propriete->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
+                        propriete->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    }
+                    
+                    nouvelEmplacement = propriete;
+                    break;
+                    
+                case Type::SimpleVisite:
+                    nouvelEmplacement = new SimpleVisite(m_graphismeEmplacement);
+                    break;
+                    
+                case Type::Taxe:
+                    nouvelEmplacement = new Taxe(m_graphismeEmplacement, m_devise);
+                    break;
+                    
+                case Type::Terrain:
+                    propriete = new Terrain(m_graphismeEmplacement, m_devise);
+                    
+                    if (emplacement->getType() == Type::CompagnieTransport || emplacement->getType() == Type::Service)
+                    {
+                        propriete->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
+                        propriete->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    }
+                    
+                    nouvelEmplacement = propriete;
+                    break;
+                    
+                default:
+                    QMessageBox::information(m_parent, tr("Erreur"), tr("Erreur lors du changement de type de l'emplacement. Cette conversion est interdite."));
+            }
+            
+            
+            
+            /* Configurations générales de l'emplacement.
+             */
+            nouvelEmplacement->editTitre(emplacement->getTitre());
+            nouvelEmplacement->editSousTitre(emplacement->getSousTitre());
+            nouvelEmplacement->editDescription(emplacement->getDescription());
+            nouvelEmplacement->editImage(emplacement->getImage());
+            
+            
+            
+            /* Remplacement de l'emplacement.
+             */
+            m_emplacements[m_emplacements.indexOf(emplacement)] = nouvelEmplacement;
+            delete emplacement;
+        }
+    }
 }
 
 

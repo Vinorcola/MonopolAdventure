@@ -13,7 +13,8 @@ MainWindow::MainWindow() :
     m_barreOutils(addToolBar(tr("Outils d'édition"))),
     m_actionQuitter(new QAction(tr("Quitter"), this)),
     m_actionAssistantCreation(new QAction(tr("Créer un nouveau plateau"), this)),
-    m_actionRegroupement(new QAction(tr("Regroupements"), this))
+    m_actionRegroupement(new QAction(tr("Regroupements"), this)),
+    m_actionEditionTypeEMplacement(new QAction(tr("Edition de type d'emplacement"), this))
 {
     /* Configuration de la fenêtre.
      */
@@ -37,6 +38,8 @@ MainWindow::MainWindow() :
     connect(m_actionAssistantCreation, SIGNAL(triggered()), this, SLOT(startAssistant()));
     connect(m_actionRegroupement, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupement()));
     
+    m_actionEditionTypeEMplacement->setCheckable(true);
+    
     
     
     /* Configuration des menus.
@@ -51,6 +54,7 @@ MainWindow::MainWindow() :
     /* Configuration des barres d'outils.
      */
     m_barreOutils->addAction(m_actionRegroupement);
+    m_barreOutils->addAction(m_actionEditionTypeEMplacement);
     m_barreOutils->hide();
     
     
@@ -58,6 +62,15 @@ MainWindow::MainWindow() :
     /* Lancement de l'assistant de création de plateau.
      */
     QTimer::singleShot(500, this, SLOT(startAssistant()));
+}
+
+
+
+
+
+bool MainWindow::editionTypeActive() const
+{
+    return m_actionEditionTypeEMplacement->isChecked();
 }
 
 

@@ -14,6 +14,7 @@
 #include "donnees/emplacements/Regroupement.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
 #include "donnees/Regle.hpp"
+class MainWindow;
 
 
 
@@ -29,7 +30,7 @@ class Plateau : public QGraphicsScene
         
         
     private:
-        QWidget* m_parent;///< Fenêtre parent (utilisé pour afficher les fenêtres dialogue pour l'édition).
+        MainWindow* m_parent;///< Fenêtre parent.
         QString m_titre;///< Titre du plateau.
         QSize m_taille;///< Taille du plateau (en nombre d'emplacements).
         QString m_devise;///< Devise utilisée sur le plateau.
@@ -73,7 +74,7 @@ class Plateau : public QGraphicsScene
          * Construit un nouveau plateau par défaut.
          * @param parent Fenêtre parent (utilisé pour afficher les fenêtres dialogue pour l'édition).
          */
-        Plateau(QWidget* parent);
+        Plateau(MainWindow* parent);
         
         
         
@@ -455,14 +456,38 @@ class Plateau : public QGraphicsScene
         
         
         /**
-         * Ouvre une fenêtre de dialogue pour l'édition de l'emplacement @a emplacement.
-         * @param emplacement Emplacement à éditer.
+         * Choisi d'ouvrir une fenêtre de changement de type ou d'édition des informations en fonction de l'état du bouton d'édition de type.
+         * @param emplacement Emplacement concerné.
          */
         void editEmplacement(Emplacement* emplacement);
         
         
         
+        /**
+         * Ouvre une fenêtre de dialogue pour l'édition de l'emplacement @a emplacement.
+         * @param emplacement Emplacement à éditer.
+         */
+        void editEmplacementInformations(Emplacement* emplacement);
+        
+        
+        
+        /**
+         * Affiche la fenêtre de dialogue permettant de changer le type d'emplacement.
+         * @param emplacement Emplacement concerné.
+         */
+        void editEmplacementType(Emplacement* emplacement);
+        
+        
+        
     private:
+        /**
+         * Change le type d'un emplacement et réouvre sa fenêtre d'édition.
+         */
+        void changeTypeEmplacement(Emplacement* emplacement,
+                                   Type::Emplacement nouveauType);
+        
+        
+        
         /**
          * Indique si l'emplacement est situé dans un coin du plateau.
          * @param id Numéro d'iddentification de l'emplacement.

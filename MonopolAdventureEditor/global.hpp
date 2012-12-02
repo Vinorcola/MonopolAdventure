@@ -13,21 +13,20 @@ namespace Type
 {
     /**
      * Énumération permettant de déterminer le type d'emplacement.
+     * @note Ne pas changer les valeurs. Elles sont utilisées dans l'ordre dans TypeEmplacementEditWidget.
      */
     enum Emplacement
     {
-        Aucun = 0,
-        
-        CompagnieTransport = 1,
-        Depart = 2,
-        Deplacement = 4,
-        ParcGratuit = 8,
-        Pioche = 16,
-        Prison = 32,
-        Service = 128,
-        SimpleVisite = 256,
-        Taxe = 512,
-        Terrain = 1024
+        CompagnieTransport = 0,
+        Depart = 1,
+        Deplacement = 2,
+        ParcGratuit = 3,
+        Pioche = 4,
+        Prison = 5,
+        Service = 6,
+        SimpleVisite = 7,
+        Taxe = 8,
+        Terrain = 9
     };
 }
 

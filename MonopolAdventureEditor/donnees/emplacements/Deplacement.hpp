@@ -10,6 +10,7 @@
 /**
  * @class Deplacement Deplacement.hpp donnees/emplacements/Deplacement.hpp
  * Deplacement contient les informations éditables d'un emplacement « Déplacement » d'un plateau.
+ * @todo Ajouter une option permetant de terminer le tour du joueur ou non (si non, il peut rejouer de suite s'il avait fait un double aux dés).
  */
 class Deplacement : public Emplacement
 {
