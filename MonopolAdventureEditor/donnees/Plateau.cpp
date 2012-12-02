@@ -3,17 +3,7 @@
 #include "dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp"
 #include "dialogEdition/EditionListeRegroupements.hpp"
 #include "dialogEdition/EditionEmplacement.hpp"
-#include "donnees/emplacements/CompagnieTransport.hpp"
-#include "donnees/emplacements/Depart.hpp"
-#include "donnees/emplacements/Deplacement.hpp"
-#include "donnees/emplacements/ParcGratuit.hpp"
-#include "donnees/emplacements/Pioche.hpp"
-#include "donnees/emplacements/Prison.hpp"
-#include "donnees/emplacements/Regroupement.hpp"
-#include "donnees/emplacements/Service.hpp"
-#include "donnees/emplacements/SimpleVisite.hpp"
-#include "donnees/emplacements/Taxe.hpp"
-#include "donnees/emplacements/Terrain.hpp"
+#include "donnees/emplacements/Emplacements.hpp"
 #include "MainWindow.hpp"
 
 
@@ -654,12 +644,49 @@ void Plateau::editEmplacementInformations(Emplacement* emplacement)
             fenetre = new EditionEmplacement(static_cast<CompagnieTransport*>(emplacement), compteur, m_parent);
             break;
             
+        case Type::Depart:
+            fenetre = new EditionEmplacement(static_cast<Depart*>(emplacement), m_parent);
+            break;
+            
         case Type::Deplacement:
             fenetre = new EditionEmplacement(static_cast<Deplacement*>(emplacement), m_emplacements, m_parent);
             break;
             
-        default:
-            fenetre = new EditionEmplacement(emplacement, m_parent);
+        case Type::ParcGratuit:
+            fenetre = new EditionEmplacement(static_cast<ParcGratuit*>(emplacement), m_parent);
+            break;
+            
+        case Type::Pioche:
+            fenetre = new EditionEmplacement(static_cast<Pioche*>(emplacement), m_pilesCartes, m_parent);
+            break;
+            
+        case Type::Prison:
+            fenetre = new EditionEmplacement(static_cast<Prison*>(emplacement), m_parent);
+            break;
+            
+        case Type::Service:
+            for (int i(0), iEnd(m_emplacements.count()); i < iEnd; ++i)
+            {
+                if (m_emplacements.at(i)->getType() == Type::Service)
+                {
+                    compteur++;
+                }
+            }
+            
+            fenetre = new EditionEmplacement(static_cast<Service*>(emplacement), compteur, m_parent);
+            break;
+            
+        case Type::SimpleVisite:
+            fenetre = new EditionEmplacement(static_cast<SimpleVisite*>(emplacement), m_parent);
+            break;
+            
+        case Type::Taxe:
+            fenetre = new EditionEmplacement(static_cast<Taxe*>(emplacement), m_parent);
+            break;
+            
+        case Type::Terrain:
+            fenetre = new EditionEmplacement(static_cast<Terrain*>(emplacement), m_parent);
+            break;
     }
     
     fenetre->executer();

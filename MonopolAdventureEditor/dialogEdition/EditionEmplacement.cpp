@@ -3,7 +3,6 @@
 #include "dialogEdition/widgetsEditeurs/ConstructionEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/DepartEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp"
-#include "dialogEdition/widgetsEditeurs/EmplacementEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp"
@@ -13,66 +12,46 @@
 
 
 
-EditionEmplacement::EditionEmplacement(Emplacement* emplacement,
+EditionEmplacement::EditionEmplacement(CompagnieTransport* compagnieTransport,
+                                       const int nombreCompagnies,
                                        QWidget* parent) :
     m_dialog(new QDialog(parent)),
-    m_emplacement(emplacement),
     m_onglets(new QTabWidget),
-    m_onglet1(new EmplacementEditWidget(m_emplacement)),
-    m_onglet2(0),
+    m_onglet1(new EmplacementEditWidget(compagnieTransport)),
+    m_onglet2(new ProprieteEditWidget(compagnieTransport)),
+    m_onglet3(new LoyerCompagnieTransportEditWidget(compagnieTransport, nombreCompagnies)),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    m_onglets->addTab(m_onglet2, QObject::tr("Propriété"));
+    m_onglets->addTab(m_onglet3, QObject::tr("Loyers"));
+    
+    
+    
+    /* Configurations générales de la fenêtre de dialogue.
+     */
+    amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(Depart* depart,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(depart)),
+    m_onglet2(new DepartEditWidget(depart)),
     m_onglet3(0),
     m_onglet4(0)
 {
     /* Configuration du widget d'édition.
      */
     m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
-    switch (m_emplacement->getType())
-    {
-        case Type::CompagnieTransport:
-            /* Constructeur spécialisé. */
-            break;
-            
-        case Type::Depart:
-            m_onglet2 = new DepartEditWidget(static_cast<Depart*>(m_emplacement));
-            m_onglets->addTab(m_onglet2, QObject::tr("Départ"));
-            break;
-            
-        case Type::Deplacement:
-            /* Constructeur spécialisé. */
-            break;
-            
-        case Type::ParcGratuit:
-            
-            break;
-            
-        case Type::Pioche:
-            
-            break;
-            
-        case Type::Prison:
-            m_onglet2 = new PrisonEditWidget(static_cast<Prison*>(m_emplacement));
-            m_onglets->addTab(m_onglet2, QObject::tr("Prison"));
-            break;
-            
-        case Type::Service:
-            m_onglet2 = new ProprieteEditWidget(static_cast<Propriete*>(m_emplacement));
-            m_onglets->addTab(m_onglet2, QObject::tr("Valeur de la propriété"));
-            break;
-            
-        case Type::SimpleVisite:
-            
-            break;
-            
-        case Type::Taxe:
-            m_onglet2 = new TaxeEditWidget(static_cast<Taxe*>(m_emplacement));
-            m_onglets->addTab(m_onglet2, QObject::tr("Taxe"));
-            break;
-            
-        case Type::Terrain:
-            m_onglet2 = new ProprieteEditWidget(static_cast<Propriete*>(m_emplacement));
-            m_onglets->addTab(m_onglet2, QObject::tr("Valeur de la propriété"));
-            break;
-    }
+    m_onglets->addTab(m_onglet2, QObject::tr("Départ"));
     
     
     
@@ -89,9 +68,8 @@ EditionEmplacement::EditionEmplacement(Deplacement* deplacement,
                                        const QList<Emplacement*>& emplacements,
                                        QWidget* parent) :
     m_dialog(new QDialog(parent)),
-    m_emplacement(deplacement),
     m_onglets(new QTabWidget),
-    m_onglet1(new EmplacementEditWidget(m_emplacement)),
+    m_onglet1(new EmplacementEditWidget(deplacement)),
     m_onglet2(new DeplacementEditWidget(deplacement, emplacements)),
     m_onglet3(0),
     m_onglet4(0)
@@ -112,22 +90,168 @@ EditionEmplacement::EditionEmplacement(Deplacement* deplacement,
 
 
 
-EditionEmplacement::EditionEmplacement(CompagnieTransport* compagnieTransport,
-                                       const int nombreCompagnies,
+EditionEmplacement::EditionEmplacement(ParcGratuit* parcGratuit,
                                        QWidget* parent) :
     m_dialog(new QDialog(parent)),
-    m_emplacement(compagnieTransport),
     m_onglets(new QTabWidget),
-    m_onglet1(new EmplacementEditWidget(m_emplacement)),
-    m_onglet2(new ProprieteEditWidget(compagnieTransport)),
-    m_onglet3(new LoyerCompagnieTransportEditWidget(compagnieTransport, nombreCompagnies)),
+    m_onglet1(new EmplacementEditWidget(parcGratuit)),
+    m_onglet2(0),
+    m_onglet3(0),
     m_onglet4(0)
 {
     /* Configuration du widget d'édition.
      */
     m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
-    m_onglets->addTab(m_onglet2, QObject::tr("Valeur de la propriété"));
-    m_onglets->addTab(m_onglet3, QObject::tr("Loyers"));
+    
+    
+    
+    /* Configurations générales de la fenêtre de dialogue.
+     */
+    amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(Pioche* pioche,
+                                       const QList<PileCartes*>& pilesCartes,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(pioche)),
+    m_onglet2(0),
+    m_onglet3(0),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    
+    
+    
+    /* Configurations générales de la fenêtre de dialogue.
+     */
+    amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(Prison* prison,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(prison)),
+    m_onglet2(new PrisonEditWidget(prison)),
+    m_onglet3(0),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    m_onglets->addTab(m_onglet2, QObject::tr("Prison"));
+    
+    
+    
+    /* Configurations générales de la fenêtre de dialogue.
+     */
+    amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(Service* service,
+                                       const int nombreServices,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(service)),
+    m_onglet2(new ProprieteEditWidget(service)),
+    m_onglet3(0),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    m_onglets->addTab(m_onglet2, QObject::tr("Propriété"));
+    
+    
+    
+    /* Configurations générales de la fenêtre de dialogue.
+     */
+    amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(SimpleVisite* simpleVisite,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(simpleVisite)),
+    m_onglet2(0),
+    m_onglet3(0),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    
+    
+    
+    /* Configurations générales de la fenêtre de dialogue.
+     */
+    amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(Taxe* taxe,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(taxe)),
+    m_onglet2(new TaxeEditWidget(taxe)),
+    m_onglet3(0),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    m_onglets->addTab(m_onglet2, QObject::tr("Taxe"));
+    
+    
+    
+    /* Configurations générales de la fenêtre de dialogue.
+     */
+    amenageFenetre();
+}
+
+
+
+
+
+EditionEmplacement::EditionEmplacement(Terrain* terrain,
+                                       QWidget* parent) :
+    m_dialog(new QDialog(parent)),
+    m_onglets(new QTabWidget),
+    m_onglet1(new EmplacementEditWidget(terrain)),
+    m_onglet2(new ProprieteEditWidget(terrain)),
+    m_onglet3(0),
+    m_onglet4(0)
+{
+    /* Configuration du widget d'édition.
+     */
+    m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    m_onglets->addTab(m_onglet2, QObject::tr("Propriété"));
     
     
     

@@ -100,6 +100,7 @@ HEADERS  += global.hpp \
     donnees/emplacements/Depart.hpp \
     donnees/emplacements/Deplacement.hpp \
     donnees/emplacements/Emplacement.hpp \
+    donnees/emplacements/Emplacements.hpp \
     donnees/emplacements/ParcGratuit.hpp \
     donnees/emplacements/Pioche.hpp \
     donnees/emplacements/Prison.hpp \
