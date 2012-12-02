@@ -140,11 +140,35 @@ EditionEmplacement::EditionEmplacement(CompagnieTransport* compagnieTransport,
 
 
 
+EditionEmplacement::~EditionEmplacement()
+{
+    delete m_dialog;
+}
+
+
+
+
+
 bool EditionEmplacement::executer()
 {
     if (m_dialog->exec())
     {
-        /* Sauvegarde des données ici. */
+        m_onglet1->sauvegarde();
+        
+        if (m_onglet2)
+        {
+            static_cast<SauvegardeInterface*>(m_onglet2)->sauvegarde();
+        }
+        
+        if (m_onglet3)
+        {
+            static_cast<SauvegardeInterface*>(m_onglet3)->sauvegarde();
+        }
+        
+        if (m_onglet4)
+        {
+            static_cast<SauvegardeInterface*>(m_onglet4)->sauvegarde();
+        }
         
         return true;
     }
@@ -162,8 +186,6 @@ void EditionEmplacement::amenageFenetre()
 {
     /* Aménagement de la fenêtre de dialogue.
      */
-    m_dialog->setAttribute(Qt::WA_DeleteOnClose);
-    
     QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));
     QObject::connect(boutons, SIGNAL(accepted()), m_dialog, SLOT(accept()));
     QObject::connect(boutons, SIGNAL(rejected()), m_dialog, SLOT(reject()));

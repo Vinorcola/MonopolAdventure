@@ -6,7 +6,7 @@
 
 LoyerCompagnieTransportEditWidget::LoyerCompagnieTransportEditWidget(CompagnieTransport* const compagnieTransport,
                                                                      const int nombreCompagnies) :
-    QWidget(),
+    SauvegardeInterface(),
     m_compagnieTransport(compagnieTransport),
     m_champsLoyer()
 {

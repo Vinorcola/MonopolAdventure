@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QTextEdit>
 
+#include "dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp"
 #include "donnees/emplacements/Emplacement.hpp"
 #include "widgetsSelecteurs/ImageSelectWidget.hpp"
 
@@ -16,7 +17,7 @@
  * @class EmplacementEditWidget EmplacementEditWidget.hpp dialogEdition/widgetsEditeurs/EmplacementEditWidget.hpp
  * Cette classe fournit une interface d'édition des informations générales d'un emplacement.
  */
-class EmplacementEditWidget :public QWidget
+class EmplacementEditWidget : public SauvegardeInterface
 {
         Q_OBJECT
         

@@ -5,7 +5,7 @@
 
 
 DepartEditWidget::DepartEditWidget(Depart* const depart) :
-    QWidget(),
+    SauvegardeInterface(),
     m_depart(depart),
     m_champSalaire(new QSpinBox)
 {

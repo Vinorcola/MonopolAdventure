@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QSpinBox>
 
+#include "dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp"
 #include "donnees/emplacements/Taxe.hpp"
 
 
@@ -16,7 +17,7 @@
  * @class TaxeEditWidget TaxeEditWidget.hpp dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp
  * Cette classe fournit une interface d'édition des informations caractéristiques d'un emplacement « Taxe ».
  */
-class TaxeEditWidget : public QWidget
+class TaxeEditWidget : public SauvegardeInterface
 {
         Q_OBJECT
         

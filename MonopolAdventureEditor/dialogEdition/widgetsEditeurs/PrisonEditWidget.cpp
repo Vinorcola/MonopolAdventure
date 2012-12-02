@@ -5,7 +5,7 @@
 
 
 PrisonEditWidget::PrisonEditWidget(Prison* const prison) :
-    QWidget(),
+    SauvegardeInterface(),
     m_prison(prison),
     m_champCaution(new QSpinBox)
 {

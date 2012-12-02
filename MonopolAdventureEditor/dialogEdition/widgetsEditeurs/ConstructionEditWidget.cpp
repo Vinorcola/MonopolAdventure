@@ -5,7 +5,7 @@
 
 
 ConstructionEditWidget::ConstructionEditWidget(Terrain* const terrain) :
-    QWidget(),
+    SauvegardeInterface(),
     m_terrain(terrain),
     m_champPrixAchatMaison(new QSpinBox),
     m_venteMaisonMoitie(new QCheckBox(tr("La subvention de destruction d'une maison vaut la moitié de son prix de construction"))),

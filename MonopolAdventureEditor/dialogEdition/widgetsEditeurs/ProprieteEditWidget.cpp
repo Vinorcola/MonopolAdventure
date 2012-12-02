@@ -5,7 +5,7 @@
 
 
 ProprieteEditWidget::ProprieteEditWidget(Propriete* const propriete) :
-    QWidget(),
+    SauvegardeInterface(),
     m_propriete(propriete),
     m_champPrixAchat(new QSpinBox),
     m_hypothequeMoitiePrix(new QCheckBox(tr("La valeur hypothécaire est égale à la moitié du prix d'achat"))),

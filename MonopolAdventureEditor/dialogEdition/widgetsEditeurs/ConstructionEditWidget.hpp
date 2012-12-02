@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QSpinBox>
 
+#include "dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp"
 #include "donnees/emplacements/Terrain.hpp"
 
 
@@ -16,7 +17,7 @@
  * @class ConstructionEditWidget ConstructionEditWidget.hpp dialogEdition/widgetsEditeurs/ConstructionEditWidget.hpp
  * Cette classe fournit une interface d'édition des informations de construction d'un terrain.
  */
-class ConstructionEditWidget : public QWidget
+class ConstructionEditWidget : public SauvegardeInterface
 {
         Q_OBJECT
         

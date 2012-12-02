@@ -4,6 +4,7 @@
 #include <QFormLayout>
 #include <QSpinBox>
 
+#include "dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp"
 #include "donnees/emplacements/Depart.hpp"
 
 
@@ -14,7 +15,7 @@
  * @class DepartEditWidget DepartEditWidget.hpp dialogEdition/widgetsEditeurs/DepartEditWidget.hpp
  * Cette classe fournit une interface d'édition des informations caractéristiques d'un emplacement « Départ ».
  */
-class DepartEditWidget : public QWidget
+class DepartEditWidget : public SauvegardeInterface
 {
         Q_OBJECT
         

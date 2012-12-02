@@ -6,7 +6,7 @@
 
 DeplacementEditWidget::DeplacementEditWidget(Deplacement* const deplacement,
                                              const QList<Emplacement*>& emplacements) :
-    QWidget(),
+    SauvegardeInterface(),
     m_deplacement(deplacement),
     m_champDestination(new QComboBox),
     m_modeleEmplacementSelectionnable(new EmplacementListModel(emplacements, m_deplacement, m_champDestination)),
@@ -31,5 +31,15 @@ DeplacementEditWidget::DeplacementEditWidget(Deplacement* const deplacement,
     layout->addRow(tr("Montant de l'amende que le joueur doit payer avant de sa déplacer"), m_champAmende);
     
     setLayout(layout);
+}
+
+
+
+
+
+void DeplacementEditWidget::sauvegarde()
+{
+    m_deplacement->editDestination(m_modeleEmplacementSelectionnable->getEmplacementAt(m_champDestination->currentIndex()));
+    m_deplacement->editMontantAmende(m_champAmende->value());
 }
 

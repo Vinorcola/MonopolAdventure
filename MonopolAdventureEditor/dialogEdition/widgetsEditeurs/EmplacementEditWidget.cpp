@@ -5,7 +5,7 @@
 
 
 EmplacementEditWidget::EmplacementEditWidget(Emplacement* const emplacement) :
-    QWidget(),
+    SauvegardeInterface(),
     m_emplacement(emplacement),
     m_champTitre(new QLineEdit(m_emplacement->getTitre())),
     m_champSousTitre(new QLineEdit(m_emplacement->getSousTitre())),

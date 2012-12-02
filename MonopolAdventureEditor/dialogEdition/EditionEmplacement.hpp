@@ -68,6 +68,13 @@ class EditionEmplacement
         
         
         /**
+         * Destructeur.
+         */
+        ~EditionEmplacement();
+        
+        
+        
+        /**
          * Lance la fenêtre d'édition de l'emplacement.
          */
         bool executer();

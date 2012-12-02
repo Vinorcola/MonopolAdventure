@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QSpinBox>
 
+#include "dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp"
 #include "donnees/emplacements/Propriete.hpp"
 
 
@@ -16,7 +17,7 @@
  * @class ProprieteEditWidget ProprieteEditWidget.hpp dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp
  * Cette classe fournit une interface d'édition des informations caractéristiques d'achat et d'hypothèque d'une propriété.
  */
-class ProprieteEditWidget : public QWidget
+class ProprieteEditWidget : public SauvegardeInterface
 {
         Q_OBJECT
         

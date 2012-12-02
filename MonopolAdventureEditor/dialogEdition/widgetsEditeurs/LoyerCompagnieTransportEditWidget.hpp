@@ -4,6 +4,7 @@
 #include <QFormLayout>
 #include <QSpinBox>
 
+#include "dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp"
 #include "donnees/emplacements/CompagnieTransport.hpp"
 
 
@@ -14,7 +15,7 @@
  * @class LoyerCompagnieTransportEditWidget LoyerCompagnieTransportEditWidget.hpp dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp
  * Cette classe fournit une interface d'édition des loyers d'une compagnie de transport.
  */
-class LoyerCompagnieTransportEditWidget : public QWidget
+class LoyerCompagnieTransportEditWidget : public SauvegardeInterface
 {
         Q_OBJECT
         

@@ -86,6 +86,7 @@ HEADERS  += global.hpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp \
     dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp \
     dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp \
     dialogEdition/EditionEmplacement.hpp \

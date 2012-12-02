@@ -5,7 +5,7 @@
 
 
 TaxeEditWidget::TaxeEditWidget(Taxe *const taxe) :
-    QWidget(),
+    SauvegardeInterface(),
     m_taxe(taxe),
     m_champPayeMontantFixe(new QCheckBox(tr("Le joueur verse un montant fixe"))),
     m_labelMontantFixe(new QLabel(tr("Montant fixe à verser"))),

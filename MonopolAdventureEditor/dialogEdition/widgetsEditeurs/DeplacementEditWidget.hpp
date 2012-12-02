@@ -5,6 +5,7 @@
 #include <QFormLayout>
 #include <QSpinBox>
 
+#include "dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp"
 #include "dialogEdition/modeles/EmplacementListModel.hpp"
 #include "donnees/emplacements/Deplacement.hpp"
 
@@ -16,7 +17,7 @@
  * @class DeplacementEditWidget DeplacementEditWidget.hpp dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp
  * Cette classe fournit une interface d'édition des informations caractéristiques d'un emplacement « Déplacement ».
  */
-class DeplacementEditWidget : public QWidget
+class DeplacementEditWidget : public SauvegardeInterface
 {
         Q_OBJECT
         

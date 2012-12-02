@@ -4,6 +4,7 @@
 #include <QFormLayout>
 #include <QSpinBox>
 
+#include "dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp"
 #include "donnees/emplacements/Prison.hpp"
 
 
@@ -14,7 +15,7 @@
  * @class PrisonEditWidget PrisonEditWidget.hpp dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp
  * Cette classe fournit une interface d'édition des informations caractéristiques d'une prison.
  */
-class PrisonEditWidget : public QWidget
+class PrisonEditWidget : public SauvegardeInterface
 {
         Q_OBJECT
         
