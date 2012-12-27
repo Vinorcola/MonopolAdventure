@@ -31,6 +31,7 @@ SOURCES += main.cpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.cpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.cpp \
@@ -85,6 +86,7 @@ HEADERS  += global.hpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \

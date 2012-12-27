@@ -4,7 +4,7 @@
 
 
 
-Regle::Regle() :
+Regle::Regle()
 {
     
 }

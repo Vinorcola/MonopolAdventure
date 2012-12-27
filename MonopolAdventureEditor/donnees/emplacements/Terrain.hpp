@@ -162,19 +162,27 @@ class Terrain : public Propriete
         
         
         /**
+         * Renseigne le nombre de maisons nécessaires pour la construction d'un hôtel.
+         * @return Nombre de maisons nécessaires pour la construction d'un hôtel.
+         */
+        int getNombreMaisonsPourHotel() const;
+        
+        
+        
+        /**
+         * Configure le nombre de maisons nécessaires pour la construction d'un hôtel.
+         * @param quantite Nombre de maisons nécessaires pour la construction d'un hôtel.
+         */
+        void editNombreMaisonsPourHotel(const int quantite);
+        
+        
+        
+        /**
          * Renseigne le montant du loyer du terrain en fonction du nombre de maisons construites.
          * @param nombreMaisonsConstruites Nombre de maisons construites.
          * @return Montant du loyer du terrain en fonction du nombre de maisons construites.
          */
         quint16 getLoyerMaison(const int nombreMaisonsConstruites) const;
-        
-        
-        
-        /**
-         * Confirgure le nombre maximum de maisons constructibles sur le terrain.
-         * @param quantite Nombre maximum de maisons constructibles sur le terrain.
-         */
-        void setupNombreMaxMaison(const int quantite);
         
         
         
@@ -189,19 +197,27 @@ class Terrain : public Propriete
         
         
         /**
+         * Renseigne le nombre maximum d'hôtels constructibles sur le terrain.
+         * @return Nombre maximum d'hôtels constructibles sur le terrain.
+         */
+        int getNombreMaxHotel() const;
+        
+        
+        
+        /**
+         * Configure le nombre maximum d'hôtels constructibles sur le terrain.
+         * @param quantite Nombre maximum d'hôtels constructibles sur le terrain.
+         */
+        void editNombreMaxHotel(const int quantite);
+        
+        
+        
+        /**
          * Renseigne le montant du loyer du terrain en fonction du nombre d'hôtels construits.
          * @param nombreHotelsConstruits Nombre d'hôtels construits.
          * @return Montant du loyer du terrain en fonction du nombre d'hôtels construits.
          */
         quint16 getLoyerHotel(const int nombreHotelsConstruits) const;
-        
-        
-        
-        /**
-         * Confirgure le nombre maximum d'hôtels constructibles sur le terrain.
-         * @param quantite Nombre maximum d'hôtels constructibles sur le terrain.
-         */
-        void setupNombreMaxHotel(const int quantite);
         
         
         

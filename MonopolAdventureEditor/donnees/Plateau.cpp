@@ -546,42 +546,6 @@ const GraphismeEmplacementInfos& Plateau::getInformationGraphismeEmplacement() c
 
 
 
-quint8 Plateau::getNombreMaisonsPourHotel() const
-{
-    return m_regle.getNombreMaisonsPourHotel();
-}
-
-
-
-
-
-void Plateau::editNombreMaisonsPourHotel(const quint8 nombre)
-{
-    m_regle.editNombreMaisonsPourHotel(nombre);
-}
-
-
-
-
-
-quint8 Plateau::getNombreMaxHotel() const
-{
-    return m_regle.getNombreMaxHotel();
-}
-
-
-
-
-
-void Plateau::editNombreMaxHotel(const quint8 nombre)
-{
-    m_regle.editNombreMaxHotel(nombre);
-}
-
-
-
-
-
 const Regle& Plateau::getRegle() const
 {
     return m_regle;

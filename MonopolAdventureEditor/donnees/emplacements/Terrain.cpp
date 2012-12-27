@@ -17,7 +17,8 @@ Terrain::Terrain(const GraphismeEmplacementInfos& graphismeInfos,
     m_loyersMaison(),
     m_loyersHotel()
 {
-    
+    m_loyersMaison << 0 << 0 << 0 << 0;
+    m_loyersHotel << 0;
 }
 
 
@@ -236,16 +237,16 @@ void Terrain::editLoyerNuExtra(const quint16 montant)
 
 
 
-quint16 Terrain::getLoyerMaison(const int nombreMaisonsConstruites) const
+int Terrain::getNombreMaisonsPourHotel() const
 {
-    return m_loyersMaison.value(nombreMaisonsConstruites - 1, 0);
+    return m_loyersMaison.count();
 }
 
 
 
 
 
-void Terrain::setupNombreMaxMaison(const int quantite)
+void Terrain::editNombreMaisonsPourHotel(const int quantite)
 {
     if (quantite > 0)
     {
@@ -264,6 +265,15 @@ void Terrain::setupNombreMaxMaison(const int quantite)
             }
         }
     }
+}
+
+
+
+
+
+quint16 Terrain::getLoyerMaison(const int nombreMaisonsConstruites) const
+{
+    return m_loyersMaison.value(nombreMaisonsConstruites - 1, 0);
 }
 
 
@@ -290,16 +300,16 @@ void Terrain::editLoyerMaison(const int nombreMaisonsConstruites,
 
 
 
-quint16 Terrain::getLoyerHotel(const int nombreHotelsConstruits) const
+int Terrain::getNombreMaxHotel() const
 {
-    return m_loyersHotel.value(nombreHotelsConstruits - 1, 0);
+    return m_loyersHotel.count();
 }
 
 
 
 
 
-void Terrain::setupNombreMaxHotel(const int quantite)
+void Terrain::editNombreMaxHotel(const int quantite)
 {
     if (quantite > 0)
     {
@@ -318,6 +328,15 @@ void Terrain::setupNombreMaxHotel(const int quantite)
             }
         }
     }
+}
+
+
+
+
+
+quint16 Terrain::getLoyerHotel(const int nombreHotelsConstruits) const
+{
+    return m_loyersHotel.value(nombreHotelsConstruits - 1, 0);
 }
 
 

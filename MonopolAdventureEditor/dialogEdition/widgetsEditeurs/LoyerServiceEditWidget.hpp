@@ -38,7 +38,7 @@ class LoyerServiceEditWidget : public SauvegardeInterface
         
         
         /**
-         * Edite les informations de la compagnie de transport en fonction de la configuration des champs.
+         * Edite les informations du service en fonction de la configuration des champs.
          */
         void sauvegarde();
 };

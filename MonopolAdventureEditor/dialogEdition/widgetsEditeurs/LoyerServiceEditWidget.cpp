@@ -27,10 +27,10 @@ LoyerServiceEditWidget::LoyerServiceEditWidget(Service* const service,
     /* Mise en forme du widget.
      */
     QFormLayout* layout = new QFormLayout;
-    layout->addRow(tr("Loyer si le propriétaire ne possède que cette compagnie de transport"), m_champsLoyer.first());
+    layout->addRow(tr("Loyer si le propriétaire ne possède que ce service"), m_champsLoyer.first());
     for (int i(1); i < nombreServices; ++i)
     {
-        layout->addRow(tr("Loyer si le propriétaire possède") + " " + QString::number(i + 1) + " " + tr("compagnies de transport"), m_champsLoyer.at(i));
+        layout->addRow(tr("Loyer si le propriétaire possède") + " " + QString::number(i + 1) + " " + tr("services"), m_champsLoyer.at(i));
     }
     
     setLayout(layout);

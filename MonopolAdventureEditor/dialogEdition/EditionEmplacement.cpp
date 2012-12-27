@@ -5,6 +5,7 @@
 #include "dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.hpp"
+#include "dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp"
@@ -247,13 +248,15 @@ EditionEmplacement::EditionEmplacement(Terrain* terrain,
     m_onglets(new QTabWidget),
     m_onglet1(new EmplacementEditWidget(terrain)),
     m_onglet2(new ProprieteEditWidget(terrain)),
-    m_onglet3(0),
-    m_onglet4(0)
+    m_onglet3(new ConstructionEditWidget(terrain)),
+    m_onglet4(new LoyerTerrainEditWidget(terrain))
 {
     /* Configuration du widget d'édition.
      */
     m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
     m_onglets->addTab(m_onglet2, QObject::tr("Propriété"));
+    m_onglets->addTab(m_onglet3, QObject::tr("Constructions")),
+    m_onglets->addTab(m_onglet4, QObject::tr("Loyers"));
     
     
     
