@@ -10,8 +10,9 @@
 #include <QtCore/qmath.h>
 
 #include "donnees/cartes/PileCartes.hpp"
-#include "donnees/emplacements/Emplacement.hpp"
+#include "donnees/emplacements/CompagnieTransport.hpp"
 #include "donnees/emplacements/Regroupement.hpp"
+#include "donnees/emplacements/Service.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
 #include "donnees/Regle.hpp"
 class MainWindow;
@@ -66,6 +67,10 @@ class Plateau : public QGraphicsScene
         QList<PileCartes*> m_pilesCartes;///< Liste des piles de cartes du plateau.
         QList<Emplacement*> m_emplacements;///< Liste des emplacements du plateau.
         QList<Regroupement*> m_regroupements;///< Liste des regroupements de terrains.
+        
+        // Les attributs suivant sont des racourcis vers certains emplacements. Ils sont tous déj présent dans m_emplacements.
+        QList<CompagnieTransport*> m_compagniesTransport;///< Liste des compagnies de transport du plateau (racourcis).
+        QList<Service*> m_services;///< Liste des services du plateau (racourcis).
         
         
         
@@ -431,6 +436,7 @@ class Plateau : public QGraphicsScene
         
         
         
+    private:
         /**
          * Ouvre une fenêtre de dialogue pour l'édition de l'emplacement @a emplacement.
          * @param emplacement Emplacement à éditer.
@@ -447,7 +453,6 @@ class Plateau : public QGraphicsScene
         
         
         
-    private:
         /**
          * Change le type d'un emplacement et réouvre sa fenêtre d'édition.
          */

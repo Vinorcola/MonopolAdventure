@@ -82,4 +82,3 @@ QString Deplacement::helper_getPrix() const
     }
 }
 
-

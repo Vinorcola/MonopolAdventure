@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator);
     
     MainWindow window;
-    window.show();
+    window.showMaximized();
     
     
     

@@ -20,7 +20,7 @@ A vous de découvrir MonopolAdventure !
 Développement en cours
 ======================
 
-MonopolAdventure est développé en C++ à l'aide du framework Qt 4.8.0.
+MonopolAdventure est développé en C++ à l'aide du framework Qt 5.0.0.
 
 Deux programme différents seront développés :
 * **MonopolAdventure** permettra à l'utilisateur de jouer une partie ou de 

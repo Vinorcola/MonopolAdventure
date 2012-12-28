@@ -593,19 +593,10 @@ void Plateau::editEmplacement(Emplacement* emplacement)
 void Plateau::editEmplacementInformations(Emplacement* emplacement)
 {
     EditionEmplacement* fenetre;
-    int compteur(0);
     switch (emplacement->getType())
     {
         case Type::CompagnieTransport:
-            for (int i(0), iEnd(m_emplacements.count()); i < iEnd; ++i)
-            {
-                if (m_emplacements.at(i)->getType() == Type::CompagnieTransport)
-                {
-                    compteur++;
-                }
-            }
-            
-            fenetre = new EditionEmplacement(static_cast<CompagnieTransport*>(emplacement), compteur, m_parent);
+            fenetre = new EditionEmplacement(static_cast<CompagnieTransport*>(emplacement), m_compagniesTransport.count(), m_parent);
             break;
             
         case Type::Depart:
@@ -629,15 +620,7 @@ void Plateau::editEmplacementInformations(Emplacement* emplacement)
             break;
             
         case Type::Service:
-            for (int i(0), iEnd(m_emplacements.count()); i < iEnd; ++i)
-            {
-                if (m_emplacements.at(i)->getType() == Type::Service)
-                {
-                    compteur++;
-                }
-            }
-            
-            fenetre = new EditionEmplacement(static_cast<Service*>(emplacement), compteur, m_parent);
+            fenetre = new EditionEmplacement(static_cast<Service*>(emplacement), m_services.count(), m_parent);
             break;
             
         case Type::SimpleVisite:
@@ -707,25 +690,62 @@ void Plateau::editEmplacementType(Emplacement* emplacement)
 void Plateau::changeTypeEmplacement(Emplacement* emplacement,
                                     Type::Emplacement nouveauType)
 {
-    if (emplacement->getType() != nouveauType)
+    Type::Emplacement ancienType(emplacement->getType());
+    
+    if (ancienType != nouveauType)
     {
+        /* Suppression de l'emplacement des racourcis.
+         */
+        if (ancienType == Type::CompagnieTransport)
+        {
+            m_compagniesTransport.removeOne(static_cast<CompagnieTransport*>(emplacement));
+            
+            // On notifie à toutes les compagnies le nombre total de compagnies sur le plateau.
+            for (int i(0), iEnd(m_compagniesTransport.count()); i < iEnd; i++)
+            {
+                m_compagniesTransport.at(i)->setupNombreCompagnies(iEnd);
+            }
+        }
+        else if (ancienType == Type::Service)
+        {
+            m_services.removeOne(static_cast<Service*>(emplacement));
+            
+            // On notifie à toutes les services le nombre total de services sur le plateau.
+            for (int i(0), iEnd(m_services.count()); i < iEnd; i++)
+            {
+                m_services.at(i)->setupNombreServices(iEnd);
+            }
+        }
+        
+        
         Emplacement* nouvelEmplacement;
-        Propriete* propriete;
         
         /* Création et configurations spécifiques de l'emplacement (si on change juste de type de propriété).
          */
         switch (nouveauType)
         {
             case Type::CompagnieTransport:
-                propriete = new CompagnieTransport(m_graphismeEmplacement, m_devise);
-                
-                if (emplacement->getType() == Type::Service || emplacement->getType() == Type::Terrain)
                 {
-                    propriete->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
-                    propriete->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    CompagnieTransport* compagnie(new CompagnieTransport(m_graphismeEmplacement, m_devise));
+                    
+                    /* Si l'ancien emplacement était une propriété (service ou terrain), alors on garde les parix achat et
+                     * la valeur de l'hypothèque.
+                     */
+                    if (emplacement->getType() == Type::Service || emplacement->getType() == Type::Terrain)
+                    {
+                        compagnie->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
+                        compagnie->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    }
+                    
+                    m_compagniesTransport << compagnie;
+                    nouvelEmplacement = compagnie;
+                    
+                    // On notifie à toutes les compagnies le nombre total de compagnies sur le plateau.
+                    for (int i(0), iEnd(m_compagniesTransport.count()); i < iEnd; i++)
+                    {
+                        m_compagniesTransport.at(i)->setupNombreCompagnies(iEnd);
+                    }
                 }
-                
-                nouvelEmplacement = propriete;
                 break;
                 
             case Type::Deplacement:
@@ -741,15 +761,27 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
                 break;
                 
             case Type::Service:
-                propriete = new Service(m_graphismeEmplacement, m_devise);
-                
-                if (emplacement->getType() == Type::CompagnieTransport || emplacement->getType() == Type::Terrain)
                 {
-                    propriete->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
-                    propriete->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    Service* service(new Service(m_graphismeEmplacement, m_devise));
+                    
+                    /* Si l'ancien emplacement était une propriété (compagnie ou terrain), alors on garde les parix achat et
+                     * la valeur de l'hypothèque.
+                     */
+                    if (emplacement->getType() == Type::CompagnieTransport || emplacement->getType() == Type::Terrain)
+                    {
+                        service->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
+                        service->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    }
+                    
+                    m_services << service;
+                    nouvelEmplacement = service;
+                    
+                    // On notifie à toutes les services le nombre total de services sur le plateau.
+                    for (int i(0), iEnd(m_services.count()); i < iEnd; i++)
+                    {
+                        m_services.at(i)->setupNombreServices(iEnd);
+                    }
                 }
-                
-                nouvelEmplacement = propriete;
                 break;
                 
             case Type::SimpleVisite:
@@ -761,15 +793,20 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
                 break;
                 
             case Type::Terrain:
-                propriete = new Terrain(m_graphismeEmplacement, m_devise);
-                
-                if (emplacement->getType() == Type::CompagnieTransport || emplacement->getType() == Type::Service)
                 {
-                    propriete->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
-                    propriete->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    Terrain* terrain(new Terrain(m_graphismeEmplacement, m_devise));
+                    
+                    /* Si l'ancien emplacement était une propriété (compagnie ou service), alors on garde les parix achat et
+                     * la valeur de l'hypothèque.
+                     */
+                    if (emplacement->getType() == Type::CompagnieTransport || emplacement->getType() == Type::Service)
+                    {
+                        terrain->editPrixAchat(static_cast<Propriete*>(emplacement)->getPrixAchat());
+                        terrain->editValeurHypotheque(static_cast<Propriete*>(emplacement)->getValeurHypotheque());
+                    }
+                    
+                    nouvelEmplacement = terrain;
                 }
-                
-                nouvelEmplacement = propriete;
                 break;
                 
             default:
