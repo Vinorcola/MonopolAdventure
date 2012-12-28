@@ -12,13 +12,6 @@
 
 int main(int argc, char *argv[])
 {
-    /* Configuration des codec en UTF-8.
-     */
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-    QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
-    
-    
-    
     /* Configuration du système de traduction.
      */
     QTranslator translator;

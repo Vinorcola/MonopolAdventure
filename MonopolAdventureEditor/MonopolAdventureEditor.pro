@@ -5,9 +5,16 @@
 #-------------------------------------------------
 
 QT       += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+
 
 TARGET = MonopolAdventureEditor
+
+
+
 TEMPLATE = app
+
 
 
 SOURCES += main.cpp \
@@ -65,6 +72,8 @@ SOURCES += main.cpp \
     widgetsSelecteurs/ImageSelectWidget.cpp \
     MainWindow.cpp
 
+
+
 HEADERS  += global.hpp \
     assistants/creationPlateau/AssistantCreationPlateau.hpp \
     assistants/creationPlateau/PageGraphisme.hpp \
@@ -121,3 +130,5 @@ HEADERS  += global.hpp \
     widgetsSelecteurs/FontSelectWidget.hpp \
     widgetsSelecteurs/ImageSelectWidget.hpp \
     MainWindow.hpp
+
+
