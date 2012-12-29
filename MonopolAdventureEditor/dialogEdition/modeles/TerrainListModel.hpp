@@ -19,7 +19,7 @@ class TerrainListModel : public QAbstractListModel
         
         
     private:
-        QList<TerrainData*>& m_TerrainsData;///< Données éditables d'un regroupement.
+        QList<TerrainData*>& m_terrainsData;///< Données affichables d'un terrain.
         
         
         

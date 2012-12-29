@@ -7,7 +7,7 @@
 
 TerrainListModel::TerrainListModel(QList<TerrainData*>& terrains) :
     QAbstractListModel(),
-    m_TerrainsData(terrains)
+    m_terrainsData(terrains)
 {
     
 }
@@ -23,7 +23,7 @@ QVariant TerrainListModel::data(const QModelIndex& index,
     {
         if (role == Qt::DisplayRole)
         {
-            return m_TerrainsData.at(index.row())->getTitre();
+            return m_terrainsData.at(index.row())->getTitre();
         }
     }
     
@@ -36,7 +36,7 @@ QVariant TerrainListModel::data(const QModelIndex& index,
 
 int TerrainListModel::rowCount(const QModelIndex&) const
 {
-    return m_TerrainsData.count();
+    return m_terrainsData.count();
 }
 
 
@@ -45,17 +45,17 @@ int TerrainListModel::rowCount(const QModelIndex&) const
 
 void TerrainListModel::insertTerrain(TerrainData* terrain)
 {
-    if (!m_TerrainsData.contains(terrain))
+    if (!m_terrainsData.contains(terrain))
     {
         // Calcul du rang d'insertion par rapport à l'index du terrain.
         int rang(0);
-        while (rang < m_TerrainsData.count() && m_TerrainsData.at(rang)->getIndex() < terrain->getIndex())
+        while (rang < m_terrainsData.count() && m_terrainsData.at(rang)->getIndex() < terrain->getIndex())
         {
             rang++;
         }
         
         beginInsertRows(QModelIndex(), rang, rang);
-        m_TerrainsData.insert(rang, terrain);
+        m_terrainsData.insert(rang, terrain);
         endInsertRows();
     }
 }
@@ -67,10 +67,10 @@ void TerrainListModel::insertTerrain(TerrainData* terrain)
 TerrainData* TerrainListModel::enleveTerrain(int row)
 {
     TerrainData* terrain(0);
-    if (row >= 0 && row < m_TerrainsData.count())
+    if (row >= 0 && row < rowCount())
     {
         beginRemoveRows(QModelIndex(), row, row);
-        terrain = m_TerrainsData.takeAt(row);
+        terrain = m_terrainsData.takeAt(row);
         endInsertRows();
     }
     

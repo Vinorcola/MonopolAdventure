@@ -58,7 +58,7 @@ class Carte
         /**
          * Retourne l'action associée à la carte.
          */
-        Action& getAction();
+        const Action& getAction() const;
         
         
         
@@ -104,7 +104,7 @@ class Carte
         
         /**
          * Remplace l'image de la carte par @a image.
-         * @param image Image de la carte.
+         * @param image Nouvelle image.
          */
         void editImage(const QPixmap& image);
         

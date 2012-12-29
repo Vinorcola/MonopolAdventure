@@ -9,7 +9,7 @@
 
 /**
  * @class TerrainData TerrainData.hpp dialogEdition/donnees/TerrainData.hpp
- * Structure de données contenant les informations d'un terrain à éditer.
+ * Structure de données contenant les informations d'un terrain à afficher lors de l'édition d'un regroupement.
  */
 class TerrainData
 {
