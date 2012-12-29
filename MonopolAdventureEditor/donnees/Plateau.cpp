@@ -699,6 +699,9 @@ void Plateau::saveInFile(QString cheminFichier) const
                     case Type::Terrain:
                         static_cast<Terrain*>(emplacement)->saveInFile(ecriture, 100);
                         break;
+                        
+                    default:
+                        break;
                 }
             }
             
@@ -767,6 +770,9 @@ void Plateau::editEmplacementInformations(Emplacement* emplacement)
             
         case Type::Terrain:
             fenetre = new EditionEmplacement(static_cast<Terrain*>(emplacement), m_parent);
+            break;
+            
+        default:
             break;
     }
     

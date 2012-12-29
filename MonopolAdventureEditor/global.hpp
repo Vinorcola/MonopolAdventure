@@ -33,7 +33,9 @@ namespace Type
         Service = 4,
         SimpleVisite = 5,
         Taxe = 6,
-        Terrain = 7
+        Terrain = 7,
+        
+        Aucun = 100// Nécessaire pour Action.
     };
 }
 
