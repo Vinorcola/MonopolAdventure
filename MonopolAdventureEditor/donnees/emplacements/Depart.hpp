@@ -57,6 +57,16 @@ class Depart : public Emplacement
         
         
         
+        /**
+         * Sauvegarde les informations concernant l'emplacement « Départ » via le flux de données.
+         * @param ecriture Flux de données vers le fichier à écrire.
+         * @param version Numéro de la version à utiliser pour écrire les données.
+         */
+        void saveInFile(QDataStream& ecriture,
+                        const quint16 version) const;
+        
+        
+        
     protected:
         virtual QString helper_getPrix() const;
 };

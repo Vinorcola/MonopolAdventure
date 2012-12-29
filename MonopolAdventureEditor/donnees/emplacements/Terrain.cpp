@@ -363,6 +363,38 @@ void Terrain::editLoyerHotel(const int nombreHotelsConstruits,
 
 
 
+void Terrain::saveInFile(QDataStream& ecriture,
+                         const quint16 version) const
+{
+    if (version == 100)
+    {
+        Propriete::saveInFile(ecriture, 100);
+        
+        ecriture << m_prixAchatMaison
+                 << m_prixVenteMaison
+                 << m_prixAchatHotel
+                 << m_prixVenteHotel
+                 << m_loyerNu
+                 << m_loyerNuExtra;
+        
+        ecriture << m_loyersMaison.count();// Ecriture du nombre de maison pour un hôtel.
+        for (int i(0), iEnd(m_loyersMaison.count()); i < iEnd; i++)
+        {
+            ecriture << m_loyersMaison.at(i);
+        }
+        
+        ecriture << m_loyersHotel.count();// Ecriture du nombre maximum d'hôtel.
+        for (int i(0), iEnd(m_loyersHotel.count()); i < iEnd; i++)
+        {
+            ecriture << m_loyersHotel.at(i);
+        }
+    }
+}
+
+
+
+
+
 QColor Terrain::helper_getCouleurRegroupement() const
 {
     if (m_regroupement)

@@ -2,6 +2,7 @@
 #define PRISONINFOS_HPP
 
 #include "donnees/emplacements/SimpleVisite.hpp"
+class Plateau;
 
 
 
@@ -66,6 +67,18 @@ class Prison : public Emplacement
          * @param montant Montant de la nouvelle caution.
          */
         void editCaution(const quint16 montant);
+        
+        
+        
+        /**
+         * Sauvegarde les informations concernant la prison via le flux de données.
+         * @param ecriture Flux de données vers le fichier à écrire.
+         * @param version Numéro de la version à utiliser pour écrire les données.
+         * @param plateau Plateau auquel appartient l'emplacement.
+         */
+        void saveInFile(QDataStream& ecriture,
+                        const quint16 version,
+                        const Plateau* plateau) const;
 };
 
 #endif // PRISONINFOS_HPP

@@ -564,6 +564,38 @@ const QList<Regroupement*>& Plateau::getListeRegroupement()
 
 
 
+quint8 Plateau::getIdentifiantEmplacement(Emplacement* emplacement) const
+{
+    if (m_emplacements.contains(emplacement))
+    {
+        return m_emplacements.indexOf(emplacement);
+    }
+    else
+    {
+        return 255;
+    }
+}
+
+
+
+
+
+quint8 Plateau::getIdentifiantPileCartes(PileCartes* pileCartes) const
+{
+    if (m_pilesCartes.contains(pileCartes))
+    {
+        return m_pilesCartes.indexOf(pileCartes);
+    }
+    else
+    {
+        return 255;
+    }
+}
+
+
+
+
+
 void Plateau::editListeRegroupement()
 {
     EditionListeRegroupements fenetre(m_regroupements, m_parent);
@@ -583,6 +615,108 @@ void Plateau::editEmplacement(Emplacement* emplacement)
     else
     {
         editEmplacementInformations(emplacement);
+    }
+}
+
+
+
+
+
+void Plateau::saveInFile(QString cheminFichier) const
+{
+    QFile* fichier(new QFile(cheminFichier));
+    if (fichier->open(QIODevice::WriteOnly | QIODevice::Truncate))
+    {
+        //Création du flux d'écriture
+        QDataStream ecriture(fichier);
+        
+        
+        
+        if (VERSION_ECRITURE == 100)
+        {
+            // Configuration de la méthode d'écriture.
+            ecriture.setVersion(QDataStream::Qt_5_0);
+            
+            // Ecriture de l'en-tête du fichier de sauvegarde.
+            ecriture << TAG_SECURITE << VERSION_ECRITURE;
+            
+            
+            
+            // Ecriture des données du plateau.
+            ecriture << m_titre
+                     << m_taille
+                     << m_devise
+                     << m_prixCoefficient
+                     << m_prixAffichageComplet
+                     << m_couleurFond
+                     << m_image;
+            
+            
+            
+            // Ecriture des emplacements.
+            ecriture << m_emplacements.count();// Ecriture du nombre d'emplacements.
+            for (int i(0), iEnd(m_emplacements.count()); i < iEnd; i++)
+            {
+                Emplacement* emplacement(m_emplacements.at(i));
+                switch (emplacement->getType())
+                {
+                    case Type::CompagnieTransport:
+                        static_cast<CompagnieTransport*>(emplacement)->saveInFile(ecriture, 100);
+                        break;
+                        
+                    case Type::Depart:
+                        static_cast<Depart*>(emplacement)->saveInFile(ecriture, 100);
+                        break;
+                        
+                    case Type::Deplacement:
+                        static_cast<Deplacement*>(emplacement)->saveInFile(ecriture, 100, this);
+                        break;
+                        
+                    case Type::ParcGratuit:
+                        static_cast<ParcGratuit*>(emplacement)->saveInFile(ecriture, 100);
+                        break;
+                        
+                    case Type::Pioche:
+                        static_cast<Pioche*>(emplacement)->saveInFile(ecriture, 100, this);
+                        break;
+                        
+                    case Type::Prison:
+                        static_cast<Prison*>(emplacement)->saveInFile(ecriture, 100, this);
+                        break;
+                        
+                    case Type::Service:
+                        static_cast<Service*>(emplacement)->saveInFile(ecriture, 100);
+                        break;
+                        
+                    case Type::SimpleVisite:
+                        static_cast<SimpleVisite*>(emplacement)->saveInFile(ecriture, 100);
+                        break;
+                        
+                    case Type::Taxe:
+                        static_cast<Taxe*>(emplacement)->saveInFile(ecriture, 100);
+                        break;
+                        
+                    case Type::Terrain:
+                        static_cast<Terrain*>(emplacement)->saveInFile(ecriture, 100);
+                        break;
+                }
+            }
+            
+            
+            
+            // Ecriture des regroupements.
+            ecriture << m_regroupements.count();// Ecriture du nombre de regroupements.
+            for (int i(0), iEnd(m_regroupements.count()); i < iEnd; i++)
+            {
+                m_regroupements.at(i)->saveInFile(ecriture, 100, this);
+            }
+        }
+        
+        fichier->close();
+    }
+    else
+    {
+        QMessageBox::warning(m_parent, tr("Impossible d'ouvrir le fichier."), tr("Impossible d'ouvrir le fichier ") + cheminFichier + tr(". Le plateau n'a pas été sauvegardé."));
     }
 }
 

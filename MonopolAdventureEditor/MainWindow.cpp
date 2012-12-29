@@ -13,6 +13,7 @@ MainWindow::MainWindow() :
     m_barreOutils(addToolBar(tr("Outils d'édition"))),
     m_actionQuitter(new QAction(tr("Quitter"), this)),
     m_actionAssistantCreation(new QAction(tr("Créer un nouveau plateau"), this)),
+    m_actionSauvegarder(new QAction(tr("Enregistrer"), this)),
     m_actionRegroupement(new QAction(tr("Regroupements"), this)),
     m_actionEditionTypeEMplacement(new QAction(tr("Edition de type d'emplacement"), this))
 {
@@ -35,6 +36,7 @@ MainWindow::MainWindow() :
     m_actionQuitter->setShortcut(Qt::CTRL + Qt::Key_Q);
     connect(m_actionQuitter, SIGNAL(triggered()), this, SLOT(quitter()));
     connect(m_actionAssistantCreation, SIGNAL(triggered()), this, SLOT(startAssistant()));
+    connect(m_actionSauvegarder, SIGNAL(triggered()), this, SLOT(enregistrer()));
     connect(m_actionRegroupement, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupement()));
     
     m_actionEditionTypeEMplacement->setCheckable(true);
@@ -45,6 +47,7 @@ MainWindow::MainWindow() :
      */
     QMenu* menuJeu(menuBar()->addMenu(tr("MonopolAdventureEditor")));
     menuJeu->addAction(m_actionAssistantCreation);
+    menuJeu->addAction(m_actionSauvegarder);
     menuJeu->addSeparator();
     menuJeu->addAction(m_actionQuitter);
     
@@ -94,5 +97,65 @@ void MainWindow::startAssistant()
         m_barreOutils->show();
         m_actionAssistantCreation->setEnabled(false);// Désactivation de la création de nouveau plateau.
     }
+}
+
+
+
+
+
+bool MainWindow::enregistrer()
+{
+    bool annulation(false);
+    bool sauvegarder(false);
+    QString fichier;
+    
+    
+    
+    // Récupération du chemin du fichier à enregistrer.
+    while (!annulation && !sauvegarder)
+    {
+        fichier = QFileDialog::getSaveFileName(this, "", "data/", "MonopolAdventure Plateau (*.plt)");
+        
+        if (fichier.isEmpty())
+        {
+            // L'utilisateur a cliqué sur Annuler.
+            annulation = true;
+        }
+        else if (fichier.endsWith(".plt"))
+        {
+            sauvegarder = true;
+        }
+        else
+        {
+            // On rajoute l'extension au fichier.
+            fichier.append(".plt");
+            
+            // On doit revérifier que le fichier n'existe pas déjà vu qu'on a rajouter l'extension.
+            if (QFile::exists(fichier))
+            {
+                // S'il existe, on demande confirmation à l'utilisateur pour écraser le contenu.
+                if (QMessageBox::question(this, "Le fichier existe déjà ...", "Le fichier « " + fichier + " » existe déjà. Voulez-vous le remplacer ?", QMessageBox::Ok | QMessageBox::Cancel) == QMessageBox::Ok)
+                {
+                    sauvegarder = true;
+                }
+            }
+            else
+            {
+                sauvegarder = true;
+            }
+        }
+    }
+    
+    
+    
+    // Sauvegarde des données dans le fichier.
+    if (sauvegarder)
+    {
+        m_plateau->saveInFile(fichier);
+    }
+    
+    
+    
+    return !annulation;
 }
 

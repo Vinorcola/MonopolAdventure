@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QDialogButtonBox>
+#include <QFile>
 #include <QGraphicsScene>
 #include <QPixmap>
 #include <QSize>
@@ -420,6 +421,28 @@ class Plateau : public QGraphicsScene
         
         
         
+        /**
+         * Renseigne un identifiant de l'emplacement (identifiant de l'emplacement dans la liste du plateau).
+         * @param emplacement Emplacement à identifier.
+         * @return Identifiant de l'emplacement.
+         * 
+         * Cette méthode est utiliser pour identifier un emplacement dans la sauvegarde de certaines données dans un fichier.
+         */
+        quint8 getIdentifiantEmplacement(Emplacement* emplacement) const;
+        
+        
+        
+        /**
+         * Renseigne un identifiant de la pile de cartes (identifiant de la pile de cartes dans la liste du plateau).
+         * @param pileCartes Pile de cartes à identifier.
+         * @return Identifiant de la pile de cartes.
+         * 
+         * Cette méthode est utiliser pour identifier une pile de cartes dans la sauvegarde de certaines données dans un fichier.
+         */
+        quint8 getIdentifiantPileCartes(PileCartes* pileCartes) const;
+        
+        
+        
     public slots:
         /**
          * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.
@@ -433,6 +456,14 @@ class Plateau : public QGraphicsScene
          * @param emplacement Emplacement concerné.
          */
         void editEmplacement(Emplacement* emplacement);
+        
+        
+        
+        /**
+         * Sauvegarde le plateau dans le fichier désigné.
+         * @param fichier Chemin vers le fichier à enregistrer.
+         */
+        void saveInFile(QString cheminFichier = "save.plt") const;
         
         
         

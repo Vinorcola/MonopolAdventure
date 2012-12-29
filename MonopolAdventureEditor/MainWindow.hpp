@@ -3,6 +3,7 @@
 
 #include <QAction>
 #include <QApplication>
+#include <QFileDialog>
 #include <QGraphicsView>
 #include <QMainWindow>
 #include <QMenuBar>
@@ -30,6 +31,7 @@ class MainWindow : public QMainWindow
         QToolBar* m_barreOutils;///< Barre d'outils d'édition.
         QAction* m_actionQuitter;///< Action permettant de quitter l'éditeur.
         QAction* m_actionAssistantCreation;///< Action permettant de lancer l'assistant de création de plateau.
+        QAction* m_actionSauvegarder;///< Action permettant de sauvegarder le plateau.
         QAction* m_actionRegroupement;///< Action permettant d'éditer la liste des regroupements du plateau.
         QAction* m_actionEditionTypeEMplacement;///< Action permettant d'activer ou de désactiver l'édition du type des emplacements.
         
@@ -63,6 +65,14 @@ class MainWindow : public QMainWindow
         * Lance l'assistant de création de plateau.
         */
         void startAssistant();
+        
+        
+        
+        /**
+         * Enclenche la procédure de sauvegarde du plateau.
+         * @return @b @c true si l'utilisateur a bien sauvegarder, @b @c false s'il a annulé la procédure.
+         */
+        bool enregistrer();
 };
 
 #endif // MAINWINDOW_HPP

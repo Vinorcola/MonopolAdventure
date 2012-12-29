@@ -1,5 +1,7 @@
 #include "Prison.hpp"
 
+#include "donnees/Plateau.hpp"
+
 
 
 
@@ -65,6 +67,23 @@ void Prison::editCaution(const quint16 montant)
     else
     {
         m_caution = montant;
+    }
+}
+
+
+
+
+
+void Prison::saveInFile(QDataStream& ecriture,
+                        const quint16 version,
+                        const Plateau* plateau) const
+{
+    if (version == 100)
+    {
+        Emplacement::saveInFile(ecriture, 100);
+        
+        ecriture << plateau->getIdentifiantEmplacement(m_emplacementAssocie)
+                 << m_caution;
     }
 }
 

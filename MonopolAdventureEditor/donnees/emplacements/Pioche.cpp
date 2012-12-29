@@ -1,5 +1,7 @@
 #include "Pioche.hpp"
 
+#include "donnees/Plateau.hpp"
+
 
 
 
@@ -36,5 +38,21 @@ PileCartes* Pioche::getPileCartes() const
 void Pioche::editPileCartes(PileCartes* const pileCartes)
 {
     m_pileCartes = pileCartes;
+}
+
+
+
+
+
+void Pioche::saveInFile(QDataStream& ecriture,
+                        const quint16 version,
+                        const Plateau* plateau) const
+{
+    if (version == 100)
+    {
+        Emplacement::saveInFile(ecriture, 100);
+        
+        ecriture << plateau->getIdentifiantPileCartes(m_pileCartes);
+    }
 }
 

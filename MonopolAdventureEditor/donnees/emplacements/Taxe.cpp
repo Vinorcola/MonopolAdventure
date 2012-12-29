@@ -143,6 +143,24 @@ void Taxe::disablePourcentageFortune()
 
 
 
+void Taxe::saveInFile(QDataStream& ecriture,
+                      const quint16 version) const
+{
+    if (version == 100)
+    {
+        Emplacement::saveInFile(ecriture, 100);
+        
+        ecriture << m_payeMontantFixe
+                 << m_montantFixe
+                 << m_payePourcentageFortune
+                 << m_pourcentageFortune;
+    }
+}
+
+
+
+
+
 QString Taxe::helper_getPrix() const
 {
     QString texte("");

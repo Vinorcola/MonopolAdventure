@@ -75,3 +75,22 @@ void CompagnieTransport::editLoyer(const int nombreCompagniesPossedees,
     }
 }
 
+
+
+
+
+void CompagnieTransport::saveInFile(QDataStream& ecriture,
+                                    const quint16 version) const
+{
+    if (version == 100)
+    {
+        Propriete::saveInFile(ecriture, 100);
+        
+        ecriture << (quint8) m_loyers.count();// Ecriture de la taille de la liste.
+        for (int i(0), iEnd(m_loyers.count()); i < iEnd; i++)
+        {
+            ecriture << m_loyers.at(i);
+        }
+    }
+}
+

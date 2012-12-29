@@ -3,6 +3,7 @@
 
 #include "donnees/cartes/PileCartes.hpp"
 #include "donnees/emplacements/Emplacement.hpp"
+class Plateau;
 
 
 
@@ -48,6 +49,18 @@ class Pioche : public Emplacement
          * @param pileCartes Nouvelle pile de cartes associée à l'emplacement.
          */
         void editPileCartes(PileCartes* const pileCartes);
+        
+        
+        
+        /**
+         * Sauvegarde les informations concernant l'emplacement « Pioche » via le flux de données.
+         * @param ecriture Flux de données vers le fichier à écrire.
+         * @param version Numéro de la version à utiliser pour écrire les données.
+         * @param plateau Plateau auquel appartient l'emplacement.
+         */
+        void saveInFile(QDataStream& ecriture,
+                        const quint16 version,
+                        const Plateau* plateau) const;
 };
 
 #endif // PIOCHEINFOS_HPP

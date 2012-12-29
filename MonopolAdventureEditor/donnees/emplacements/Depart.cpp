@@ -51,6 +51,21 @@ void Depart::editSalaire(const quint16 montant)
 
 
 
+void Depart::saveInFile(QDataStream& ecriture,
+                        const quint16 version) const
+{
+    if (version == 100)
+    {
+        Emplacement::saveInFile(ecriture, 100);
+        
+        ecriture << m_salaire;
+    }
+}
+
+
+
+
+
 QString Depart::helper_getPrix() const
 {
     return QString::number(m_salaire) + m_devise;

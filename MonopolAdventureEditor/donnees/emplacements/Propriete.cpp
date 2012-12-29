@@ -85,6 +85,22 @@ void Propriete::editValeurHypotheque(const quint16 montant)
 
 
 
+void Propriete::saveInFile(QDataStream& ecriture,
+                           const quint16 version) const
+{
+    if (version == 100)
+    {
+        Emplacement::saveInFile(ecriture, 100);
+        
+        ecriture << m_prixAchat
+                 << m_valeurHypotheque;
+    }
+}
+
+
+
+
+
 QString Propriete::helper_getPrix() const
 {
     return QString::number(m_prixAchat) + m_devise;

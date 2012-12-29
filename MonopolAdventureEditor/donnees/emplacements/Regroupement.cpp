@@ -1,5 +1,7 @@
 #include "Regroupement.hpp"
 
+#include "donnees/Plateau.hpp"
+
 
 
 
@@ -99,5 +101,24 @@ Terrain* Regroupement::getTerrain(int index) const
 QList<Terrain*> Regroupement::getListeTerrains() const
 {
     return *this;
+}
+
+
+
+
+
+void Regroupement::saveInFile(QDataStream& ecriture,
+                              const quint16 version,
+                              const Plateau* plateau) const
+{
+    if (version == 100)
+    {
+        ecriture << count();// Ecriture du nombre de terrains présents.
+        
+        for (int i(0), iEnd(count()); i < iEnd; i++)
+        {
+            ecriture << plateau->getIdentifiantEmplacement(at(i));
+        }
+    }
 }
 
