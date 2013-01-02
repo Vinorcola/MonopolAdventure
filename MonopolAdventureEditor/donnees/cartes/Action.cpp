@@ -42,53 +42,53 @@ Action::Action() :
 
 QString Action::getDescription(const QString& devise) const
 {
-    QString texte(tr("Action invalide !"));
+    QString texte(QObject::tr("Action invalide !"));
     
     if (isDeplacement())
     {
-        texte = tr("Le joueur ") + QString(m_joueurAvance ? tr("avance") : tr("recule"));
+        texte = QObject::tr("Le joueur ") + QString(m_joueurAvance ? QObject::tr("avance") : QObject::tr("recule"));
         
         if (isDeplacementRelatif())
         {
-            texte += tr(" de ") + QString::number(m_deplacementRelatif) + tr(" emplacement") + (m_deplacementRelatif > 1 ? tr("s") : "") + tr(".");
+            texte += QObject::tr(" de ") + QString::number(m_deplacementRelatif) + QObject::tr(" emplacement") + (m_deplacementRelatif > 1 ? QObject::tr("s") : "") + QObject::tr(".");
         }
         else if (isDeplacementAbsolu())
         {
-            texte += tr(" jusqu'à l'emplacement ") + m_deplacementEmplacement->getTitre() + ".";
+            texte += QObject::tr(" jusqu'à l'emplacement ") + m_deplacementEmplacement->getTitre() + ".";
         }
     }
     else if (isTransaction())
     {
-        texte = tr("Le joueur doit ") + QString(m_gainArgent ? tr("recevoir") : tr("verser")) + tr(" un montant de ") + QString::number(m_montant) + " " + devise;
+        texte = QObject::tr("Le joueur doit ") + QString(m_gainArgent ? QObject::tr("recevoir") : QObject::tr("verser")) + QObject::tr(" un montant de ") + QString::number(m_montant) + " " + devise;
         
-        if (isTransactionAvecJoueurSecondaire())
+        if (isTransactionAvecAutreJoueur())
         {
-            texte += (m_gainArgent ? tr(" auprès d'un autre joueur.") : tr(" à un autre joueur."));
+            texte += (m_gainArgent ? QObject::tr(" auprès d'un autre joueur.") : QObject::tr(" à un autre joueur."));
         }
         else if (isTransactionAvecBanque())
         {
-            texte += (m_gainArgent ? tr(" auprès de la banque") : tr(" à la banque"));
+            texte += (m_gainArgent ? QObject::tr(" auprès de la banque") : QObject::tr(" à la banque"));
         }
         else if (isTransactionAvecTousLesJoueurs())
         {
-            texte += (m_gainArgent ? tr(" auprès de tous les joueurs.") : tr(" à tous les joueurs."));
+            texte += (m_gainArgent ? QObject::tr(" auprès de tous les joueurs.") : QObject::tr(" à tous les joueurs."));
         }
     }
     else if (isReparationConstructions())
     {
-        texte = tr("Le joueur doit faire des réparations dans toutes ses maisons à hauteur de ") + QString::number(m_montantParMaison) + " " + devise + tr(" par maison ainsi que dans tous ses hôtels à hauteur de ") + QString::number(m_montantParHotel) + " " + devise + tr(" par hôtel.");
+        texte = QObject::tr("Le joueur doit faire des réparations dans toutes ses maisons à hauteur de ") + QString::number(m_montantParMaison) + " " + devise + QObject::tr(" par maison ainsi que dans tous ses hôtels à hauteur de ") + QString::number(m_montantParHotel) + " " + devise + QObject::tr(" par hôtel.");
     }
     else if (isPayeOuPioche())
     {
-        texte = tr("Le joueur peut, soit payer une amende de ") + QString::number(m_montant) + " " + devise + tr(", soit tirer une carte ") + m_pileDeCartes->getTitre() + ".";
+        texte = QObject::tr("Le joueur peut, soit payer une amende de ") + QString::number(m_montant) + " " + devise + QObject::tr(", soit tirer une carte ") + m_pileCartes->getTitre() + ".";
     }
     else if (isPioche())
     {
-        texte = tr("Le joueur pioche une carte ") + m_pileDeCartes->getTitre() + ".";
+        texte = QObject::tr("Le joueur pioche une carte ") + m_pileCartes->getTitre() + ".";
     }
     else
     {
-        texte = tr("Le joueur est libérer de prison. Cette carte peut être conservée jusqu'à son utilisation ou son échange.");
+        texte = QObject::tr("Le joueur est libérer de prison. Cette carte peut être conservée jusqu'à son utilisation ou son échange.");
     }
     
     return texte;
