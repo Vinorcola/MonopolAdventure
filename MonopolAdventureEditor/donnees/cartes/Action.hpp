@@ -84,7 +84,7 @@ class Action
          * @param devise Devise utilisée sur le plateau.
          * @return Description détaillée de l'action.
          */
-        QString description(const QString& devise) const;
+        QString getDescription(const QString& devise) const;
         
         
         
@@ -140,7 +140,7 @@ class Action
          * Retourne le nombre d'emplacements à se déplacer.
          * @return Nombre d'emplacements à se déplacer.
          */
-        quint8 deplacementNombreEmplacements() const;
+        quint8 getNombreEmplacements() const;
         
         
         
@@ -148,7 +148,7 @@ class Action
          * Retourne l'emplacement vers lequel se déplacer.
          * @return Emplacement vers lequel se déplacer.
          */
-        Emplacement* deplacementEmplacement() const;
+        Emplacement* getEmplacement() const;
         
         
         
@@ -164,7 +164,7 @@ class Action
          * Renseigne le coefficient à appliquer sur les loyers si le joueur se déplace sur une propriété appartenant déjà à un joueur.
          * @return Coefficient à appliquer sur les loyers.
          */
-        quint8 coefficientLoyer() const;
+        quint8 getCoefficientLoyer() const;
         
         
         
@@ -246,7 +246,7 @@ class Action
          * Indique si la transaction se déroule entre le joueur acteur et le joueur secondaire.
          * @return @b @c true si la transaction se déroule entre le joueur acteur et le joueur secondaire.
          */
-        bool isTransactionAvecJoueurSecondaire() const;
+        bool isTransactionAvecAutreJoueur() const;
         
         
         
@@ -270,7 +270,7 @@ class Action
          * Retourne le montant de la transaction.
          * @return Montant de la transaction.
          */
-        quint16 montant() const;
+        quint16 getMontantTransaction() const;
         
         
         
@@ -279,8 +279,8 @@ class Action
          * @param gain Indique si le joueur acteur gagne l'argent de la transaction.
          * @param montant Montant de la transaction.
          */
-        void setTransactionAvecJoueurSecondaire(const bool gain,
-                                                const quint16 montant);
+        void setTransactionAvecAutreJoueur(const bool gain,
+                                           const quint16 montant);
         
         
         
@@ -316,7 +316,7 @@ class Action
          * Retourne le montant des réparations pour une maison.
          * @return Montant des réparations pour une maison.
          */
-        quint16 montantParMaison() const;
+        quint16 getMontantParMaison() const;
         
         
         
@@ -324,7 +324,7 @@ class Action
          * Retourne le montant des réparations pour un hôtel.
          * @return Montant des réparations pour un hôtel.
          */
-        quint16 montantParHotel() const;
+        quint16 getMontantParHotel() const;
         
         
         
@@ -332,7 +332,7 @@ class Action
          * Retourne le montant des réparations pour un gratte-ciel.
          * @return Montant des réparations pour un gratte-ciel.
          */
-        quint16 montantParGratteCiel() const;
+        quint16 getMontantParGratteCiel() const;
         
         
         
@@ -371,7 +371,7 @@ class Action
          * Retourne la pile de cartes dans laquelle piocher la carte.
          * @return Pile de cartes dans laquelle piocher la carte.
          */
-        PileCartes* pileCartes() const;
+        PileCartes* getPileCartes() const;
         
         
         
@@ -379,16 +379,16 @@ class Action
          * Retourne le montant de l'amende à payer.
          * @return Montant de l'amende à payer.
          */
-        quint16 montantAmende() const;
+        quint16 getAmende() const;
         
         
         
         /**
          * Change l'action en action de type "Paye ou Pioche".
-         * @param montantAmende Montant de l'amende.
+         * @param amende Montant de l'amende.
          * @param pileCartes Pile de cartes dans laquelle piocher une carte.
          */
-        void setPayeOuPioche(const quint16 montantAmende,
+        void setPayeOuPioche(const quint16 amende,
                              PileCartes* pileCartes);
         
         

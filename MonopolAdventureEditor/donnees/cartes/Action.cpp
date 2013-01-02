@@ -40,6 +40,64 @@ Action::Action() :
 
 
 
+QString Action::getDescription(const QString& devise) const
+{
+    QString texte(tr("Action invalide !"));
+    
+    if (isDeplacement())
+    {
+        texte = tr("Le joueur ") + QString(m_joueurAvance ? tr("avance") : tr("recule"));
+        
+        if (isDeplacementRelatif())
+        {
+            texte += tr(" de ") + QString::number(m_deplacementRelatif) + tr(" emplacement") + (m_deplacementRelatif > 1 ? tr("s") : "") + tr(".");
+        }
+        else if (isDeplacementAbsolu())
+        {
+            texte += tr(" jusqu'à l'emplacement ") + m_deplacementEmplacement->getTitre() + ".";
+        }
+    }
+    else if (isTransaction())
+    {
+        texte = tr("Le joueur doit ") + QString(m_gainArgent ? tr("recevoir") : tr("verser")) + tr(" un montant de ") + QString::number(m_montant) + " " + devise;
+        
+        if (isTransactionAvecJoueurSecondaire())
+        {
+            texte += (m_gainArgent ? tr(" auprès d'un autre joueur.") : tr(" à un autre joueur."));
+        }
+        else if (isTransactionAvecBanque())
+        {
+            texte += (m_gainArgent ? tr(" auprès de la banque") : tr(" à la banque"));
+        }
+        else if (isTransactionAvecTousLesJoueurs())
+        {
+            texte += (m_gainArgent ? tr(" auprès de tous les joueurs.") : tr(" à tous les joueurs."));
+        }
+    }
+    else if (isReparationConstructions())
+    {
+        texte = tr("Le joueur doit faire des réparations dans toutes ses maisons à hauteur de ") + QString::number(m_montantParMaison) + " " + devise + tr(" par maison ainsi que dans tous ses hôtels à hauteur de ") + QString::number(m_montantParHotel) + " " + devise + tr(" par hôtel.");
+    }
+    else if (isPayeOuPioche())
+    {
+        texte = tr("Le joueur peut, soit payer une amende de ") + QString::number(m_montant) + " " + devise + tr(", soit tirer une carte ") + m_pileDeCartes->getTitre() + ".";
+    }
+    else if (isPioche())
+    {
+        texte = tr("Le joueur pioche une carte ") + m_pileDeCartes->getTitre() + ".";
+    }
+    else
+    {
+        texte = tr("Le joueur est libérer de prison. Cette carte peut être conservée jusqu'à son utilisation ou son échange.");
+    }
+    
+    return texte;
+}
+
+
+
+
+
 bool Action::isDeplacement() const
 {
     return m_deplacement;
@@ -65,7 +123,12 @@ bool Action::joueurAvance() const
 
 bool Action::joueurRecule() const
 {
-    return !joueurAvance();
+    if (isDeplacement())
+    {
+        return !m_joueurAvance;
+    }
+    
+    return false;
 }
 
 
@@ -114,7 +177,7 @@ bool Action::isDeplacementJusquauProchain() const
 
 
 
-quint8 Action::deplacementNombreEmplacements() const
+quint8 Action::getNombreEmplacements() const
 {
     if (isDeplacementRelatif())
     {
@@ -128,7 +191,7 @@ quint8 Action::deplacementNombreEmplacements() const
 
 
 
-Emplacement* Action::deplacementEmplacement() const
+Emplacement* Action::getEmplacement() const
 {
     if (isDeplacementAbsolu())
     {
@@ -156,7 +219,7 @@ Type::Emplacement Action::deplacementJusquauProchain() const
 
 
 
-quint8 Action::coefficientLoyer() const
+quint8 Action::getCoefficientLoyer() const
 {
     return m_coefficientLoyer;
 }
@@ -305,7 +368,7 @@ bool Action::joueurPerdArgent() const
 
 
 
-bool Action::isTransactionAvecJoueurSecondaire() const
+bool Action::isTransactionAvecAutreJoueur() const
 {
     if (isTransaction())
     {
@@ -347,7 +410,7 @@ bool Action::isTransactionAvecTousLesJoueurs() const
 
 
 
-quint16 Action::montant() const
+quint16 Action::getMontantTransaction() const
 {
     if (isTransaction())
     {
@@ -361,8 +424,8 @@ quint16 Action::montant() const
 
 
 
-void Action::setTransactionAvecJoueurSecondaire(const bool gain,
-                                                const quint16 montant)
+void Action::setTransactionAvecAutreJoueur(const bool gain,
+                                           const quint16 montant)
 {
     m_deplacement = false;
     m_joueurAvance = false;
@@ -457,7 +520,7 @@ bool Action::isReparationConstructions() const
 
 
 
-quint16 Action::montantParMaison() const
+quint16 Action::getMontantParMaison() const
 {
     if (isReparationConstructions())
     {
@@ -471,7 +534,7 @@ quint16 Action::montantParMaison() const
 
 
 
-quint16 Action::montantParHotel() const
+quint16 Action::getMontantParHotel() const
 {
     if (isReparationConstructions())
     {
@@ -485,7 +548,7 @@ quint16 Action::montantParHotel() const
 
 
 
-quint16 Action::montantParGratteCiel() const
+quint16 Action::getMontantParGratteCiel() const
 {
     if( isReparationConstructions())
     {
@@ -547,7 +610,7 @@ bool Action::isPioche() const
 
 
 
-PileCartes* Action::pileCartes() const
+PileCartes* Action::getPileCartes() const
 {
     if (isPayeOuPioche() || isPioche())
     {
@@ -561,7 +624,7 @@ PileCartes* Action::pileCartes() const
 
 
 
-quint16 Action::montantAmende() const
+quint16 Action::getAmende() const
 {
     if (isPayeOuPioche())
     {
@@ -575,7 +638,7 @@ quint16 Action::montantAmende() const
 
 
 
-void Action::setPayeOuPioche(const quint16 montantAmende,
+void Action::setPayeOuPioche(const quint16 amende,
                              PileCartes* pileDeCartes)
 {
     m_deplacement = false;
@@ -589,7 +652,7 @@ void Action::setPayeOuPioche(const quint16 montantAmende,
     m_gainArgent = false;
     m_enversBanque = false;
     m_enversTousLesJoueurs = false;
-    m_montant = montantAmende;
+    m_montant = amende;
     m_reparation = false;
     m_montantParMaison = 0;
     m_montantParHotel = 0;

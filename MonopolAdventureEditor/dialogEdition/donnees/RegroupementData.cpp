@@ -118,7 +118,7 @@ void RegroupementData::transfereTerrainA(RegroupementData* regroupement,
 {
     if (rowTerrain >= 0 && rowTerrain < m_terrains.count())
     {
-        regroupement->m_modeleTerrains->insertTerrain(m_modeleTerrains->enleveTerrain(rowTerrain));
+        regroupement->m_modeleTerrains->insertTerrain(m_modeleTerrains->removeTerrainAt(rowTerrain));
     }
 }
 

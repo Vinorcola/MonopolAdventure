@@ -65,7 +65,7 @@ class TerrainListModel : public QAbstractListModel
          * @param row Rang auquel se situe le terrain.
          * @return Pointeur du terrain enlevé.
          */
-        TerrainData* enleveTerrain(int row);
+        TerrainData* removeTerrainAt(int row);
 };
 
 #endif // TERRAINLISTMODEL_HPP

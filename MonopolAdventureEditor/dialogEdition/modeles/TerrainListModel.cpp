@@ -64,7 +64,7 @@ void TerrainListModel::insertTerrain(TerrainData* terrain)
 
 
 
-TerrainData* TerrainListModel::enleveTerrain(int row)
+TerrainData* TerrainListModel::removeTerrainAt(int row)
 {
     TerrainData* terrain(0);
     if (row >= 0 && row < rowCount())
