@@ -30,8 +30,6 @@ EditionListeRegroupements::EditionListeRegroupements(QList<Regroupement*>& regro
     
     /* Aménagement de la fenêtre de dialogue.
      */
-    m_dialog->setAttribute(Qt::WA_DeleteOnClose);
-    
     QDialogButtonBox* boutons(new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel));
     QObject::connect(boutons, SIGNAL(accepted()), m_dialog, SLOT(accept()));
     QObject::connect(boutons, SIGNAL(rejected()), m_dialog, SLOT(reject()));
@@ -49,6 +47,8 @@ EditionListeRegroupements::EditionListeRegroupements(QList<Regroupement*>& regro
 
 EditionListeRegroupements::~EditionListeRegroupements()
 {
+    delete m_dialog;
+    
     // Destruction des regroupementData.
     for (int i(0), iEnd(m_listeEditable.count()); i < iEnd; ++i)
     {
