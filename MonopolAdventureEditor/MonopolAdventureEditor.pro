@@ -25,26 +25,35 @@ SOURCES += main.cpp \
     assistants/creationPlateau/PageOuvrir.cpp \
     assistants/creationPlateau/PagePrix.cpp \
     assistants/creationPlateau/PageTaille.cpp \
+    dialogEdition/donnees/PileCartesData.cpp \
     dialogEdition/donnees/RegroupementData.cpp \
     dialogEdition/donnees/TerrainData.cpp \
+    dialogEdition/modeles/CarteListModel.cpp \
     dialogEdition/modeles/EmplacementListModel.cpp \
+    dialogEdition/modeles/PileCartesListModel.cpp \
     dialogEdition/modeles/TerrainListModel.cpp \
     dialogEdition/modeles/SelectionRegroupementListModel.cpp \
     dialogEdition/modeles/RegroupementListModel.cpp \
+    dialogEdition/widgetsEditeurs/ActionEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/CarteEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ConstructionEditWidget.cpp \
     dialogEdition/widgetsEditeurs/DepartEditWidget.cpp \
     dialogEdition/widgetsEditeurs/DeplacementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/EmplacementEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/ListePilesCartesEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/PileCartesEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.cpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/TaxeEditWidget.cpp \
     dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.cpp \
+    dialogEdition/EditionCarte.cpp \
     dialogEdition/EditionEmplacement.cpp \
+    dialogEdition/EditionListePilesCartes.cpp \
     dialogEdition/EditionListeRegroupements.cpp \
     donnees/cartes/Action.cpp \
     donnees/cartes/Carte.cpp \
@@ -82,27 +91,36 @@ HEADERS  += global.hpp \
     assistants/creationPlateau/PageOuvrir.hpp \
     assistants/creationPlateau/PagePrix.hpp \
     assistants/creationPlateau/PageTaille.hpp \
+    dialogEdition/donnees/PileCartesData.hpp \
     dialogEdition/donnees/RegroupementData.hpp \
     dialogEdition/donnees/TerrainData.hpp \
+    dialogEdition/modeles/CarteListModel.hpp \
     dialogEdition/modeles/EmplacementListModel.hpp \
+    dialogEdition/modeles/PileCartesListModel.hpp \
     dialogEdition/modeles/TerrainListModel.hpp \
     dialogEdition/modeles/SelectionRegroupementListModel.hpp \
     dialogEdition/modeles/RegroupementListModel.hpp \
+    dialogEdition/widgetsEditeurs/ActionEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/CarteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ConstructionEditWidget.hpp \
     dialogEdition/widgetsEditeurs/DepartEditWidget.hpp \
     dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/EmplacementEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/ListePilesCartesEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/PileCartesEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp \
     dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp \
     dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp \
+    dialogEdition/EditionCarte.hpp \
     dialogEdition/EditionEmplacement.hpp \
+    dialogEdition/EditionListePilesCartes.hpp \
     dialogEdition/EditionListeRegroupements.hpp \
     donnees/cartes/Action.hpp \
     donnees/cartes/Carte.hpp \
@@ -129,6 +147,7 @@ HEADERS  += global.hpp \
     widgetsSelecteurs/FileSelectWidget.hpp \
     widgetsSelecteurs/FontSelectWidget.hpp \
     widgetsSelecteurs/ImageSelectWidget.hpp \
+    widgetsSelecteurs/PointerComboBox.hpp \
     MainWindow.hpp
 
 

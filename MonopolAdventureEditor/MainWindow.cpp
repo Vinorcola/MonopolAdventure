@@ -14,8 +14,9 @@ MainWindow::MainWindow() :
     m_actionQuitter(new QAction(tr("Quitter"), this)),
     m_actionAssistantCreation(new QAction(tr("Créer un nouveau plateau"), this)),
     m_actionSauvegarder(new QAction(tr("Enregistrer"), this)),
-    m_actionRegroupement(new QAction(tr("Regroupements"), this)),
-    m_actionEditionTypeEMplacement(new QAction(tr("Edition de type d'emplacement"), this))
+    m_actionRegroupements(new QAction(tr("Regroupements"), this)),
+    m_actionPilesCartes(new QAction(tr("Piles de cartes"), this)),
+    m_actionEditionTypeEmplacement(new QAction(tr("Edition de type d'emplacement"), this))
 {
     /* Configuration de la fenêtre.
      */
@@ -37,9 +38,10 @@ MainWindow::MainWindow() :
     connect(m_actionQuitter, SIGNAL(triggered()), this, SLOT(quitter()));
     connect(m_actionAssistantCreation, SIGNAL(triggered()), this, SLOT(startAssistant()));
     connect(m_actionSauvegarder, SIGNAL(triggered()), this, SLOT(enregistrer()));
-    connect(m_actionRegroupement, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupement()));
+    connect(m_actionRegroupements, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupements()));
+    connect(m_actionPilesCartes, SIGNAL(triggered()), m_plateau, SLOT(editListePilesCartes()));
     
-    m_actionEditionTypeEMplacement->setCheckable(true);
+    m_actionEditionTypeEmplacement->setCheckable(true);
     
     
     
@@ -55,8 +57,9 @@ MainWindow::MainWindow() :
     
     /* Configuration des barres d'outils.
      */
-    m_barreOutils->addAction(m_actionRegroupement);
-    m_barreOutils->addAction(m_actionEditionTypeEMplacement);
+    m_barreOutils->addAction(m_actionRegroupements);
+    m_barreOutils->addAction(m_actionPilesCartes);
+    m_barreOutils->addAction(m_actionEditionTypeEmplacement);
     m_barreOutils->hide();
     
     
@@ -72,7 +75,7 @@ MainWindow::MainWindow() :
 
 bool MainWindow::editionTypeActive() const
 {
-    return m_actionEditionTypeEMplacement->isChecked();
+    return m_actionEditionTypeEmplacement->isChecked();
 }
 
 

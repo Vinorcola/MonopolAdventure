@@ -34,8 +34,7 @@ class PileCartes : private QList<Carte*>
         
         
         /**
-         * Destructeur.
-         * Enlève toutes les cartes contenues avant la suppression.
+         * Supprime toutes les cartes que la pile de cartes contient.
          */
         ~PileCartes();
         
@@ -78,6 +77,13 @@ class PileCartes : private QList<Carte*>
          * @return Liste des cartes contenus.
          */
         QList<Carte*> getListeCartes() const;
+        
+        
+        
+        /**
+         * Supprime toutes les cartes que contient la pile de cartes.
+         */
+        void vider();
 };
 
 #endif // PILECARTESINFOS_HPP

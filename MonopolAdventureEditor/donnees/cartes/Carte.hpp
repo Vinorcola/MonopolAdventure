@@ -48,6 +48,14 @@ class Carte
         
         
         /**
+         * Construit une carte identique, mais rattachée à aucune pile de cartes.
+         * @param autre Carte à copier.
+         */
+        Carte(const Carte* autre);
+        
+        
+        
+        /**
          * Destructeur.
          * Enlève la carte de la pile de carte associée avant la suppression.
          */
@@ -58,7 +66,7 @@ class Carte
         /**
          * Retourne l'action associée à la carte.
          */
-        const Action& getAction() const;
+        Action& getAction();
         
         
         

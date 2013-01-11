@@ -1,8 +1,9 @@
 #include "Plateau.hpp"
 
 #include "dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp"
-#include "dialogEdition/EditionListeRegroupements.hpp"
 #include "dialogEdition/EditionEmplacement.hpp"
+#include "dialogEdition/EditionListePilesCartes.hpp"
+#include "dialogEdition/EditionListeRegroupements.hpp"
 #include "donnees/emplacements/Emplacements.hpp"
 #include "MainWindow.hpp"
 
@@ -596,9 +597,19 @@ quint8 Plateau::getIdentifiantPileCartes(PileCartes* pileCartes) const
 
 
 
-void Plateau::editListeRegroupement()
+void Plateau::editListeRegroupements()
 {
     EditionListeRegroupements fenetre(m_regroupements, m_parent);
+    fenetre.executer();
+}
+
+
+
+
+
+void Plateau::editListePilesCartes()
+{
+    EditionListePilesCartes fenetre(m_pilesCartes, m_emplacements, m_devise, m_parent);
     fenetre.executer();
 }
 

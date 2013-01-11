@@ -6,10 +6,24 @@
 
 Carte::Carte() :
     m_pileCartes(0),
-    m_consigne(""),
+    m_consigne(QObject::tr("Nouvelle carte")),
     m_image(),
     m_dispositionImage(GAUCHE),
     m_action()
+{
+    
+}
+
+
+
+
+
+Carte::Carte(const Carte* autre) :
+    m_pileCartes(0),
+    m_consigne(autre->m_consigne),
+    m_image(autre->m_image),
+    m_dispositionImage(autre->m_dispositionImage),
+    m_action(autre->m_action)
 {
     
 }
@@ -32,7 +46,7 @@ Carte::~Carte()
 
 
 
-const Action &Carte::getAction() const
+Action &Carte::getAction()
 {
     return m_action;
 }

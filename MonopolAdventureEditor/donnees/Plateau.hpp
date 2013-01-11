@@ -447,7 +447,14 @@ class Plateau : public QGraphicsScene
         /**
          * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.
          */
-        void editListeRegroupement();
+        void editListeRegroupements();
+        
+        
+        
+        /**
+         * Ouvre une fenêtre de dialogue pour l'édition de la liste des piles de cartes.
+         */
+        void editListePilesCartes();
         
         
         

@@ -17,9 +17,9 @@ PileCartes::PileCartes() :
 
 PileCartes::~PileCartes()
 {
-    for (int i(0), iEnd(count()); i < iEnd; ++i)
+    for (int i(0), iEnd(count()); i < iEnd; i++)
     {
-        last()->editPileCartes(0);
+        delete takeLast();
     }
 }
 
@@ -73,5 +73,17 @@ Carte* PileCartes::getCarte(int index) const
 QList<Carte*> PileCartes::getListeCartes() const
 {
     return *this;
+}
+
+
+
+
+
+void PileCartes::vider()
+{
+    for (int i(0), iEnd(count()); i < iEnd; i++)
+    {
+        delete takeLast();
+    }
 }
 

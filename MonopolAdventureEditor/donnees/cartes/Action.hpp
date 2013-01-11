@@ -2,6 +2,7 @@
 #define ACTIONINFOS_HPP
 
 class PileCartes;
+class PileCartesData;
 #include "donnees/emplacements/Emplacement.hpp"
 
 
@@ -57,7 +58,8 @@ class Action
         /* Paye ou pioche
          */
         bool m_payeOuPioche;///< Indique si le joueur peut avoir le choix entre payer une ammende ou piocher une nouvelle carte.
-        PileCartes* m_pileCartes;///< Pile de carte à piocher.
+        PileCartes* m_pileCartes;///< Pile de cartes à piocher.
+        PileCartesData* m_pileCartesEdition;///< Pile de cartes à piocher (utilisé pendant l'édition des piles de cartes).
         
         
         /* Pioche
@@ -372,6 +374,7 @@ class Action
          * @return Pile de cartes dans laquelle piocher la carte.
          */
         PileCartes* getPileCartes() const;
+        PileCartesData* getPileCartesEdition() const;
         
         
         
@@ -390,6 +393,8 @@ class Action
          */
         void setPayeOuPioche(const quint16 amende,
                              PileCartes* pileCartes);
+        void setPayeOuPioche(const quint16 amende,
+                             PileCartesData* pileCartes);
         
         
         
@@ -398,6 +403,7 @@ class Action
          * @param pileCartes Pile de cartes dans laquelle piocher une carte.
          */
         void setPioche(PileCartes* pileCartes);
+        void setPioche(PileCartesData* pileCartes);
         
         
         
@@ -413,6 +419,15 @@ class Action
          * Change l'action en action de type "Libéré de prison".
          */
         void setLibereDePrison();
+        
+        
+        
+        /**
+         * Change la pile de cartes configurée par cette action (utilisé lors de l'édition des piles de cartes).
+         * @param pileCartes Nouvelle pile de cartes.
+         */
+        void setPileCartesEdition(PileCartes* pileCartes);
+        void setPileCartesEdition(PileCartesData* pileCartes);
 };
 
 #endif // ACTIONINFOS_HPP

@@ -58,7 +58,7 @@ class ListeRegroupementEditWidget : public QWidget
         
         
         /**
-         * Créé un nouveau regroupement et l'ajoute au modèle de données. Puis lance l'édition de se dernier.
+         * Créé un nouveau regroupement et l'ajoute au modèle de données. Puis lance l'édition de ce dernier.
          */
         void createRegroupement();
         

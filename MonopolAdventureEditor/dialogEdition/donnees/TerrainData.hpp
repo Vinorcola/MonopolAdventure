@@ -10,6 +10,8 @@
 /**
  * @class TerrainData TerrainData.hpp dialogEdition/donnees/TerrainData.hpp
  * Structure de données contenant les informations d'un terrain à afficher lors de l'édition d'un regroupement.
+ * 
+ * Elle permet surtout d'aléger l'édition des regroupements, car on a juste besoin d'afficher le titre des terrains.
  */
 class TerrainData
 {
