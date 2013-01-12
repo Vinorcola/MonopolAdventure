@@ -4,7 +4,7 @@
 
 
 
-PileCartesListModel::PileCartesListModel(QList<PileCartesData*>& pilesCartes) :
+PileCartesListModel::PileCartesListModel(QList<PileCartes*>& pilesCartes) :
     QAbstractListModel(),
     m_pilesCartes(pilesCartes)
 {
@@ -33,7 +33,7 @@ QVariant PileCartesListModel::data(const QModelIndex& index,
 
 
 
-PileCartesData* PileCartesListModel::getPileCartesAt(int row) const
+PileCartes* PileCartesListModel::getPileCartesAt(int row) const
 {
     if (row >= 0 && row < rowCount())
     {
@@ -61,7 +61,7 @@ int PileCartesListModel::createPileCartes()
     int rang(m_pilesCartes.count());
     
     beginInsertRows(QModelIndex(), rang, rang);
-    m_pilesCartes.append(new PileCartesData);
+    m_pilesCartes.append(new PileCartes);
     endInsertRows();
     
     return rang;

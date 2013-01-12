@@ -6,19 +6,6 @@
 
 #include "donnees/cartes/Action.hpp"
 class PileCartes;
-#include "donnees/cartes/PileCartes.hpp"
-
-
-
-
-
-/**
- * Enumération permettant de mémoriser la disposition de l'image de la carte.
- */
-enum CarteImageDisposition
-{
-    GAUCHE, DROITE, HAUT, BAS
-};
 
 
 
@@ -26,43 +13,54 @@ enum CarteImageDisposition
 
 /**
  * @class Carte Carte.hpp donnees/cartes/Carte.hpp
- * Carte contient les informations éditables d'une carte.
+ * Carte est une carte que les joueurs peuvent piocher durant une partie.
+ * 
+ * Une carte possède une consigne, une action à effetuer et éventuellement, une image. Les cartes sont gérées directement par les piles de cartes. Il n'est donc pas possible de créer une carte seule.
  */
 class Carte
 {
+        friend class PileCartes;
+        
+        
+    public:
+        enum ImageDisposition
+        {
+            GAUCHE, DROITE, HAUT, BAS
+        };
+        
+        
+        
     private:
-        PileCartes* m_pileCartes;///< Pile de cartes à laquelle appartient la carte.
+        const PileCartes* m_pileCartes;///< Pile de cartes à laquelle appartient la carte.
         QString m_consigne;///< Consigne à afficher au joueur.
         QPixmap m_image;///< Image à afficher sur la carte.
-        CarteImageDisposition m_dispositionImage;///< Disposition de l'image par rapport à la consigne.
+        ImageDisposition m_dispositionImage;///< Disposition de l'image par rapport à la consigne.
         Action m_action;///< Action associée à la carte.
         
         
         
-    public:
+    private:
+    /* Constructeurs et destructeurs. */
         /**
          * Construit une carte par défaut.
+         * @param pileCartes Pile de cartes dans laquelle est rangée la carte.
          */
-        Carte();
+        Carte(const PileCartes* pileCartes);
         
         
         
         /**
-         * Construit une carte identique, mais rattachée à aucune pile de cartes.
+         * Construit une carte identique rattachée à une autre pile de cartes.
          * @param autre Carte à copier.
+         * @param pileCartes Pile de cartes dans laquelle est rangée la carte.
          */
-        Carte(const Carte* autre);
+        Carte(const Carte* autre,
+              const PileCartes* pileCartes);
         
         
         
-        /**
-         * Destructeur.
-         * Enlève la carte de la pile de carte associée avant la suppression.
-         */
-        ~Carte();
-        
-        
-        
+    public:
+    /* Méthodes d'accès aux informations. */
         /**
          * Retourne l'action associée à la carte.
          */
@@ -74,15 +72,7 @@ class Carte
          * Renseigne la pile de cartes à laquelle appartient la carte.
          * @return Pile de cartes à laquelle appartient la carte.
          */
-        PileCartes* getPileCartes() const;
-        
-        
-        
-        /**
-         * Remplace la pile de cartes à laquelle appartient la carte.
-         * @param pileCartes Nouvelle pile de cartes.
-         */
-        void editPileCartes(PileCartes* const pileCartes);
+        const PileCartes* getPileCartes() const;
         
         
         
@@ -122,7 +112,7 @@ class Carte
          * Renseigne la disposition de l'image sur la carte.
          * @return Disposition de l'image sur la carte.
          */
-        CarteImageDisposition getDispositionImage() const;
+        ImageDisposition getDispositionImage() const;
         
         
         
@@ -130,7 +120,7 @@ class Carte
          * Modifie la disposition de l'image sur la carte.
          * @param disposition Nouvelle disposition.
          */
-        void editDispositionImage(const CarteImageDisposition disposition);
+        void editDispositionImage(const ImageDisposition disposition);
 };
 
 #endif // CARTEINFOS_HPP

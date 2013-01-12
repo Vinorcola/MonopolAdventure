@@ -6,7 +6,7 @@
 
 EditionCarte::EditionCarte(Carte* carte,
                            const QList<Emplacement*>& emplacements,
-                           const QList<PileCartesData*>& pilesCartes,
+                           const QList<PileCartes*>& pilesCartes,
                            QWidget* parent) :
     m_dialog(new QDialog(parent)),
     m_champ(new CarteEditWidget(carte, emplacements, pilesCartes))

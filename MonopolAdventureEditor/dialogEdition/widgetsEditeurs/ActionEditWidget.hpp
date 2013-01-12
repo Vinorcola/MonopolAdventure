@@ -10,7 +10,6 @@
 #include <QScrollBar>
 #include <QSpinBox>
 
-#include "dialogEdition/donnees/PileCartesData.hpp"
 #include "donnees/cartes/Action.hpp"
 #include "widgetsSelecteurs/PointerComboBox.hpp"
 
@@ -31,7 +30,7 @@ class ActionEditWidget : public QScrollArea
         Action* m_action;///< Action en cours d'édition.
         bool m_slotsInactifs;///< Permet de désactiver temporairement l'effet des slots lors d'une modification des entrées par le programme.
         const QList<Emplacement*>& m_emplacements;///< Référence constante vers la liste des emplacements du plateau.
-        const QList<PileCartesData*>& m_pilesCartes;///< Référence constante vers la liste des piles de cartes du plateau.
+        const QList<PileCartes*>& m_pilesCartes;///< Référence constante vers la liste des piles de cartes en cours d'édition.
         
         
         
@@ -76,12 +75,12 @@ class ActionEditWidget : public QScrollArea
         
         QGroupBox* m_groupePayeOuPioche;///< Groupe sélectionnable permettant la configuration d'une action de type "Paye ou Pioche".
         QSpinBox* m_amende;///< Champ permettant de configurer le montant de l'amende.
-        PointerComboBox<PileCartesData>* m_pileCartesPayeOuPioche;///< Champ permettant de configurer la pile de cartes dans laquelle piocher la carte.
+        PointerComboBox<PileCartes>* m_pileCartesPayeOuPioche;///< Champ permettant de configurer la pile de cartes dans laquelle piocher la carte.
         
         
         
         QGroupBox* m_groupePioche;///< Groupe sélectionnable permettant la configuration de la carte à piocher.
-        PointerComboBox<PileCartesData>* m_pileCartesPioche;///< Champ permettant de configurer la pile de cartes dans laquelle piocher la carte.
+        PointerComboBox<PileCartes>* m_pileCartesPioche;///< Champ permettant de configurer la pile de cartes dans laquelle piocher la carte.
         
         
         
@@ -99,7 +98,7 @@ class ActionEditWidget : public QScrollArea
          */
         ActionEditWidget(Action* action,
                          const QList<Emplacement*>& emplacements,
-                         const QList<PileCartesData*>& pilesCartes);
+                         const QList<PileCartes*>& pilesCartes);
         
         
         

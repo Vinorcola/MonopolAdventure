@@ -1,6 +1,5 @@
 #include "Action.hpp"
 
-#include "dialogEdition/donnees/PileCartesData.hpp"
 #include "donnees/cartes/PileCartes.hpp"
 
 
@@ -29,7 +28,6 @@ Action::Action() :
     
     m_payeOuPioche(false),
     m_pileCartes(0),
-    m_pileCartesEdition(0),
     
     m_pioche(false),
     
@@ -82,11 +80,11 @@ QString Action::getDescription(const QString& devise) const
     }
     else if (isPayeOuPioche())
     {
-        texte = QObject::tr("Le joueur peut, soit payer une amende de ") + QString::number(m_montant) + " " + devise + QObject::tr(", soit tirer une carte ") + (m_pileCartes ? m_pileCartes->getTitre() : m_pileCartesEdition->getTitre()) + ".";
+        texte = QObject::tr("Le joueur peut, soit payer une amende de ") + QString::number(m_montant) + " " + devise + QObject::tr(", soit tirer une carte ") + m_pileCartes->getTitre() + ".";
     }
     else if (isPioche())
     {
-        texte = QObject::tr("Le joueur pioche une carte ") + (m_pileCartes ? m_pileCartes->getTitre() : m_pileCartesEdition->getTitre()) + ".";
+        texte = QObject::tr("Le joueur pioche une carte ") + m_pileCartes->getTitre() + ".";
     }
     else
     {
@@ -193,7 +191,7 @@ quint8 Action::getNombreEmplacements() const
 
 
 
-Emplacement* Action::getEmplacement() const
+const Emplacement* Action::getEmplacement() const
 {
     if (isDeplacementAbsolu())
     {
@@ -240,7 +238,7 @@ bool Action::relanceDesPourLoyerService() const
 
 
 void Action::setDeplacement(const bool avance,
-                            Emplacement* emplacement,
+                            const Emplacement* emplacement,
                             const quint8 coefficientLoyer,
                             const bool relanceDes)
 {
@@ -264,7 +262,6 @@ void Action::setDeplacement(const bool avance,
         m_montantParGratteCiel = 0;
         m_payeOuPioche = false;
         m_pileCartes = 0;
-        m_pileCartesEdition = 0;
         m_pioche = false;
         m_libereDePrison = false;
     }
@@ -299,7 +296,6 @@ void Action::setDeplacement(const bool avance,
         m_montantParGratteCiel = 0;
         m_payeOuPioche = false;
         m_pileCartes = 0;
-        m_pileCartesEdition = 0;
         m_pioche = false;
         m_libereDePrison = false;
     }
@@ -332,7 +328,6 @@ void Action::setDeplacementJusquauProchain(const bool avance,
     m_montantParGratteCiel = 0;
     m_payeOuPioche = false;
     m_pileCartes = 0;
-    m_pileCartesEdition = 0;
     m_pioche = false;
     m_libereDePrison = false;
 }
@@ -450,7 +445,6 @@ void Action::setTransactionAvecAutreJoueur(const bool gain,
     m_montantParGratteCiel = 0;
     m_payeOuPioche = false;
     m_pileCartes = 0;
-    m_pileCartesEdition = 0;
     m_pioche = false;
     m_libereDePrison = false;
 }
@@ -480,7 +474,6 @@ void Action::setTransactionAvecBanque(const bool gain,
     m_montantParGratteCiel = 0;
     m_payeOuPioche = false;
     m_pileCartes = 0;
-    m_pileCartesEdition = 0;
     m_pioche = false;
     m_libereDePrison = false;
 }
@@ -510,7 +503,6 @@ void Action::setTransactionAvecTousLesJoueurs(const bool gain,
     m_montantParGratteCiel = 0;
     m_payeOuPioche = false;
     m_pileCartes = 0;
-    m_pileCartesEdition = 0;
     m_pioche = false;
     m_libereDePrison = false;
 }
@@ -592,7 +584,6 @@ void Action::setReparationConstructions(const quint16 montantParMaison,
     m_montantParGratteCiel = montantParGratteCiel;
     m_payeOuPioche = false;
     m_pileCartes = 0;
-    m_pileCartesEdition = 0;
     m_pioche = false;
     m_libereDePrison = false;
 }
@@ -619,25 +610,11 @@ bool Action::isPioche() const
 
 
 
-PileCartes* Action::getPileCartes() const
+const PileCartes* Action::getPileCartes() const
 {
     if (isPayeOuPioche() || isPioche())
     {
         return m_pileCartes;
-    }
-    
-    return 0;
-}
-
-
-
-
-
-PileCartesData* Action::getPileCartesEdition() const
-{
-    if (isPayeOuPioche() || isPioche())
-    {
-        return m_pileCartesEdition;
     }
     
     return 0;
@@ -662,7 +639,7 @@ quint16 Action::getAmende() const
 
 
 void Action::setPayeOuPioche(const quint16 amende,
-                             PileCartes* pileCartes)
+                             const PileCartes* pileCartes)
 {
     m_deplacement = false;
     m_joueurAvance = false;
@@ -682,7 +659,6 @@ void Action::setPayeOuPioche(const quint16 amende,
     m_montantParGratteCiel = 0;
     m_payeOuPioche = true;
     m_pileCartes = pileCartes;
-    m_pileCartesEdition = 0;
     m_pioche = false;
     m_libereDePrison = false;
 }
@@ -691,37 +667,7 @@ void Action::setPayeOuPioche(const quint16 amende,
 
 
 
-void Action::setPayeOuPioche(const quint16 amende,
-                             PileCartesData* pileCartes)
-{
-    m_deplacement = false;
-    m_joueurAvance = false;
-    m_deplacementRelatif = 0;
-    m_deplacementEmplacement = 0;
-    m_deplacementJusquauProchain = Type::Aucun;
-    m_coefficientLoyer = 1;
-    m_relanceDes = false;
-    m_transaction = false;
-    m_gainArgent = false;
-    m_enversBanque = false;
-    m_enversTousLesJoueurs = false;
-    m_montant = amende;
-    m_reparation = false;
-    m_montantParMaison = 0;
-    m_montantParHotel = 0;
-    m_montantParGratteCiel = 0;
-    m_payeOuPioche = true;
-    m_pileCartes = 0;
-    m_pileCartesEdition = pileCartes;
-    m_pioche = false;
-    m_libereDePrison = false;
-}
-
-
-
-
-
-void Action::setPioche(PileCartes* pileCartes)
+void Action::setPioche(const PileCartes* pileCartes)
 {
     m_deplacement = false;
     m_joueurAvance = false;
@@ -741,37 +687,7 @@ void Action::setPioche(PileCartes* pileCartes)
     m_montantParGratteCiel = 0;
     m_payeOuPioche = false;
     m_pileCartes = pileCartes;
-    m_pileCartesEdition = 0;
     m_pioche = true;
-    m_libereDePrison = false;
-}
-
-
-
-
-
-void Action::setPioche(PileCartesData* pileCartes)
-{
-    m_deplacement = false;
-    m_joueurAvance = false;
-    m_deplacementRelatif = 0;
-    m_deplacementEmplacement = 0;
-    m_deplacementJusquauProchain = Type::Aucun;
-    m_coefficientLoyer = 1;
-    m_relanceDes = false;
-    m_transaction = false;
-    m_gainArgent = false;
-    m_enversBanque = false;
-    m_enversTousLesJoueurs = false;
-    m_montant = 0;
-    m_reparation = false;
-    m_montantParMaison = 0;
-    m_montantParHotel = 0;
-    m_montantParGratteCiel = 0;
-    m_payeOuPioche = true;
-    m_pileCartes = 0;
-    m_pileCartesEdition = pileCartes;
-    m_pioche = false;
     m_libereDePrison = false;
 }
 
@@ -808,7 +724,6 @@ void Action::setLibereDePrison()
     m_montantParGratteCiel = 0;
     m_payeOuPioche = false;
     m_pileCartes = 0;
-    m_pileCartesEdition = 0;
     m_pioche = false;
     m_libereDePrison = true;
 }
@@ -817,23 +732,11 @@ void Action::setLibereDePrison()
 
 
 
-void Action::setPileCartesEdition(PileCartes* pileCartes)
+void Action::setPileCartes(const PileCartes* pileCartes)
 {
     if (isPayeOuPioche() || isPioche())
     {
         m_pileCartes = pileCartes;
-    }
-}
-
-
-
-
-
-void Action::setPileCartesEdition(PileCartesData* pileCartes)
-{
-    if (isPayeOuPioche() || isPioche())
-    {
-        m_pileCartesEdition = pileCartes;
     }
 }
 

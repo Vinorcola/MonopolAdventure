@@ -1,11 +1,13 @@
 #include "Carte.hpp"
 
+#include "donnees/cartes/PileCartes.hpp"
 
 
 
 
-Carte::Carte() :
-    m_pileCartes(0),
+
+Carte::Carte(const PileCartes* pileCartes) :
+    m_pileCartes(pileCartes),
     m_consigne(QObject::tr("Nouvelle carte")),
     m_image(),
     m_dispositionImage(GAUCHE),
@@ -18,28 +20,15 @@ Carte::Carte() :
 
 
 
-Carte::Carte(const Carte* autre) :
-    m_pileCartes(0),
+Carte::Carte(const Carte* autre,
+             const PileCartes* pileCartes) :
+    m_pileCartes(pileCartes),
     m_consigne(autre->m_consigne),
     m_image(autre->m_image),
     m_dispositionImage(autre->m_dispositionImage),
     m_action(autre->m_action)
 {
     
-}
-
-
-
-
-
-Carte::~Carte()
-{
-    /* Enlève la carte de la pile de cartes.
-     */
-    if (m_pileCartes)
-    {
-        m_pileCartes->removeOne(this);
-    }
 }
 
 
@@ -55,37 +44,9 @@ Action &Carte::getAction()
 
 
 
-PileCartes* Carte::getPileCartes() const
+const PileCartes* Carte::getPileCartes() const
 {
     return m_pileCartes;
-}
-
-
-
-
-
-void Carte::editPileCartes(PileCartes* const pileCartes)
-{
-    if (pileCartes != m_pileCartes)
-    {
-        /* Enlève la carte de l'ancienne pile de cartes.
-         */
-        if (m_pileCartes)
-        {
-            m_pileCartes->removeOne(this);
-        }
-        
-        
-        m_pileCartes = pileCartes;
-        
-        
-        /* Ajoute lacarte dans la nouvelle pile de cartes.
-         */
-        if (m_pileCartes)
-        {
-            m_pileCartes->append(this);
-        }
-    }
 }
 
 
@@ -135,7 +96,7 @@ void Carte::editImage(const QPixmap& image)
 
 
 
-CarteImageDisposition Carte::getDispositionImage() const
+Carte::ImageDisposition Carte::getDispositionImage() const
 {
     return m_dispositionImage;
 }
@@ -144,7 +105,7 @@ CarteImageDisposition Carte::getDispositionImage() const
 
 
 
-void Carte::editDispositionImage(const CarteImageDisposition disposition)
+void Carte::editDispositionImage(const ImageDisposition disposition)
 {
     m_dispositionImage = disposition;
 }

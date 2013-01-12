@@ -7,9 +7,8 @@
 #include <QListView>
 #include <QPushButton>
 
-#include "dialogEdition/donnees/PileCartesData.hpp"
-#include "dialogEdition/modeles/CarteListModel.hpp"
 #include "dialogEdition/EditionCarte.hpp"
+#include "donnees/cartes/PileCartes.hpp"
 
 
 
@@ -26,12 +25,11 @@ class PileCartesEditWidget : public QWidget
         
     private:
         const QList<Emplacement*>& m_emplacements;///< Liste des emplacements du plateau.
-        const QList<PileCartesData*>& m_pilesCartes;///< Liste des piles de cartes en cours d'édition.
+        const QList<PileCartes*>& m_pilesCartes;///< Liste des piles de cartes en cours d'édition.
         const QString& m_devise;///< Devise du plateau.
         
-        PileCartesData* m_pileCartes;///< Pile de cartes à éditer.
+        PileCartes* m_pileCartes;///< Pile de cartes à éditer.
         QLineEdit* m_champTitre;///< Champ d'édition du titre de la pile de cartes.
-        CarteListModel* m_modeleCartes;///< Modèle de données contenant la liste des cartes.
         QListView* m_vueCartes;///< Vue de la liste des cartes.
         QLabel* m_description;///< Widget affichant la description de la carte.
         QPushButton* m_creerCarte;///< Bouton demandant la création d'une nouvelle carte.
@@ -48,7 +46,7 @@ class PileCartesEditWidget : public QWidget
          * @param devise Devise du plateau.
          */
         PileCartesEditWidget(const QList<Emplacement*>& emplacements,
-                             const QList<PileCartesData*>& pilesCartes,
+                             const QList<PileCartes*>& pilesCartes,
                              const QString& devise);
         
         
@@ -57,7 +55,7 @@ class PileCartesEditWidget : public QWidget
          * Edite la pile de carte dans le fichier.
          * @param pileCartes
          */
-        void editPileCartes(PileCartesData* pileCartes);
+        void editPileCartes(PileCartes* pileCartes);
         
         
         

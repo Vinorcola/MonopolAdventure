@@ -19,7 +19,7 @@ class EditionListePilesCartes
     private:
         QDialog* m_dialog;///< Boîte de dialogue affichant le widget d'édition.
         QList<PileCartes*>& m_listeOriginale;///< Référence vers la liste originale des piles de cartes.
-        QList<PileCartesData*> m_listeEditable;///< Liste de structures de données contenant les informations éditables des piles de cartes.
+        QList<PileCartes*> m_listeEditable;///< Liste de structures de données contenant les informations éditables des piles de cartes.
         ListePilesCartesEditWidget* m_widgetEdition;///< Widget d'édition de la liste de piles de cartes.
         
         
