@@ -6,7 +6,7 @@
 
 CarteEditWidget::CarteEditWidget(Carte* carte,
                                  const QList<Emplacement*>& emplacements,
-                                 const QList<PileCartesData*>& pilesCartes) :
+                                 const QList<PileCartes*>& pilesCartes) :
     QTabWidget(),
     m_carte(carte),
     m_consigne(new QTextEdit(m_carte->getConsigne())),
@@ -27,19 +27,19 @@ CarteEditWidget::CarteEditWidget(Carte* carte,
     m_positionImage->addButton(m_bas);
     switch (m_carte->getDispositionImage())
     {
-        case GAUCHE:
+        case Carte::GAUCHE:
             m_gauche->setChecked(true);
             break;
             
-        case DROITE:
+        case Carte::DROITE:
             m_droite->setChecked(true);
             break;
             
-        case HAUT:
+        case Carte::HAUT:
             m_haut->setChecked(true);
             break;
             
-        case BAS:
+        case Carte::BAS:
             m_bas->setCheckable(true);
             break;
     }
@@ -75,18 +75,18 @@ void CarteEditWidget::sauvegarde()
     
     if (m_gauche->isChecked())
     {
-        m_carte->editDispositionImage(GAUCHE);
+        m_carte->editDispositionImage(Carte::GAUCHE);
     }
     else if (m_droite->isChecked())
     {
-        m_carte->editDispositionImage(DROITE);
+        m_carte->editDispositionImage(Carte::DROITE);
     }
     else if (m_haut->isChecked())
     {
-        m_carte->editDispositionImage(HAUT);
+        m_carte->editDispositionImage(Carte::HAUT);
     }
     else if (m_bas->isChecked())
     {
-        m_carte->editDispositionImage(BAS);
+        m_carte->editDispositionImage(Carte::BAS);
     }
 }

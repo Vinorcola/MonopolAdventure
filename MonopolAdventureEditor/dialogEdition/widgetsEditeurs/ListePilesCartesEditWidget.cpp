@@ -4,7 +4,7 @@
 
 
 
-ListePilesCartesEditWidget::ListePilesCartesEditWidget(QList<PileCartesData*>& pilesCartes,
+ListePilesCartesEditWidget::ListePilesCartesEditWidget(QList<PileCartes*>& pilesCartes,
                                                        const QList<Emplacement*>& emplacements,
                                                        const QString& devise) :
     QWidget(),

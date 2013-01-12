@@ -2,7 +2,6 @@
 #define ACTIONINFOS_HPP
 
 class PileCartes;
-class PileCartesData;
 #include "donnees/emplacements/Emplacement.hpp"
 
 
@@ -11,7 +10,9 @@ class PileCartesData;
 
 /**
  * @class Action Action.hpp donnees/cartes/Action.hpp
- * Action contient les informations éditables d'une action à éxécuter après avoir piocher une carte.
+ * Action est une action à éxécuter après avoir piocher une carte.
+ * 
+ * Une action peut indiquer au joueur qu'il doit payer quelquechose à quelqu'un, qu'il doit se déplacer quelque part, qu'il doit piocher une autre carte, etc.
  */
 class Action
 {
@@ -21,7 +22,7 @@ class Action
         bool m_deplacement;///< Indique si le joueur doit se déplacer.
         bool m_joueurAvance;///< Indique si le joueur doit se déplacer en avançant ou en reculant.
         quint8 m_deplacementRelatif;///< Indique le nombre d'emplacements à se déplacer depuis l'emplacement actuel du joueur.
-        Emplacement* m_deplacementEmplacement;///< Emplacement sur lequel le joueur doit se déplacer.
+        const Emplacement* m_deplacementEmplacement;///< Emplacement sur lequel le joueur doit se déplacer.
         Type::Emplacement m_deplacementJusquauProchain;///< Indique si le joueur doit ce déplacer jusqu'au prochain emplacements qui possède ce flag.
         quint8 m_coefficientLoyer;///< Si le joueur arrive sur une propriete appartenant à un autre joueur, son loyer est multiplié par ce coefficient.
         bool m_relanceDes;///< Indique si le joueur doit relancer les dés s'il se déplace sur un service appartenant à un autre joueur afin de calculer le nouveau loyer.
@@ -58,8 +59,7 @@ class Action
         /* Paye ou pioche
          */
         bool m_payeOuPioche;///< Indique si le joueur peut avoir le choix entre payer une ammende ou piocher une nouvelle carte.
-        PileCartes* m_pileCartes;///< Pile de cartes à piocher.
-        PileCartesData* m_pileCartesEdition;///< Pile de cartes à piocher (utilisé pendant l'édition des piles de cartes).
+        const PileCartes* m_pileCartes;///< Pile de cartes à piocher.
         
         
         /* Pioche
@@ -150,7 +150,7 @@ class Action
          * Retourne l'emplacement vers lequel se déplacer.
          * @return Emplacement vers lequel se déplacer.
          */
-        Emplacement* getEmplacement() const;
+        const Emplacement* getEmplacement() const;
         
         
         
@@ -186,7 +186,7 @@ class Action
          * @param relanceDes Indique si le joueur doit relancer les dés s'il se déplace sur un service appartenant à un autre joueur afin de calculer le nouveau loyer.
          */
         void setDeplacement(const bool avance,
-                            Emplacement* emplacement,
+                            const Emplacement* emplacement,
                             const quint8 coefficientLoyer = 1,
                             const bool relanceDes = false);
         
@@ -373,8 +373,7 @@ class Action
          * Retourne la pile de cartes dans laquelle piocher la carte.
          * @return Pile de cartes dans laquelle piocher la carte.
          */
-        PileCartes* getPileCartes() const;
-        PileCartesData* getPileCartesEdition() const;
+        const PileCartes* getPileCartes() const;
         
         
         
@@ -392,9 +391,7 @@ class Action
          * @param pileCartes Pile de cartes dans laquelle piocher une carte.
          */
         void setPayeOuPioche(const quint16 amende,
-                             PileCartes* pileCartes);
-        void setPayeOuPioche(const quint16 amende,
-                             PileCartesData* pileCartes);
+                             const PileCartes* pileCartes);
         
         
         
@@ -402,8 +399,7 @@ class Action
          * Change l'action pour une action consistant à piocher une carte.
          * @param pileCartes Pile de cartes dans laquelle piocher une carte.
          */
-        void setPioche(PileCartes* pileCartes);
-        void setPioche(PileCartesData* pileCartes);
+        void setPioche(const PileCartes* pileCartes);
         
         
         
@@ -423,11 +419,10 @@ class Action
         
         
         /**
-         * Change la pile de cartes configurée par cette action (utilisé lors de l'édition des piles de cartes).
+         * Change la pile de cartes associée à l'action (utilisé dans l'édition des listes de piles de cartes).
          * @param pileCartes Nouvelle pile de cartes.
          */
-        void setPileCartesEdition(PileCartes* pileCartes);
-        void setPileCartesEdition(PileCartesData* pileCartes);
+        void setPileCartes(const PileCartes* pileCartes);
 };
 
 #endif // ACTIONINFOS_HPP

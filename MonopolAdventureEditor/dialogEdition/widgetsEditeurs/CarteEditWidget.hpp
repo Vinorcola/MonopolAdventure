@@ -5,6 +5,7 @@
 #include <QTextEdit>
 
 #include "dialogEdition/widgetsEditeurs/ActionEditWidget.hpp"
+#include "donnees/cartes/Carte.hpp"
 #include "widgetsSelecteurs/ImageSelectWidget.hpp"
 
 
@@ -43,7 +44,7 @@ class CarteEditWidget : public QTabWidget
          */
         CarteEditWidget(Carte* carte,
                         const QList<Emplacement*>& emplacements,
-                        const QList<PileCartesData*>& pilesCartes);
+                        const QList<PileCartes*>& pilesCartes);
         
         
         

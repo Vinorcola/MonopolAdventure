@@ -5,7 +5,7 @@
 
 
 PileCartesEditWidget::PileCartesEditWidget(const QList<Emplacement*>& emplacements,
-                                           const QList<PileCartesData*>& pilesCartes,
+                                           const QList<PileCartes*>& pilesCartes,
                                            const QString& devise) :
     QWidget(),
     m_emplacements(emplacements),
@@ -13,7 +13,6 @@ PileCartesEditWidget::PileCartesEditWidget(const QList<Emplacement*>& emplacemen
     m_devise(devise),
     m_pileCartes(0),
     m_champTitre(new QLineEdit),
-    m_modeleCartes(0),
     m_vueCartes(new QListView),
     m_description(new QLabel),
     m_creerCarte(new QPushButton(tr("Ajouter une nouvelle carte"))),
@@ -58,20 +57,19 @@ PileCartesEditWidget::PileCartesEditWidget(const QList<Emplacement*>& emplacemen
 
 
 
-void PileCartesEditWidget::editPileCartes(PileCartesData* pileCartes)
+void PileCartesEditWidget::editPileCartes(PileCartes* pileCartes)
 {
     if (pileCartes)
     {
         m_pileCartes = pileCartes;
         m_champTitre->setText(pileCartes->getTitre());
-        m_modeleCartes = pileCartes->getModeleCartes();
-        m_vueCartes->setModel(m_modeleCartes);
+        m_vueCartes->setModel(pileCartes);
         connect(m_vueCartes->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(selectedCarteChanged(QModelIndex)));
         
-        if (m_modeleCartes->rowCount() >= 1)
+        if (pileCartes->getNombreCartes() >= 1)
         {
-            m_vueCartes->setCurrentIndex(m_modeleCartes->helper_createIndexFromRow(0));
-            m_description->setText(m_modeleCartes->getCarteAt(0)->getAction().getDescription(m_devise));
+            m_vueCartes->setCurrentIndex(pileCartes->helper_createIndexFromRow(0));
+            m_description->setText(pileCartes->getCarteAt(0)->getAction().getDescription(m_devise));
             m_modifierCarte->setEnabled(true);
             m_supprimerCarte->setEnabled(true);
         }
@@ -107,7 +105,7 @@ void PileCartesEditWidget::createCarte()
     m_supprimerCarte->setEnabled(true);
     
     // Création et édition de la carte.
-    editCarte(m_modeleCartes->createCarte());
+    editCarte(m_pileCartes->createCarte());
 }
 
 
@@ -121,7 +119,7 @@ void PileCartesEditWidget::editCarte(int row)
         row = m_vueCartes->currentIndex().row();
     }
     
-    EditionCarte fenetre(m_modeleCartes->getCarteAt(row), m_emplacements, m_pilesCartes, this);
+    EditionCarte fenetre(m_pileCartes->getCarteAt(row), m_emplacements, m_pilesCartes, this);
     fenetre.executer();
 }
 
@@ -132,10 +130,10 @@ void PileCartesEditWidget::editCarte(int row)
 void PileCartesEditWidget::deleteCarte()
 {
     // Suppression de la carte.
-    m_modeleCartes->deleteCarteAt(m_vueCartes->currentIndex().row());
+    m_pileCartes->deleteCarteAt(m_vueCartes->currentIndex().row());
     
     // Désactivation du bouton de suppression.
-    if (m_modeleCartes->rowCount() == 0)
+    if (m_pileCartes->getNombreCartes() == 0)
     {
         m_modifierCarte->setDisabled(true);
         m_supprimerCarte->setDisabled(true);
@@ -148,6 +146,9 @@ void PileCartesEditWidget::deleteCarte()
 
 void PileCartesEditWidget::selectedCarteChanged(const QModelIndex& index)
 {
-    m_description->setText(m_modeleCartes->getCarteAt(index.row())->getAction().getDescription(m_devise));
+    if (index.row() >=0 && index.row() < rowCount())
+    {
+        m_description->setText(m_pileCartes->getCarteAt(index.row())->getAction().getDescription(m_devise));
+    }
 }
 

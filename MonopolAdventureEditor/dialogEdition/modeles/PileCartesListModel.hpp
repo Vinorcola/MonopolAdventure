@@ -3,7 +3,7 @@
 
 #include <QAbstractListModel>
 
-#include "dialogEdition/donnees/PileCartesData.hpp"
+#include "donnees/cartes/PileCartes.hpp"
 
 
 
@@ -19,8 +19,7 @@ class PileCartesListModel : public QAbstractListModel
         
         
     private:
-        QList<PileCartesData*>& m_pilesCartes;///< Référence vers la liste de piles de cartes.
-        
+        QList<PileCartes*>& m_pilesCartes;///< Référence vers la liste de piles de cartes.
         
         
         
@@ -29,7 +28,7 @@ class PileCartesListModel : public QAbstractListModel
          * Construit un nouveau modèle de données avec les piles de cartes contenues dans la liste @a pilesCartes.
          * @param regroupements Liste des regroupements.
          */
-        PileCartesListModel(QList<PileCartesData*>& pilesCartes);
+        PileCartesListModel(QList<PileCartes*>& pilesCartes);
         
         
         
@@ -49,7 +48,7 @@ class PileCartesListModel : public QAbstractListModel
          * @param row Rang de la pile de cartes à retourner.
          * @return Pile de cartes situé au rang @a row.
          */
-        PileCartesData* getPileCartesAt(int row) const;
+        PileCartes* getPileCartesAt(int row) const;
         
         
         

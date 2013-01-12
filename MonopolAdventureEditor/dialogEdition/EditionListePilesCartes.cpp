@@ -16,23 +16,25 @@ EditionListePilesCartes::EditionListePilesCartes(QList<PileCartes*>& pilesCartes
     // Création de la liste éditable.
     for (int i(0), iEnd(m_listeOriginale.count()); i < iEnd; i++)
     {
-        m_listeEditable << new PileCartesData(m_listeOriginale.at(i));
+        m_listeEditable << new PileCartes(pilesCartes.at(i));
     }
     
-    /* Correction des piles de cartes liées aux actions des cartes (on insère un pointeur vers l'objet PileCartesData en
-     * plus du pointeur vers PileCartes).
+    /* Correction des piles de cartes liées aux actions des cartes.
      */
-    for (int i(0), iEnd(m_listeEditable.count()); i < iEnd; i++)
+    for (int i(0), iEnd(pilesCartes.count()); i < iEnd; i++)
     {
-        PileCartesData* pileCartes(m_listeEditable.at(i));
-        for (int j(0), jEnd(pileCartes->getListeCartes().count()); j < jEnd; j++)
+        PileCartes* pileCartes(m_listeEditable.at(i));
+        for (int j(0), jEnd(pileCartes->getNombreCartes()); j < jEnd; j++)
         {
-            Action& action(pileCartes->getListeCartes().at(i)->getAction());
+            Action& action(pileCartes->getCarteAt(i)->getAction());
             
             if (action.isPayeOuPioche() || action.isPioche())
             {
-                int index(m_listeOriginale.indexOf(action.getPileCartes()));
-                action.setPileCartesEdition(m_listeEditable.at(index));
+                // On récupère l'index de la pile de cartes dans la liste originale.
+                int index(pilesCartes.indexOf((PileCartes*) action.getPileCartes()));
+                
+                // On change la pile de cartes par celle correspondant à l'index dans la liste editable.
+                action.setPileCartes(m_listeEditable.at(index));
             }
         }
     }
@@ -79,39 +81,15 @@ bool EditionListePilesCartes::executer()
 {
     if (m_dialog->exec())
     {
-        /* On équilibre le nombre de piles de cartes entre les deux listes.
+        /* On déplace les piles de cartes de la liste éditable vers la liste originale.
          */
-        if (m_listeOriginale.count() < m_listeEditable.count())
+        for (int i(0), iEnd(m_listeOriginale.count()); i < iEnd; i++)
         {
-            for (int i(0), iEnd(m_listeEditable.count() - m_listeOriginale.count()); i < iEnd; i++)
-            {
-                m_listeOriginale.append(new PileCartes);
-            }
+            // On supprime toutes les piles de cartes originales.
+            delete m_listeOriginale.takeLast();
         }
-        else
-        {
-            for (int i(0), iEnd(m_listeOriginale.count() - m_listeEditable.count()); i < iEnd; i++)
-            {
-                delete m_listeOriginale.takeLast();
-            }
-        }
-        
-        
-        
-        /* On transfère les cartes.
-         */
-        for (int i(0); i < m_listeOriginale.count(); i++)
-        {
-            PileCartes* pileCartesOriginale(m_listeOriginale.at(i));
-            PileCartesData* pileCartesEditee(m_listeEditable.at(i));    
-            
-            // Mise à jour du titre de la pile de cartes.
-            pileCartesOriginale->editTitre(pileCartesEditee->getTitre());
-            
-            // On rapatrie toutes les cartes de la pile de cartes éditable dans la pile originale
-            pileCartesOriginale->vider();
-            pileCartesEditee->transfereCartes(pileCartesOriginale);
-        }
+        m_listeOriginale = m_listeEditable;
+        m_listeEditable.clear();
         
         
         
@@ -122,12 +100,15 @@ bool EditionListePilesCartes::executer()
             PileCartes* pileCartes(m_listeOriginale.at(i));
             for (int j(0), jEnd(pileCartes->getNombreCartes()); j < jEnd; j++)
             {
-                Action& action(pileCartes->getCarte(j)->getAction());
+                Action& action(pileCartes->getCarteAt(j)->getAction());
                 
                 if (action.isPayeOuPioche() || action.isPioche())
                 {
-                    int index(m_listeEditable.indexOf(action.getPileCartesEdition()));
-                    action.setPileCartesEdition(m_listeOriginale.at(index));
+                    // On vérifie que le pile de cartes associée à l'action n'a pas été détruite.
+                    if (!m_listeOriginale.contains((PileCartes*) action.getPileCartes()))
+                    {
+                        /** @todo Affiche une dialog demandant de configurer la nouvelle pile de cartes associée. */
+                    }
                 }
             }
         }

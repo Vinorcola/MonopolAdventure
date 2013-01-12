@@ -25,10 +25,8 @@ SOURCES += main.cpp \
     assistants/creationPlateau/PageOuvrir.cpp \
     assistants/creationPlateau/PagePrix.cpp \
     assistants/creationPlateau/PageTaille.cpp \
-    dialogEdition/donnees/PileCartesData.cpp \
     dialogEdition/donnees/RegroupementData.cpp \
     dialogEdition/donnees/TerrainData.cpp \
-    dialogEdition/modeles/CarteListModel.cpp \
     dialogEdition/modeles/EmplacementListModel.cpp \
     dialogEdition/modeles/PileCartesListModel.cpp \
     dialogEdition/modeles/TerrainListModel.cpp \
@@ -91,10 +89,8 @@ HEADERS  += global.hpp \
     assistants/creationPlateau/PageOuvrir.hpp \
     assistants/creationPlateau/PagePrix.hpp \
     assistants/creationPlateau/PageTaille.hpp \
-    dialogEdition/donnees/PileCartesData.hpp \
     dialogEdition/donnees/RegroupementData.hpp \
     dialogEdition/donnees/TerrainData.hpp \
-    dialogEdition/modeles/CarteListModel.hpp \
     dialogEdition/modeles/EmplacementListModel.hpp \
     dialogEdition/modeles/PileCartesListModel.hpp \
     dialogEdition/modeles/TerrainListModel.hpp \

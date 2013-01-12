@@ -8,7 +8,7 @@
 
 ActionEditWidget::ActionEditWidget(Action* action,
                                    const QList<Emplacement*>& emplacements,
-                                   const QList<PileCartesData*>& pilesCartes) :
+                                   const QList<PileCartes*>& pilesCartes) :
     QScrollArea(),
     m_action(action),
     m_slotsInactifs(false),
@@ -44,9 +44,9 @@ ActionEditWidget::ActionEditWidget(Action* action,
     m_montantParHotel(new QSpinBox),
     m_groupePayeOuPioche(new QGroupBox(tr("Paye une amende ou pioche une autre carte"))),
     m_amende(new QSpinBox),
-    m_pileCartesPayeOuPioche(new PointerComboBox<PileCartesData>),
+    m_pileCartesPayeOuPioche(new PointerComboBox<PileCartes>),
     m_groupePioche(new QGroupBox(tr("Pioche une carte"))),
-    m_pileCartesPioche(new PointerComboBox<PileCartesData>),
+    m_pileCartesPioche(new PointerComboBox<PileCartes>),
     m_groupeLiberePrison(new QGroupBox(tr("Libéré de prison")))
 {
     /* Configuration générale des entrées
@@ -214,7 +214,7 @@ ActionEditWidget::ActionEditWidget(Action* action,
     
     for (int i(0), iEnd(m_pilesCartes.count()); i < iEnd; ++i)// Mise à jour des deux listes de piles de cartes.
     {
-        PileCartesData* pileCartes(m_pilesCartes.at(i));
+        PileCartes* pileCartes(m_pilesCartes.at(i));
         QString texte(QString::number(i) + ". " + pileCartes->getTitre());
         
         m_pileCartesPayeOuPioche->addItem(texte, pileCartes);
@@ -225,7 +225,7 @@ ActionEditWidget::ActionEditWidget(Action* action,
     {
         m_groupePayeOuPioche->setChecked(true);
         m_amende->setValue(m_action->getAmende());
-        m_pileCartesPayeOuPioche->setCurrentIndex(m_action->getPileCartesEdition());
+        m_pileCartesPayeOuPioche->setCurrentIndex(m_action->getPileCartes());
     }
     else
     {
@@ -240,7 +240,7 @@ ActionEditWidget::ActionEditWidget(Action* action,
     if (m_action->isPioche())
     {
         m_groupePioche->setChecked(true);
-        m_pileCartesPioche->setCurrentIndex(m_action->getPileCartesEdition());
+        m_pileCartesPioche->setCurrentIndex(m_action->getPileCartes());
     }
     else
     {

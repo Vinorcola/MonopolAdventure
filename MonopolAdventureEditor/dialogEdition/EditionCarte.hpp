@@ -33,7 +33,7 @@ class EditionCarte
          */
         EditionCarte(Carte* carte,
                      const QList<Emplacement*>& emplacements,
-                     const QList<PileCartesData*>& pilesCartes,
+                     const QList<PileCartes*>& pilesCartes,
                      QWidget* parent);
         
         
