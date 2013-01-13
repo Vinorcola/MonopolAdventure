@@ -47,9 +47,9 @@ ListePilesCartesEditWidget::ListePilesCartesEditWidget(QList<PileCartes*>& piles
     
     
     // Connexion des slots.
-    QObject::connect(m_vuePilesCartes, SIGNAL(currentIndexChanged(int)), this, SLOT(changePileCartesEditee(int)));
-    QObject::connect(m_creerPileCartes, SIGNAL(clicked()), this, SLOT(createPileCartes()));
-    QObject::connect(m_supprimerPileCartes, SIGNAL(clicked()), this, SLOT(deletePileCartes()));
+    connect(m_vuePilesCartes, SIGNAL(currentIndexChanged(int)), this, SLOT(changePileCartesEditee(int)));
+    connect(m_creerPileCartes, SIGNAL(clicked()), this, SLOT(createPileCartes()));
+    connect(m_supprimerPileCartes, SIGNAL(clicked()), this, SLOT(deletePileCartes()));
 }
 
 
