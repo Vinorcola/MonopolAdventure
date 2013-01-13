@@ -6,10 +6,12 @@
 
 
 
-Regroupement::Regroupement() :
-    QList(),
-    m_titre(""),
-    m_couleur(255, 255, 255)
+Regroupement::Regroupement(const bool modeEdition) :
+    QAbstractListModel(),
+    m_titre(tr("Nouveau regroupement")),
+    m_couleur(255, 255, 255),
+    m_terrains(),
+    m_modeEdition(modeEdition)
 {
     
 }
@@ -18,12 +20,14 @@ Regroupement::Regroupement() :
 
 
 
-Regroupement::~Regroupement()
+Regroupement::Regroupement(const Regroupement* regroupement) :
+    QAbstractListModel(),
+    m_titre(regroupement->m_titre),
+    m_couleur(regroupement->m_couleur),
+    m_terrains(regroupement->m_terrains),
+    m_modeEdition(true)
 {
-    for (int i(0), iEnd(count()); i < iEnd; ++i)
-    {
-        last()->editRegroupement(0);
-    }
+    
 }
 
 
@@ -82,25 +86,83 @@ void Regroupement::editCouleur(const QColor& couleur)
 
 int Regroupement::getNombreTerrains() const
 {
-    return count();
+    return m_terrains.count();
 }
 
 
 
 
 
-Terrain* Regroupement::getTerrain(int index) const
+Terrain* Regroupement::getTerrainAt(int index) const
 {
-    return at(index);
+    return m_terrains.at(index);
 }
 
 
 
 
 
-QList<Terrain*> Regroupement::getListeTerrains() const
+void Regroupement::transfereTerrainA(Regroupement* regroupement,
+                                     int rowTerrain)
 {
-    return *this;
+    
+    if (rowTerrain >= 0 && rowTerrain < m_terrains.count()
+     && regroupement != this && !regroupement->m_terrains.contains(m_terrains.at(rowTerrain)))
+    {
+        beginRemoveRows(QModelIndex(), rowTerrain, rowTerrain);
+        regroupement->insertTerrain(m_terrains.takeAt(rowTerrain));
+        endRemoveRows();
+    }
+}
+
+
+
+
+
+void Regroupement::insertTerrain(Terrain* terrain)
+{
+    if (!m_terrains.contains(terrain))
+    {
+        int rang(m_terrains.count());
+        beginInsertRows(QModelIndex(), rang, rang);
+        /** @todo Placer le terrain en fonction de son index. */
+        m_terrains.append(terrain);
+        endInsertRows();
+        
+        if (!m_modeEdition)
+        {
+            terrain->m_regroupement = this;
+        }
+    }
+}
+
+
+
+
+
+void Regroupement::enleveTerrain(Terrain* terrain)
+{
+    if (m_terrains.contains(terrain))
+    {
+        int rang(m_terrains.indexOf(terrain));
+        beginRemoveRows(QModelIndex(), rang, rang);
+        m_terrains.removeOne(terrain);
+        endRemoveRows();
+    }
+}
+
+
+
+
+
+void Regroupement::termineEdition()
+{
+    m_modeEdition = false;
+    
+    for (int i(0), iEnd(m_terrains.count()); i < iEnd; i++)
+    {
+        m_terrains.at(i)->m_regroupement = this;
+    }
 }
 
 
@@ -113,12 +175,44 @@ void Regroupement::saveInFile(QDataStream& ecriture,
 {
     if (version == 100)
     {
-        ecriture << count();// Ecriture du nombre de terrains présents.
+        ecriture << m_terrains.count();// Ecriture du nombre de terrains présents.
         
-        for (int i(0), iEnd(count()); i < iEnd; i++)
+        for (int i(0), iEnd(m_terrains.count()); i < iEnd; i++)
         {
-            ecriture << plateau->getIdentifiantEmplacement(at(i));
+            ecriture << plateau->getIdentifiantEmplacement(m_terrains.at(i));
         }
     }
+}
+
+
+
+
+
+QVariant Regroupement::data(const QModelIndex& index,
+                          int role) const
+{
+    if (index.isValid() && index.row() < rowCount())
+    {
+        if (role == Qt::DisplayRole)
+        {
+            return m_terrains.at(index.row())->getTitre();
+        }
+        if (role == Qt::BackgroundRole && index.row() % 2 == 1)
+        {
+            // Pour toutes les lignes impairs, on grise le fond.
+            return QBrush(QColor(192, 192, 192));
+        }
+    }
+    
+    return QVariant();
+}
+
+
+
+
+
+int Regroupement::rowCount(const QModelIndex&) const
+{
+    return m_terrains.count();
 }
 

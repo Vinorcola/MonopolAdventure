@@ -19,7 +19,7 @@ class RegroupementListModel : public QAbstractListModel
         
         
     private:
-        QList<RegroupementData*>& m_regroupements;///< Référence vers la liste de regroupements.
+        QList<Regroupement*>& m_regroupements;///< Référence vers la liste de regroupements.
         SelectionRegroupementListModel* m_modeleRegroupementsSelectionnables;///< Modèle de données secondaire contenant une liste des regroupements sélectionnables.
         
         
@@ -29,18 +29,7 @@ class RegroupementListModel : public QAbstractListModel
          * Construit un nouveau modèle de données avec les regroupements contenus dans la liste @a regroupements.
          * @param regroupements Liste des regroupements.
          */
-        RegroupementListModel(QList<RegroupementData*>& regroupements);
-        
-        
-        
-        /**
-         * Renseigne diverses informations nécessaires aux QWidgets vues.
-         * @param index Index correspondant au Terrain concerné.
-         * @param role Rôle de l'information.
-         * @return Diverses informations nécessaires aux QWidgets vues.
-         */
-        QVariant data(const QModelIndex& index,
-                      int role = Qt::DisplayRole) const;
+        RegroupementListModel(QList<Regroupement*>& regroupements);
         
         
         
@@ -57,16 +46,7 @@ class RegroupementListModel : public QAbstractListModel
          * @param row Rang du regroupement à retourner.
          * @return Regroupement situé au rang @a row.
          */
-        RegroupementData* getRegroupementAt(int row) const;
-        
-        
-        
-        /**
-         * Renseigne le nombre de rangs contenus dans le modèle de données.
-         * @param parent Paramètre inutilisé dans la réimplémentation.
-         * @return Nombre de rangs contenus dans le modèle de données.
-         */
-        int rowCount(const QModelIndex& parent = QModelIndex()) const;
+        Regroupement* getRegroupementAt(int row) const;
         
         
         
@@ -82,6 +62,47 @@ class RegroupementListModel : public QAbstractListModel
          * @param row Rang du regroupement à supprimer dans le modèle de données.
          */
         void deleteRegroupementAt(int row);
+        
+        
+        
+        /**
+         * Renseigne diverses informations nécessaires aux QWidgets vues.
+         * @param index Index correspondant au Terrain concerné.
+         * @param role Rôle de l'information.
+         * @return Diverses informations nécessaires aux QWidgets vues.
+         */
+        QVariant data(const QModelIndex& index,
+                      int role = Qt::DisplayRole) const;
+        
+        
+        
+        /**
+         * Renseigne le nombre de rangs contenus dans le modèle de données.
+         * @param parent Paramètre inutilisé dans la réimplémentation.
+         * @return Nombre de rangs contenus dans le modèle de données.
+         */
+        int rowCount(const QModelIndex& parent = QModelIndex()) const;
+        
+        
+        
+    public slots:
+        /**
+         * Change le titre du regroupement et notifie le changement au modèle de données.
+         * @param regroupement Regroupement concerné.
+         * @param titre Nouveau titre.
+         */
+        void editTitreRegroupement(Regroupement* regroupement,
+                                   const QString& titre);
+        
+        
+        
+        /**
+         * Change la couleur du regroupement et notifie le changement au modèle de données.
+         * @param regroupement Regroupement concerné.
+         * @param couleur Nouvelle couleur.
+         */
+        void editCouleurRegroupement(Regroupement* regroupement,
+                                     const QColor& couleur);
 };
 
 #endif // REGROUPEMENTLISTMODEL_HPP

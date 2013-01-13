@@ -4,7 +4,7 @@
 
 
 
-ListeRegroupementEditWidget::ListeRegroupementEditWidget(QList<RegroupementData*>& regroupements) :
+ListeRegroupementEditWidget::ListeRegroupementEditWidget(QList<Regroupement*>& regroupements) :
     QWidget(),
     m_regroupements(regroupements),
     m_modeleRegroupement(new RegroupementListModel(m_regroupements)),
@@ -39,6 +39,11 @@ ListeRegroupementEditWidget::ListeRegroupementEditWidget(QList<RegroupementData*
     layout->addWidget(m_widgetEditionRegroupement);
     
     setLayout(layout);
+    
+    
+    
+    connect(m_widgetEditionRegroupement, SIGNAL(titreChanged(Regroupement*,QString)), m_modeleRegroupement, SLOT(editTitreRegroupement(Regroupement*,QString)));
+    connect(m_widgetEditionRegroupement, SIGNAL(couleurChanged(Regroupement*,QColor)), m_modeleRegroupement, SLOT(editCouleurRegroupement(Regroupement*,QColor)));
 }
 
 
@@ -80,7 +85,7 @@ void ListeRegroupementEditWidget::deleteRegroupement()
      * « Supprimer » aurait été désactivé.
      */
     int rowSelectionne(m_vueRegroupements->currentIndex());
-    if (m_modeleRegroupement->getRegroupementAt(rowSelectionne)->getModeleTerrains()->rowCount() != 0)
+    if (m_modeleRegroupement->getRegroupementAt(rowSelectionne)->rowCount() != 0)
     {
         QMessageBox::information(this, tr("Suppression de regroupement"), tr("Attention ! Vous ne pouvez pas supprimer un regroupement qui contient encore des terrains. Veuillez déplacer tous les terrains vers un autre regroupement pour pouvoir le supprimer."));
     }

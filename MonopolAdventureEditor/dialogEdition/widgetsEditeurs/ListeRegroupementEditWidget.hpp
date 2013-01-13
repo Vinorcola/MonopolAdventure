@@ -22,7 +22,7 @@ class ListeRegroupementEditWidget : public QWidget
         
         
     private:
-        QList<RegroupementData*>& m_regroupements;///< Liste de regroupements éditables.
+        QList<Regroupement*>& m_regroupements;///< Liste de regroupements éditables.
         RegroupementListModel* m_modeleRegroupement;///< Modèle de données contenant la liste des regroupements éditable.
         QComboBox* m_vueRegroupements;///< Vue permettant d'afficher le modèle de données @a m_modeleRegroupements.
         QPushButton* m_boutonCreer;///< Bouton permettant de créer un nouveau regroupement.
@@ -36,7 +36,7 @@ class ListeRegroupementEditWidget : public QWidget
          * Construit un nouveau QWidget d'édition d'une liste de Regroupements.
          * @param regroupements Liste de regroupements éditables.
          */
-        ListeRegroupementEditWidget(QList<RegroupementData*>& regroupements);
+        ListeRegroupementEditWidget(QList<Regroupement*>& regroupements);
         
         
         

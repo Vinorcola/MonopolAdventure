@@ -47,14 +47,14 @@ Plateau::~Plateau()
         delete m_pilesCartes.takeLast();
     }
     
-    for (int i(0), iEnd(m_regroupements.size()); i < iEnd; ++i)
-    {
-        delete m_regroupements.takeLast();
-    }
-    
     for (int i(0), iEnd(m_emplacements.size()); i < iEnd; ++i)
     {
         delete m_emplacements.takeLast();
+    }
+    
+    for (int i(0), iEnd(m_regroupements.size()); i < iEnd; ++i)
+    {
+        delete m_regroupements.takeLast();
     }
 }
 
@@ -174,7 +174,7 @@ void Plateau::editTaille(const QSize& taille)
                 terrain->editTitre(tr("Terrain") + "_" + QString::number(i));
                 terrain->editSousTitre(tr("Nouveau"));
                 terrain->editDescription(tr("Veuillez configurer ce terrain"));
-                terrain->editRegroupement(m_regroupements.first());
+                m_regroupements.first()->insertTerrain(terrain);
                 
                 m_emplacements << terrain;
             }

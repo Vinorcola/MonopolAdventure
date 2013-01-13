@@ -1,6 +1,7 @@
 #ifndef REGROUPEMENTINFOS_HPP
 #define REGROUPEMENTINFOS_HPP
 
+#include <QAbstractListModel>
 #include <QColor>
 #include <QList>
 #include <QString>
@@ -17,33 +18,34 @@ class Plateau;
  * @class Regroupement Regroupement.hpp donnees/emplacements/Regroupement.hpp
  * Regroupement contient les informations éditables d'un regroupement de terrains.
  */
-class Regroupement : private QList<Terrain*>
+class Regroupement : public QAbstractListModel
 {
-        friend class Terrain;
-        
-        
     private:
         QString m_titre;///< Titre du regroupement.
         QColor m_couleur;///< Couleur du regroupement.
+        QList<Terrain*> m_terrains;///< Liste des terrains regroupés dans ce regroupement.
+        bool m_modeEdition;///< Indique si le regroupement est en édition ou non.
         
         
         
     public:
+    /* Constructeurs et destructeur. */
         /**
          * Construit un regroupement par défaut.
          */
-        Regroupement();
+        Regroupement(const bool modeEdition = false);
         
         
         
         /**
-         * Destructeur.
-         * Enlève tous les terrains contenus avant la suppression.
+         * Construit un regroupement identique à @a regroupement.
+         * @param regroupement Regroupement à copier.
          */
-        ~Regroupement();
+        Regroupement(const Regroupement* regroupement);
         
         
         
+    /* Méthodes d'accès aux informations. */
         /**
          * Renseigne le titre du regroupement.
          * @return Titre du regroupement.
@@ -88,18 +90,44 @@ class Regroupement : private QList<Terrain*>
          * Retourne le terrain situé à l'index @a index.
          * @return Terrain situé à l'index @a index.
          */
-        Terrain* getTerrain(int index) const;
+        Terrain* getTerrainAt(int index) const;
         
         
         
         /**
-         * Retourne la liste des terrains contenus.
-         * @return Liste des terrains contenus.
+         * Transfère un terrain vers un autre regroupement.
+         * @param regroupement Regroupement récupérant le terrain.
+         * @param rowTerrain Rang désignant le terrains à transférer.
          */
-        QList<Terrain*> getListeTerrains() const;
+        void transfereTerrainA(Regroupement* regroupement,
+                               int rowTerrain);
         
         
         
+        /**
+         * Insert un terrain dans le regroupement.
+         * @param terrain Terrain à insérer.
+         */
+        void insertTerrain(Terrain* terrain);
+        
+        
+        
+        /**
+         * Enlève un terrain du regroupement.
+         * @param terrain Terrain à enlever.
+         */
+        void enleveTerrain(Terrain* terrain);
+        
+        
+        
+        /**
+         * Configure tous les terrains contenus dans la liste pour qu'ils appartiennent à ce regroupement.
+         */
+        void termineEdition();
+        
+        
+        
+    /* Méthodes de sauvegarde et de chargement. */
         /**
          * Sauvegarde les informations concernant le regroupement via le flux de données.
          * @param ecriture Flux de données vers le fichier à écrire.
@@ -109,6 +137,27 @@ class Regroupement : private QList<Terrain*>
         void saveInFile(QDataStream& ecriture,
                         const quint16 version,
                         const Plateau* plateau) const;
+        
+        
+        
+    /* Méthodes nécessaires pour QAbstractListModel. */
+        /**
+         * Renseigne diverses informations nécessaires aux QWidgets vues.
+         * @param index Index correspondant au Terrain concerné.
+         * @param role Rôle de l'information.
+         * @return Diverses informations nécessaires aux QWidgets vues.
+         */
+        QVariant data(const QModelIndex& index,
+                      int role = Qt::DisplayRole) const;
+        
+        
+        
+        /**
+         * Renseigne le nombre de rangs contenus dans le modèle de données.
+         * @param parent Paramètre inutilisé dans la réimplémentation.
+         * @return Nombre de rangs contenus dans le modèle de données.
+         */
+        int rowCount(const QModelIndex& parent = QModelIndex()) const;
 };
 
 #endif // REGROUPEMENTINFOS_HPP

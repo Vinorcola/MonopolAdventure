@@ -4,7 +4,7 @@
 
 
 
-SelectionRegroupementListModel::SelectionRegroupementListModel(QList<RegroupementData*>& regroupements,
+SelectionRegroupementListModel::SelectionRegroupementListModel(QList<Regroupement*>& regroupements,
                                                                QObject* parent) :
     QAbstractListModel(parent),
     m_regroupements(regroupements),
@@ -54,7 +54,7 @@ Qt::ItemFlags SelectionRegroupementListModel::flags(const QModelIndex& index) co
 
 
 
-RegroupementData* SelectionRegroupementListModel::getRegroupementAt(int row) const
+Regroupement* SelectionRegroupementListModel::getRegroupementAt(int row) const
 {
     if (row >= 0 && row < rowCount())
     {
@@ -86,8 +86,17 @@ int SelectionRegroupementListModel::rowCount(const QModelIndex&) const
 
 
 
-void SelectionRegroupementListModel::notifyRegroupementInactif(RegroupementData* regroupement)
+void SelectionRegroupementListModel::notifyRegroupementInactif(Regroupement* regroupement)
 {
     m_rangRegroupementInactif = m_regroupements.indexOf(regroupement);
+}
+
+
+
+
+
+void SelectionRegroupementListModel::notifyDataChanged(const QModelIndex& index)
+{
+    emit dataChanged(index, index);
 }
 
