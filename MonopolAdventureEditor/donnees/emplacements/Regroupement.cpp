@@ -105,9 +105,13 @@ Terrain* Regroupement::getTerrainAt(int index) const
 void Regroupement::transfereTerrainA(Regroupement* regroupement,
                                      int rowTerrain)
 {
-    if (rowTerrain >= 0 && rowTerrain < m_terrains.count() && regroupement != this)
+    
+    if (rowTerrain >= 0 && rowTerrain < m_terrains.count()
+     && regroupement != this && !regroupement->m_terrains.contains(m_terrains.at(rowTerrain)))
     {
+        beginRemoveRows(QModelIndex(), rowTerrain, rowTerrain);
         regroupement->insertTerrain(m_terrains.takeAt(rowTerrain));
+        endRemoveRows();
     }
 }
 
@@ -119,8 +123,11 @@ void Regroupement::insertTerrain(Terrain* terrain)
 {
     if (!m_terrains.contains(terrain))
     {
+        int rang(m_terrains.count());
+        beginInsertRows(QModelIndex(), rang, rang);
         /** @todo Placer le terrain en fonction de son index. */
         m_terrains.append(terrain);
+        endInsertRows();
         
         if (!m_modeEdition)
         {
@@ -135,7 +142,13 @@ void Regroupement::insertTerrain(Terrain* terrain)
 
 void Regroupement::enleveTerrain(Terrain* terrain)
 {
-    m_terrains.removeOne(terrain);
+    if (m_terrains.contains(terrain))
+    {
+        int rang(m_terrains.indexOf(terrain));
+        beginRemoveRows(QModelIndex(), rang, rang);
+        m_terrains.removeOne(terrain);
+        endRemoveRows();
+    }
 }
 
 

@@ -47,14 +47,14 @@ Plateau::~Plateau()
         delete m_pilesCartes.takeLast();
     }
     
-    for (int i(0), iEnd(m_regroupements.size()); i < iEnd; ++i)
-    {
-        delete m_regroupements.takeLast();
-    }
-    
     for (int i(0), iEnd(m_emplacements.size()); i < iEnd; ++i)
     {
         delete m_emplacements.takeLast();
+    }
+    
+    for (int i(0), iEnd(m_regroupements.size()); i < iEnd; ++i)
+    {
+        delete m_regroupements.takeLast();
     }
 }
 

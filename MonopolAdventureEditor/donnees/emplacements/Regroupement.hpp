@@ -140,24 +140,24 @@ class Regroupement : public QAbstractListModel
         
         
         
-        /* Méthodes nécessaires pour QAbstractListModel. */
-            /**
-             * Renseigne diverses informations nécessaires aux QWidgets vues.
-             * @param index Index correspondant au Terrain concerné.
-             * @param role Rôle de l'information.
-             * @return Diverses informations nécessaires aux QWidgets vues.
-             */
-            QVariant data(const QModelIndex& index,
-                          int role = Qt::DisplayRole) const;
-            
-            
-            
-            /**
-             * Renseigne le nombre de rangs contenus dans le modèle de données.
-             * @param parent Paramètre inutilisé dans la réimplémentation.
-             * @return Nombre de rangs contenus dans le modèle de données.
-             */
-            int rowCount(const QModelIndex& parent = QModelIndex()) const;
+    /* Méthodes nécessaires pour QAbstractListModel. */
+        /**
+         * Renseigne diverses informations nécessaires aux QWidgets vues.
+         * @param index Index correspondant au Terrain concerné.
+         * @param role Rôle de l'information.
+         * @return Diverses informations nécessaires aux QWidgets vues.
+         */
+        QVariant data(const QModelIndex& index,
+                      int role = Qt::DisplayRole) const;
+        
+        
+        
+        /**
+         * Renseigne le nombre de rangs contenus dans le modèle de données.
+         * @param parent Paramètre inutilisé dans la réimplémentation.
+         * @return Nombre de rangs contenus dans le modèle de données.
+         */
+        int rowCount(const QModelIndex& parent = QModelIndex()) const;
 };
 
 #endif // REGROUPEMENTINFOS_HPP
