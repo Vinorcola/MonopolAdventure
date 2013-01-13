@@ -4,7 +4,7 @@
 
 
 
-RegroupementEditWidget::RegroupementEditWidget(RegroupementData* regroupement,
+RegroupementEditWidget::RegroupementEditWidget(Regroupement* regroupement,
                                                SelectionRegroupementListModel* modeleRegroupementsSelectionnables) :
     QWidget(),
     m_regroupement(regroupement),
@@ -46,8 +46,8 @@ RegroupementEditWidget::RegroupementEditWidget(RegroupementData* regroupement,
      */
     m_vueRegroupementsSelectionnables->setModel(m_modeleRegroupementsSelectionnables);
     m_vueRegroupementsSelectionnables->setCurrentIndex(rowSelectionne);
-    m_vueTerrainsInternes->setModel(m_regroupement->getModeleTerrains());
-    m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(rowSelectionne)->getModeleTerrains());
+    m_vueTerrainsInternes->setModel(m_regroupement);
+    m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(rowSelectionne));
     
     
     
@@ -88,7 +88,7 @@ RegroupementEditWidget::RegroupementEditWidget(RegroupementData* regroupement,
 
 
 
-void RegroupementEditWidget::changeRegroupement(RegroupementData* regroupement)
+void RegroupementEditWidget::changeRegroupement(Regroupement* regroupement)
 {
     if (regroupement)
     {
@@ -97,7 +97,7 @@ void RegroupementEditWidget::changeRegroupement(RegroupementData* regroupement)
         m_regroupement = regroupement;
         m_champTitre->setText(m_regroupement->getTitre());
         m_champCouleur->setColor(m_regroupement->getCouleur());
-        m_vueTerrainsInternes->setModel(m_regroupement->getModeleTerrains());
+        m_vueTerrainsInternes->setModel(m_regroupement);
         
         
         
@@ -145,7 +145,7 @@ void RegroupementEditWidget::changeRegroupement(RegroupementData* regroupement)
         
         /* Mise à jour de la liste des terrains importable.
          */
-        m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(indexCourant)->getModeleTerrains());
+        m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(indexCourant));
     }
 }
 
@@ -155,7 +155,7 @@ void RegroupementEditWidget::changeRegroupement(RegroupementData* regroupement)
 
 void RegroupementEditWidget::changeModeleTerrainsExterne(int rowRegroupementSelectionne)
 {
-    m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(rowRegroupementSelectionne)->getModeleTerrains());
+    m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(rowRegroupementSelectionne));
 }
 
 

@@ -28,7 +28,7 @@ class RegroupementEditWidget : public QWidget
         
         
     private:
-        RegroupementData* m_regroupement;///< Regroupement en cours d'édition.
+        Regroupement* m_regroupement;///< Regroupement en cours d'édition.
         QLineEdit* m_champTitre;///< Champ d'édition du titre du regroupement.
         ColorSelectWidget* m_champCouleur;///< Champ d'édition de la couleur du regroupement.
         SelectionRegroupementListModel* m_modeleRegroupementsSelectionnables;///< Modèle de données contenant la liste des regroupements sélectionnables.
@@ -46,7 +46,7 @@ class RegroupementEditWidget : public QWidget
          * @param regroupement Regroupement à éditer.
          * @param regroupementModel Modèle contenant la liste des regroupements permettant de sélectionner des terrains.
          */
-        RegroupementEditWidget(RegroupementData* regroupement,
+        RegroupementEditWidget(Regroupement* regroupement,
                                SelectionRegroupementListModel* regroupementModel);
         
         
@@ -55,7 +55,7 @@ class RegroupementEditWidget : public QWidget
          * Change le regroupement à éditer.
          * @param regroupement Regroupement à éditer.
          */
-        void changeRegroupement(RegroupementData* regroupement);
+        void changeRegroupement(Regroupement* regroupement);
         
         
         

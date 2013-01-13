@@ -146,7 +146,7 @@ void PileCartesEditWidget::deleteCarte()
 
 void PileCartesEditWidget::selectedCarteChanged(const QModelIndex& index)
 {
-    if (index.row() >=0 && index.row() < rowCount())
+    if (index.row() >=0 && index.row() < m_pileCartes->rowCount())
     {
         m_description->setText(m_pileCartes->getCarteAt(index.row())->getAction().getDescription(m_devise));
     }

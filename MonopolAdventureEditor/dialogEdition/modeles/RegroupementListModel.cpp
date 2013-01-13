@@ -5,7 +5,7 @@
 
 
 
-RegroupementListModel::RegroupementListModel(QList<RegroupementData*>& regroupements) :
+RegroupementListModel::RegroupementListModel(QList<Regroupement*>& regroupements) :
     QAbstractListModel(),
     m_regroupements(regroupements),
     m_modeleRegroupementsSelectionnables(new SelectionRegroupementListModel(regroupements, this))
@@ -15,11 +15,11 @@ RegroupementListModel::RegroupementListModel(QList<RegroupementData*>& regroupem
      */
     if (regroupements.count() > 1)
     {
-        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(m_regroupements.at(1));
+        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(regroupements.at(1));
     }
     else
     {
-        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(m_regroupements.first());
+        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(regroupements.first());
     }
 }
 
@@ -59,7 +59,7 @@ SelectionRegroupementListModel* RegroupementListModel::getModeleRegroupementsSel
 
 
 
-RegroupementData* RegroupementListModel::getRegroupementAt(int row) const
+Regroupement* RegroupementListModel::getRegroupementAt(int row) const
 {
     if (row >= 0 && row < rowCount())
     {
@@ -88,7 +88,7 @@ int RegroupementListModel::createRegroupement()
     beginInsertRows(QModelIndex(), rang, rang);
     m_modeleRegroupementsSelectionnables->beginInsertRows(QModelIndex(), rang, rang);
     
-    m_regroupements.append(new RegroupementData);
+    m_regroupements.append(new Regroupement(true));
     
     endInsertRows();
     m_modeleRegroupementsSelectionnables->endInsertRows();
@@ -104,7 +104,7 @@ void RegroupementListModel::deleteRegroupementAt(int row)
 {
     /* On vérifie bien que le regroupement ne possède plus aucun terrainavant de la supprimer.
      */
-    if (row >= 0 && row < rowCount() && m_regroupements.at(row)->getModeleTerrains()->rowCount() == 0)
+    if (row >= 0 && row < rowCount() && m_regroupements.at(row)->rowCount() == 0)
     {
         beginRemoveRows(QModelIndex(), row, row);
         m_modeleRegroupementsSelectionnables->beginRemoveRows(QModelIndex(), row, row);

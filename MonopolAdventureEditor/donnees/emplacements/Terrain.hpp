@@ -17,6 +17,9 @@ class Regroupement;
  */
 class Terrain : public Propriete
 {
+        friend class Regroupement;
+        
+        
     private:
         Regroupement* m_regroupement;///< Regroupement auquel appartient le terrain.
         quint16 m_prixAchatMaison;///< Prix d'achat d'une maison.
@@ -53,15 +56,7 @@ class Terrain : public Propriete
          * Renseigne le regroupement auquel appartient le terrain.
          * @return Regroupement auquel appartient le terrain.
          */
-        Regroupement* getRegroupement() const;
-        
-        
-        
-        /**
-         * Remplace le regroupement auquel appartient le terrain.
-         * @param regroupement Nouveau regroupement.
-         */
-        void editRegroupement(Regroupement* const regroupement);
+        const Regroupement* getRegroupement() const;
         
         
         

@@ -3,7 +3,7 @@
 
 #include <QAbstractListModel>
 
-#include "dialogEdition/donnees/RegroupementData.hpp"
+#include "donnees/emplacements/Regroupement.hpp"
 
 
 
@@ -26,7 +26,7 @@ class SelectionRegroupementListModel : public QAbstractListModel
         
         
     private:
-        QList<RegroupementData*>& m_regroupements;///< Référence vers la liste de regroupements.
+        QList<Regroupement*>& m_regroupements;///< Référence vers la liste de regroupements.
         int m_rangRegroupementInactif;///< Indique l'éventuel regroupement inactif (-1 pour aucun).
         
         
@@ -37,7 +37,7 @@ class SelectionRegroupementListModel : public QAbstractListModel
          * @param regroupements Liste des regroupements.
          * @param parent QObject parent.
          */
-        SelectionRegroupementListModel(QList<RegroupementData*>& regroupements,
+        SelectionRegroupementListModel(QList<Regroupement*>& regroupements,
                                        QObject* parent);
         
         
@@ -66,7 +66,7 @@ class SelectionRegroupementListModel : public QAbstractListModel
          * Retourne le regroupement situé au rang @a row.
          * @param row Rang du regroupement à retourner.
          */
-        RegroupementData* getRegroupementAt(int row) const;
+        Regroupement* getRegroupementAt(int row) const;
         
         
         
@@ -92,7 +92,7 @@ class SelectionRegroupementListModel : public QAbstractListModel
          * Notifie au modèle de données que le regroupement @a regroupement doit être désactivé à la sélection.
          * @param regroupement Regroupement à désactiver.
          */
-        void notifyRegroupementInactif(RegroupementData* regroupement);
+        void notifyRegroupementInactif(Regroupement* regroupement);
 };
 
 #endif // SELECTIONREGROUPEMENTLISTMODEL_HPP

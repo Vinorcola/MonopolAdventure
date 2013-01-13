@@ -19,7 +19,7 @@ class RegroupementListModel : public QAbstractListModel
         
         
     private:
-        QList<RegroupementData*>& m_regroupements;///< Référence vers la liste de regroupements.
+        QList<Regroupement*>& m_regroupements;///< Référence vers la liste de regroupements.
         SelectionRegroupementListModel* m_modeleRegroupementsSelectionnables;///< Modèle de données secondaire contenant une liste des regroupements sélectionnables.
         
         
@@ -29,7 +29,7 @@ class RegroupementListModel : public QAbstractListModel
          * Construit un nouveau modèle de données avec les regroupements contenus dans la liste @a regroupements.
          * @param regroupements Liste des regroupements.
          */
-        RegroupementListModel(QList<RegroupementData*>& regroupements);
+        RegroupementListModel(QList<Regroupement*>& regroupements);
         
         
         
@@ -57,7 +57,7 @@ class RegroupementListModel : public QAbstractListModel
          * @param row Rang du regroupement à retourner.
          * @return Regroupement situé au rang @a row.
          */
-        RegroupementData* getRegroupementAt(int row) const;
+        Regroupement* getRegroupementAt(int row) const;
         
         
         

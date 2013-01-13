@@ -31,7 +31,7 @@ Terrain::~Terrain()
      */
     if (m_regroupement)
     {
-        m_regroupement->removeOne(this);
+        m_regroupement->enleveTerrain(this);
     }
 }
 
@@ -39,48 +39,9 @@ Terrain::~Terrain()
 
 
 
-Regroupement* Terrain::getRegroupement() const
+const Regroupement* Terrain::getRegroupement() const
 {
     return m_regroupement;
-}
-
-
-
-
-
-void Terrain::editRegroupement(Regroupement* const regroupement)
-{
-    if (regroupement != m_regroupement)
-    {
-        /* Enlève le terrain de l'ancien regroupement.
-         */
-        if (m_regroupement)
-        {
-            m_regroupement->removeOne(this);
-        }
-        
-        
-        m_regroupement = regroupement;
-        
-        
-        /* Ajoute le terrain dans le nouveau regroupement.
-         */
-        if (m_regroupement)
-        {
-            m_regroupement->append(this);
-            
-            
-            /* Met à jour l'affichage de l'emplacement.
-             * NOTE : On ne met à jour l'affichage que s'il y a un nouveau regroupement. S'il n'y a pas de nouveau
-             * regroupement, c'est que le terrain va être supprimé. Il n'est donc pas nécessaire d'actualiser
-             * l'affichage graphique.
-             */
-            if (m_elementGraphique)
-            {
-                m_elementGraphique->updateCouleurRegroupement(helper_getCouleurRegroupement());
-            }
-        }
-    }
 }
 
 

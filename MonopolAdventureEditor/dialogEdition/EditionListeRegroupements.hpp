@@ -21,7 +21,7 @@ class EditionListeRegroupements
     private:
         QDialog* m_dialog;///< Boîte de dialogue affichant le widget d'édition.
         QList<Regroupement*>& m_listeOriginale;///< Référence vers la liste originale des regroupements.
-        QList<RegroupementData*> m_listeEditable;///< Liste de structures de données contenant les informations éditables des regroupements.
+        QList<Regroupement*> m_listeEditable;///< Liste de structures de données contenant les informations éditables des regroupements.
         ListeRegroupementEditWidget* m_widgetEditionListeRegroupements;///< Widget d'édition de la liste de regroupements.
         
         
