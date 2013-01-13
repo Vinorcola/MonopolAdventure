@@ -91,3 +91,12 @@ void SelectionRegroupementListModel::notifyRegroupementInactif(Regroupement* reg
     m_rangRegroupementInactif = m_regroupements.indexOf(regroupement);
 }
 
+
+
+
+
+void SelectionRegroupementListModel::notifyDataChanged(const QModelIndex& index)
+{
+    emit dataChanged(index, index);
+}
+

@@ -164,7 +164,8 @@ void RegroupementEditWidget::changeModeleTerrainsExterne(int rowRegroupementSele
 
 void RegroupementEditWidget::ajouterTerrain()
 {
-    m_modeleRegroupementsSelectionnables->getRegroupementAt(m_vueRegroupementsSelectionnables->currentIndex())->transfereTerrainA(m_regroupement, m_vueTerrainsExternes->currentIndex().row());
+    m_modeleRegroupementsSelectionnables->getRegroupementAt(m_vueRegroupementsSelectionnables->currentIndex())
+        ->transfereTerrainA(m_regroupement, m_vueTerrainsExternes->currentIndex().row());
 }
 
 
@@ -173,7 +174,9 @@ void RegroupementEditWidget::ajouterTerrain()
 
 void RegroupementEditWidget::enleverTerrain()
 {
-    m_regroupement->transfereTerrainA(m_modeleRegroupementsSelectionnables->getRegroupementAt(m_vueRegroupementsSelectionnables->currentIndex()), m_vueTerrainsInternes->currentIndex().row());
+    m_regroupement->transfereTerrainA(
+        m_modeleRegroupementsSelectionnables->getRegroupementAt(m_vueRegroupementsSelectionnables->currentIndex()),
+        m_vueTerrainsInternes->currentIndex().row());
 }
 
 
@@ -182,7 +185,7 @@ void RegroupementEditWidget::enleverTerrain()
 
 void RegroupementEditWidget::changeTitre(QString titre)
 {
-    m_regroupement->editTitre(titre);
+    emit titreChanged(m_regroupement, titre);
 }
 
 
@@ -191,6 +194,6 @@ void RegroupementEditWidget::changeTitre(QString titre)
 
 void RegroupementEditWidget::changeCouleur(QColor couleur)
 {
-    m_regroupement->editCouleur(couleur);
+    emit couleurChanged(m_regroupement, couleur);
 }
 

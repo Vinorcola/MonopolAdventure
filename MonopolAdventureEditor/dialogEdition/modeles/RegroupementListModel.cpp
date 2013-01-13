@@ -27,29 +27,6 @@ RegroupementListModel::RegroupementListModel(QList<Regroupement*>& regroupements
 
 
 
-QVariant RegroupementListModel::data(const QModelIndex& index,
-                                     int role) const
-{
-    if (index.isValid() && index.row() < rowCount())
-    {
-        if (role == Qt::DisplayRole)
-        {
-            return m_regroupements.at(index.row())->getTitre();
-        }
-        
-        if (role == Qt::DecorationRole)
-        {
-            return m_regroupements.at(index.row())->getCouleur();
-        }
-    }
-    
-    return QVariant();
-}
-
-
-
-
-
 SelectionRegroupementListModel* RegroupementListModel::getModeleRegroupementsSelectionnables() const
 {
     return m_modeleRegroupementsSelectionnables;
@@ -67,15 +44,6 @@ Regroupement* RegroupementListModel::getRegroupementAt(int row) const
     }
     
     return 0;
-}
-
-
-
-
-
-int RegroupementListModel::rowCount(const QModelIndex&) const
-{
-    return m_regroupements.count();
 }
 
 
@@ -113,6 +81,70 @@ void RegroupementListModel::deleteRegroupementAt(int row)
         
         endRemoveRows();
         m_modeleRegroupementsSelectionnables->endRemoveRows();
+    }
+}
+
+
+
+
+
+QVariant RegroupementListModel::data(const QModelIndex& index,
+                                     int role) const
+{
+    if (index.isValid() && index.row() < rowCount())
+    {
+        if (role == Qt::DisplayRole)
+        {
+            return m_regroupements.at(index.row())->getTitre();
+        }
+        
+        if (role == Qt::DecorationRole)
+        {
+            return m_regroupements.at(index.row())->getCouleur();
+        }
+    }
+    
+    return QVariant();
+}
+
+
+
+
+
+int RegroupementListModel::rowCount(const QModelIndex&) const
+{
+    return m_regroupements.count();
+}
+
+
+
+
+
+void RegroupementListModel::editTitreRegroupement(Regroupement* regroupement,
+                                                  const QString& titre)
+{
+    if (m_regroupements.contains(regroupement))
+    {
+        regroupement->editTitre(titre);
+        QModelIndex index(createIndex(m_regroupements.indexOf(regroupement), 0));
+        emit dataChanged(index, index);
+        m_modeleRegroupementsSelectionnables->notifyDataChanged(index);
+    }
+}
+
+
+
+
+
+void RegroupementListModel::editCouleurRegroupement(Regroupement* regroupement,
+                                                    const QColor& couleur)
+{
+    if (m_regroupements.contains(regroupement))
+    {
+        regroupement->editCouleur(couleur);
+        QModelIndex index(createIndex(m_regroupements.indexOf(regroupement), 0));
+        emit dataChanged(index, index);
+        m_modeleRegroupementsSelectionnables->notifyDataChanged(index);
     }
 }
 

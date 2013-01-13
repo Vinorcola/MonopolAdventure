@@ -93,6 +93,14 @@ class SelectionRegroupementListModel : public QAbstractListModel
          * @param regroupement Regroupement à désactiver.
          */
         void notifyRegroupementInactif(Regroupement* regroupement);
+        
+        
+        
+        /**
+         * Notifie au modèle de données que des données ont changées.
+         * @param index Index du regroupement qui a été édité.
+         */
+        void notifyDataChanged(const QModelIndex& index);
 };
 
 #endif // SELECTIONREGROUPEMENTLISTMODEL_HPP

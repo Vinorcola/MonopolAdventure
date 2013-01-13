@@ -39,6 +39,11 @@ ListeRegroupementEditWidget::ListeRegroupementEditWidget(QList<Regroupement*>& r
     layout->addWidget(m_widgetEditionRegroupement);
     
     setLayout(layout);
+    
+    
+    
+    connect(m_widgetEditionRegroupement, SIGNAL(titreChanged(Regroupement*,QString)), m_modeleRegroupement, SLOT(editTitreRegroupement(Regroupement*,QString)));
+    connect(m_widgetEditionRegroupement, SIGNAL(couleurChanged(Regroupement*,QColor)), m_modeleRegroupement, SLOT(editCouleurRegroupement(Regroupement*,QColor)));
 }
 
 

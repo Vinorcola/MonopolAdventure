@@ -95,6 +95,27 @@ class RegroupementEditWidget : public QWidget
          * @param couleur Nouvelle couleur.
          */
         void changeCouleur(QColor couleur);
+        
+        
+        
+    signals:
+        /**
+         * Notifie un changement de titre.
+         * @param regroupement Regroupement en cours d'édition.
+         * @param titre Nouveau titre.
+         */
+        void titreChanged(Regroupement* regroupement,
+                          const QString& titre);
+        
+        
+        
+        /**
+         * Notifie un changement de couleur.
+         * @param regroupement Regroupement en cours d'édition.
+         * @param couleur Nouvelle couleur.
+         */
+        void couleurChanged(Regroupement* regroupement,
+                            const QColor& couleur);
 };
 
 #endif // REGROUPEMENTEDITWIDGET_HPP
