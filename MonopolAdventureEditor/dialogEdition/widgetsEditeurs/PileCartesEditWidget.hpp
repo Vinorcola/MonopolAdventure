@@ -79,6 +79,7 @@ class PileCartesEditWidget : public QWidget
          * Lance la fenêtre d'édition de la carte sélectionnée.
          */
         void editCarte(int row = -1);
+        void editCarte(const QModelIndex& index);
         
         
         

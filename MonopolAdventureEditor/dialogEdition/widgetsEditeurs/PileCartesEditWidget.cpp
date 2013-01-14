@@ -51,6 +51,7 @@ PileCartesEditWidget::PileCartesEditWidget(const QList<Emplacement*>& emplacemen
     connect(m_creerCarte, SIGNAL(clicked()), this, SLOT(createCarte()));
     connect(m_modifierCarte, SIGNAL(clicked()), this, SLOT(editCarte()));
     connect(m_supprimerCarte, SIGNAL(clicked()), this, SLOT(deleteCarte()));
+    connect(m_vueCartes, SIGNAL(activated(QModelIndex)), this, SLOT(editCarte(QModelIndex)));
 }
 
 
@@ -126,12 +127,22 @@ void PileCartesEditWidget::editCarte(int row)
         row = m_vueCartes->currentIndex().row();
     }
     
-    // Si aucune carte n'est sélectionnée, row reste à -1 ici. Il faut donc tester une nouvelle fois.
-    if (row != -1)
+    
+    
+    if (row >=0 && row < m_pileCartes->rowCount())
     {
         EditionCarte fenetre(m_pileCartes->getCarteAt(row), m_emplacements, m_pilesCartes, this);
         fenetre.executer();
     }
+}
+
+
+
+
+
+void PileCartesEditWidget::editCarte(const QModelIndex& index)
+{
+    editCarte(index.row());
 }
 
 
