@@ -288,17 +288,13 @@ GraphismeEmplacement* Emplacement::dessiner()
 
 
 
-void Emplacement::saveInFile(QDataStream& ecriture,
-                             const quint16 version) const
+void Emplacement::saveInFile(QDataStream& ecriture) const
 {
-    if (version == 100)
-    {
-        ecriture << (quint8) m_type
-                 << m_titre
-                 << m_sousTitre
-                 << m_description
-                 << m_image;
-    }
+    ecriture << (quint8) m_type
+             << m_titre
+             << m_sousTitre
+             << m_description
+             << m_image;
 }
 
 

@@ -110,3 +110,17 @@ void Carte::editDispositionImage(const ImageDisposition disposition)
     m_dispositionImage = disposition;
 }
 
+
+
+
+
+void Carte::saveInFile(QDataStream& ecriture,
+                       const Plateau* plateau) const
+{
+    ecriture << m_consigne
+             << m_image
+             << (quint8) m_dispositionImage;
+    
+    m_action.saveInFile(ecriture, plateau);
+}
+

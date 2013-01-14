@@ -1,6 +1,7 @@
 #include "PileCartes.hpp"
 
 #include "donnees/cartes/Carte.hpp"
+#include "donnees/Plateau.hpp"
 
 
 
@@ -168,6 +169,22 @@ bool PileCartes::utilise(Emplacement *emplacement)
 QModelIndex PileCartes::helper_createIndexFromRow(int row)
 {
     return createIndex(row, 0);
+}
+
+
+
+
+
+void PileCartes::saveInFile(QDataStream& ecriture,
+                            const Plateau* plateau) const
+{
+    ecriture << m_titre
+             << m_cartes.count();// Ecriture du nombre de terrains présents.
+    
+    for (int i(0), iEnd(m_cartes.count()); i < iEnd; i++)
+    {
+        m_cartes.at(i)->saveInFile(ecriture, plateau);
+    }
 }
 
 

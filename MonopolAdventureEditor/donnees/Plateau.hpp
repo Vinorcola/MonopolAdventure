@@ -428,7 +428,7 @@ class Plateau : public QGraphicsScene
          * 
          * Cette méthode est utiliser pour identifier un emplacement dans la sauvegarde de certaines données dans un fichier.
          */
-        quint8 getIdentifiantEmplacement(Emplacement* emplacement) const;
+        quint8 getIdentifiantEmplacement(const Emplacement* emplacement) const;
         
         
         
@@ -439,7 +439,7 @@ class Plateau : public QGraphicsScene
          * 
          * Cette méthode est utiliser pour identifier une pile de cartes dans la sauvegarde de certaines données dans un fichier.
          */
-        quint8 getIdentifiantPileCartes(PileCartes* pileCartes) const;
+        quint8 getIdentifiantPileCartes(const PileCartes* pileCartes) const;
         
         
         

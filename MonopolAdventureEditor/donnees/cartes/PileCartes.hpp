@@ -5,6 +5,7 @@
 
 class Carte;
 class Emplacement;
+class Plateau;
 
 
 
@@ -123,6 +124,17 @@ class PileCartes : public QAbstractListModel
          * Helper créant un index à partir d'un rang.
          */
         QModelIndex helper_createIndexFromRow(int row);
+        
+        
+        
+    /* Méthodes de sauvegarde et de chargement. */
+        /**
+         * Sauvegarde les informations concernant la pile de cartes via le flux de données.
+         * @param ecriture Flux de données vers le fichier à écrire.
+         * @param plateau Plateau auquel appartient le regroupement.
+         */
+        void saveInFile(QDataStream& ecriture,
+                        const Plateau* plateau) const;
         
         
         

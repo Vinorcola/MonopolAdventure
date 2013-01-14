@@ -121,6 +121,16 @@ class Carte
          * @param disposition Nouvelle disposition.
          */
         void editDispositionImage(const ImageDisposition disposition);
+        
+        
+        
+        /**
+         * Sauvegarde les informations concernant la carte via le flux de données.
+         * @param ecriture Flux de données vers le fichier à écrire.
+         * @param plateau Plateau auquel appartient le regroupement.
+         */
+        void saveInFile(QDataStream& ecriture,
+                        const Plateau* plateau) const;
 };
 
 #endif // CARTEINFOS_HPP

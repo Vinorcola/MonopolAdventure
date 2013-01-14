@@ -79,18 +79,14 @@ void Service::editLoyer(const int nombreServicesPossedes,
 
 
 
-void Service::saveInFile(QDataStream& ecriture,
-                         const quint16 version) const
+void Service::saveInFile(QDataStream& ecriture) const
 {
-    if (version == 100)
+    Propriete::saveInFile(ecriture);
+    
+    ecriture << (quint8) m_loyers.count();// Ecriture de la taille de la liste.
+    for (int i(0), iEnd(m_loyers.count()); i < iEnd; i++)
     {
-        Propriete::saveInFile(ecriture, 100);
-        
-        ecriture << (quint8) m_loyers.count();// Ecriture de la taille de la liste.
-        for (int i(0), iEnd(m_loyers.count()); i < iEnd; i++)
-        {
-            ecriture << m_loyers.at(i);
-        }
+        ecriture << m_loyers.at(i);
     }
 }
 

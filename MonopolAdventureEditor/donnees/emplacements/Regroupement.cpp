@@ -170,17 +170,15 @@ void Regroupement::termineEdition()
 
 
 void Regroupement::saveInFile(QDataStream& ecriture,
-                              const quint16 version,
                               const Plateau* plateau) const
 {
-    if (version == 100)
+    ecriture << m_titre
+             << m_couleur
+             << m_terrains.count();// Ecriture du nombre de terrains présents.
+    
+    for (int i(0), iEnd(m_terrains.count()); i < iEnd; i++)
     {
-        ecriture << m_terrains.count();// Ecriture du nombre de terrains présents.
-        
-        for (int i(0), iEnd(m_terrains.count()); i < iEnd; i++)
-        {
-            ecriture << plateau->getIdentifiantEmplacement(m_terrains.at(i));
-        }
+        ecriture << plateau->getIdentifiantEmplacement(m_terrains.at(i));
     }
 }
 

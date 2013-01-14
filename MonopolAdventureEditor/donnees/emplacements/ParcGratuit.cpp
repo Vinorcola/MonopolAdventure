@@ -23,12 +23,8 @@ ParcGratuit::~ParcGratuit()
 
 
 
-void ParcGratuit::saveInFile(QDataStream& ecriture,
-                             const quint16 version) const
+void ParcGratuit::saveInFile(QDataStream& ecriture) const
 {
-    if (version == 100)
-    {
-        Emplacement::saveInFile(ecriture, 100);
-    }
+    Emplacement::saveInFile(ecriture);
 }
 

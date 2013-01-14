@@ -131,11 +131,9 @@ class Regroupement : public QAbstractListModel
         /**
          * Sauvegarde les informations concernant le regroupement via le flux de données.
          * @param ecriture Flux de données vers le fichier à écrire.
-         * @param version Numéro de la version à utiliser pour écrire les données.
          * @param plateau Plateau auquel appartient le regroupement.
          */
         void saveInFile(QDataStream& ecriture,
-                        const quint16 version,
                         const Plateau* plateau) const;
         
         

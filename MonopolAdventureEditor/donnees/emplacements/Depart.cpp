@@ -51,15 +51,11 @@ void Depart::editSalaire(const quint16 montant)
 
 
 
-void Depart::saveInFile(QDataStream& ecriture,
-                        const quint16 version) const
+void Depart::saveInFile(QDataStream& ecriture) const
 {
-    if (version == 100)
-    {
-        Emplacement::saveInFile(ecriture, 100);
-        
-        ecriture << m_salaire;
-    }
+    Emplacement::saveInFile(ecriture);
+    
+    ecriture << m_salaire;
 }
 
 

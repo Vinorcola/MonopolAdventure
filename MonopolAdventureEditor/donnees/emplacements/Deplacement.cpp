@@ -73,16 +73,12 @@ void Deplacement::editMontantAmende(const quint16 montant)
 
 
 void Deplacement::saveInFile(QDataStream& ecriture,
-                             const quint16 version,
                              const Plateau* plateau) const
 {
-    if (version == 100)
-    {
-        Emplacement::saveInFile(ecriture, 100);
-        
-        ecriture << plateau->getIdentifiantEmplacement(m_destination)
-                 << m_amende;
-    }
+    Emplacement::saveInFile(ecriture);
+    
+    ecriture << plateau->getIdentifiantEmplacement(m_destination)
+             << m_amende;
 }
 
 

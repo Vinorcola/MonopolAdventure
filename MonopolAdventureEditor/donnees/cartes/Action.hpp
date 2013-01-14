@@ -2,6 +2,7 @@
 #define ACTIONINFOS_HPP
 
 class PileCartes;
+class Plateau;
 #include "donnees/emplacements/Emplacement.hpp"
 
 
@@ -431,6 +432,16 @@ class Action
          * @param pileCartes Nouvelle pile de cartes.
          */
         void setPileCartes(const PileCartes* pileCartes);
+        
+        
+        
+        /**
+         * Sauvegarde les informations concernant l'action via le flux de données.
+         * @param ecriture Flux de données vers le fichier à écrire.
+         * @param plateau Plateau auquel appartient le regroupement.
+         */
+        void saveInFile(QDataStream& ecriture,
+                        const Plateau* plateau) const;
 };
 
 #endif // ACTIONINFOS_HPP

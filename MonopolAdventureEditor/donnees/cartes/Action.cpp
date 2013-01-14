@@ -1,6 +1,7 @@
 #include "Action.hpp"
 
 #include "donnees/cartes/PileCartes.hpp"
+#include "donnees/Plateau.hpp"
 
 
 
@@ -750,5 +751,34 @@ void Action::setPileCartes(const PileCartes* pileCartes)
     {
         m_pileCartes = pileCartes;
     }
+}
+
+
+
+
+
+void Action::saveInFile(QDataStream& ecriture,
+                        const Plateau* plateau) const
+{
+    ecriture << m_deplacement
+             << m_joueurAvance
+             << m_deplacementRelatif
+             << plateau->getIdentifiantEmplacement(m_deplacementEmplacement)
+             << (quint8) m_deplacementJusquauProchain
+             << m_coefficientLoyer
+             << m_relanceDes
+             << m_transaction
+             << m_gainArgent
+             << m_enversBanque
+             << m_enversTousLesJoueurs
+             << m_montant
+             << m_reparation
+             << m_montantParMaison
+             << m_montantParHotel
+             << m_montantParGratteCiel
+             << m_payeOuPioche
+             << plateau->getIdentifiantPileCartes(m_pileCartes)
+             << m_pioche
+             << m_libereDePrison;
 }
 

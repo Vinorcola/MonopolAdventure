@@ -45,14 +45,10 @@ void Pioche::editPileCartes(PileCartes* const pileCartes)
 
 
 void Pioche::saveInFile(QDataStream& ecriture,
-                        const quint16 version,
                         const Plateau* plateau) const
 {
-    if (version == 100)
-    {
-        Emplacement::saveInFile(ecriture, 100);
-        
-        ecriture << plateau->getIdentifiantPileCartes(m_pileCartes);
-    }
+    Emplacement::saveInFile(ecriture);
+    
+    ecriture << plateau->getIdentifiantPileCartes(m_pileCartes);
 }
 

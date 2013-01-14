@@ -23,12 +23,8 @@ SimpleVisite::~SimpleVisite()
 
 
 
-void SimpleVisite::saveInFile(QDataStream& ecriture,
-                              const quint16 version) const
+void SimpleVisite::saveInFile(QDataStream& ecriture) const
 {
-    if (version == 100)
-    {
-        Emplacement::saveInFile(ecriture, 100);
-    }
+    Emplacement::saveInFile(ecriture);
 }
 
