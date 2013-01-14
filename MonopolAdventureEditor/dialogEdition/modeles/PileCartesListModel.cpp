@@ -81,3 +81,18 @@ void PileCartesListModel::deletePileCartesAt(int row)
     }
 }
 
+
+
+
+
+void PileCartesListModel::editTitrePileCartes(PileCartes* pileCartes,
+                                              const QString& titre)
+{
+    if (m_pilesCartes.contains(pileCartes))
+    {
+        pileCartes->editTitre(titre);
+        QModelIndex index(createIndex(m_pilesCartes.indexOf(pileCartes), 0));
+        emit dataChanged(index, index);
+    }
+}
+

@@ -74,6 +74,17 @@ class PileCartesListModel : public QAbstractListModel
          * @param row Rang de la pile de cartes à supprimer dans le modèle de données.
          */
         void deletePileCartesAt(int row);
+        
+        
+        
+    public slots:
+        /**
+         * Change le titre de la pile de cartes et notifie le changement au modèle de données.
+         * @param pileCartes Pile de cartes concernée.
+         * @param titre Nouveau titre.
+         */
+        void editTitrePileCartes(PileCartes* pileCartes,
+                                 const QString& titre);
 };
 
 #endif // PILECARTESLISTMODEL_HPP

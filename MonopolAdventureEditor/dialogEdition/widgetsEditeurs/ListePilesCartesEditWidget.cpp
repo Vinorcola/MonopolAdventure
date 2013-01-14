@@ -50,6 +50,7 @@ ListePilesCartesEditWidget::ListePilesCartesEditWidget(QList<PileCartes*>& piles
     connect(m_vuePilesCartes, SIGNAL(currentIndexChanged(int)), this, SLOT(changePileCartesEditee(int)));
     connect(m_creerPileCartes, SIGNAL(clicked()), this, SLOT(createPileCartes()));
     connect(m_supprimerPileCartes, SIGNAL(clicked()), this, SLOT(deletePileCartes()));
+    connect(m_champPileCartes, SIGNAL(titreChanged(PileCartes*,QString)), m_modelePilesCartes, SLOT(editTitrePileCartes(PileCartes*,QString)));
 }
 
 

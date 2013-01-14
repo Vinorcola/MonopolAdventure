@@ -91,7 +91,7 @@ void PileCartesEditWidget::editPileCartes(PileCartes* pileCartes)
 
 void PileCartesEditWidget::changeTitre(QString titre)
 {
-    m_pileCartes->editTitre(titre);
+    emit titreChanged(m_pileCartes, titre);
 }
 
 

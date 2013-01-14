@@ -94,6 +94,17 @@ class PileCartesEditWidget : public QWidget
          * @param index Index de la carte.
          */
         void selectedCarteChanged(const QModelIndex& index);
+        
+        
+        
+    signals:
+        /**
+         * Notifie un changement de titre.
+         * @param pileCartes Pile de cartes en cours d'édition.
+         * @param titre Nouveau titre.
+         */
+        void titreChanged(PileCartes* pileCartes,
+                          const QString& titre);
 };
 
 #endif // PILECARTESEDITWIDGET_HPP
