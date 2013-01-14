@@ -141,13 +141,13 @@ void ListePilesCartesEditWidget::deletePileCartes()
              * Si la pile de cartes à supprimer est la dernière de la liste, on sélectionne la précédente. Sinon, on
              * sélectionne la suivante.
              */
-            if (rowSelectionne == m_modelePilesCartes->rowCount() - 1)
+            if (rowSelectionne == m_modelePilesCartes->rowCount())
             {
                 m_champPileCartes->editPileCartes(m_modelePilesCartes->getPileCartesAt(rowSelectionne - 1));
             }
             else
             {
-                m_champPileCartes->editPileCartes(m_modelePilesCartes->getPileCartesAt(rowSelectionne + 1));
+                m_champPileCartes->editPileCartes(m_modelePilesCartes->getPileCartesAt(rowSelectionne));
             }
             
             
