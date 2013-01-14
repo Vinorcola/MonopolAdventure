@@ -975,7 +975,7 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
         
         
         
-        /* Recherche d'éventuels emplacements « Déplacement » qui pointait vers l'ancien emplacement.
+        /* Recherche d'éventuels emplacements « Déplacement » qui pointaient vers l'ancien emplacement.
          */
         for (int i(0), iEnd(m_emplacements.count()); i < iEnd; i++)
         {
@@ -986,6 +986,24 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
                 if (deplacement->getDestination() == emplacement)
                 {
                     deplacement->editDestination(nouvelEmplacement);
+                }
+            }
+        }
+        
+        
+        
+        /* Recherche d'éventuelles cartes qui pointaient vers l'ancien emplacement.
+         */
+        for (int i(0), iEnd(m_pilesCartes.count()); i < iEnd; i++)
+        {
+            PileCartes* pileCartes(m_pilesCartes.at(i));
+            for (int j(0), jEnd(pileCartes->getNombreCartes()); j < jEnd; j++)
+            {
+                Action& action(pileCartes->getCarteAt(j)->getAction());
+                
+                if (action.getEmplacement() == emplacement)
+                {
+                    action.setEmplacement(nouvelEmplacement);
                 }
             }
         }

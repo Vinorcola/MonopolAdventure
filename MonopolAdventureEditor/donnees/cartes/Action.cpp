@@ -732,6 +732,18 @@ void Action::setLibereDePrison()
 
 
 
+void Action::setEmplacement(const Emplacement* emplacement)
+{
+    if (isDeplacementAbsolu())
+    {
+        m_deplacementEmplacement = emplacement;
+    }
+}
+
+
+
+
+
 void Action::setPileCartes(const PileCartes* pileCartes)
 {
     if (isPayeOuPioche() || isPioche())

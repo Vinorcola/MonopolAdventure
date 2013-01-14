@@ -419,6 +419,14 @@ class Action
         
         
         /**
+         * Change l'emplacement associé à l'action (utilisé dans le changement de type des emplacement).
+         * @param emplacement Nouvel emplacement.
+         */
+        void setEmplacement(const Emplacement* emplacement);
+        
+        
+        
+        /**
          * Change la pile de cartes associée à l'action (utilisé dans l'édition des listes de piles de cartes).
          * @param pileCartes Nouvelle pile de cartes.
          */
