@@ -7,10 +7,12 @@
 
 
 ListePilesCartesEditWidget::ListePilesCartesEditWidget(QList<PileCartes*>& pilesCartes,
+                                                       const PileCartePioche& pileCartesPioche,
                                                        const QList<Emplacement*>& emplacements,
                                                        const QString& devise) :
     QWidget(),
     m_emplacements(emplacements),
+    m_pileCartesPioche(pileCartesPioche),
     m_pilesCartes(pilesCartes),
     m_modelePilesCartes(new PileCartesListModel(pilesCartes)),
     m_vuePilesCartes(new QComboBox),
@@ -112,22 +114,15 @@ void ListePilesCartesEditWidget::deletePileCartes()
     {
         /* On contrôle l'utilisation de la pile de cartes dans les emplacements « Pioche ».
          */
-        i = 0;
-        iEnd = m_emplacements.count();
-        
-        while (!trouve && i < iEnd)
+        PileCartePioche::const_iterator i(m_pileCartesPioche.constBegin());
+        while (!trouve && i != m_pileCartesPioche.constEnd())
         {
-            if (m_emplacements.at(i)->getType() == Type::Pioche)
-            {
-                trouve = (static_cast<Pioche*>(m_emplacements.at(i))->getPileCartes() == pileCartesASupprimer);
-            }
-            
-            i++;
+            trouve = (i.value() == pileCartesASupprimer);
         }
         
         if (trouve)
         {
-            QMessageBox::warning(this, tr("Erreur lors de la suppression"), tr("Attention, cette pile de cartes est utilisée par l'emplacements « ") + m_emplacements.at(i - 1)->getTitre() + tr(" ». Veuillez modifier ces emplacements pour pouvoir supprimer cette pile de cartes."));
+            QMessageBox::warning(this, tr("Erreur lors de la suppression"), tr("Attention, cette pile de cartes est utilisée par l'emplacement « ") + i.key()->getTitre() + tr(" ». Veuillez modifier cet emplacement pour pouvoir supprimer cette pile de cartes."));
         }
         else
         {

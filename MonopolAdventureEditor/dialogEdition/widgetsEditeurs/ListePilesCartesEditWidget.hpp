@@ -7,6 +7,8 @@
 #include "dialogEdition/modeles/PileCartesListModel.hpp"
 #include "dialogEdition/widgetsEditeurs/PileCartesEditWidget.hpp"
 
+typedef QHash<Emplacement*, PileCartes*> PileCartePioche;
+
 
 
 
@@ -21,6 +23,7 @@ class ListePilesCartesEditWidget : public QWidget
         
     private:
         const QList<Emplacement*>& m_emplacements;///< Liste des emplacements du plateau.
+        const PileCartePioche& m_pileCartesPioche;///< Piles de cartes liées aux emplacements « Pioche ».
         
         QList<PileCartes*>& m_pilesCartes;///< Liste de piles de cartes éditables.
         PileCartesListModel* m_modelePilesCartes;///< Modèle de données contenant la liste des piles de cartes éditable.
@@ -39,6 +42,7 @@ class ListePilesCartesEditWidget : public QWidget
          * @param devise Devise du plateau.
          */
         ListePilesCartesEditWidget(QList<PileCartes*>& pilesCartes,
+                                   const PileCartePioche& pileCartesPioche,
                                    const QList<Emplacement*>& emplacements,
                                    const QString& devise);
         
