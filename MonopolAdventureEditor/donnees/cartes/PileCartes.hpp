@@ -4,6 +4,7 @@
 #include <QAbstractListModel>
 
 class Carte;
+class Emplacement;
 
 
 
@@ -98,6 +99,22 @@ class PileCartes : public QAbstractListModel
          * @param row Rang de la carte à supprimer dans la pile.
          */
         void deleteCarteAt(int row);
+        
+        
+        
+        /**
+         * Renseigne si la pile de cartes @a pileCartes est utilisée dans au moins une carte de la pile.
+         * @param pileCartes Pile de cartes à contrôler.
+         */
+        bool utilise(PileCartes* pileCartes);
+        
+        
+        
+        /**
+         * Renseigne si l'emplacement @a emplacement est utilisée dans au moins une carte de la pile.
+         * @param emplacement Emplacement à contrôler.
+         */
+        bool utilise(Emplacement* emplacement);
         
         
         

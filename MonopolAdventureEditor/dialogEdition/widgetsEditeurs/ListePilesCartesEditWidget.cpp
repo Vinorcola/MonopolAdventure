@@ -1,5 +1,7 @@
 #include "ListePilesCartesEditWidget.hpp"
 
+#include "donnees/emplacements/Pioche.hpp"
+
 
 
 
@@ -8,6 +10,7 @@ ListePilesCartesEditWidget::ListePilesCartesEditWidget(QList<PileCartes*>& piles
                                                        const QList<Emplacement*>& emplacements,
                                                        const QString& devise) :
     QWidget(),
+    m_emplacements(emplacements),
     m_pilesCartes(pilesCartes),
     m_modelePilesCartes(new PileCartesListModel(pilesCartes)),
     m_vuePilesCartes(new QComboBox),
@@ -84,34 +87,80 @@ void ListePilesCartesEditWidget::deletePileCartes()
     
     
     
-    /* Suppression de la pile de cartes.
+    /* On contrôle l'utilisation de la pile de cartes dans les autres pile de cartes.
      */
-    m_modelePilesCartes->deletePileCartesAt(rowSelectionne);
+    bool trouve(false);
+    int i(0), iEnd(m_pilesCartes.count());
+    PileCartes* pileCartesASupprimer(m_modelePilesCartes->getPileCartesAt(rowSelectionne));
     
-    
-    
-    /* Sélection d'une nouvelle pile de cartes pour l'édition.
-     * Si la pile de cartes à supprimer est la dernière de la liste, on sélectionne la précédente. Sinon, on sélectionne
-     * la suivante.
-     */
-    if (rowSelectionne == m_modelePilesCartes->rowCount() - 1)
+    while (!trouve && i < iEnd)
     {
-        m_champPileCartes->editPileCartes(m_modelePilesCartes->getPileCartesAt(rowSelectionne - 1));
+        PileCartes* pileCartes(m_pilesCartes.at(i));
+        if (pileCartes != pileCartesASupprimer)
+        {
+            trouve = pileCartes->utilise(pileCartesASupprimer);
+        }
+        
+        i++;
+    }
+    
+    if (trouve)
+    {
+        QMessageBox::warning(this, tr("Erreur lors de la suppression"), tr("Attention, cette pile de cartes est utilisée dans certaines cartes de la pile « ") + m_pilesCartes.at(i - 1)->getTitre() + tr(" ». Veuillez modifier ces cartes pour pouvoir supprimer cette pile de cartes."));
     }
     else
     {
-        m_champPileCartes->editPileCartes(m_modelePilesCartes->getPileCartesAt(rowSelectionne + 1));
-    }
-    
-    
-    
-    /* S'il n'y a plus de piles de cartes, on désactive la suppression et le widget éditeur.
-     */
-    if (m_modelePilesCartes->rowCount() == 0)
-    {
-        m_vuePilesCartes->setDisabled(true);
-        m_supprimerPileCartes->setDisabled(true);
-        m_champPileCartes->setDisabled(true);
+        /* On contrôle l'utilisation de la pile de cartes dans les emplacements « Pioche ».
+         */
+        i = 0;
+        iEnd = m_emplacements.count();
+        
+        while (!trouve && i < iEnd)
+        {
+            if (m_emplacements.at(i)->getType() == Type::Pioche)
+            {
+                trouve = (static_cast<Pioche*>(m_emplacements.at(i))->getPileCartes() == pileCartesASupprimer);
+            }
+            
+            i++;
+        }
+        
+        if (trouve)
+        {
+            QMessageBox::warning(this, tr("Erreur lors de la suppression"), tr("Attention, cette pile de cartes est utilisée par l'emplacements « ") + m_emplacements.at(i - 1)->getTitre() + tr(" ». Veuillez modifier ces emplacements pour pouvoir supprimer cette pile de cartes."));
+        }
+        else
+        {
+            /* Suppression de la pile de cartes.
+             */
+            m_modelePilesCartes->deletePileCartesAt(rowSelectionne);
+            
+            
+            
+            /* Sélection d'une nouvelle pile de cartes pour l'édition.
+             * Si la pile de cartes à supprimer est la dernière de la liste, on sélectionne la précédente. Sinon, on
+             * sélectionne la suivante.
+             */
+            if (rowSelectionne == m_modelePilesCartes->rowCount() - 1)
+            {
+                m_champPileCartes->editPileCartes(m_modelePilesCartes->getPileCartesAt(rowSelectionne - 1));
+            }
+            else
+            {
+                m_champPileCartes->editPileCartes(m_modelePilesCartes->getPileCartesAt(rowSelectionne + 1));
+            }
+            
+            
+            
+            /* S'il n'y a plus de piles de cartes, on désactive la suppression et le widget éditeur.
+             */
+            if (m_modelePilesCartes->rowCount() == 0)
+            {
+                m_vuePilesCartes->setDisabled(true);
+                m_supprimerPileCartes->setDisabled(true);
+                m_champPileCartes->setDisabled(true);
+            }
+        }
     }
 }
 

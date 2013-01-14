@@ -20,6 +20,8 @@ class ListePilesCartesEditWidget : public QWidget
         
         
     private:
+        const QList<Emplacement*>& m_emplacements;///< Liste des emplacements du plateau.
+        
         QList<PileCartes*>& m_pilesCartes;///< Liste de piles de cartes éditables.
         PileCartesListModel* m_modelePilesCartes;///< Modèle de données contenant la liste des piles de cartes éditable.
         QComboBox* m_vuePilesCartes;///< Vue permettant de sélectionner la pile de cartes à éditer.
