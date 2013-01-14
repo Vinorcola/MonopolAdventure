@@ -80,11 +80,11 @@ QString Action::getDescription(const QString& devise) const
     }
     else if (isPayeOuPioche())
     {
-        texte = QObject::tr("Le joueur peut, soit payer une amende de ") + QString::number(m_montant) + " " + devise + QObject::tr(", soit tirer une carte ") + m_pileCartes->getTitre() + ".";
+        texte = QObject::tr("Le joueur peut, soit payer une amende de ") + QString::number(m_montant) + " " + devise + QObject::tr(", soit tirer une carte ") + (m_pileCartes ? m_pileCartes->getTitre() : "?") + ".";
     }
     else if (isPioche())
     {
-        texte = QObject::tr("Le joueur pioche une carte ") + m_pileCartes->getTitre() + ".";
+        texte = QObject::tr("Le joueur pioche une carte ") + (m_pileCartes ? m_pileCartes->getTitre() : "?") + ".";
     }
     else
     {

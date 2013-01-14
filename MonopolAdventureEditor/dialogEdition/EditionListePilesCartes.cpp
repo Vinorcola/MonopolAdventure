@@ -14,7 +14,7 @@ EditionListePilesCartes::EditionListePilesCartes(QList<PileCartes*>& pilesCartes
     m_widgetEdition(0)
 {
     // Création de la liste éditable.
-    for (int i(0), iEnd(m_listeOriginale.count()); i < iEnd; i++)
+    for (int i(0), iEnd(pilesCartes.count()); i < iEnd; i++)
     {
         m_listeEditable << new PileCartes(pilesCartes.at(i));
     }
