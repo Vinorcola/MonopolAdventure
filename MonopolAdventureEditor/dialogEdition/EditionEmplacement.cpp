@@ -6,6 +6,7 @@
 #include "dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.hpp"
+#include "dialogEdition/widgetsEditeurs/PiocheEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp"
 #include "dialogEdition/widgetsEditeurs/TaxeEditWidget.hpp"
@@ -122,13 +123,14 @@ EditionEmplacement::EditionEmplacement(Pioche* pioche,
     m_dialog(new QDialog(parent)),
     m_onglets(new QTabWidget),
     m_onglet1(new EmplacementEditWidget(pioche)),
-    m_onglet2(0),
+    m_onglet2(new PiocheEditWidget(pioche, pilesCartes)),
     m_onglet3(0),
     m_onglet4(0)
 {
     /* Configuration du widget d'édition.
      */
     m_onglets->addTab(m_onglet1, QObject::tr("Informations générales"));
+    m_onglets->addTab(m_onglet2, QObject::tr("Carte à piocher"));
     
     
     

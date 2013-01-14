@@ -40,6 +40,7 @@ SOURCES += main.cpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/PiocheEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PileCartesEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.cpp \
@@ -101,6 +102,7 @@ HEADERS  += global.hpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/PiocheEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PileCartesEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \

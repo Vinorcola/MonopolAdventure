@@ -23,7 +23,7 @@ class TaxeEditWidget : public SauvegardeInterface
         
         
     private:
-        Taxe* m_taxe;///< Emplacement « Taxe » en cour d'édition.
+        Taxe* m_taxe;///< Emplacement « Taxe » en cours d'édition.
         QCheckBox* m_champPayeMontantFixe;///< Champ d'édition du moyen de paiement (1/2).
         QLabel* m_labelMontantFixe;///< Étiquette associée à m_champMontant.
         QSpinBox* m_champMontantFixe;///< Champ d'édition du montant fixe de la taxe.

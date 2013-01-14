@@ -18,7 +18,6 @@ EmplacementListModel::EmplacementListModel(const QList<Emplacement*>& emplacemen
 
 
 
-
 QVariant EmplacementListModel::data(const QModelIndex& index,
                                     int role) const
 {
@@ -26,7 +25,7 @@ QVariant EmplacementListModel::data(const QModelIndex& index,
     {
         if (role == Qt::DisplayRole)
         {
-            return m_emplacements.at(index.row())->getTitre();
+            return QString::number(index.row()) + ". " + m_emplacements.at(index.row())->getTitre();
         }
     }
     

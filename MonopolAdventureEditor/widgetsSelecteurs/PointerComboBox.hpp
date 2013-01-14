@@ -31,6 +31,16 @@ class PointerComboBox : public QComboBox
         
         
         /**
+         * Destructeur virtuel.
+         */
+        virtual ~PointerComboBox()
+        {
+            
+        }
+        
+        
+        
+        /**
          * Retourne la liste des pointeurs.
          * @return Liste des pointeurs.
          */
@@ -47,6 +57,11 @@ class PointerComboBox : public QComboBox
          */
         T* getCurrentPointeur() const
         {
+            if (currentIndex() == -1)
+            {
+                return 0;
+            }
+            
             return m_listePointeurs.at(currentIndex());
         }
         
