@@ -131,13 +131,13 @@ void Plateau::editTaille(const QSize& taille)
         
         
         /* Création de l'emplacement Prison et Départ, les deux emplacements obligatoires. On créé aussi un emplacement
-         * « Simple visite » nécessaire pour créer la prison.
+         * « Simple visite » nécessaire pour la prison.
          */
         SimpleVisite* simpleVisite(0);
         Prison* prison(0);
         Depart* depart(0);
         if (m_emplacements.isEmpty())
-        // C'est la tout première configuration.
+        // C'est la toute première configuration.
         {
             simpleVisite = new SimpleVisite(m_graphismeEmplacement);
             simpleVisite->editTitre(tr("Simple"));
@@ -972,6 +972,23 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
         nouvelEmplacement->editSousTitre(emplacement->getSousTitre());
         nouvelEmplacement->editDescription(emplacement->getDescription());
         nouvelEmplacement->editImage(emplacement->getImage());
+        
+        
+        
+        /* Recherche d'éventuels emplacements « Déplacement » qui pointait vers l'ancien emplacement.
+         */
+        for (int i(0), iEnd(m_emplacements.count()); i < iEnd; i++)
+        {
+            if (m_emplacements.at(i)->getType() == Type::Deplacement)
+            {
+                Deplacement* deplacement(static_cast<Deplacement*>(m_emplacements.at(i)));
+                
+                if (deplacement->getDestination() == emplacement)
+                {
+                    deplacement->editDestination(nouvelEmplacement);
+                }
+            }
+        }
         
         
         
