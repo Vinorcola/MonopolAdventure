@@ -21,6 +21,7 @@ class EditionListePilesCartes
         QList<PileCartes*>& m_listeOriginale;///< Référence vers la liste originale des piles de cartes.
         QList<PileCartes*> m_listeEditable;///< Liste de structures de données contenant les informations éditables des piles de cartes.
         ListePilesCartesEditWidget* m_widgetEdition;///< Widget d'édition de la liste de piles de cartes.
+        PileCartePioche m_pileCartesPioche;///< Enregistrement des piles de cartes en cours d'édition liées aux emplacements « Pioche ».
         
         
         

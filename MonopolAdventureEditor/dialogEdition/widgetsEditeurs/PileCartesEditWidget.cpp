@@ -70,11 +70,14 @@ void PileCartesEditWidget::editPileCartes(PileCartes* pileCartes)
         {
             m_vueCartes->setCurrentIndex(pileCartes->helper_createIndexFromRow(0));
             m_description->setText(pileCartes->getCarteAt(0)->getAction().getDescription(m_devise));
+            m_creerCarte->setEnabled(true);
             m_modifierCarte->setEnabled(true);
             m_supprimerCarte->setEnabled(true);
         }
         else
         {
+            m_description->setText("");
+            m_creerCarte->setEnabled(true);
             m_modifierCarte->setDisabled(true);
             m_supprimerCarte->setDisabled(true);
         }
@@ -82,6 +85,10 @@ void PileCartesEditWidget::editPileCartes(PileCartes* pileCartes)
     else
     {
         m_champTitre->setText("");
+        m_description->setText("");
+        m_creerCarte->setDisabled(true);
+        m_modifierCarte->setDisabled(true);
+        m_supprimerCarte->setDisabled(true);
     }
 }
 
@@ -119,8 +126,12 @@ void PileCartesEditWidget::editCarte(int row)
         row = m_vueCartes->currentIndex().row();
     }
     
-    EditionCarte fenetre(m_pileCartes->getCarteAt(row), m_emplacements, m_pilesCartes, this);
-    fenetre.executer();
+    // Si aucune carte n'est sélectionnée, row reste à -1 ici. Il faut donc tester une nouvelle fois.
+    if (row != -1)
+    {
+        EditionCarte fenetre(m_pileCartes->getCarteAt(row), m_emplacements, m_pilesCartes, this);
+        fenetre.executer();
+    }
 }
 
 
@@ -130,13 +141,31 @@ void PileCartesEditWidget::editCarte(int row)
 void PileCartesEditWidget::deleteCarte()
 {
     // Suppression de la carte.
-    m_pileCartes->deleteCarteAt(m_vueCartes->currentIndex().row());
+    int rang(m_vueCartes->currentIndex().row());
+    m_pileCartes->deleteCarteAt(rang);
+    
+    
     
     // Désactivation du bouton de suppression.
     if (m_pileCartes->getNombreCartes() == 0)
     {
         m_modifierCarte->setDisabled(true);
         m_supprimerCarte->setDisabled(true);
+    }
+    // Sélection d'une nouvelle carte.
+    else
+    {
+        QItemSelectionModel* selection(m_vueCartes->selectionModel());
+        if (rang == m_pileCartes->getNombreCartes())
+        {
+            selection->select(m_pileCartes->helper_createIndexFromRow(rang - 1), QItemSelectionModel::Select);
+        }
+        else
+        {
+            selection->select(m_pileCartes->helper_createIndexFromRow(rang), QItemSelectionModel::Select);
+        }
+        
+        m_vueCartes->setSelectionModel(selection);
     }
 }
 

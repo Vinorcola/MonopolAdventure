@@ -117,6 +117,54 @@ void PileCartes::deleteCarteAt(int row)
 
 
 
+bool PileCartes::utilise(PileCartes* pileCartes)
+{
+    if (pileCartes)
+    {
+        bool trouve(false);
+        int i(0), iEnd(m_cartes.count());
+        
+        while (!trouve && i < iEnd)
+        {
+            trouve = (m_cartes.at(i)->getAction().getPileCartes() == pileCartes);
+            
+            i++;
+        }
+        
+        return trouve;
+    }
+    
+    return false;
+}
+
+
+
+
+
+bool PileCartes::utilise(Emplacement *emplacement)
+{
+    if (emplacement)
+    {
+        bool trouve(false);
+        int i(0), iEnd(m_cartes.count());
+        
+        while(!trouve && i < iEnd)
+        {
+            trouve = (m_cartes.at(i)->getAction().getEmplacement() == emplacement);
+            
+            i++;
+        }
+        
+        return trouve;
+    }
+    
+    return false;
+}
+
+
+
+
+
 QModelIndex PileCartes::helper_createIndexFromRow(int row)
 {
     return createIndex(row, 0);

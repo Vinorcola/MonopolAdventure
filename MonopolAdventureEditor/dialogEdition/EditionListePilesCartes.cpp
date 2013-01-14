@@ -1,5 +1,7 @@
 #include "EditionListePilesCartes.hpp"
 
+#include "donnees/emplacements/Pioche.hpp"
+
 
 
 
@@ -11,7 +13,8 @@ EditionListePilesCartes::EditionListePilesCartes(QList<PileCartes*>& pilesCartes
     m_dialog(new QDialog(parent)),
     m_listeOriginale(pilesCartes),
     m_listeEditable(),
-    m_widgetEdition(0)
+    m_widgetEdition(0),
+    m_pileCartesPioche()
 {
     // Création de la liste éditable.
     for (int i(0), iEnd(pilesCartes.count()); i < iEnd; i++)
@@ -39,10 +42,21 @@ EditionListePilesCartes::EditionListePilesCartes(QList<PileCartes*>& pilesCartes
         }
     }
     
+    /* Enregistrement des piles de cartes liées aux emplacements « Pioche ».
+     */
+    for (int i(0), iEnd(emplacements.count()); i < iEnd; i++)
+    {
+        if (emplacements.at(i)->getType() == Type::Pioche)
+        {
+            Pioche* pioche(static_cast<Pioche*>(emplacements.at(i)));
+            m_pileCartesPioche[pioche] = m_listeEditable.at(pilesCartes.indexOf(pioche->getPileCartes()));
+        }
+    }
+    
     
     
     // Création du widget d'édition.
-    m_widgetEdition = new ListePilesCartesEditWidget(m_listeEditable, emplacements, devise);
+    m_widgetEdition = new ListePilesCartesEditWidget(m_listeEditable, m_pileCartesPioche, emplacements, devise);
     
     
     
@@ -91,26 +105,14 @@ bool EditionListePilesCartes::executer()
         m_listeOriginale = m_listeEditable;
         m_listeEditable.clear();
         
-        
-        
-        /* On corrige les piles de cartes liées aux actions.
+        /* Correction des piles de cartes liées aux emplacements « Pioche ».
          */
-        for (int i(0), iEnd(m_listeOriginale.count()); i < iEnd; i++)
+        PileCartePioche::const_iterator i(m_pileCartesPioche.constBegin());
+        while (i != m_pileCartesPioche.constEnd())
         {
-            PileCartes* pileCartes(m_listeOriginale.at(i));
-            for (int j(0), jEnd(pileCartes->getNombreCartes()); j < jEnd; j++)
-            {
-                Action& action(pileCartes->getCarteAt(j)->getAction());
-                
-                if (action.isPayeOuPioche() || action.isPioche())
-                {
-                    // On vérifie que le pile de cartes associée à l'action n'a pas été détruite.
-                    if (!m_listeOriginale.contains((PileCartes*) action.getPileCartes()))
-                    {
-                        /** @todo Affiche une dialog demandant de configurer la nouvelle pile de cartes associée. */
-                    }
-                }
-            }
+            // On change la pile de cartes associées par la version qui était en cours d'édition.
+            static_cast<Pioche*>(i.key())->editPileCartes(i.value());
+            i++;
         }
         
         
