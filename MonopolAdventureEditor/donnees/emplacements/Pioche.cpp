@@ -26,7 +26,7 @@ Pioche::~Pioche()
 
 
 
-PileCartes* Pioche::getPileCartes() const
+const PileCartes* Pioche::getPileCartes() const
 {
     return m_pileCartes;
 }
@@ -35,7 +35,7 @@ PileCartes* Pioche::getPileCartes() const
 
 
 
-void Pioche::editPileCartes(PileCartes* const pileCartes)
+void Pioche::editPileCartes(const PileCartes* pileCartes)
 {
     m_pileCartes = pileCartes;
 }
@@ -50,5 +50,25 @@ void Pioche::saveInFile(QDataStream& ecriture,
     Emplacement::saveInFile(ecriture);
     
     ecriture << plateau->getIdentifiantPileCartes(m_pileCartes);
+}
+
+
+
+
+
+void Pioche::loadFromFile(QDataStream& lecture,
+                          const quint16 version,
+                          const Plateau* plateau)
+{
+    switch (version)
+    {
+        default:
+            Emplacement::loadFromFile(lecture, version);
+            
+            quint8 idPileCartes;
+            lecture >> idPileCartes;
+            
+            m_pileCartes = plateau->getPileCartes(idPileCartes);
+    }
 }
 

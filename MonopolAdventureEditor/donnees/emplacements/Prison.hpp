@@ -15,7 +15,7 @@ class Plateau;
 class Prison : public Emplacement
 {
     private:
-        SimpleVisite* m_emplacementAssocie;///< Emplacement « Simple visite » associé à la prison.
+        const SimpleVisite* m_emplacementAssocie;///< Emplacement « Simple visite » associé à la prison.
         quint16 m_caution;///< Montant de la caution pour sortir de prison.
         
         
@@ -42,7 +42,7 @@ class Prison : public Emplacement
          * Renseigne l'emplacement « Simple visite » associé à la prison.
          * @return Emplacement « Simple visite » associé à la prison.
          */
-        SimpleVisite* getEmplacementAssocie() const;
+        const SimpleVisite* getEmplacementAssocie() const;
         
         
         
@@ -50,7 +50,7 @@ class Prison : public Emplacement
          * Remplace l'emplacement « Simple visite » associé à la prison par @a emplacement
          * @param emplacement Nouvel emplacement.
          */
-        void editEmplacementAssocie(SimpleVisite* emplacement);
+        void editEmplacementAssocie(const SimpleVisite* emplacement);
         
         
         
@@ -77,6 +77,18 @@ class Prison : public Emplacement
          */
         void saveInFile(QDataStream& ecriture,
                         const Plateau* plateau) const;
+        
+        
+        
+        /**
+         * Charge les informations concernant la prison depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         * @param plateau Plateau de jeu.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version,
+                          const Plateau* plateau);
 };
 
 #endif // PRISONINFOS_HPP

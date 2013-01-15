@@ -65,6 +65,16 @@ class Depart : public Emplacement
         
         
         
+        /**
+         * Charge les informations concernant l'emplacement « Départ » depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version);
+        
+        
+        
     protected:
         virtual QString helper_getPrix() const;
 };

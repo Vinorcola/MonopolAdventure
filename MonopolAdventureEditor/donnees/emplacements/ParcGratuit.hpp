@@ -32,9 +32,18 @@ class ParcGratuit : public Emplacement
         /**
          * Sauvegarde les informations concernant le parc gratuit via le flux de données.
          * @param ecriture Flux de données vers le fichier à écrire.
-         * @param version Numéro de la version à utiliser pour écrire les données.
          */
         void saveInFile(QDataStream& ecriture) const;
+        
+        
+        
+        /**
+         * Charge les informations concernant le parc gratuit depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version);
 };
 
 #endif // PARCGRATUITINFOS_HPP

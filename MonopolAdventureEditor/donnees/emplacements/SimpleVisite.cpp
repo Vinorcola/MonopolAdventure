@@ -28,3 +28,17 @@ void SimpleVisite::saveInFile(QDataStream& ecriture) const
     Emplacement::saveInFile(ecriture);
 }
 
+
+
+
+
+void SimpleVisite::loadFromFile(QDataStream& lecture,
+                                const quint16 version)
+{
+    switch (version)
+    {
+        default:
+            Emplacement::loadFromFile(lecture, version);
+    }
+}
+

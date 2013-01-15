@@ -3,15 +3,15 @@
 
 
 
-#define MONTANT_MAX_EDITEUR 50000/* Permet d'appliquer une fourchette maximale pour tous les montants configurés
-                                  * dans l'éditeur.
+#define MONTANT_MAX_EDITEUR 50000/* Permet d'appliquer une fourchette maximale pour tous les montants
+                                  * configurés dans l'éditeur.
                                   */
 
 
 
 #define VERSION_ECRITURE 100// Version actuelle d'écriture dans les fichiers.
-#define TAG_SECURITE 0x7F10A504/* Sécurité pour vérifier que le fichier de sauvegarde est valide. NE JAMAIS CHANGER
-                                * CETTE VALEUR !
+#define TAG_SECURITE 0x7F10A504/* Sécurité pour vérifier que le fichier de sauvegarde est valide.
+                                * NE JAMAIS CHANGER CETTE VALEUR !
                                 */
 
 

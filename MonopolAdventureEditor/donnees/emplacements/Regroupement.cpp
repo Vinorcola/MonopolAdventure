@@ -174,11 +174,36 @@ void Regroupement::saveInFile(QDataStream& ecriture,
 {
     ecriture << m_titre
              << m_couleur
-             << m_terrains.count();// Ecriture du nombre de terrains présents.
+             << (quint8) m_terrains.count();// Ecriture du nombre de terrains présents.
     
     for (int i(0), iEnd(m_terrains.count()); i < iEnd; i++)
     {
         ecriture << plateau->getIdentifiantEmplacement(m_terrains.at(i));
+    }
+}
+
+
+
+
+
+void Regroupement::loadFromFile(QDataStream& lecture,
+                                const quint16 version,
+                                const Plateau* plateau)
+{
+    switch (version)
+    {
+        default:
+            quint8 nbTerrains;
+            lecture >> m_titre
+                    >> m_couleur
+                    >> nbTerrains;
+            
+            for (int i(0); i < nbTerrains; i++)
+            {
+                quint8 terrain;
+                lecture >> terrain;
+                insertTerrain(static_cast<Terrain*>((Emplacement*) plateau->getEmplacement(terrain)));
+            }
     }
 }
 

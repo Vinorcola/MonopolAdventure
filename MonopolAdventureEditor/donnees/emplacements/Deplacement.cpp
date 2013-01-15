@@ -29,7 +29,7 @@ Deplacement::~Deplacement()
 
 
 
-Emplacement* Deplacement::getDestination() const
+const Emplacement* Deplacement::getDestination() const
 {
     return m_destination;
 }
@@ -38,7 +38,7 @@ Emplacement* Deplacement::getDestination() const
 
 
 
-void Deplacement::editDestination(Emplacement* const destination)
+void Deplacement::editDestination(const Emplacement* destination)
 {
     m_destination = destination;
 }
@@ -79,6 +79,27 @@ void Deplacement::saveInFile(QDataStream& ecriture,
     
     ecriture << plateau->getIdentifiantEmplacement(m_destination)
              << m_amende;
+}
+
+
+
+
+
+void Deplacement::loadFromFile(QDataStream& lecture,
+                               const quint16 version,
+                               const Plateau* plateau)
+{
+    switch (version)
+    {
+        default:
+            Emplacement::loadFromFile(lecture, version);
+            
+            quint8 idEmplacement;
+            lecture >> idEmplacement
+                    >> m_amende;
+            
+            m_destination = plateau->getEmplacement(idEmplacement);
+    }
 }
 
 

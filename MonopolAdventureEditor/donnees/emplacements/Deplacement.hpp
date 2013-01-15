@@ -16,7 +16,7 @@ class Plateau;
 class Deplacement : public Emplacement
 {
     private:
-        Emplacement* m_destination;///< Emplacement de destination.
+        const Emplacement* m_destination;///< Emplacement de destination.
         quint16 m_amende;///< Amende à payer avant de se déplacer.
         
         
@@ -47,7 +47,7 @@ class Deplacement : public Emplacement
          * Renseigne l'emplacement de destination.
          * @return Emplacement de destination.
          */
-        Emplacement* getDestination() const;
+        const Emplacement* getDestination() const;
         
         
         
@@ -55,7 +55,7 @@ class Deplacement : public Emplacement
          * Remplace l'emplacement de destination par @a destination.
          * @param destination Nouvel emplacement de destination.
          */
-        void editDestination(Emplacement* const destination);
+        void editDestination(const Emplacement* destination);
         
         
         
@@ -82,6 +82,18 @@ class Deplacement : public Emplacement
          */
         void saveInFile(QDataStream& ecriture,
                         const Plateau* plateau) const;
+        
+        
+        
+        /**
+         * Charge les informations concernant l'emplacement « Déplacement » depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         * @param plateau Plateau de jeu.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version,
+                          const Plateau* plateau);
         
         
         

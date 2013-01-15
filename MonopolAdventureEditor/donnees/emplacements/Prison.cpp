@@ -28,7 +28,7 @@ Prison::~Prison()
 
 
 
-SimpleVisite* Prison::getEmplacementAssocie() const
+const SimpleVisite* Prison::getEmplacementAssocie() const
 {
     return m_emplacementAssocie;
 }
@@ -37,7 +37,7 @@ SimpleVisite* Prison::getEmplacementAssocie() const
 
 
 
-void Prison::editEmplacementAssocie(SimpleVisite* emplacement)
+void Prison::editEmplacementAssocie(const SimpleVisite* emplacement)
 {
     if (emplacement && emplacement->getType() == Type::SimpleVisite)
     {
@@ -81,5 +81,25 @@ void Prison::saveInFile(QDataStream& ecriture,
     
     ecriture << plateau->getIdentifiantEmplacement(m_emplacementAssocie)
              << m_caution;
+}
+
+
+
+
+
+void Prison::loadFromFile(QDataStream& lecture,
+                          const quint16 version,
+                          const Plateau* plateau)
+{
+    switch (version)
+    {
+        default:
+            Emplacement::loadFromFile(lecture, version);
+            
+            quint8 idEmplacement;
+            lecture >> idEmplacement;
+            
+            m_emplacementAssocie = static_cast<const SimpleVisite*>(plateau->getEmplacement(idEmplacement));
+    }
 }
 

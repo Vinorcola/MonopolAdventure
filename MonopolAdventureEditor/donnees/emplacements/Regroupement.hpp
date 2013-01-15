@@ -138,6 +138,18 @@ class Regroupement : public QAbstractListModel
         
         
         
+        /**
+         * Charge les informations concernant le regroupement depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         * @param plateau Plateau de jeu.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version,
+                          const Plateau* plateau);
+        
+        
+        
     /* Méthodes nécessaires pour QAbstractListModel. */
         /**
          * Renseigne diverses informations nécessaires aux QWidgets vues.

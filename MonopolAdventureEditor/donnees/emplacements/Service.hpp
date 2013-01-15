@@ -66,10 +66,20 @@ class Service : public Propriete
         
         
         /**
-         * Sauvegarde les informations concernant la compagnie de transport via le flux de données.
+         * Sauvegarde les informations concernant le service via le flux de données.
          * @param ecriture Flux de données vers le fichier à écrire.
          */
         void saveInFile(QDataStream& ecriture) const;
+        
+        
+        
+        /**
+         * Charge les informations concernant le service depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version);
 };
 
 #endif // SERVICEINFOS_HPP

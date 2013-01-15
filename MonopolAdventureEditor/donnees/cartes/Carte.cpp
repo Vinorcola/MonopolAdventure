@@ -124,3 +124,26 @@ void Carte::saveInFile(QDataStream& ecriture,
     m_action.saveInFile(ecriture, plateau);
 }
 
+
+
+
+
+void Carte::loadFromFile(QDataStream& lecture,
+                         const quint16 version,
+                         const Plateau* plateau)
+{
+    switch (version)
+    {
+        default:
+            quint8 dispositionImage;
+            
+            lecture >> m_consigne
+                    >> m_image
+                    >> dispositionImage;
+            
+            m_dispositionImage = (ImageDisposition) dispositionImage;
+            
+            m_action.loadFromFile(lecture, version, plateau);
+    }
+}
+

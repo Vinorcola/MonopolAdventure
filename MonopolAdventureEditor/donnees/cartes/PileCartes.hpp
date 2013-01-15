@@ -131,10 +131,22 @@ class PileCartes : public QAbstractListModel
         /**
          * Sauvegarde les informations concernant la pile de cartes via le flux de données.
          * @param ecriture Flux de données vers le fichier à écrire.
-         * @param plateau Plateau auquel appartient le regroupement.
+         * @param plateau Plateau de jeu.
          */
         void saveInFile(QDataStream& ecriture,
                         const Plateau* plateau) const;
+        
+        
+        
+        /**
+         * Charge les informations concernant la pile de cartes depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         * @param plateau Plateau de jeu.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version,
+                          const Plateau* plateau);
         
         
         

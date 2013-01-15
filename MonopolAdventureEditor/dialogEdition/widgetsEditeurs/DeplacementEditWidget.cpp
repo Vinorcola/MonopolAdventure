@@ -15,7 +15,7 @@ DeplacementEditWidget::DeplacementEditWidget(Deplacement* const deplacement,
     /* Configuration des champs.
      */
     m_champDestination->setModel(m_modeleEmplacementSelectionnable);
-    int rangParDefaut(emplacements.indexOf(m_deplacement->getDestination()));
+    int rangParDefaut(emplacements.indexOf((Emplacement*) m_deplacement->getDestination()));
     m_champDestination->setCurrentIndex(rangParDefaut == -1 ? 0 : rangParDefaut);
     
     m_champAmende->setSingleStep(5);

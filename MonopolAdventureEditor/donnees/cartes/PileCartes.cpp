@@ -179,11 +179,34 @@ void PileCartes::saveInFile(QDataStream& ecriture,
                             const Plateau* plateau) const
 {
     ecriture << m_titre
-             << m_cartes.count();// Ecriture du nombre de terrains présents.
+             << (quint8) m_cartes.count();// Ecriture du nombre de terrains présents.
     
     for (int i(0), iEnd(m_cartes.count()); i < iEnd; i++)
     {
         m_cartes.at(i)->saveInFile(ecriture, plateau);
+    }
+}
+
+
+
+
+
+void PileCartes::loadFromFile(QDataStream& lecture,
+                              const quint16 version,
+                              const Plateau* plateau)
+{
+    switch (version)
+    {
+        default:
+            quint8 nbCartes;
+            
+            lecture >> m_titre
+                    >> nbCartes;
+            
+            for (int i(0); i < nbCartes; i++)
+            {
+                getCarteAt(createCarte())->loadFromFile(lecture, version, plateau);
+            }
     }
 }
 

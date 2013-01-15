@@ -97,6 +97,23 @@ void Propriete::saveInFile(QDataStream& ecriture) const
 
 
 
+void Propriete::loadFromFile(QDataStream& lecture,
+                             const quint16 version)
+{
+    switch (version)
+    {
+        default:
+            Emplacement::loadFromFile(lecture, version);
+            
+            lecture >> m_prixAchat
+                    >> m_valeurHypotheque;
+    }
+}
+
+
+
+
+
 QString Propriete::helper_getPrix() const
 {
     return QString::number(m_prixAchat) + m_devise;

@@ -16,7 +16,7 @@ class Plateau;
 class Pioche : public Emplacement
 {
     private:
-        PileCartes* m_pileCartes;///< Pile de cartes associée à l'emplacement.
+        const PileCartes* m_pileCartes;///< Pile de cartes associée à l'emplacement.
         
         
         
@@ -40,7 +40,7 @@ class Pioche : public Emplacement
          * Renseigne la pile de cartes associée à l'emplacement.
          * @return Pile de cartes associée à l'emplacement.
          */
-        PileCartes* getPileCartes() const;
+        const PileCartes* getPileCartes() const;
         
         
         
@@ -48,7 +48,7 @@ class Pioche : public Emplacement
          * Remplace la pile de cartes associée à l'emplacement par @a pileCartes.
          * @param pileCartes Nouvelle pile de cartes associée à l'emplacement.
          */
-        void editPileCartes(PileCartes* const pileCartes);
+        void editPileCartes(const PileCartes* pileCartes);
         
         
         
@@ -59,6 +59,18 @@ class Pioche : public Emplacement
          */
         void saveInFile(QDataStream& ecriture,
                         const Plateau* plateau) const;
+        
+        
+        
+        /**
+         * Charge les informations concernant l'emplacement « Pioche » depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         * @param plateau Plateau de jeu.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version,
+                          const Plateau* plateau);
 };
 
 #endif // PIOCHEINFOS_HPP

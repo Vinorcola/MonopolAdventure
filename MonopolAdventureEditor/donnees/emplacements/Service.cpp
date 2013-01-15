@@ -90,3 +90,26 @@ void Service::saveInFile(QDataStream& ecriture) const
     }
 }
 
+
+
+
+
+void Service::loadFromFile(QDataStream& lecture,
+                           const quint16 version)
+{
+    switch (version)
+    {
+        default:
+            Propriete::loadFromFile(lecture, version);
+            
+            quint8 nbLoyers;
+            lecture >> nbLoyers;
+            for (int i(0); i < nbLoyers; i++)
+            {
+                quint8 loyer;
+                lecture >> loyer;
+                m_loyers.append(loyer);
+            }
+    }
+}
+

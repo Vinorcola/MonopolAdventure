@@ -433,6 +433,15 @@ class Plateau : public QGraphicsScene
         
         
         /**
+         * Renseigne l'emplacement identifié par @a id.
+         * @param id Identifiant de l'emplacement (dans la liste du plateau).
+         * @return Emplacement.
+         */
+        const Emplacement* getEmplacement(quint8 id) const;
+        
+        
+        
+        /**
          * Renseigne un identifiant de la pile de cartes (identifiant de la pile de cartes dans la liste du plateau).
          * @param pileCartes Pile de cartes à identifier.
          * @return Identifiant de la pile de cartes.
@@ -440,6 +449,15 @@ class Plateau : public QGraphicsScene
          * Cette méthode est utiliser pour identifier une pile de cartes dans la sauvegarde de certaines données dans un fichier.
          */
         quint8 getIdentifiantPileCartes(const PileCartes* pileCartes) const;
+        
+        
+        
+        /**
+         * Renseigne la pile de cartes identifiée par @a id.
+         * @param id Identifiant de la pile de cartes (dans la liste du plateau).
+         * @return Pile de cartes.
+         */
+        const PileCartes* getPileCartes(quint8 id) const;
         
         
         

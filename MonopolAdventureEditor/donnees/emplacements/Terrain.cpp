@@ -352,6 +352,44 @@ void Terrain::saveInFile(QDataStream& ecriture) const
 
 
 
+void Terrain::loadFromFile(QDataStream& lecture,
+                           const quint16 version)
+{
+    switch (version)
+    {
+        default:
+            Propriete::loadFromFile(lecture, version);
+            
+            lecture >> m_prixAchatMaison
+                    >> m_prixVenteMaison
+                    >> m_prixAchatHotel
+                    >> m_prixVenteHotel
+                    >> m_loyerNu
+                    >> m_loyerNuExtra;
+            
+            quint8 nbLoyers;
+            lecture >> nbLoyers;
+            for (int i(0); i < nbLoyers; i++)
+            {
+                quint8 loyer;
+                lecture >> loyer;
+                m_loyersMaison.append(loyer);
+            }
+            
+            lecture >> nbLoyers;
+            for (int i(0); nbLoyers; i++)
+            {
+                quint8 loyer;
+                lecture >> loyer;
+                m_loyersHotel.append(loyer);
+            }
+    }
+}
+
+
+
+
+
 QColor Terrain::helper_getCouleurRegroupement() const
 {
     if (m_regroupement)

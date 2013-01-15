@@ -157,6 +157,25 @@ void Taxe::saveInFile(QDataStream& ecriture) const
 
 
 
+void Taxe::loadFromFile(QDataStream& lecture,
+                        const quint16 version)
+{
+    switch (version)
+    {
+        default:
+            Emplacement::loadFromFile(lecture, version);
+            
+            lecture >> m_payeMontantFixe
+                    >> m_montantFixe
+                    >> m_payePourcentageFortune
+                    >> m_pourcentageFortune;
+    }
+}
+
+
+
+
+
 QString Taxe::helper_getPrix() const
 {
     QString texte("");

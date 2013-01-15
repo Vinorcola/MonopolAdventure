@@ -90,3 +90,26 @@ void CompagnieTransport::saveInFile(QDataStream& ecriture) const
     }
 }
 
+
+
+
+
+void CompagnieTransport::loadFromFile(QDataStream& lecture,
+                                      const quint16 version)
+{
+    switch (version)
+    {
+        default:
+            Propriete::loadFromFile(lecture, version);
+            
+            quint8 nbLoyers;
+            lecture >> nbLoyers;
+            for (int i(0); i < nbLoyers; i++)
+            {
+                quint16 loyer;
+                lecture >> loyer;
+                m_loyers.append(loyer);
+            }
+    }
+}
+

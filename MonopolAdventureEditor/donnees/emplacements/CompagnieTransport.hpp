@@ -70,6 +70,17 @@ class CompagnieTransport : public Propriete
          * @param ecriture Flux de données vers le fichier à écrire.
          */
         void saveInFile(QDataStream& ecriture) const;
+        
+        
+        
+        /**
+         * Charge les informations concernant la compagnie de transport depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         * @param plateau Plateau de jeu.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version);
 };
 
 #endif // COMPAGNIETRANSPOTINFOS_HPP

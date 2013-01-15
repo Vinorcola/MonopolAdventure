@@ -581,6 +581,20 @@ quint8 Plateau::getIdentifiantEmplacement(const Emplacement* emplacement) const
 
 
 
+const Emplacement* Plateau::getEmplacement(quint8 id) const
+{
+    if (id < m_emplacements.count())
+    {
+        return m_emplacements.at(id);
+    }
+    
+    return 0;
+}
+
+
+
+
+
 quint8 Plateau::getIdentifiantPileCartes(const PileCartes* pileCartes) const
 {
     if (m_pilesCartes.contains((PileCartes*) pileCartes))
@@ -591,6 +605,20 @@ quint8 Plateau::getIdentifiantPileCartes(const PileCartes* pileCartes) const
     {
         return 255;
     }
+}
+
+
+
+
+
+const PileCartes* Plateau::getPileCartes(quint8 id) const
+{
+    if (id < m_pilesCartes.count())
+    {
+        return m_pilesCartes.at(id);
+    }
+    
+    return 0;
 }
 
 
@@ -660,18 +688,23 @@ void Plateau::saveInFile(QString cheminFichier) const
         
         
         
-        // Ecriture des piles de cartes.
-        ecriture << m_pilesCartes.count();// Ecriture du nombre de piles de cartes.
-        for (int i(0), iEnd(m_pilesCartes.count()); i < iEnd; i++)
+        // Ecriture du nombre de piles de cartes.
+        ecriture << (quint8) m_pilesCartes.count();
+        
+        
+        
+        // Ecriture du nombre d'emplacements.
+        quint8 nbEmplacements(m_emplacements.count());
+        ecriture << nbEmplacements;
+        
+        // Ecriture des types d'emplacement.
+        for (int i(0); i < nbEmplacements; i++)
         {
-            m_pilesCartes.at(i)->saveInFile(ecriture, this);
+            ecriture << (quint8) m_emplacements.at(i)->getType();
         }
         
-        
-        
         // Ecriture des emplacements.
-        ecriture << m_emplacements.count();// Ecriture du nombre d'emplacements.
-        for (int i(0), iEnd(m_emplacements.count()); i < iEnd; i++)
+        for (int i(0); i < nbEmplacements; i++)
         {
             Emplacement* emplacement(m_emplacements.at(i));
             switch (emplacement->getType())
@@ -724,10 +757,19 @@ void Plateau::saveInFile(QString cheminFichier) const
         
         
         // Ecriture des regroupements.
-        ecriture << m_regroupements.count();// Ecriture du nombre de regroupements.
+        ecriture << (quint8) m_regroupements.count();// Ecriture du nombre de regroupements.
         for (int i(0), iEnd(m_regroupements.count()); i < iEnd; i++)
         {
             m_regroupements.at(i)->saveInFile(ecriture, this);
+        }
+        
+        
+        
+        // Ecriture des piles de cartes.
+        ecriture << (quint8) m_pilesCartes.count();// Ecriture du nombre de piles de cartes.
+        for (int i(0), iEnd(m_pilesCartes.count()); i < iEnd; i++)
+        {
+            m_pilesCartes.at(i)->saveInFile(ecriture, this);
         }
         
         
@@ -1060,11 +1102,11 @@ QPoint Plateau::helper_getPositionEmplacement(int id) const
     if (id == 0)
     // Prison
     {
-        SimpleVisite* simpleVisiteAssociee(static_cast<Prison*>(m_emplacements.first())->getEmplacementAssocie());
+        const SimpleVisite* simpleVisiteAssociee(static_cast<Prison*>(m_emplacements.first())->getEmplacementAssocie());
         
         if (simpleVisiteAssociee)
         {
-            return helper_getPositionEmplacement(m_emplacements.indexOf(simpleVisiteAssociee));
+            return helper_getPositionEmplacement(m_emplacements.indexOf((SimpleVisite*) simpleVisiteAssociee));
         }
     }
     else
@@ -1110,11 +1152,11 @@ int Plateau::helper_getRotationEmplacement(int id) const
     if (id == 0)
     // Prison
     {
-        SimpleVisite* simpleVisiteAssociee(static_cast<Prison*>(m_emplacements.first())->getEmplacementAssocie());
+        const SimpleVisite* simpleVisiteAssociee(static_cast<Prison*>(m_emplacements.first())->getEmplacementAssocie());
         
         if (simpleVisiteAssociee)
         {
-            return helper_getRotationEmplacement(m_emplacements.indexOf(simpleVisiteAssociee));
+            return helper_getRotationEmplacement(m_emplacements.indexOf((SimpleVisite*) simpleVisiteAssociee));
         }
     }
     if (id >= largeur && id < largeur + hauteur - 1)

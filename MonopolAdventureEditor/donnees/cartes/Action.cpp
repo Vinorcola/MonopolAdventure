@@ -782,3 +782,45 @@ void Action::saveInFile(QDataStream& ecriture,
              << m_libereDePrison;
 }
 
+
+
+
+
+void Action::loadFromFile(QDataStream& lecture,
+                          const quint16 version,
+                          const Plateau* plateau)
+{
+    switch (version)
+    {
+        default:
+            quint8 idEmplacement;
+            quint8 typeEmplacement;
+            quint8 idPileCarte;
+            
+            lecture >> m_deplacement
+                    >> m_joueurAvance
+                    >> m_deplacementRelatif
+                    >> idEmplacement
+                    >> typeEmplacement
+                    >> m_coefficientLoyer
+                    >> m_relanceDes
+                    >> m_transaction
+                    >> m_gainArgent
+                    >> m_enversBanque
+                    >> m_enversTousLesJoueurs
+                    >> m_montant
+                    >> m_reparation
+                    >> m_montantParMaison
+                    >> m_montantParHotel
+                    >> m_montantParGratteCiel
+                    >> m_payeOuPioche
+                    >> idPileCarte
+                    >> m_pioche
+                    >> m_libereDePrison;
+            
+            m_deplacementEmplacement = plateau->getEmplacement(idEmplacement);
+            m_deplacementJusquauProchain = (Type::Emplacement) typeEmplacement;
+            m_pileCartes = plateau->getPileCartes(idPileCarte);
+    }
+}
+
