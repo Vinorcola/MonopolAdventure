@@ -749,6 +749,7 @@ void Plateau::saveInFile(QString cheminFichier) const
                     break;
                     
                 default:
+                    break;
             }
         }
         
@@ -859,9 +860,8 @@ void Plateau::loadFromFile(QString cheminFichier)
                             switch ((Type::Emplacement) typeEmplacement)
                             {
                                 case Type::CompagnieTransport:
-                                    CompagnieTransport* compagnie(new CompagnieTransport(m_graphismeEmplacement, m_devise));
-                                    m_emplacements.append(compagnie);
-                                    m_compagniesTransport.append(compagnie);
+                                    m_compagniesTransport.append(new CompagnieTransport(m_graphismeEmplacement, m_devise));
+                                    m_emplacements.append(m_compagniesTransport.last());
                                     break;
                                     
                                 case Type::Depart:
@@ -885,9 +885,8 @@ void Plateau::loadFromFile(QString cheminFichier)
                                     break;
                                     
                                 case Type::Service:
-                                    Service* service(new Service(m_graphismeEmplacement, m_devise));
-                                    m_emplacements.append(service);
-                                    m_services.append(service);
+                                    m_services.append(new Service(m_graphismeEmplacement, m_devise));
+                                    m_emplacements.append(m_services.last());
                                     break;
                                     
                                 case Type::SimpleVisite:
@@ -903,6 +902,7 @@ void Plateau::loadFromFile(QString cheminFichier)
                                     break;
                                     
                                 default:
+                                    break;
                             }
                         }
                         
@@ -955,6 +955,7 @@ void Plateau::loadFromFile(QString cheminFichier)
                                     break;
                                     
                                 default:
+                                    break;
                             }
                         }
                         
@@ -962,6 +963,7 @@ void Plateau::loadFromFile(QString cheminFichier)
                         
                         // Lecture des regroupements.
                         quint8 nbRegroupements;
+                        lecture >> nbRegroupements;
                         for (int i(0); i < nbRegroupements; i++)
                         {
                             Regroupement* regroupement(new Regroupement);
