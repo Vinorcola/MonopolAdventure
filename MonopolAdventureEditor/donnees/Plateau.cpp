@@ -788,6 +788,11 @@ void Plateau::saveInFile(QString cheminFichier) const
         
         
         
+        // Ecriture de la règle du plateau.
+        m_regle.saveInFile(ecriture);
+        
+        
+        
         fichier->close();
     }
     else
@@ -994,6 +999,11 @@ void Plateau::loadFromFile(QString cheminFichier)
                         {
                             m_pilesCartes.at(i)->loadFromFile(lecture, version, this);
                         }
+                        
+                        
+                        
+                        // Lecture de la règle du plateau.
+                        m_regle.loadFromFile(lecture, version);
                         
                 }
             }
