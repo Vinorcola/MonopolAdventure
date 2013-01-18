@@ -461,6 +461,14 @@ class Plateau : public QGraphicsScene
         
         
         
+        /**
+         * Renseigne le nombre de propriété sur le plateau.
+         * @return Nombre de propriété du plateau.
+         */
+        int getNombrePropriete() const;
+        
+        
+        
     public slots:
         /**
          * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.

@@ -624,6 +624,22 @@ const PileCartes* Plateau::getPileCartes(quint8 id) const
 
 
 
+int Plateau::getNombrePropriete() const
+{
+    int qte(m_compagniesTransport.count() + m_services.count());
+    
+    for (int i(0), iEnd(m_regroupements.count()); i < iEnd; i++)
+    {
+        qte += m_regroupements.at(i)->getNombreTerrains();
+    }
+    
+    return qte;
+}
+
+
+
+
+
 void Plateau::editListeRegroupements()
 {
     EditionListeRegroupements fenetre(m_regroupements, m_parent);

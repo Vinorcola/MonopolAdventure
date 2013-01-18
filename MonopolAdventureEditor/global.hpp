@@ -6,6 +6,7 @@
 #define MONTANT_MAX_EDITEUR 50000/* Permet d'appliquer une fourchette maximale pour tous les montants
                                   * configurés dans l'éditeur.
                                   */
+#define NOMBRE_TOURS_MAX_PRISON 10// Fourchette maximale du nombre de tours en prison.
 
 
 
