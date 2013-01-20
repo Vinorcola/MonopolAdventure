@@ -16,6 +16,8 @@ PiocheEditWidget::PiocheEditWidget(Pioche* const pioche,
         PileCartes* pileCartes(pilesCartes.at(i));
         m_champPileCartes->addItem(QString::number(i) + ". " + pileCartes->getTitre(), pileCartes);
     }
+    int rangParDefaut(pilesCartes.indexOf((PileCartes*) pioche->getPileCartes()));
+    m_champPileCartes->setCurrentIndex(rangParDefaut == -1 ? 0 : rangParDefaut);
     
     
     
