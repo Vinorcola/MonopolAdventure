@@ -33,6 +33,8 @@ class Plateau : public QGraphicsScene
         
     private:
         MainWindow* m_parent;///< Fenêtre parent.
+        bool m_sauvegarde;///< Indique si le plateau est sauvegardé ou non.
+        
         QString m_titre;///< Titre du plateau.
         QSize m_taille;///< Taille du plateau (en nombre d'emplacements).
         QString m_devise;///< Devise utilisée sur le plateau.
@@ -496,7 +498,7 @@ class Plateau : public QGraphicsScene
          * Sauvegarde le plateau dans le fichier désigné.
          * @param cheminFichier Chemin vers le fichier à enregistrer.
          */
-        void saveInFile(QString cheminFichier = "save.plt") const;
+        void saveInFile(QString cheminFichier = "save.plt");
         
         
         

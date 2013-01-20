@@ -14,6 +14,7 @@
 Plateau::Plateau(MainWindow* parent) :
     QGraphicsScene(),
     m_parent(parent),
+    m_sauvegarde(false),
     m_titre(""),
     m_taille(0, 0),
     m_devise(""),
@@ -95,6 +96,7 @@ void Plateau::editTitre(const QString& titre)
     if (!titre.isEmpty())
     {
         m_titre = titre;
+        m_sauvegarde = false;
     }
 }
 
@@ -126,6 +128,7 @@ void Plateau::editTaille(const QSize& taille)
      && taille.width() >= 3 && taille.width() <= 50)
     {
         m_taille = taille;
+        m_sauvegarde = false;
         
         
         
@@ -258,6 +261,7 @@ void Plateau::editDevise(const QString& devise)
     if (!devise.isEmpty() && devise.count() <= 5)
     {
         m_devise = devise;
+        m_sauvegarde = false;
     }
 }
 
@@ -280,30 +284,39 @@ void Plateau::editCoefficientPrix(const quint32 coefficient)
     {
         case 1:
             m_prixCoefficient = 0;
+            m_sauvegarde = false;
             break;
         case 10:
             m_prixCoefficient = 1;
+            m_sauvegarde = false;
             break;
         case 100:
             m_prixCoefficient = 2;
+            m_sauvegarde = false;
             break;
         case 1000:
             m_prixCoefficient = 3;
+            m_sauvegarde = false;
             break;
         case 10000:
             m_prixCoefficient = 4;
+            m_sauvegarde = false;
             break;
         case 100000:
             m_prixCoefficient = 5;
+            m_sauvegarde = false;
             break;
         case 1000000:
             m_prixCoefficient = 6;
+            m_sauvegarde = false;
             break;
         case 10000000:
             m_prixCoefficient = 7;
+            m_sauvegarde = false;
             break;
         case 100000000:
             m_prixCoefficient = 8;
+            m_sauvegarde = false;
             break;
     }
 }
@@ -324,6 +337,7 @@ bool Plateau::affichageIntegraleActif() const
 void Plateau::editAffichageIntegrale(const bool actif)
 {
     m_prixAffichageComplet = actif;
+    m_sauvegarde = false;
 }
 
 
@@ -342,6 +356,7 @@ const QColor& Plateau::getCouleurFond() const
 void Plateau::editCouleurFond(const QColor& couleur)
 {
     m_couleurFond = couleur;
+    m_sauvegarde = false;
 }
 
 
@@ -360,6 +375,7 @@ const QPixmap& Plateau::getImage() const
 void Plateau::editImage(const QPixmap& image)
 {
     m_image = image;
+    m_sauvegarde = false;
 }
 
 
@@ -387,6 +403,7 @@ const QSize& Plateau::getTailleEmplacementsEnCoin() const
 void Plateau::editTailleEmplacements(const QSize& taille)
 {
     m_graphismeEmplacement.editTaille(taille);
+    m_sauvegarde = false;
 }
 
 
@@ -405,6 +422,7 @@ quint16 Plateau::getHauteurRectangleCouleur() const
 void Plateau::editHauteurRectangleCouleur(const quint16 hauteur)
 {
     m_graphismeEmplacement.editHauteurRectangleCouleur(hauteur);
+    m_sauvegarde = false;
 }
 
 
@@ -423,6 +441,7 @@ const QPen& Plateau::getCrayonBordureEmplacement() const
 void Plateau::editCrayonBordureEmplacement(const QPen& crayon)
 {
     m_graphismeEmplacement.editCrayonBordure(crayon);
+    m_sauvegarde = false;
 }
 
 
@@ -441,6 +460,7 @@ quint8 Plateau::getMarge() const
 void Plateau::editMarge(quint8 marge)
 {
     m_graphismeEmplacement.editMarge(marge);
+    m_sauvegarde = false;
 }
 
 
@@ -459,6 +479,7 @@ const QColor& Plateau::getCouleurFondEmplacement() const
 void Plateau::editCouleurFondEmplacement(const QColor& couleur)
 {
     m_graphismeEmplacement.editCouleurFond(couleur);
+    m_sauvegarde = false;
 }
 
 
@@ -477,6 +498,7 @@ const QFont& Plateau::getFonteTitreEmplacement() const
 void Plateau::editFonteTitreEmplacement(const QFont& fonte)
 {
     m_graphismeEmplacement.editFonteTitre(fonte);
+    m_sauvegarde = false;
 }
 
 
@@ -495,6 +517,7 @@ const QFont& Plateau::getFonteSousTitreEmplacement() const
 void Plateau::editFonteSousTitreEmplacement(const QFont& fonte)
 {
     m_graphismeEmplacement.editFonteSousTitre(fonte);
+    m_sauvegarde = false;
 }
 
 
@@ -513,6 +536,7 @@ const QFont& Plateau::getFonteDescriptionEmplacement() const
 void Plateau::editFonteDescriptionEmplacement(const QFont& fonte)
 {
     m_graphismeEmplacement.editFonteDescription(fonte);
+    m_sauvegarde = false;
 }
 
 
@@ -531,6 +555,7 @@ const QFont& Plateau::getFontePrixEmplacement() const
 void Plateau::editFontePrixEmplacement(const QFont& fonte)
 {
     m_graphismeEmplacement.editFontePrix(fonte);
+    m_sauvegarde = false;
 }
 
 
@@ -643,7 +668,10 @@ int Plateau::getNombrePropriete() const
 void Plateau::editListeRegroupements()
 {
     EditionListeRegroupements fenetre(m_regroupements, m_parent);
-    fenetre.executer();
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
 }
 
 
@@ -653,7 +681,10 @@ void Plateau::editListeRegroupements()
 void Plateau::editListePilesCartes()
 {
     EditionListePilesCartes fenetre(m_pilesCartes, m_emplacements, m_devise, m_parent);
-    fenetre.executer();
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
 }
 
 
@@ -676,7 +707,7 @@ void Plateau::editEmplacement(Emplacement* emplacement)
 
 
 
-void Plateau::saveInFile(QString cheminFichier) const
+void Plateau::saveInFile(QString cheminFichier)
 {
     QFile* fichier(new QFile(cheminFichier));
     if (fichier->open(QIODevice::WriteOnly | QIODevice::Truncate))
@@ -794,6 +825,7 @@ void Plateau::saveInFile(QString cheminFichier) const
         
         
         fichier->close();
+        m_sauvegarde = true;
     }
     else
     {
@@ -1015,6 +1047,7 @@ void Plateau::loadFromFile(QString cheminFichier)
             
             
             fichier->close();
+            m_sauvegarde = true;
         }
         else
         {
@@ -1076,7 +1109,10 @@ void Plateau::editEmplacementInformations(Emplacement* emplacement)
             break;
     }
     
-    fenetre->executer();
+    if (fenetre->executer())
+    {
+        m_sauvegarde = true;
+    }
     
     delete fenetre;
 }
@@ -1312,6 +1348,10 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
         nouvelEmplacement->setupElementGraphique(helper_getPositionEmplacement(rang), helper_getRotationEmplacement(rang), this);
         GraphismeEmplacement* elementGraphique(nouvelEmplacement->dessiner());
         connect(elementGraphique, SIGNAL(editEmplacement(Emplacement*)), this, SLOT(editEmplacement(Emplacement*)));
+        
+        
+        
+        m_sauvegarde = false;
     }
 }
 
