@@ -49,7 +49,10 @@ EditionListePilesCartes::EditionListePilesCartes(QList<PileCartes*>& pilesCartes
         if (emplacements.at(i)->getType() == Type::Pioche)
         {
             Pioche* pioche(static_cast<Pioche*>(emplacements.at(i)));
-            m_pileCartesPioche[pioche] = m_listeEditable.at(pilesCartes.indexOf((PileCartes*) pioche->getPileCartes()));
+            if (pioche->getPileCartes())
+            {
+                m_pileCartesPioche[pioche] = m_listeEditable.at(pilesCartes.indexOf((PileCartes*) pioche->getPileCartes()));
+            }
         }
     }
     

@@ -97,7 +97,8 @@ void Prison::loadFromFile(QDataStream& lecture,
             Emplacement::loadFromFile(lecture, version);
             
             quint8 idEmplacement;
-            lecture >> idEmplacement;
+            lecture >> idEmplacement
+                    >> m_caution;
             
             m_emplacementAssocie = static_cast<const SimpleVisite*>(plateau->getEmplacement(idEmplacement));
     }

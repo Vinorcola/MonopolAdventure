@@ -279,7 +279,7 @@ bool Regle::joueurPeutEchangerEnPrison() const
 
 void Regle::setJoueurPeutEchangerEnPrison(const bool actif)
 {
-    m_joueurPeutEchangerEnPrison;
+    m_joueurPeutEchangerEnPrison = actif;
 }
 
 
@@ -426,7 +426,7 @@ bool Regle::enchereSurNonAchete() const
 
 void Regle::setEnchereSurNonAchete(const bool actif)
 {
-    m_enchereSurNonAchete;
+    m_enchereSurNonAchete = actif;
 }
 
 

@@ -86,11 +86,11 @@ void Terrain::editPrixVenteMaison(const quint16 prix)
 {
     if (prix > MONTANT_MAX_EDITEUR)
     {
-        m_prixAchatMaison = MONTANT_MAX_EDITEUR;
+        m_prixVenteMaison = MONTANT_MAX_EDITEUR;
     }
     else
     {
-        m_prixAchatMaison = prix;
+        m_prixVenteMaison = prix;
     }
 }
 
@@ -335,13 +335,13 @@ void Terrain::saveInFile(QDataStream& ecriture) const
              << m_loyerNu
              << m_loyerNuExtra;
     
-    ecriture << m_loyersMaison.count();// Ecriture du nombre de maison pour un hôtel.
+    ecriture << (quint8) m_loyersMaison.count();// Ecriture du nombre de maison pour un hôtel.
     for (int i(0), iEnd(m_loyersMaison.count()); i < iEnd; i++)
     {
         ecriture << m_loyersMaison.at(i);
     }
     
-    ecriture << m_loyersHotel.count();// Ecriture du nombre maximum d'hôtel.
+    ecriture << (quint8) m_loyersHotel.count();// Ecriture du nombre maximum d'hôtel.
     for (int i(0), iEnd(m_loyersHotel.count()); i < iEnd; i++)
     {
         ecriture << m_loyersHotel.at(i);
