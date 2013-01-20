@@ -66,7 +66,7 @@ void Plateau::dessiner()
 {
     for (int i(1), iEnd(m_emplacements.size()); i < iEnd; ++i)
     {
-        m_emplacements.at(i)->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);/** @todo Voir si on ne peut pas faire ces config dans la méthode editTaille() plutôt qu'ici. */
+        //m_emplacements.at(i)->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);/** @todo Voir si on ne peut pas faire ces config dans la méthode editTaille() plutôt qu'ici. */
         GraphismeEmplacement* elementGraphique(m_emplacements.at(i)->dessiner());
         connect(elementGraphique, SIGNAL(editEmplacement(Emplacement*)), this, SLOT(editEmplacement(Emplacement*)));
     }
@@ -734,6 +734,16 @@ void Plateau::saveInFile(QString cheminFichier)
         
         
         
+        // Ecriture de la règle du plateau.
+        m_regle.saveInFile(ecriture);
+        
+        
+        
+        // Ecriture des graphismes des emplacements
+        m_graphismeEmplacement.saveInFile(ecriture);
+        
+        
+        
         // Ecriture du nombre de piles de cartes.
         ecriture << (quint8) m_pilesCartes.count();
         
@@ -819,8 +829,8 @@ void Plateau::saveInFile(QString cheminFichier)
         
         
         
-        // Ecriture de la règle du plateau.
-        m_regle.saveInFile(ecriture);
+        // Réécriture du tag de sécurité
+        ecriture << (quint32) TAG_SECURITE;
         
         
         
@@ -887,6 +897,16 @@ void Plateau::loadFromFile(QString cheminFichier)
                                 >> m_prixAffichageComplet
                                 >> m_couleurFond
                                 >> m_image;
+                        
+                        
+                        
+                        // Lecture de la règle du plateau.
+                        m_regle.loadFromFile(lecture, version);
+                        
+                        
+                        
+                        // Lecture des graphismes des emplacements.
+                        m_graphismeEmplacement.loadFromFile(lecture, version);
                         
                         
                         
@@ -1010,6 +1030,20 @@ void Plateau::loadFromFile(QString cheminFichier)
                                 default:
                                     break;
                             }
+                            
+                            
+                            
+                            // Configuration graphique de l'emplacement.
+                            emplacement->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);
+                            
+                            if (helper_isEmplacementEnCoin(i))
+                            {
+                                emplacement->setEmplacementEnCoin();
+                            }
+                            else
+                            {
+                                emplacement->setEmplacementNormal();
+                            }
                         }
                         
                         
@@ -1034,8 +1068,13 @@ void Plateau::loadFromFile(QString cheminFichier)
                         
                         
                         
-                        // Lecture de la règle du plateau.
-                        m_regle.loadFromFile(lecture, version);
+                        // Lecture du tag de sécurité.
+                        lecture >> tag;
+                        
+                        if (tag != TAG_SECURITE)
+                        {
+                            QMessageBox::warning(m_parent, tr("Problème de lacture du fichier."), tr("Le chargement du plateau ne s'est pas passé comme prévu. Le fichier semble corrompu."));
+                        }
                         
                 }
             }

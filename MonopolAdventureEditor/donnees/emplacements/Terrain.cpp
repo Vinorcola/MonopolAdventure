@@ -371,17 +371,17 @@ void Terrain::loadFromFile(QDataStream& lecture,
             lecture >> nbLoyers;
             for (int i(0); i < nbLoyers; i++)
             {
-                quint8 loyer;
+                quint16 loyer;
                 lecture >> loyer;
-                m_loyersMaison.append(loyer);
+                m_loyersMaison[i] = loyer;
             }
             
             lecture >> nbLoyers;
-            for (int i(0); nbLoyers; i++)
+            for (int i(0); i < nbLoyers; i++)
             {
-                quint8 loyer;
+                quint16 loyer;
                 lecture >> loyer;
-                m_loyersHotel.append(loyer);
+                m_loyersHotel[i] = loyer;
             }
     }
 }

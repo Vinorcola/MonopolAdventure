@@ -63,7 +63,7 @@ void AssistantCreationPlateau::accept()
     }
     else
     {
-        /** @todo ICI : Charger le plateau depuis un fichier .map. */
+        m_plateau->loadFromFile(field("fichier_ouvrir").toString());
     }
     
     m_plateau->dessiner();

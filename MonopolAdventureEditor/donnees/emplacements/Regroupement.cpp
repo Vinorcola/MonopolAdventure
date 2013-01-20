@@ -132,6 +132,10 @@ void Regroupement::insertTerrain(Terrain* terrain)
         if (!m_modeEdition)
         {
             terrain->m_regroupement = this;
+            if (terrain->m_elementGraphique)
+            {
+                terrain->m_elementGraphique->updateCouleurRegroupement(m_couleur);
+            }
         }
     }
 }
@@ -161,7 +165,12 @@ void Regroupement::termineEdition()
     
     for (int i(0), iEnd(m_terrains.count()); i < iEnd; i++)
     {
-        m_terrains.at(i)->m_regroupement = this;
+        Terrain* terrain(m_terrains.at(i));
+        terrain->m_regroupement = this;
+        if (terrain->m_elementGraphique)
+        {
+            terrain->m_elementGraphique->updateCouleurRegroupement(m_couleur);
+        }
     }
 }
 

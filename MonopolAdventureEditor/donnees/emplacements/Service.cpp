@@ -106,7 +106,7 @@ void Service::loadFromFile(QDataStream& lecture,
             lecture >> nbLoyers;
             for (int i(0); i < nbLoyers; i++)
             {
-                quint8 loyer;
+                quint16 loyer;
                 lecture >> loyer;
                 m_loyers.append(loyer);
             }

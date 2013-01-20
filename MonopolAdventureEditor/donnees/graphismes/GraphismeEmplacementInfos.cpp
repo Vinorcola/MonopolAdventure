@@ -227,3 +227,46 @@ void GraphismeEmplacementInfos::editFontePrix(const QFont& fonte)
     m_fontPrix = fonte;
 }
 
+
+
+
+
+void GraphismeEmplacementInfos::saveInFile(QDataStream& ecriture) const
+{
+    ecriture << m_tailleNormale
+             << m_hauteurRectangleCouleur
+             << m_crayonBordure
+             << m_couleurFond
+             << m_marge
+             << m_fontTitre
+             << m_fontSousTitre
+             << m_fontDescription
+             << m_fontPrix;
+}
+
+
+
+
+
+void GraphismeEmplacementInfos::loadFromFile(QDataStream& lecture,
+                                             const quint16 version)
+{
+    switch (version)
+    {
+        default:
+            lecture >> m_tailleNormale
+                    >> m_hauteurRectangleCouleur
+                    >> m_crayonBordure
+                    >> m_couleurFond
+                    >> m_marge
+                    >> m_fontTitre
+                    >> m_fontSousTitre
+                    >> m_fontDescription
+                    >> m_fontPrix;
+            
+            
+            m_tailleEnCoin.setHeight(m_tailleNormale.height());
+            m_tailleEnCoin.setWidth(m_tailleNormale.height());
+    }
+}
+

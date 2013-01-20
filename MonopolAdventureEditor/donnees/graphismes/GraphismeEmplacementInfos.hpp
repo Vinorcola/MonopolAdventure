@@ -191,6 +191,24 @@ class GraphismeEmplacementInfos
          * @param fonte Nouvelle fonte.
          */
         void editFontePrix(const QFont& fonte);
+        
+        
+        
+        /**
+         * Sauvegarde les informations concernant le graphisme des emplacements via le flux de données.
+         * @param ecriture Flux de données vers le fichier à écrire.
+         */
+        void saveInFile(QDataStream& ecriture) const;
+        
+        
+        
+        /**
+         * Charge les informations concernant le graphisme des emplacements depuis le flux de données.
+         * @param lecture Flux de données depuis le fichier à lire
+         * @param version Version du fichier.
+         */
+        void loadFromFile(QDataStream& lecture,
+                          const quint16 version);
 };
 
 #endif // GRAPHISMEEMPLACEMENTINFOS_HPP
