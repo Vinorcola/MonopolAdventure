@@ -12,8 +12,6 @@ ActionEditWidget::ActionEditWidget(Action* action,
     QScrollArea(),
     m_action(action),
     m_slotsInactifs(false),
-    m_emplacements(emplacements),
-    m_pilesCartes(pilesCartes),
     m_groupeDeplacement(new QGroupBox(tr("Déplacement absolu"))),
     m_radioAvance(new QRadioButton(tr("en avançant"))),
     m_radioRecule(new QRadioButton(tr("en reculant"))),
@@ -60,18 +58,18 @@ ActionEditWidget::ActionEditWidget(Action* action,
     layoutRadioDeplacement->addWidget(m_radioAvance);
     layoutRadioDeplacement->addWidget(m_radioRecule);
     
-    for (int i(0), iEnd(m_emplacements.count()); i < iEnd; ++i)
+    for (int i(0), iEnd(emplacements.count()); i < iEnd; ++i)
     {
-        Emplacement* emplacement(m_emplacements.at(i));
+        Emplacement* emplacement(emplacements.at(i));
         m_emplacement->addItem(QString::number(i) + ". " + emplacement->getTitre(), emplacement);
     }
     
-    if (m_action->isDeplacementAbsolu())
+    if (action->isDeplacementAbsolu())
     {
         m_groupeDeplacement->setChecked(true);
-        m_radioAvance->setChecked(m_action->joueurAvance());
-        m_radioRecule->setChecked(m_action->joueurRecule());
-        m_emplacement->setCurrentIndex(m_action->getEmplacement());
+        m_radioAvance->setChecked(action->joueurAvance());
+        m_radioRecule->setChecked(action->joueurRecule());
+        m_emplacement->setCurrentIndex(action->getEmplacement());
     }
     else
     {
@@ -95,12 +93,12 @@ ActionEditWidget::ActionEditWidget(Action* action,
     layoutNombreEmplacements->addWidget(m_nombreEmplacements);
     layoutNombreEmplacements->addWidget(new QLabel(tr("emplacements")));
     
-    if (m_action->isDeplacementRelatif())
+    if (action->isDeplacementRelatif())
     {
         m_groupeDeplacementRelatif->setChecked(true);
-        m_radioAvanceRelatif->setChecked(m_action->joueurAvance());
-        m_radioReculeRelatif->setChecked(m_action->joueurRecule());
-        m_nombreEmplacements->setValue(m_action->getNombreEmplacements());
+        m_radioAvanceRelatif->setChecked(action->joueurAvance());
+        m_radioReculeRelatif->setChecked(action->joueurRecule());
+        m_nombreEmplacements->setValue(action->getNombreEmplacements());
     }
     else
     {
@@ -127,12 +125,12 @@ ActionEditWidget::ActionEditWidget(Action* action,
     m_typeEmplacement->insertItem(Type::Taxe, tr("Emplacement de type « Taxe »"));
     m_typeEmplacement->insertItem(Type::Terrain, tr("Terrain"));
     
-    if (m_action->isDeplacementJusquauProchain())
+    if (action->isDeplacementJusquauProchain())
     {
         m_groupeDeplacementAuProchain->setChecked(true);
-        m_radioAvanceAuProchain->setChecked(m_action->joueurAvance());
-        m_radioReculeAuProchain->setChecked(m_action->joueurRecule());
-        m_typeEmplacement->setCurrentIndex(m_action->deplacementJusquauProchain());
+        m_radioAvanceAuProchain->setChecked(action->joueurAvance());
+        m_radioReculeAuProchain->setChecked(action->joueurRecule());
+        m_typeEmplacement->setCurrentIndex(action->deplacementJusquauProchain());
     }
     else
     {
@@ -157,22 +155,22 @@ ActionEditWidget::ActionEditWidget(Action* action,
     m_destinataire->addItem(tr("de la banque"));
     m_destinataire->addItem(tr("de tous les autres joueurs"));
     
-    if (m_action->isTransaction())
+    if (action->isTransaction())
     {
         m_groupeTransaction->setChecked(true);
-        m_radioGagne->setChecked(m_action->joueurGagneArgent());
-        m_radioPerd->setChecked(m_action->joueurPerdArgent());
-        m_montant->setValue(m_action->getMontantTransaction());
+        m_radioGagne->setChecked(action->joueurGagneArgent());
+        m_radioPerd->setChecked(action->joueurPerdArgent());
+        m_montant->setValue(action->getMontantTransaction());
         
-        if (m_action->isTransactionAvecAutreJoueur())
+        if (action->isTransactionAvecAutreJoueur())
         {
             m_destinataire->setCurrentIndex(0);
         }
-        else if (m_action->isTransactionAvecBanque())
+        else if (action->isTransactionAvecBanque())
         {
             m_destinataire->setCurrentIndex(1);
         }
-        else if (m_action->isTransactionAvecTousLesJoueurs())
+        else if (action->isTransactionAvecTousLesJoueurs())
         {
             m_destinataire->setCurrentIndex(2);
         }
@@ -193,11 +191,11 @@ ActionEditWidget::ActionEditWidget(Action* action,
     m_montantParHotel->setSingleStep(5);
     m_montantParHotel->setMaximum(MONTANT_MAX_EDITEUR);
     
-    if (m_action->isReparationConstructions())
+    if (action->isReparationConstructions())
     {
         m_groupeReparation->setChecked(true);
-        m_montantParMaison->setValue(m_action->getMontantParMaison());
-        m_montantParHotel->setValue(m_action->getMontantParHotel());
+        m_montantParMaison->setValue(action->getMontantParMaison());
+        m_montantParHotel->setValue(action->getMontantParHotel());
     }
     else
     {
@@ -212,20 +210,20 @@ ActionEditWidget::ActionEditWidget(Action* action,
     m_amende->setSingleStep(5);
     m_amende->setMaximum(MONTANT_MAX_EDITEUR);
     
-    for (int i(0), iEnd(m_pilesCartes.count()); i < iEnd; ++i)// Mise à jour des deux listes de piles de cartes.
+    for (int i(0), iEnd(pilesCartes.count()); i < iEnd; ++i)// Mise à jour des deux listes de piles de cartes.
     {
-        PileCartes* pileCartes(m_pilesCartes.at(i));
+        PileCartes* pileCartes(pilesCartes.at(i));
         QString texte(QString::number(i) + ". " + pileCartes->getTitre());
         
         m_pileCartesPayeOuPioche->addItem(texte, pileCartes);
         m_pileCartesPioche->addItem(texte, pileCartes);
     }
     
-    if (m_action->isPayeOuPioche())
+    if (action->isPayeOuPioche())
     {
         m_groupePayeOuPioche->setChecked(true);
-        m_amende->setValue(m_action->getAmende());
-        m_pileCartesPayeOuPioche->setCurrentIndex(m_action->getPileCartes());
+        m_amende->setValue(action->getAmende());
+        m_pileCartesPayeOuPioche->setCurrentIndex(action->getPileCartes());
     }
     else
     {
@@ -237,10 +235,10 @@ ActionEditWidget::ActionEditWidget(Action* action,
     // Groupe Pioche
     m_groupePioche->setCheckable(true);
     
-    if (m_action->isPioche())
+    if (action->isPioche())
     {
         m_groupePioche->setChecked(true);
-        m_pileCartesPioche->setCurrentIndex(m_action->getPileCartes());
+        m_pileCartesPioche->setCurrentIndex(action->getPileCartes());
     }
     else
     {

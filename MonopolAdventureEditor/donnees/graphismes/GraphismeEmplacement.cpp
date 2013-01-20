@@ -42,9 +42,9 @@ GraphismeEmplacement::GraphismeEmplacement(const GraphismeEmplacementInfos& info
 {
     /* Correction de la taille pour la prison
      */
-    if (m_emplacement->getType() == Type::Prison)
+    if (emplacement->getType() == Type::Prison)
     {
-        setRect(0, 0, m_infosGraphiques.getTailleNormale().height() - m_infosGraphiques.getHauteurRectangleCouleur(), m_infosGraphiques.getTailleNormale().height() - m_infosGraphiques.getHauteurRectangleCouleur());
+        setRect(0, 0, infosGraphiques.getTailleNormale().height() - infosGraphiques.getHauteurRectangleCouleur(), infosGraphiques.getTailleNormale().height() - infosGraphiques.getHauteurRectangleCouleur());
     }
     
     
@@ -57,8 +57,8 @@ GraphismeEmplacement::GraphismeEmplacement(const GraphismeEmplacementInfos& info
     
     /* Configuration de l'élément.
      */
-    setPen(m_infosGraphiques.getCrayonBordure());
-    setBrush(QBrush(m_infosGraphiques.getCouleurFond()));
+    setPen(infosGraphiques.getCrayonBordure());
+    setBrush(QBrush(infosGraphiques.getCouleurFond()));
     setPos(position);
     setRotation(rotation);
 }

@@ -13,7 +13,7 @@ DepartEditWidget::DepartEditWidget(Depart* const depart) :
      */
     m_champSalaire->setSingleStep(10);
     m_champSalaire->setMaximum(MONTANT_MAX_EDITEUR);
-    m_champSalaire->setValue(m_depart->getSalaire());
+    m_champSalaire->setValue(depart->getSalaire());
     
     
     

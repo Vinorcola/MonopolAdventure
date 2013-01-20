@@ -7,11 +7,11 @@
 ListeRegroupementEditWidget::ListeRegroupementEditWidget(QList<Regroupement*>& regroupements) :
     QWidget(),
     m_regroupements(regroupements),
-    m_modeleRegroupement(new RegroupementListModel(m_regroupements)),
+    m_modeleRegroupement(new RegroupementListModel(regroupements)),
     m_vueRegroupements(new QComboBox),
     m_boutonCreer(new QPushButton(tr("Ajouter un nouveau regroupement"))),
     m_boutonSupprimer(new QPushButton(tr("Supprimer ce regroupement"))),
-    m_widgetEditionRegroupement(new RegroupementEditWidget(m_regroupements.first(), m_modeleRegroupement->getModeleRegroupementsSelectionnables()))
+    m_widgetEditionRegroupement(new RegroupementEditWidget(regroupements.first(), m_modeleRegroupement->getModeleRegroupementsSelectionnables()))
 {
     /* Configuration des champs.
      */

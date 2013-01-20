@@ -18,12 +18,12 @@ ConstructionEditWidget::ConstructionEditWidget(Terrain* const terrain) :
 {
     /* Configuration des champs.
      */
-    bool venteMaisonMoitie(m_terrain->getPrixVenteMaison() * 2 == m_terrain->getPrixAchatMaison());
-    bool venteHotelMoitie(m_terrain->getPrixVenteHotel() * 2 == m_terrain->getPrixAchatHotel());
+    bool venteMaisonMoitie(terrain->getPrixVenteMaison() * 2 == terrain->getPrixAchatMaison());
+    bool venteHotelMoitie(terrain->getPrixVenteHotel() * 2 == terrain->getPrixAchatHotel());
     
     m_champPrixAchatMaison->setSingleStep(10);
     m_champPrixAchatMaison->setMaximum(MONTANT_MAX_EDITEUR);
-    m_champPrixAchatMaison->setValue(m_terrain->getPrixAchatMaison());
+    m_champPrixAchatMaison->setValue(terrain->getPrixAchatMaison());
     
     m_venteMaisonMoitie->setChecked(venteMaisonMoitie);
     
@@ -32,11 +32,11 @@ ConstructionEditWidget::ConstructionEditWidget(Terrain* const terrain) :
     m_champPrixVenteMaison->setSingleStep(10);
     m_champPrixVenteMaison->setMaximum(MONTANT_MAX_EDITEUR);
     m_champPrixVenteMaison->setEnabled(!venteMaisonMoitie);
-    m_champPrixVenteMaison->setValue(m_terrain->getPrixVenteMaison());
+    m_champPrixVenteMaison->setValue(terrain->getPrixVenteMaison());
     
     m_champPrixAchatHotel->setSingleStep(10);
     m_champPrixAchatHotel->setMaximum(MONTANT_MAX_EDITEUR);
-    m_champPrixAchatHotel->setValue(m_terrain->getPrixAchatHotel());
+    m_champPrixAchatHotel->setValue(terrain->getPrixAchatHotel());
     
     m_venteHotelMoitie->setChecked(venteHotelMoitie);
     
@@ -45,7 +45,7 @@ ConstructionEditWidget::ConstructionEditWidget(Terrain* const terrain) :
     m_champPrixVenteHotel->setSingleStep(10);
     m_champPrixVenteHotel->setMaximum(MONTANT_MAX_EDITEUR);
     m_champPrixVenteHotel->setEnabled(!venteHotelMoitie);
-    m_champPrixVenteHotel->setValue(m_terrain->getPrixVenteHotel());
+    m_champPrixVenteHotel->setValue(terrain->getPrixVenteHotel());
     
     
     

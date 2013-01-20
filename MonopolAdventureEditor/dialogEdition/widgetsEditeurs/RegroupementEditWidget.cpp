@@ -8,8 +8,8 @@ RegroupementEditWidget::RegroupementEditWidget(Regroupement* regroupement,
                                                SelectionRegroupementListModel* modeleRegroupementsSelectionnables) :
     QWidget(),
     m_regroupement(regroupement),
-    m_champTitre(new QLineEdit(m_regroupement ? m_regroupement->getTitre() : "")),
-    m_champCouleur(new ColorSelectWidget(this, m_regroupement ? m_regroupement->getCouleur() : QColor(255, 255, 255))),
+    m_champTitre(new QLineEdit(regroupement ? regroupement->getTitre() : "")),
+    m_champCouleur(new ColorSelectWidget(this, regroupement ? regroupement->getCouleur() : QColor(255, 255, 255))),
     m_modeleRegroupementsSelectionnables(modeleRegroupementsSelectionnables),
     m_vueRegroupementsSelectionnables(new QComboBox),
     m_vueTerrainsInternes(new QListView),
@@ -23,7 +23,7 @@ RegroupementEditWidget::RegroupementEditWidget(Regroupement* regroupement,
     int rowSelectionne(0);
     if (m_modeleRegroupementsSelectionnables->rowCount() > 1)
     {
-        if (m_regroupement == m_modeleRegroupementsSelectionnables->getRegroupementAt(rowSelectionne))
+        if (regroupement == m_modeleRegroupementsSelectionnables->getRegroupementAt(rowSelectionne))
         {
             /* Si le regroupement en cours d'édition est le premier de la liste, alors on sélectionne le deuxième.
              */
@@ -46,7 +46,7 @@ RegroupementEditWidget::RegroupementEditWidget(Regroupement* regroupement,
      */
     m_vueRegroupementsSelectionnables->setModel(m_modeleRegroupementsSelectionnables);
     m_vueRegroupementsSelectionnables->setCurrentIndex(rowSelectionne);
-    m_vueTerrainsInternes->setModel(m_regroupement);
+    m_vueTerrainsInternes->setModel(regroupement);
     m_vueTerrainsExternes->setModel(m_modeleRegroupementsSelectionnables->getRegroupementAt(rowSelectionne));
     
     

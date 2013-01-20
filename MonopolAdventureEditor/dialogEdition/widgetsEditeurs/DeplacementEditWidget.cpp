@@ -9,18 +9,18 @@ DeplacementEditWidget::DeplacementEditWidget(Deplacement* const deplacement,
     SauvegardeInterface(),
     m_deplacement(deplacement),
     m_champDestination(new QComboBox),
-    m_modeleEmplacementSelectionnable(new EmplacementListModel(emplacements, m_deplacement, m_champDestination)),
+    m_modeleEmplacementSelectionnable(new EmplacementListModel(emplacements, deplacement, m_champDestination)),
     m_champAmende(new QSpinBox)
 {
     /* Configuration des champs.
      */
     m_champDestination->setModel(m_modeleEmplacementSelectionnable);
-    int rangParDefaut(emplacements.indexOf((Emplacement*) m_deplacement->getDestination()));
+    int rangParDefaut(emplacements.indexOf((Emplacement*) deplacement->getDestination()));
     m_champDestination->setCurrentIndex(rangParDefaut == -1 ? 0 : rangParDefaut);
     
     m_champAmende->setSingleStep(5);
     m_champAmende->setMaximum(MONTANT_MAX_EDITEUR);
-    m_champAmende->setValue(m_deplacement->getMontantAmende());
+    m_champAmende->setValue(deplacement->getMontantAmende());
     
     
     

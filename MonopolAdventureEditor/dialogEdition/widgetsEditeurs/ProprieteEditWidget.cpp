@@ -14,11 +14,11 @@ ProprieteEditWidget::ProprieteEditWidget(Propriete* const propriete) :
 {
     /* Configuration des champs.
      */
-    bool hypothequeMoitiePrix(m_propriete->getValeurHypotheque() * 2 == m_propriete->getPrixAchat());
+    bool hypothequeMoitiePrix(propriete->getValeurHypotheque() * 2 == propriete->getPrixAchat());
     
     m_champPrixAchat->setSingleStep(10);
     m_champPrixAchat->setMaximum(MONTANT_MAX_EDITEUR);
-    m_champPrixAchat->setValue(m_propriete->getPrixAchat());
+    m_champPrixAchat->setValue(propriete->getPrixAchat());
     
     m_hypothequeMoitiePrix->setChecked(hypothequeMoitiePrix);
     
@@ -27,7 +27,7 @@ ProprieteEditWidget::ProprieteEditWidget(Propriete* const propriete) :
     m_champValeurHypotheque->setSingleStep(10);
     m_champValeurHypotheque->setMaximum(MONTANT_MAX_EDITEUR);
     m_champValeurHypotheque->setEnabled(!hypothequeMoitiePrix);
-    m_champValeurHypotheque->setValue(m_propriete->getValeurHypotheque());
+    m_champValeurHypotheque->setValue(propriete->getValeurHypotheque());
     
     
     

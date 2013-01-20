@@ -16,22 +16,22 @@ TaxeEditWidget::TaxeEditWidget(Taxe *const taxe) :
 {
     /* Configuration des champs.
      */
-    m_champPayeMontantFixe->setChecked(m_taxe->isMontantFixe());
+    m_champPayeMontantFixe->setChecked(taxe->isMontantFixe());
     
-    m_labelMontantFixe->setEnabled(m_taxe->isMontantFixe());
+    m_labelMontantFixe->setEnabled(taxe->isMontantFixe());
     
     m_champMontantFixe->setSingleStep(10);
     m_champMontantFixe->setMaximum(MONTANT_MAX_EDITEUR);
-    m_champMontantFixe->setEnabled(m_taxe->isMontantFixe());
-    m_champMontantFixe->setValue(m_taxe->isMontantFixe() ? m_taxe->getMontantFixe() : 0);
+    m_champMontantFixe->setEnabled(taxe->isMontantFixe());
+    m_champMontantFixe->setValue(taxe->isMontantFixe() ? taxe->getMontantFixe() : 0);
     
-    m_champPayePourcentage->setChecked(m_taxe->isPourcentageFortune());
+    m_champPayePourcentage->setChecked(taxe->isPourcentageFortune());
     
-    m_labelPourcentage->setEnabled(m_taxe->isPourcentageFortune());
+    m_labelPourcentage->setEnabled(taxe->isPourcentageFortune());
     
     m_champPourcentage->setMaximum(100);
-    m_champPourcentage->setEnabled(m_taxe->isPourcentageFortune());
-    m_champPourcentage->setValue(m_taxe->isPourcentageFortune() ? m_taxe->getPourcentageFortune() : 0);
+    m_champPourcentage->setEnabled(taxe->isPourcentageFortune());
+    m_champPourcentage->setValue(taxe->isPourcentageFortune() ? taxe->getPourcentageFortune() : 0);
     
     
     

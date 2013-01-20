@@ -7,10 +7,10 @@
 EmplacementEditWidget::EmplacementEditWidget(Emplacement* const emplacement) :
     SauvegardeInterface(),
     m_emplacement(emplacement),
-    m_champTitre(new QLineEdit(m_emplacement->getTitre())),
-    m_champSousTitre(new QLineEdit(m_emplacement->getSousTitre())),
-    m_champDescription(new QTextEdit(m_emplacement->getDescription())),
-    m_champImage(new ImageSelectWidget(this, m_emplacement->getImage(), m_emplacement->getGraphismeInfos().getCouleurFond()))
+    m_champTitre(new QLineEdit(emplacement->getTitre())),
+    m_champSousTitre(new QLineEdit(emplacement->getSousTitre())),
+    m_champDescription(new QTextEdit(emplacement->getDescription())),
+    m_champImage(new ImageSelectWidget(this, emplacement->getImage(), emplacement->getGraphismeInfos().getCouleurFond()))
 {
     /* Mise en forme du widget.
      */

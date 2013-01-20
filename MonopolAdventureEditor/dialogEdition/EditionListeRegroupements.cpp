@@ -15,9 +15,9 @@ EditionListeRegroupements::EditionListeRegroupements(QList<Regroupement*>& regro
 {
     /* Création de la liste éditable.
      */
-    for (int i(0), iEnd(m_listeOriginale.count()); i < iEnd; ++i)
+    for (int i(0), iEnd(regroupements.count()); i < iEnd; ++i)
     {
-        m_listeEditable << new Regroupement(m_listeOriginale.at(i));
+        m_listeEditable << new Regroupement(regroupements.at(i));
     }
     
     

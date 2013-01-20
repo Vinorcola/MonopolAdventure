@@ -13,7 +13,7 @@ PrisonEditWidget::PrisonEditWidget(Prison* const prison) :
      */
     m_champCaution->setSingleStep(5);
     m_champCaution->setMaximum(MONTANT_MAX_EDITEUR);
-    m_champCaution->setValue(m_prison->getCaution());
+    m_champCaution->setValue(prison->getCaution());
     
     
     

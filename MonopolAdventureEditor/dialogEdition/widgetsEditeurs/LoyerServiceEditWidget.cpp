@@ -17,7 +17,7 @@ LoyerServiceEditWidget::LoyerServiceEditWidget(Service* const service,
         QSpinBox* champ(new QSpinBox);
         champ->setSingleStep(10);
         champ->setMaximum(MONTANT_MAX_EDITEUR);
-        champ->setValue(m_service->getLoyer(i));
+        champ->setValue(service->getLoyer(i));
         
         m_champsLoyer.append(champ);
     }

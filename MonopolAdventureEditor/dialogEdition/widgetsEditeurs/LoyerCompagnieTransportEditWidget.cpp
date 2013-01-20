@@ -17,7 +17,7 @@ LoyerCompagnieTransportEditWidget::LoyerCompagnieTransportEditWidget(CompagnieTr
         QSpinBox* champ(new QSpinBox);
         champ->setSingleStep(10);
         champ->setMaximum(MONTANT_MAX_EDITEUR);
-        champ->setValue(m_compagnieTransport->getLoyer(i));
+        champ->setValue(compagnieTransport->getLoyer(i));
         
         m_champsLoyer.append(champ);
     }

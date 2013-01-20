@@ -29,8 +29,6 @@ class ActionEditWidget : public QScrollArea
     private:
         Action* m_action;///< Action en cours d'édition.
         bool m_slotsInactifs;///< Permet de désactiver temporairement l'effet des slots lors d'une modification des entrées par le programme.
-        const QList<Emplacement*>& m_emplacements;///< Référence constante vers la liste des emplacements du plateau.
-        const QList<PileCartes*>& m_pilesCartes;///< Référence constante vers la liste des piles de cartes en cours d'édition.
         
         
         

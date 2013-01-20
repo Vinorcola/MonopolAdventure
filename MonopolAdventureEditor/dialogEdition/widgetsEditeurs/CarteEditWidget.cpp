@@ -9,14 +9,14 @@ CarteEditWidget::CarteEditWidget(Carte* carte,
                                  const QList<PileCartes*>& pilesCartes) :
     QTabWidget(),
     m_carte(carte),
-    m_consigne(new QTextEdit(m_carte->getConsigne())),
-    m_image(new ImageSelectWidget(this, m_carte->getImage())),
+    m_consigne(new QTextEdit(carte->getConsigne())),
+    m_image(new ImageSelectWidget(this, carte->getImage())),
     m_gauche(new QRadioButton(tr("Image à gauche du texte."))),
     m_droite(new QRadioButton(tr("Image à droite du texte."))),
     m_haut(new QRadioButton(tr("Image au-dessus du texte."))),
     m_bas(new QRadioButton(tr("Image en dessous du texte."))),
     m_positionImage(new QButtonGroup),
-    m_action(new ActionEditWidget(&(m_carte->getAction()), emplacements, pilesCartes))
+    m_action(new ActionEditWidget(&(carte->getAction()), emplacements, pilesCartes))
 {
     // Configuration
     QWidget* onglet(new QWidget);
@@ -25,7 +25,7 @@ CarteEditWidget::CarteEditWidget(Carte* carte,
     m_positionImage->addButton(m_droite);
     m_positionImage->addButton(m_haut);
     m_positionImage->addButton(m_bas);
-    switch (m_carte->getDispositionImage())
+    switch (carte->getDispositionImage())
     {
         case Carte::GAUCHE:
             m_gauche->setChecked(true);
