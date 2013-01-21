@@ -322,10 +322,10 @@ ActionEditWidget::ActionEditWidget(Action* action,
     m_groupeLiberePrison->setLayout(layoutLiberePrison);
     
     QVBoxLayout* layout(new QVBoxLayout);
+    layout->addWidget(m_groupeTransaction);// On place les transactions en premier car elles sont plus fréquentes.
     layout->addWidget(m_groupeDeplacement);
     layout->addWidget(m_groupeDeplacementRelatif);
     layout->addWidget(m_groupeDeplacementAuProchain);
-    layout->addWidget(m_groupeTransaction);
     layout->addWidget(m_groupeReparation);
     layout->addWidget(m_groupePayeOuPioche);
     layout->addWidget(m_groupePioche);
