@@ -14,6 +14,7 @@ MainWindow::MainWindow() :
     m_actionQuitter(new QAction(tr("Quitter"), this)),
     m_actionAssistantCreation(new QAction(tr("Créer un nouveau plateau"), this)),
     m_actionSauvegarder(new QAction(tr("Enregistrer"), this)),
+    m_actionPrix(new QAction(tr("Prix"), this)),
     m_actionRegroupements(new QAction(tr("Regroupements"), this)),
     m_actionPilesCartes(new QAction(tr("Piles de cartes"), this)),
     m_actionEditionTypeEmplacement(new QAction(tr("Edition de type d'emplacement"), this))
@@ -38,6 +39,7 @@ MainWindow::MainWindow() :
     connect(m_actionQuitter, SIGNAL(triggered()), this, SLOT(quitter()));
     connect(m_actionAssistantCreation, SIGNAL(triggered()), this, SLOT(startAssistant()));
     connect(m_actionSauvegarder, SIGNAL(triggered()), this, SLOT(enregistrer()));
+    connect(m_actionPrix, SIGNAL(triggered()), m_plateau, SLOT(editPrix()));
     connect(m_actionRegroupements, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupements()));
     connect(m_actionPilesCartes, SIGNAL(triggered()), m_plateau, SLOT(editListePilesCartes()));
     
@@ -57,6 +59,7 @@ MainWindow::MainWindow() :
     
     /* Configuration des barres d'outils.
      */
+    m_barreOutils->addAction(m_actionPrix);
     m_barreOutils->addAction(m_actionRegroupements);
     m_barreOutils->addAction(m_actionPilesCartes);
     m_barreOutils->addAction(m_actionEditionTypeEmplacement);
