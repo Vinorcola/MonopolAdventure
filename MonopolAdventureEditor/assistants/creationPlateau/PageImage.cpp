@@ -46,6 +46,6 @@ PageImage::PageImage() :
 
 int PageImage::nextId() const
 {
-    return 5;
+    return 4;
 }
 

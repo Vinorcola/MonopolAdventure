@@ -26,8 +26,8 @@ AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
      */
     setPage(1, new PageIntro);
     setPage(2, new PageTaille);
-    setPage(3, new PagePrix);
-    setPage(4, new PageImage);
+    setPage(3, new PageImage);
+    setPage(4, new PagePrix);
     setPage(5, new PageGraphisme);
     setPage(6, new PageOuvrir);
 }

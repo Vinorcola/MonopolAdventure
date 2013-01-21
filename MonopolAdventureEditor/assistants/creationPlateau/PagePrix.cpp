@@ -81,7 +81,7 @@ PagePrix::PagePrix() :
 
 int PagePrix::nextId() const
 {
-    return 4;
+    return 5;
 }
 
 
