@@ -118,6 +118,7 @@ void ListePilesCartesEditWidget::deletePileCartes()
         while (!trouve && i != m_pileCartesPioche.constEnd())
         {
             trouve = (i.value() == pileCartesASupprimer);
+            i++;
         }
         
         if (trouve)

@@ -18,7 +18,6 @@ Action::Action() :
     
     m_transaction(false),
     m_gainArgent(false),
-    m_enversBanque(false),
     m_enversTousLesJoueurs(false),
     m_montant(0),
     
@@ -62,11 +61,7 @@ QString Action::getDescription(const QString& devise) const
     {
         texte = QObject::tr("Le joueur doit ") + QString(m_gainArgent ? QObject::tr("recevoir") : QObject::tr("verser")) + QObject::tr(" un montant de ") + QString::number(m_montant) + " " + devise;
         
-        if (isTransactionAvecAutreJoueur())
-        {
-            texte += (m_gainArgent ? QObject::tr(" auprès d'un autre joueur.") : QObject::tr(" à un autre joueur."));
-        }
-        else if (isTransactionAvecBanque())
+        if (isTransactionAvecBanque())
         {
             texte += (m_gainArgent ? QObject::tr(" auprès de la banque") : QObject::tr(" à la banque"));
         }
@@ -254,7 +249,6 @@ void Action::setDeplacement(const bool avance,
         m_relanceDes = relanceDes;
         m_transaction = false;
         m_gainArgent = false;
-        m_enversBanque = false;
         m_enversTousLesJoueurs = false;
         m_montant = 0;
         m_reparation = false;
@@ -288,7 +282,6 @@ void Action::setDeplacement(const bool avance,
         m_relanceDes = relanceDes;
         m_transaction = false;
         m_gainArgent = false;
-        m_enversBanque = false;
         m_enversTousLesJoueurs = false;
         m_montant = 0;
         m_reparation = false;
@@ -320,7 +313,6 @@ void Action::setDeplacementJusquauProchain(const bool avance,
     m_relanceDes = relanceDes;
     m_transaction = false;
     m_gainArgent = false;
-    m_enversBanque = false;
     m_enversTousLesJoueurs = false;
     m_montant = 0;
     m_reparation = false;
@@ -369,25 +361,11 @@ bool Action::joueurPerdArgent() const
 
 
 
-bool Action::isTransactionAvecAutreJoueur() const
-{
-    if (isTransaction())
-    {
-        return !m_enversBanque && !m_enversTousLesJoueurs;
-    }
-    
-    return false;
-}
-
-
-
-
-
 bool Action::isTransactionAvecBanque() const
 {
     if (isTransaction())
     {
-        return m_enversBanque;
+        return !m_enversTousLesJoueurs;
     }
     
     return false;
@@ -425,35 +403,6 @@ quint16 Action::getMontantTransaction() const
 
 
 
-void Action::setTransactionAvecAutreJoueur(const bool gain,
-                                           const quint16 montant)
-{
-    m_deplacement = false;
-    m_joueurAvance = false;
-    m_deplacementRelatif = 0;
-    m_deplacementEmplacement = 0;
-    m_deplacementJusquauProchain = Type::Aucun;
-    m_coefficientLoyer = 1;
-    m_relanceDes = false;
-    m_transaction = true;
-    m_gainArgent = gain;
-    m_enversBanque = false;
-    m_enversTousLesJoueurs = false;
-    m_montant = montant;
-    m_reparation = false;
-    m_montantParMaison = 0;
-    m_montantParHotel = 0;
-    m_montantParGratteCiel = 0;
-    m_payeOuPioche = false;
-    m_pileCartes = 0;
-    m_pioche = false;
-    m_libereDePrison = false;
-}
-
-
-
-
-
 void Action::setTransactionAvecBanque(const bool gain,
                                       const quint16 montant)
 {
@@ -466,7 +415,6 @@ void Action::setTransactionAvecBanque(const bool gain,
     m_relanceDes = false;
     m_transaction = true;
     m_gainArgent = gain;
-    m_enversBanque = true;
     m_enversTousLesJoueurs = false;
     m_montant = montant;
     m_reparation = false;
@@ -495,7 +443,6 @@ void Action::setTransactionAvecTousLesJoueurs(const bool gain,
     m_relanceDes = false;
     m_transaction = true;
     m_gainArgent = gain;
-    m_enversBanque = false;
     m_enversTousLesJoueurs = true;
     m_montant = montant;
     m_reparation = false;
@@ -576,7 +523,6 @@ void Action::setReparationConstructions(const quint16 montantParMaison,
     m_relanceDes = false;
     m_transaction = false;
     m_gainArgent = false;
-    m_enversBanque = false;
     m_enversTousLesJoueurs = false;
     m_montant = 0;
     m_reparation = true;
@@ -651,7 +597,6 @@ void Action::setPayeOuPioche(const quint16 amende,
     m_relanceDes = false;
     m_transaction = false;
     m_gainArgent = false;
-    m_enversBanque = false;
     m_enversTousLesJoueurs = false;
     m_montant = amende;
     m_reparation = false;
@@ -679,7 +624,6 @@ void Action::setPioche(const PileCartes* pileCartes)
     m_relanceDes = false;
     m_transaction = false;
     m_gainArgent = false;
-    m_enversBanque = false;
     m_enversTousLesJoueurs = false;
     m_montant = 0;
     m_reparation = false;
@@ -716,7 +660,6 @@ void Action::setLibereDePrison()
     m_relanceDes = false;
     m_transaction = false;
     m_gainArgent = false;
-    m_enversBanque = false;
     m_enversTousLesJoueurs = false;
     m_montant = 0;
     m_reparation = false;
@@ -769,7 +712,6 @@ void Action::saveInFile(QDataStream& ecriture,
              << m_relanceDes
              << m_transaction
              << m_gainArgent
-             << m_enversBanque
              << m_enversTousLesJoueurs
              << m_montant
              << m_reparation
@@ -806,7 +748,6 @@ void Action::loadFromFile(QDataStream& lecture,
                     >> m_relanceDes
                     >> m_transaction
                     >> m_gainArgent
-                    >> m_enversBanque
                     >> m_enversTousLesJoueurs
                     >> m_montant
                     >> m_reparation

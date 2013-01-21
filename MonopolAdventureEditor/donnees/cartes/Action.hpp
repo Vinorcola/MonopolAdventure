@@ -34,16 +34,11 @@ class Action
         bool m_transaction;///< Indique si une transaction a lieu.
         bool m_gainArgent;///< Indique si le joueur gagne ou perd de l'argent.
         /**
-         * Indique si la transaction se fait entre la banque et le joueur.
-         * @note Si @a m_enversBanque et @a m_enversTousLesJoueurs sont à @b @c false, la transaction se fait entre @a m_joueurActeur et @a m_joueurSecondaire.
-         */
-        bool m_enversBanque;
-        /**
          * Indique si l'échange se fait entre le joueur actuel et tous les autres joueurs à la fois.
          * 
          * Il se fait donc autant de transaction qu'il y a de concurrents.
          * 
-         * @note Si @a m_enversBanque et @a m_enversTousLesJoueurs sont à @b @c false, la transaction se fait entre @a m_joueurActeur et @a m_joueurSecondaire.
+         * @note Si @a m_enversTousLesJoueurs est à @b @c false, la transaction se fait entre le joueur et la banque.
          */
         bool m_enversTousLesJoueurs;
         quint16 m_montant;///< Indique le montant de l'échange ou bien le montant de l'amende dans le cas d'une carte "Paye une amende ou pioche une autre carte".
@@ -51,7 +46,7 @@ class Action
         
         /* Réparation
          */
-        bool m_reparation;///< Indique si le joueur doit faire des réparations dans ses maisons.
+        bool m_reparation;///< Indique si le action doit faire des réparations dans ses maisons.
         quint16 m_montantParMaison;///< Indique le montant à payer par maison à réparer.
         quint16 m_montantParHotel;///< Indique le montant à payer par hôtel à réparer.
         quint16 m_montantParGratteCiel;///< Indique le montant à payer par gratte-ciel à réparer.
@@ -246,14 +241,6 @@ class Action
         
         
         /**
-         * Indique si la transaction se déroule entre le joueur acteur et le joueur secondaire.
-         * @return @b @c true si la transaction se déroule entre le joueur acteur et le joueur secondaire.
-         */
-        bool isTransactionAvecAutreJoueur() const;
-        
-        
-        
-        /**
          * Indique si la transaction se déroule entre le joueur acteur et la banque.
          * @return @b @c true si la transaction se déroule entre le joueur acteur et la banque.
          */
@@ -274,16 +261,6 @@ class Action
          * @return Montant de la transaction.
          */
         quint16 getMontantTransaction() const;
-        
-        
-        
-        /**
-         * Change l'action en transaction avec le joueur secondaire.
-         * @param gain Indique si le joueur acteur gagne l'argent de la transaction.
-         * @param montant Montant de la transaction.
-         */
-        void setTransactionAvecAutreJoueur(const bool gain,
-                                           const quint16 montant);
         
         
         

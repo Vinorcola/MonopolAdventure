@@ -151,7 +151,6 @@ ActionEditWidget::ActionEditWidget(Action* action,
     m_montant->setSingleStep(10);
     m_montant->setMaximum(MONTANT_MAX_EDITEUR);
     
-    m_destinataire->addItem(tr("d'un autre joueur"));
     m_destinataire->addItem(tr("de la banque"));
     m_destinataire->addItem(tr("de tous les autres joueurs"));
     
@@ -162,17 +161,13 @@ ActionEditWidget::ActionEditWidget(Action* action,
         m_radioPerd->setChecked(action->joueurPerdArgent());
         m_montant->setValue(action->getMontantTransaction());
         
-        if (action->isTransactionAvecAutreJoueur())
+        if (action->isTransactionAvecBanque())
         {
             m_destinataire->setCurrentIndex(0);
         }
-        else if (action->isTransactionAvecBanque())
-        {
-            m_destinataire->setCurrentIndex(1);
-        }
         else if (action->isTransactionAvecTousLesJoueurs())
         {
-            m_destinataire->setCurrentIndex(2);
+            m_destinataire->setCurrentIndex(1);
         }
     }
     else
@@ -381,13 +376,9 @@ void ActionEditWidget::sauvegarde()
     {
         if (m_destinataire->currentIndex() == 0)
         {
-            m_action->setTransactionAvecAutreJoueur(m_radioGagne->isChecked(), m_montant->value());
-        }
-        else if (m_destinataire->currentIndex() == 1)
-        {
             m_action->setTransactionAvecBanque(m_radioGagne->isChecked(), m_montant->value());
         }
-        else if (m_destinataire->currentIndex() == 2)
+        else if (m_destinataire->currentIndex() == 1)
         {
             m_action->setTransactionAvecTousLesJoueurs(m_radioGagne->isChecked(), m_montant->value());
         }
