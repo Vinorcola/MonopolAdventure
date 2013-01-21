@@ -1385,6 +1385,14 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
         /* Dessein de l'emplacement.
          */
         nouvelEmplacement->setupElementGraphique(helper_getPositionEmplacement(rang), helper_getRotationEmplacement(rang), this);
+        if (helper_isEmplacementEnCoin(rang))
+        {
+            nouvelEmplacement->setEmplacementEnCoin();
+        }
+        else
+        {
+            nouvelEmplacement->setEmplacementNormal();
+        }
         GraphismeEmplacement* elementGraphique(nouvelEmplacement->dessiner());
         connect(elementGraphique, SIGNAL(editEmplacement(Emplacement*)), this, SLOT(editEmplacement(Emplacement*)));
         

@@ -15,6 +15,8 @@
  * Widget proposant à l'utilisateur de sélectionner une image.
  * 
  * Affiche un QLabel avec l'image par défaut, puis un QPushButton qui ouvre une QFileDialog. Lorsque l'utilisateur change l'image, le QLabel se met automatiquement à jour en affichant la nouvelle image et le signal @c imageChange() est émis. L'utilisateur a aussi la possibilité de changer la couleur de fond.
+ * 
+ * @todo Pouvoir supprimer l'image.
  */
 class ImageSelectWidget : public QWidget
 {
