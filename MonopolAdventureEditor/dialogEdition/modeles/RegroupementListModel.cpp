@@ -10,17 +10,9 @@ RegroupementListModel::RegroupementListModel(QList<Regroupement*>& regroupements
     m_regroupements(regroupements),
     m_modeleRegroupementsSelectionnables(new SelectionRegroupementListModel(regroupements, this))
 {
-    /* Si le modèle de données ne possède qu'un seul regroupement, on l'interdit à la sélection. Sinon, on
-     * interdit le deuxième à la sélection.
+    /* On interdit le premier regroupement à la sélection (celui en cours dédition par défaut).
      */
-    if (regroupements.count() > 1)
-    {
-        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(regroupements.at(1));
-    }
-    else
-    {
-        m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(regroupements.first());
-    }
+    m_modeleRegroupementsSelectionnables->notifyRegroupementInactif(regroupements.first());
 }
 
 
