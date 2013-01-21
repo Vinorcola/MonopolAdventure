@@ -70,11 +70,11 @@ void FileSelectWidget::askNewFile()
     
     if (m_openingMode)
     {
-        newFile = QFileDialog::getOpenFileName(parentWidget(), tr("Sélectionnez un plateau à ouvrir"), QString(), tr("Plateau MonopolAdventure (*.plt)"));
+        newFile = QFileDialog::getOpenFileName(parentWidget(), tr("Sélectionnez un plateau à ouvrir"), "data/", tr("Plateau MonopolAdventure (*.plt)"));
     }
     else
     {
-        newFile = QFileDialog::getSaveFileName(parentWidget(), tr("Sélectionnez un fichier à enregistrer"), QString(), tr("Plateau MonopolAdventure (*.plt)"));
+        newFile = QFileDialog::getSaveFileName(parentWidget(), tr("Sélectionnez un fichier à enregistrer"), "data/", tr("Plateau MonopolAdventure (*.plt)"));
     }
     
     
