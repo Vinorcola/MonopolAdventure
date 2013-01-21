@@ -20,10 +20,11 @@ PileCartesEditWidget::PileCartesEditWidget(const QList<Emplacement*>& emplacemen
     m_supprimerCarte(new QPushButton(tr("Supprimer cette carte")))
 {
     // Configuration des champs
-    m_vueCartes->setMinimumWidth(500);
+    m_vueCartes->setFixedWidth(500);
     
     m_description->setWordWrap(true);
     m_description->setAlignment(Qt::AlignJustify);
+    m_description->setFixedWidth(250);
     
     
     
