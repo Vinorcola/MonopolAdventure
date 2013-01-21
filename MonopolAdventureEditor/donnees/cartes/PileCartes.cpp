@@ -226,7 +226,7 @@ QVariant PileCartes::data(const QModelIndex& index,
         if (role == Qt::BackgroundRole && index.row() % 2 == 1)
         {
             // Pour toutes les lignes impairs, on grise le fond.
-            return QBrush(QColor(192, 192, 192));
+            return QBrush(QColor(210, 210, 210));
         }
     }
     
