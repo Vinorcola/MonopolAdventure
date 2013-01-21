@@ -356,6 +356,7 @@ const QColor& Plateau::getCouleurFond() const
 void Plateau::editCouleurFond(const QColor& couleur)
 {
     m_couleurFond = couleur;
+    setBackgroundBrush(QBrush(m_couleurFond));
     m_sauvegarde = false;
 }
 
@@ -897,6 +898,7 @@ void Plateau::loadFromFile(QString cheminFichier)
                                 >> m_prixAffichageComplet
                                 >> m_couleurFond
                                 >> m_image;
+                        setBackgroundBrush(QBrush(m_couleurFond));
                         
                         
                         
