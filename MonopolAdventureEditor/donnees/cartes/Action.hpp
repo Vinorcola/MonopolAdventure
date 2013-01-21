@@ -71,7 +71,7 @@ class Action
         
     public:
         /**
-         * Construit une action par défaut : le joueur se déplace d'emplacement en avant.
+         * Construit une action par défaut : le joueur doit payer 100.
          */
         Action();
         

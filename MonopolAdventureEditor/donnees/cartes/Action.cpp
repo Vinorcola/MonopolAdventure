@@ -8,18 +8,18 @@
 
 
 Action::Action() :
-    m_deplacement(true),
-    m_joueurAvance(true),
-    m_deplacementRelatif(1),
+    m_deplacement(false),
+    m_joueurAvance(false),
+    m_deplacementRelatif(0),
     m_deplacementEmplacement(false),
     m_deplacementJusquauProchain(Type::Aucun),
-    m_coefficientLoyer(1),
+    m_coefficientLoyer(0),
     m_relanceDes(false),
     
-    m_transaction(false),
+    m_transaction(true),
     m_gainArgent(false),
     m_enversTousLesJoueurs(false),
-    m_montant(0),
+    m_montant(100),
     
     m_reparation(false),
     m_montantParMaison(0),
