@@ -702,7 +702,7 @@ void GraphismeEmplacement::positionneImage()
             }
             
             int x((rect().width() - m_graphImage->boundingRect().width()) / 2);
-            int y((rect().height() + margeHaute - margeBasse - m_graphImage->boundingRect().height()) / 2);
+            int y((margeHaute + margeBasse - m_graphImage->boundingRect().height()) / 2);
             
             m_graphImage->setPos(x, y);
         }
