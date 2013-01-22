@@ -5,16 +5,16 @@
 
 
 GraphismeEmplacementInfos::GraphismeEmplacementInfos() :
-    m_tailleNormale(0, 0),
-    m_tailleEnCoin(0, 0),
-    m_hauteurRectangleCouleur(0),
-    m_crayonBordure(),
-    m_couleurFond(255, 255, 255),
-    m_marge(0),
-    m_fontTitre(),
-    m_fontSousTitre(),
-    m_fontDescription(),
-    m_fontPrix()
+    m_tailleNormale(200, 250),
+    m_tailleEnCoin(250, 250),
+    m_hauteurRectangleCouleur(50),
+    m_crayonBordure(QBrush(QColor(0, 0, 0)), 1),
+    m_couleurFond(255, 255, 128),
+    m_marge(5),
+    m_fontTitre("Comic Sans MS", 18, QFont::Bold),
+    m_fontSousTitre("Arial", 16),
+    m_fontDescription("Arial", 12),
+    m_fontPrix("DejaVu Sans Mono", 12)
 {
     
 }

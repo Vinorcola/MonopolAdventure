@@ -23,28 +23,28 @@ GraphismeEmplacementEditWidget::GraphismeEmplacementEditWidget(Plateau* plateau)
 {
     /* Configuration du contenu
      */
-    m_champLargeur->setMinimum(0);
+    m_champLargeur->setMinimum(200);
     m_champLargeur->setMaximum(500);
     m_champLargeur->setSingleStep(10);
-    m_champLargeur->setValue(200);
+    m_champLargeur->setValue(plateau->getTailleEmplacementsNormaux().width());
     
-    m_champHauteur->setMinimum(0);
+    m_champHauteur->setMinimum(200);
     m_champHauteur->setMaximum(650);
     m_champHauteur->setSingleStep(10);
-    m_champHauteur->setValue(250);
+    m_champHauteur->setValue(plateau->getTailleEmplacementsNormaux().height());
     
     m_champHauteurCouleurRegroupement->setMinimum(0);
     m_champHauteurCouleurRegroupement->setMaximum(150);
     m_champHauteurCouleurRegroupement->setSingleStep(5);
-    m_champHauteurCouleurRegroupement->setValue(50);
+    m_champHauteurCouleurRegroupement->setValue(plateau->getHauteurRectangleCouleur());
     
     m_champEpaisseurBordure->setMinimum(0);
     m_champEpaisseurBordure->setMaximum(10);
-    m_champEpaisseurBordure->setValue(1);
+    m_champEpaisseurBordure->setValue(plateau->getCrayonBordureEmplacement().width());
     
     m_champMarge->setMinimum(0);
     m_champMarge->setMaximum(20);
-    m_champMarge->setValue(5);
+    m_champMarge->setValue(plateau->getMarge());
     
     
     
