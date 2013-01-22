@@ -746,7 +746,7 @@ void Plateau::saveInFile(QString cheminFichier)
         QDataStream ecriture(fichier);
         
         // Configuration de la méthode d'écriture.
-        ecriture.setVersion(QDataStream::Qt_5_0);
+        ecriture.setVersion(QDataStream::Qt_4_8);
         
         // Ecriture de l'en-tête du fichier de sauvegarde.
         ecriture << (quint32) TAG_SECURITE << (quint32) VERSION_ECRITURE;
@@ -888,7 +888,7 @@ void Plateau::loadFromFile(QString cheminFichier)
             QDataStream lecture(fichier);
             
             // Configuration de la méthode de lecture de l'en-tête.
-            lecture.setVersion(QDataStream::Qt_5_0);
+            lecture.setVersion(QDataStream::Qt_4_8);
             
             // Ecriture de l'en-tête du fichier de sauvegarde.
             quint32 tag, version;
