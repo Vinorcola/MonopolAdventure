@@ -6,7 +6,7 @@
 
 PagePrix::PagePrix(Plateau* plateau) :
     QWizardPage(),
-    m_champPrix(new PrixEditWidget(plateau))
+    m_champPrix(new AffichagePrixEditWidget(plateau))
 {
     /* Configuration de la page
      */

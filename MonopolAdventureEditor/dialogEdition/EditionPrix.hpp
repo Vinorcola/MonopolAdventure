@@ -5,7 +5,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-#include "dialogEdition/widgetsEditeurs/PrixEditWidget.hpp"
+#include "dialogEdition/widgetsEditeurs/AffichagePrixEditWidget.hpp"
 
 
 
@@ -19,7 +19,7 @@ class EditionPrix
 {
     private:
         QDialog* m_dialog;///< Boîte de dialogue affichant le widget d'édition.
-        PrixEditWidget* m_champ;///< Champ d'édition de la carte.
+        AffichagePrixEditWidget* m_champ;///< Champ d'édition de la carte.
         
         
         

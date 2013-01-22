@@ -1,5 +1,5 @@
-#ifndef PRIXEDITWIDGET_HPP
-#define PRIXEDITWIDGET_HPP
+#ifndef AFFICHAGEPRIXEDITWIDGET_HPP
+#define AFFICHAGEPRIXEDITWIDGET_HPP
 
 #include <QCheckBox>
 #include <QFormLayout>
@@ -14,10 +14,10 @@ class Plateau;
 
 
 /**
- * @class PrixEditWidget PrixEditWidget.hpp dialogEdition/widgetsEditeurs/PrixEditWidget.hpp
- * Ce widget permet l'édition des informations concernant tous les prix : la devise, le coefficient et l'affichage des chiffres.
+ * @class AffichagePrixEditWidget AffichagePrixEditWidget.hpp dialogEdition/widgetsEditeurs/AffichagePrixEditWidget.hpp
+ * Ce widget permet l'édition des informations concernant les prix : la devise, le coefficient et l'affichage des chiffres.
  */
-class PrixEditWidget : public QWidget
+class AffichagePrixEditWidget : public QWidget
 {
         Q_OBJECT
         
@@ -39,7 +39,7 @@ class PrixEditWidget : public QWidget
          * Construit un widget d'édition par défaut.
          * @param plateau Plateau en cours d'édition.
          */
-        PrixEditWidget(Plateau* plateau);
+        AffichagePrixEditWidget(Plateau* plateau);
         
         
         
@@ -72,4 +72,4 @@ class PrixEditWidget : public QWidget
         void affichageChanged(int state);
 };
 
-#endif // PRIXEDITWIDGET_HPP
+#endif // AFFICHAGEPRIXEDITWIDGET_HPP

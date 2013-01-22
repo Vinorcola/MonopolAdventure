@@ -3,7 +3,7 @@
 
 #include <QWizardPage>
 
-#include "dialogEdition/widgetsEditeurs/PrixEditWidget.hpp"
+#include "dialogEdition/widgetsEditeurs/AffichagePrixEditWidget.hpp"
 
 
 
@@ -22,7 +22,7 @@ class PagePrix : public QWizardPage
         
         
     private:
-        PrixEditWidget* m_champPrix;///< Champ d'édition des informations concernant les prix.
+        AffichagePrixEditWidget* m_champPrix;///< Champ d'édition des informations concernant les prix.
         
         
         

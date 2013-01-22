@@ -30,6 +30,7 @@ SOURCES += main.cpp \
     dialogEdition/modeles/SelectionRegroupementListModel.cpp \
     dialogEdition/modeles/RegroupementListModel.cpp \
     dialogEdition/widgetsEditeurs/ActionEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/AffichagePrixEditWidget.cpp \
     dialogEdition/widgetsEditeurs/CarteEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ConstructionEditWidget.cpp \
     dialogEdition/widgetsEditeurs/DepartEditWidget.cpp \
@@ -43,7 +44,6 @@ SOURCES += main.cpp \
     dialogEdition/widgetsEditeurs/PiocheEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PileCartesEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.cpp \
-    dialogEdition/widgetsEditeurs/PrixEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.cpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/TaxeEditWidget.cpp \
@@ -94,6 +94,7 @@ HEADERS  += global.hpp \
     dialogEdition/modeles/SelectionRegroupementListModel.hpp \
     dialogEdition/modeles/RegroupementListModel.hpp \
     dialogEdition/widgetsEditeurs/ActionEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/AffichagePrixEditWidget.hpp \
     dialogEdition/widgetsEditeurs/CarteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ConstructionEditWidget.hpp \
     dialogEdition/widgetsEditeurs/DepartEditWidget.hpp \
@@ -107,7 +108,6 @@ HEADERS  += global.hpp \
     dialogEdition/widgetsEditeurs/PiocheEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PileCartesEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp \
-    dialogEdition/widgetsEditeurs/PrixEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/RegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/SauvegardeInterface.hpp \

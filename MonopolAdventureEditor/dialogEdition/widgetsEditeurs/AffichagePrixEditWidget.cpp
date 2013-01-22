@@ -1,4 +1,4 @@
-#include "PrixEditWidget.hpp"
+#include "AffichagePrixEditWidget.hpp"
 
 #include "donnees/Plateau.hpp"
 
@@ -6,7 +6,7 @@
 
 
 
-PrixEditWidget::PrixEditWidget(Plateau* plateau) :
+AffichagePrixEditWidget::AffichagePrixEditWidget(Plateau* plateau) :
     QWidget(),
     m_plateau(plateau),
     m_champDevise(new QLineEdit(plateau->getDevise())),
@@ -98,7 +98,7 @@ PrixEditWidget::PrixEditWidget(Plateau* plateau) :
 
 
 
-void PrixEditWidget::sauvegarde()
+void AffichagePrixEditWidget::sauvegarde()
 {
     m_plateau->editDevise(m_champDevise->text());
     m_plateau->editCoefficientPrix(m_champCoef->text().toInt());
@@ -109,7 +109,7 @@ void PrixEditWidget::sauvegarde()
 
 
 
-void PrixEditWidget::coefPlusClicked()
+void AffichagePrixEditWidget::coefPlusClicked()
 {
     switch (m_champCoef->text().toInt())
     {
@@ -144,7 +144,7 @@ void PrixEditWidget::coefPlusClicked()
 
 
 
-void PrixEditWidget::coefMoinsClicked()
+void AffichagePrixEditWidget::coefMoinsClicked()
 {
     switch (m_champCoef->text().toInt())
     {
@@ -179,7 +179,7 @@ void PrixEditWidget::coefMoinsClicked()
 
 
 
-void PrixEditWidget::affichageChanged(int state)
+void AffichagePrixEditWidget::affichageChanged(int state)
 {
     if (state == Qt::Checked)
     {

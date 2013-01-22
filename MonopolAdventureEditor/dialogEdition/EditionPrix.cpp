@@ -7,7 +7,7 @@
 EditionPrix::EditionPrix(Plateau* plateau,
                          QWidget* parent) :
     m_dialog(new QDialog(parent)),
-    m_champ(new PrixEditWidget(plateau))
+    m_champ(new AffichagePrixEditWidget(plateau))
 {
     /* Aménagement de la fenêtre de dialogue.
      */
