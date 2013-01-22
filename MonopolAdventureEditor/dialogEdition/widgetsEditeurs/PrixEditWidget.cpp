@@ -58,7 +58,7 @@ PrixEditWidget::PrixEditWidget(Plateau* plateau) :
     }
     
     m_champAffichageCompletPrix->setChecked(plateau->affichageIntegraleActif());
-    affichageChanged(plateau->affichageIntegraleActif());
+    affichageChanged(plateau->affichageIntegraleActif() ? Qt::Checked : Qt::Unchecked);
     
     m_exempleAffichagePrix->setWordWrap(true);
     m_exempleAffichagePrix->setAlignment(Qt::AlignJustify);
