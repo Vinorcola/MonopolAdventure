@@ -2,6 +2,7 @@
 
 #include "dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp"
 #include "dialogEdition/EditionEmplacement.hpp"
+#include "dialogEdition/EditionGraphismeEmplacement.hpp"
 #include "dialogEdition/EditionListePilesCartes.hpp"
 #include "dialogEdition/EditionListeRegroupements.hpp"
 #include "dialogEdition/EditionPlateauDecoration.hpp"
@@ -710,6 +711,19 @@ void Plateau::editListeRegroupements()
 void Plateau::editListePilesCartes()
 {
     EditionListePilesCartes fenetre(m_pilesCartes, m_emplacements, m_devise, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::editGraphismeEmplacement()
+{
+    EditionGraphismeEmplacement fenetre(this, m_parent);
     if (fenetre.executer())
     {
         m_sauvegarde = false;

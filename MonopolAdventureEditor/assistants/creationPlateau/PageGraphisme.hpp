@@ -1,12 +1,9 @@
 #ifndef PAGEGRAPHISME_HPP
 #define PAGEGRAPHISME_HPP
 
-#include <QFormLayout>
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QSpinBox>
 #include <QWizardPage>
 
+#include "dialogEdition/widgetsEditeurs/GraphismeEmplacementEditWidget.hpp"
 #include "widgetsSelecteurs/ColorSelectWidget.hpp"
 #include "widgetsSelecteurs/FontSelectWidget.hpp"
 
@@ -27,28 +24,16 @@ class PageGraphisme : public QWizardPage
         
         
     private:
-        QGraphicsScene* m_scene;///< Scène contenant les exemples.
-        QGraphicsView* m_vue;///< Vue affichant la scène.
-        
-        QSpinBox* m_champLargeur;///< Champ permettant de configurer la largeur en pixel d'un emplacement.
-        QSpinBox* m_champHauteur;///< Champ permettant de configurer la hauteur en pixel d'un emplacement.
-        QSpinBox* m_champHauteurCouleurGroupement;///< Champ permettant de configurer la hauteur de la bande de couleur du groupement.
-        ColorSelectWidget* m_champCouleurFond;///< Champ permettant de configurer la couleur de fond des emplacements.
-        ColorSelectWidget* m_champCouleurBordure;///< Champ permettant de configurer la couleur des bordures des emplacements.
-        QSpinBox* m_champEpaisseurBordure;///< Champ permettant de configurer l'épaisseur du trait des bordures des emplacements.
-        FontSelectWidget* m_champPoliceTitre;///< Champ permettant de configurer la fonte de caractères du titre des emplacements.
-        FontSelectWidget* m_champPoliceSousTitre;///< Champ permettant de configurer la fonte de caractères du sous-titre des emplacements.
-        FontSelectWidget* m_champPoliceDescription;///< Champ permettant de configurer la fonte de caractères de la description des emplacements.
-        FontSelectWidget* m_champPolicePrix;///< Champ permettant de configurer la fonte de caractères du prix des emplacements.
-        QSpinBox* m_champMarge;///< Champ permettant de configurer la marge minimale entre le texte des les bordures des emplacements.
+        GraphismeEmplacementEditWidget* m_champ;///< Champ d'édition des graphismes des emplacements.
         
         
         
     public:
         /**
          * Construit une nouvelle page.
+         * @param plateau Plateau à éditer.
          */
-        PageGraphisme();
+        PageGraphisme(Plateau* plateau);
         
         
         
@@ -56,6 +41,13 @@ class PageGraphisme : public QWizardPage
          * Renvoie l'iddentifiant de la page suivante.
          */
         int nextId() const;
+        
+        
+        
+        /**
+         * Permet au widget de sauvegarder les informations sur les prix dans le plateau.
+         */
+        void sauvegarde();
 };
 
 #endif // PAGEGRAPHISME_HPP

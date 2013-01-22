@@ -14,6 +14,7 @@
 AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
     m_plateau(plateau),
     m_pageGeneral(new PageGeneral(plateau)),
+    m_pageGraphisme(new PageGraphisme(plateau)),
     m_pagePrix(new PagePrix(plateau))
 {
     /* Configuration de la fenêtre
@@ -30,7 +31,7 @@ AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
     setPage(2, new PageTaille);
     setPage(3, m_pageGeneral);
     setPage(4, m_pagePrix);
-    setPage(5, new PageGraphisme);
+    setPage(5, m_pageGraphisme);
     setPage(6, new PageOuvrir);
 }
 
@@ -44,18 +45,9 @@ void AssistantCreationPlateau::accept()
     {
         m_pageGeneral->sauvegarde();
         m_pagePrix->sauvegarde();
+        m_pageGraphisme->sauvegarde();
         
-        m_plateau->editTailleEmplacements(QSize(field("largeur_emplacement").toInt(), field("hauteur_emplacement").toInt()));
-        m_plateau->editHauteurRectangleCouleur(field("hauteur_regroupement").toInt());
-        m_plateau->editCrayonBordureEmplacement(QPen(QBrush(field("couleur_bordure").value<QColor>()), field("epaisseur_bordure").toInt()));
-        m_plateau->editMarge(field("marge").toInt());
-        m_plateau->editCouleurFondEmplacement(field("couleur_emplacement").value<QColor>());
-        m_plateau->editFonteTitreEmplacement(field("police_titre_emplacement").value<QFont>());
-        m_plateau->editFonteSousTitreEmplacement(field("police_sousTitre_emplacement").value<QFont>());
-        m_plateau->editFonteDescriptionEmplacement(field("police_description_emplacement").value<QFont>());
-        m_plateau->editFontePrixEmplacement(field("police_prix_emplacement").value<QFont>());
-        
-        /* La configuration de la taille du plateau doit être faite en dernière car le plateau à besoin des informations
+        /* La configuration de la taille du plateau doit être éditée en dernière car le plateau à besoin des informations
          * concernant la taille des emplacements.
          */
         m_plateau->editTaille(QSize(field("largeur_plateau").toInt(), field("hauteur_plateau").toInt()));

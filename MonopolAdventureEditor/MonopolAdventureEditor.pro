@@ -36,6 +36,7 @@ SOURCES += main.cpp \
     dialogEdition/widgetsEditeurs/DepartEditWidget.cpp \
     dialogEdition/widgetsEditeurs/DeplacementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/EmplacementEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/GraphismeEmplacementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ListePilesCartesEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.cpp \
@@ -51,6 +52,7 @@ SOURCES += main.cpp \
     dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.cpp \
     dialogEdition/EditionCarte.cpp \
     dialogEdition/EditionEmplacement.cpp \
+    dialogEdition/EditionGraphismeEmplacement.cpp \
     dialogEdition/EditionListePilesCartes.cpp \
     dialogEdition/EditionListeRegroupements.cpp \
     dialogEdition/EditionPlateauDecoration.cpp \
@@ -102,6 +104,7 @@ HEADERS  += global.hpp \
     dialogEdition/widgetsEditeurs/DepartEditWidget.hpp \
     dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/EmplacementEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/GraphismeEmplacementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ListePilesCartesEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp \
@@ -118,6 +121,7 @@ HEADERS  += global.hpp \
     dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp \
     dialogEdition/EditionCarte.hpp \
     dialogEdition/EditionEmplacement.hpp \
+    dialogEdition/EditionGraphismeEmplacement.hpp \
     dialogEdition/EditionListePilesCartes.hpp \
     dialogEdition/EditionListeRegroupements.hpp \
     dialogEdition/EditionPlateauDecoration.hpp \

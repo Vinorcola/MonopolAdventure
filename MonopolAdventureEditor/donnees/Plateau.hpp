@@ -501,6 +501,13 @@ class Plateau : public QGraphicsScene
         
         
         /**
+         * Ouvre une fenêtre de dialogue pour l'édition des graphismes des emplacements.
+         */
+        void editGraphismeEmplacement();
+        
+        
+        
+        /**
          * Choisi d'ouvrir une fenêtre de changement de type ou d'édition des informations en fonction de l'état du bouton d'édition de type.
          * @param emplacement Emplacement concerné.
          */
