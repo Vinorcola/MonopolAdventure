@@ -3,8 +3,9 @@
 
 #include <QWizard>
 
-#include "donnees/Plateau.hpp"
+class PageGeneral;
 class PagePrix;
+#include "donnees/Plateau.hpp"
 
 
 
@@ -20,6 +21,7 @@ class AssistantCreationPlateau : public QWizard
 {
     private:
         Plateau* m_plateau;///< Plateau à configurer.
+        PageGeneral* m_pageGeneral;///< Page de l'assistant permettant de configurer les informations générales du plateau.
         PagePrix* m_pagePrix;///< Page de l'assistant permettant de configurer les informations sur les prix.
         
         

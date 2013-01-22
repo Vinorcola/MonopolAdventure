@@ -6,19 +6,18 @@
 
 PageTaille::PageTaille() :
     QWizardPage(),
-    m_champTitre(new QLineEdit("Nouveau plateau")),
-    m_champPetit(new QRadioButton("Junior")),
-    m_champNormal(new QRadioButton("Classique")),
-    m_champGrand(new QRadioButton("Mega")),
-    m_champPerso(new QRadioButton("Personnalisée :")),
+    m_champPetit(new QRadioButton(tr("Junior"))),
+    m_champNormal(new QRadioButton(tr("Classique"))),
+    m_champGrand(new QRadioButton(tr("Mega"))),
+    m_champPerso(new QRadioButton(tr("Personnalisée :"))),
     m_champLargeur(new QSpinBox),
     m_labelX(new QLabel("<center>x</center>")),
     m_champHauteur(new QSpinBox)
 {
     /* Configuration de la page
      */
-    setTitle(tr("Titre et taille du plateau"));
-    setSubTitle(tr("Veuillez nommer votre plateau et configurer sa taille."));
+    setTitle(tr("Taille du plateau"));
+    setSubTitle(tr("Veuillez configurer la taille du plateau."));
     
     
     
@@ -64,7 +63,6 @@ PageTaille::PageTaille() :
     layoutRadio->addLayout(layoutPerso);
     
     QFormLayout* layout(new QFormLayout);
-    layout->addRow(tr("Titre"), m_champTitre);
     layout->addRow(tr("Taille"), layoutRadio);
     
     setLayout(layout);
@@ -73,7 +71,6 @@ PageTaille::PageTaille() :
     
     /* Enregistrement des champs
      */
-    registerField("titre_plateau", m_champTitre);
     registerField("largeur_plateau", m_champLargeur);
     registerField("hauteur_plateau", m_champHauteur);
 }

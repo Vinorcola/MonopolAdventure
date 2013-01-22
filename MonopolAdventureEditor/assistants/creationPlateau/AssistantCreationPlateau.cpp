@@ -1,7 +1,7 @@
 #include "AssistantCreationPlateau.hpp"
 
+#include "assistants/creationPlateau/PageGeneral.hpp"
 #include "assistants/creationPlateau/PageGraphisme.hpp"
-#include "assistants/creationPlateau/PageImage.hpp"
 #include "assistants/creationPlateau/PageIntro.hpp"
 #include "assistants/creationPlateau/PageOuvrir.hpp"
 #include "assistants/creationPlateau/PagePrix.hpp"
@@ -13,6 +13,7 @@
 
 AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
     m_plateau(plateau),
+    m_pageGeneral(new PageGeneral(plateau)),
     m_pagePrix(new PagePrix(plateau))
 {
     /* Configuration de la fenêtre
@@ -27,7 +28,7 @@ AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
      */
     setPage(1, new PageIntro);
     setPage(2, new PageTaille);
-    setPage(3, new PageImage);
+    setPage(3, m_pageGeneral);
     setPage(4, m_pagePrix);
     setPage(5, new PageGraphisme);
     setPage(6, new PageOuvrir);
@@ -41,11 +42,9 @@ void AssistantCreationPlateau::accept()
 {
     if (field("nouveau").toBool())
     {
+        m_pageGeneral->sauvegarde();
         m_pagePrix->sauvegarde();
         
-        m_plateau->editTitre(field("titre_plateau").toString());
-        m_plateau->editCouleurFond(field("couleur_plateau").value<QColor>());
-        m_plateau->editImage(field("image_plateau").value<QPixmap>());
         m_plateau->editTailleEmplacements(QSize(field("largeur_emplacement").toInt(), field("hauteur_emplacement").toInt()));
         m_plateau->editHauteurRectangleCouleur(field("hauteur_regroupement").toInt());
         m_plateau->editCrayonBordureEmplacement(QPen(QBrush(field("couleur_bordure").value<QColor>()), field("epaisseur_bordure").toInt()));

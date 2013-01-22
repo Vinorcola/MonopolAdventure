@@ -19,8 +19,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     assistants/creationPlateau/AssistantCreationPlateau.cpp \
+    assistants/creationPlateau/PageGeneral.cpp \
     assistants/creationPlateau/PageGraphisme.cpp \
-    assistants/creationPlateau/PageImage.cpp \
     assistants/creationPlateau/PageIntro.cpp \
     assistants/creationPlateau/PageOuvrir.cpp \
     assistants/creationPlateau/PagePrix.cpp \
@@ -85,8 +85,8 @@ SOURCES += main.cpp \
 
 HEADERS  += global.hpp \
     assistants/creationPlateau/AssistantCreationPlateau.hpp \
+    assistants/creationPlateau/PageGeneral.hpp \
     assistants/creationPlateau/PageGraphisme.hpp \
-    assistants/creationPlateau/PageImage.hpp \
     assistants/creationPlateau/PageIntro.hpp \
     assistants/creationPlateau/PageOuvrir.hpp \
     assistants/creationPlateau/PagePrix.hpp \
