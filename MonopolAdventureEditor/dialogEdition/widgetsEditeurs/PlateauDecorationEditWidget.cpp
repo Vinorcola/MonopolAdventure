@@ -11,10 +11,11 @@ PlateauDecorationEditWidget::PlateauDecorationEditWidget(Plateau* plateau) :
     m_plateau(plateau),
     m_champTitre(new QLineEdit(plateau->getTitre())),
     m_champCouleur(new ColorSelectWidget(this, plateau->getCouleurFond())),
-    m_champImage(new ImageSelectWidget(this, plateau->getImage()))
+    m_champImage(new ImageSelectWidget(this, plateau->getImage(), plateau->getCouleurFond()))
 {
     /* Mise en forme du contenu
      */
+    setMinimumWidth(600);
     QFormLayout* layout(new QFormLayout);
     layout->addRow(tr("Titre"), m_champTitre);
     layout->addRow(tr("Couleur de fond"), m_champCouleur);
