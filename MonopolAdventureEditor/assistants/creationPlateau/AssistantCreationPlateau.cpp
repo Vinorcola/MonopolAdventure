@@ -12,12 +12,13 @@
 
 
 AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
-    m_plateau(plateau)
+    m_plateau(plateau),
+    m_pagePrix(new PagePrix(plateau))
 {
     /* Configuration de la fenêtre
      */
     setWindowTitle(tr("Assistant de création de plateau"));
-    setMinimumSize(800, 450);
+    setMinimumSize(800, 500);
     setAttribute(Qt::WA_DeleteOnClose);
     
     
@@ -27,7 +28,7 @@ AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
     setPage(1, new PageIntro);
     setPage(2, new PageTaille);
     setPage(3, new PageImage);
-    setPage(4, new PagePrix);
+    setPage(4, m_pagePrix);
     setPage(5, new PageGraphisme);
     setPage(6, new PageOuvrir);
 }
@@ -40,10 +41,9 @@ void AssistantCreationPlateau::accept()
 {
     if (field("nouveau").toBool())
     {
+        m_pagePrix->sauvegarde();
+        
         m_plateau->editTitre(field("titre_plateau").toString());
-        m_plateau->editDevise(field("devise_plateau").toString());
-        m_plateau->editCoefficientPrix(field("coefficient_prix").toInt());
-        m_plateau->editAffichageIntegrale(field("affichage_complet_prix").toBool());
         m_plateau->editCouleurFond(field("couleur_plateau").value<QColor>());
         m_plateau->editImage(field("image_plateau").value<QPixmap>());
         m_plateau->editTailleEmplacements(QSize(field("largeur_emplacement").toInt(), field("hauteur_emplacement").toInt()));

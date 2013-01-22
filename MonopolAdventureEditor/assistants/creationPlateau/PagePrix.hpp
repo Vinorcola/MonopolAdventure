@@ -1,14 +1,9 @@
 #ifndef PAGEPRIX_HPP
 #define PAGEPRIX_HPP
 
-#include <QCheckBox>
-#include <QFormLayout>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QVBoxLayout>
 #include <QWizardPage>
+
+#include "dialogEdition/widgetsEditeurs/PrixEditWidget.hpp"
 
 
 
@@ -27,21 +22,16 @@ class PagePrix : public QWizardPage
         
         
     private:
-        QLineEdit* m_champDevise;///< Champ permettant de renseigner la devise utilisée sur le plateau.
-        QLabel* m_explicationCoef;///< Texte d'explication du coefficient.
-        QPushButton* m_coefPlus;///< Bouton qui augmente le coefficient.
-        QPushButton* m_coefMoins;///< Bouton qui diminu le coefficient.
-        QLabel* m_champCoef;///< Champ affichent le coefficient.
-        QCheckBox* m_champAffichageCompletPrix;///< Champ permettant de configurer l'affichage des prix.
-        QLabel* m_exempleAffichagePrix;///< Affichage des certain prix à titre d'exemple.
+        PrixEditWidget* m_champPrix;///< Champ d'édition des informations concernant les prix.
         
         
         
     public:
         /**
          * Construit une nouvelle page.
+         * @param plateau Plateau de jeu.
          */
-        PagePrix();
+        PagePrix(Plateau* plateau);
         
         
         
@@ -52,25 +42,10 @@ class PagePrix : public QWizardPage
         
         
         
-    public slots:
         /**
-         * Slot appelé lorsque le bouton « plus » est cliqué.
+         * Permet au widget de sauvegarder les informations sur les prix dans le plateau.
          */
-        void coefPlusClicked();
-        
-        
-        
-        /**
-         * Slot appelé lorsque le bouton « moins » est cliqué.
-         */
-        void coefMoinsClicked();
-        
-        
-        
-        /**
-         * Met à jour les exemples d'affichage de prix.
-         */
-        void affichageChanged(int state);
+        void sauvegarde();
 };
 
 #endif // PAGEPRIX_HPP
