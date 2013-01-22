@@ -1,28 +1,26 @@
-#ifndef PAGEPRIX_HPP
-#define PAGEPRIX_HPP
+#ifndef PAGEGENERAL_HPP
+#define PAGEGENERAL_HPP
 
 #include <QWizardPage>
 
-#include "dialogEdition/widgetsEditeurs/AffichagePrixEditWidget.hpp"
-
+#include "dialogEdition/widgetsEditeurs/PlateauDecorationEditWidget.hpp"
 
 
 
 
 /**
- * @class PagePrix PagePrix.hpp assistants/creationPlateau/PagePrix.hpp
+ * @class PageGeneral PageGeneral.hpp assistants/creatationPlateau/PageGeneral.hpp
  * Cette classe représente une page de l'assistant de création de plateau.
  * 
- * Cette page permet de préciser les informations concernant tous les prix : la devise, le coefficient et l'affichage des chiffres.
+ * Cette page permet nommer le plateau, et de sélectionner une couleur de fond ainsi qu'une image pour le centre du plateau.
  */
-class PagePrix : public QWizardPage
+class PageGeneral : public QWizardPage
 {
         Q_OBJECT
         
         
-        
     private:
-        AffichagePrixEditWidget* m_champPrix;///< Champ d'édition des informations concernant les prix.
+        PlateauDecorationEditWidget* m_champ;
         
         
         
@@ -31,7 +29,7 @@ class PagePrix : public QWizardPage
          * Construit une nouvelle page.
          * @param plateau Plateau de jeu.
          */
-        PagePrix(Plateau* plateau);
+        PageGeneral(Plateau* plateau);
         
         
         
@@ -48,4 +46,4 @@ class PagePrix : public QWizardPage
         void sauvegarde();
 };
 
-#endif // PAGEPRIX_HPP
+#endif // PAGEGENERAL_HPP

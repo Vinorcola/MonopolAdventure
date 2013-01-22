@@ -3,11 +3,8 @@
 
 #include <QButtonGroup>
 #include <QFormLayout>
-#include <QHBoxLayout>
 #include <QLabel>
-#include <QLineEdit>
 #include <QRadioButton>
-#include <QVBoxLayout>
 #include <QSpinBox>
 #include <QWizardPage>
 
@@ -19,7 +16,7 @@
  * @class PageTaille PageTaille.hpp assistants/creationPlateau/PageTaille.hpp
  * Cette classe représente une page de l'assistant de création de plateau.
  * 
- * Cette page permet de préciser le titre ainsi que la taille du plateau.
+ * Cette page permet de préciser la taille du plateau.
  */
 class PageTaille : public QWizardPage
 {
@@ -28,7 +25,6 @@ class PageTaille : public QWizardPage
         
         
     private:
-        QLineEdit* m_champTitre;///< Champ permettant de configurer le titre du plateau.
         QRadioButton* m_champPetit;///< Champ sélectionnable indiquant une petite taille de plateau (11x7).
         QRadioButton* m_champNormal;///< Champ sélectionnable indiquant une taille normale de plateau (11x11).
         QRadioButton* m_champGrand;///< Champ sélectionnable indiquant une grande taille de plateau (14x14).

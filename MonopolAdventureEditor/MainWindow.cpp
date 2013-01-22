@@ -14,9 +14,12 @@ MainWindow::MainWindow() :
     m_actionQuitter(new QAction(tr("Quitter"), this)),
     m_actionAssistantCreation(new QAction(tr("Créer un nouveau plateau"), this)),
     m_actionSauvegarder(new QAction(tr("Enregistrer"), this)),
+    m_actionDecoration(new QAction(tr("Infos générale du plateau"), this)),
+    m_actionPrix(new QAction(tr("Affichage des prix"), this)),
     m_actionRegroupements(new QAction(tr("Regroupements"), this)),
     m_actionPilesCartes(new QAction(tr("Piles de cartes"), this)),
-    m_actionEditionTypeEmplacement(new QAction(tr("Edition de type d'emplacement"), this))
+    m_actionEditionTypeEmplacement(new QAction(tr("Edition de type d'emplacement"), this)),
+    m_actionGraphismeEmplacement(new QAction(tr("Graphismes des emplacements"), this))
 {
     /* Configuration de la fenêtre.
      */
@@ -38,8 +41,11 @@ MainWindow::MainWindow() :
     connect(m_actionQuitter, SIGNAL(triggered()), this, SLOT(quitter()));
     connect(m_actionAssistantCreation, SIGNAL(triggered()), this, SLOT(startAssistant()));
     connect(m_actionSauvegarder, SIGNAL(triggered()), this, SLOT(enregistrer()));
+    connect(m_actionDecoration, SIGNAL(triggered()), m_plateau, SLOT(editDecoration()));
+    connect(m_actionPrix, SIGNAL(triggered()), m_plateau, SLOT(editAffichagePrix()));
     connect(m_actionRegroupements, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupements()));
     connect(m_actionPilesCartes, SIGNAL(triggered()), m_plateau, SLOT(editListePilesCartes()));
+    connect(m_actionGraphismeEmplacement, SIGNAL(triggered()), m_plateau, SLOT(editGraphismeEmplacement()));
     
     m_actionEditionTypeEmplacement->setCheckable(true);
     
@@ -57,9 +63,12 @@ MainWindow::MainWindow() :
     
     /* Configuration des barres d'outils.
      */
+    m_barreOutils->addAction(m_actionDecoration);
+    m_barreOutils->addAction(m_actionPrix);
     m_barreOutils->addAction(m_actionRegroupements);
     m_barreOutils->addAction(m_actionPilesCartes);
     m_barreOutils->addAction(m_actionEditionTypeEmplacement);
+    m_barreOutils->addAction(m_actionGraphismeEmplacement);
     m_barreOutils->hide();
     
     

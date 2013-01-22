@@ -473,6 +473,20 @@ class Plateau : public QGraphicsScene
         
     public slots:
         /**
+         * Ouvre une fenêtre de dialogue pour l'édition des décorations du plateau.
+         */
+        void editDecoration();
+        
+        
+        
+        /**
+         * Ouvre une fenêtre de dialogue pour l'édition des informations concernant les prix.
+         */
+        void editAffichagePrix();
+        
+        
+        
+        /**
          * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.
          */
         void editListeRegroupements();
@@ -483,6 +497,13 @@ class Plateau : public QGraphicsScene
          * Ouvre une fenêtre de dialogue pour l'édition de la liste des piles de cartes.
          */
         void editListePilesCartes();
+        
+        
+        
+        /**
+         * Ouvre une fenêtre de dialogue pour l'édition des graphismes des emplacements.
+         */
+        void editGraphismeEmplacement();
         
         
         

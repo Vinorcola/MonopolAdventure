@@ -19,8 +19,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     assistants/creationPlateau/AssistantCreationPlateau.cpp \
+    assistants/creationPlateau/PageGeneral.cpp \
     assistants/creationPlateau/PageGraphisme.cpp \
-    assistants/creationPlateau/PageImage.cpp \
     assistants/creationPlateau/PageIntro.cpp \
     assistants/creationPlateau/PageOuvrir.cpp \
     assistants/creationPlateau/PagePrix.cpp \
@@ -30,17 +30,20 @@ SOURCES += main.cpp \
     dialogEdition/modeles/SelectionRegroupementListModel.cpp \
     dialogEdition/modeles/RegroupementListModel.cpp \
     dialogEdition/widgetsEditeurs/ActionEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/AffichagePrixEditWidget.cpp \
     dialogEdition/widgetsEditeurs/CarteEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ConstructionEditWidget.cpp \
     dialogEdition/widgetsEditeurs/DepartEditWidget.cpp \
     dialogEdition/widgetsEditeurs/DeplacementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/EmplacementEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/GraphismeEmplacementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ListePilesCartesEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.cpp \
     dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PiocheEditWidget.cpp \
+    dialogEdition/widgetsEditeurs/PlateauDecorationEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PileCartesEditWidget.cpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.cpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.cpp \
@@ -49,8 +52,11 @@ SOURCES += main.cpp \
     dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.cpp \
     dialogEdition/EditionCarte.cpp \
     dialogEdition/EditionEmplacement.cpp \
+    dialogEdition/EditionGraphismeEmplacement.cpp \
     dialogEdition/EditionListePilesCartes.cpp \
     dialogEdition/EditionListeRegroupements.cpp \
+    dialogEdition/EditionPlateauDecoration.cpp \
+    dialogEdition/EditionPrix.cpp \
     donnees/cartes/Action.cpp \
     donnees/cartes/Carte.cpp \
     donnees/cartes/PileCartes.cpp \
@@ -81,8 +87,8 @@ SOURCES += main.cpp \
 
 HEADERS  += global.hpp \
     assistants/creationPlateau/AssistantCreationPlateau.hpp \
+    assistants/creationPlateau/PageGeneral.hpp \
     assistants/creationPlateau/PageGraphisme.hpp \
-    assistants/creationPlateau/PageImage.hpp \
     assistants/creationPlateau/PageIntro.hpp \
     assistants/creationPlateau/PageOuvrir.hpp \
     assistants/creationPlateau/PagePrix.hpp \
@@ -92,17 +98,20 @@ HEADERS  += global.hpp \
     dialogEdition/modeles/SelectionRegroupementListModel.hpp \
     dialogEdition/modeles/RegroupementListModel.hpp \
     dialogEdition/widgetsEditeurs/ActionEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/AffichagePrixEditWidget.hpp \
     dialogEdition/widgetsEditeurs/CarteEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ConstructionEditWidget.hpp \
     dialogEdition/widgetsEditeurs/DepartEditWidget.hpp \
     dialogEdition/widgetsEditeurs/DeplacementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/EmplacementEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/GraphismeEmplacementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ListePilesCartesEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ListeRegroupementEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerCompagnieTransportEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerServiceEditWidget.hpp \
     dialogEdition/widgetsEditeurs/LoyerTerrainEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PiocheEditWidget.hpp \
+    dialogEdition/widgetsEditeurs/PlateauDecorationEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PileCartesEditWidget.hpp \
     dialogEdition/widgetsEditeurs/PrisonEditWidget.hpp \
     dialogEdition/widgetsEditeurs/ProprieteEditWidget.hpp \
@@ -112,8 +121,11 @@ HEADERS  += global.hpp \
     dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp \
     dialogEdition/EditionCarte.hpp \
     dialogEdition/EditionEmplacement.hpp \
+    dialogEdition/EditionGraphismeEmplacement.hpp \
     dialogEdition/EditionListePilesCartes.hpp \
     dialogEdition/EditionListeRegroupements.hpp \
+    dialogEdition/EditionPlateauDecoration.hpp \
+    dialogEdition/EditionPrix.hpp \
     donnees/cartes/Action.hpp \
     donnees/cartes/Carte.hpp \
     donnees/cartes/PileCartes.hpp \

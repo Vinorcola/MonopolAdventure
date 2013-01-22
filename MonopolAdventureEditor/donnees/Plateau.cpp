@@ -2,8 +2,11 @@
 
 #include "dialogEdition/widgetsEditeurs/TypeEmplacementEditWidget.hpp"
 #include "dialogEdition/EditionEmplacement.hpp"
+#include "dialogEdition/EditionGraphismeEmplacement.hpp"
 #include "dialogEdition/EditionListePilesCartes.hpp"
 #include "dialogEdition/EditionListeRegroupements.hpp"
+#include "dialogEdition/EditionPlateauDecoration.hpp"
+#include "dialogEdition/EditionPrix.hpp"
 #include "donnees/emplacements/Emplacements.hpp"
 #include "MainWindow.hpp"
 
@@ -666,6 +669,32 @@ int Plateau::getNombrePropriete() const
 
 
 
+void Plateau::editDecoration()
+{
+    EditionPlateauDecoration fenetre(this, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::editAffichagePrix()
+{
+    EditionPrix fenetre(this, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
 void Plateau::editListeRegroupements()
 {
     EditionListeRegroupements fenetre(m_regroupements, m_parent);
@@ -682,6 +711,19 @@ void Plateau::editListeRegroupements()
 void Plateau::editListePilesCartes()
 {
     EditionListePilesCartes fenetre(m_pilesCartes, m_emplacements, m_devise, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::editGraphismeEmplacement()
+{
+    EditionGraphismeEmplacement fenetre(this, m_parent);
     if (fenetre.executer())
     {
         m_sauvegarde = false;

@@ -32,9 +32,13 @@ class MainWindow : public QMainWindow
         QAction* m_actionQuitter;///< Action permettant de quitter l'éditeur.
         QAction* m_actionAssistantCreation;///< Action permettant de lancer l'assistant de création de plateau.
         QAction* m_actionSauvegarder;///< Action permettant de sauvegarder le plateau.
+        
+        QAction* m_actionDecoration;///< Action permettant d'éditer les décorations du plateau.
+        QAction* m_actionPrix;///< Action permettant d'éditer les informations concernant les prix.
         QAction* m_actionRegroupements;///< Action permettant d'éditer la liste des regroupements du plateau.
         QAction* m_actionPilesCartes;///< Action permettant d'éditer la liste des piles de cartes du plateau.
         QAction* m_actionEditionTypeEmplacement;///< Action permettant d'activer ou de désactiver l'édition du type des emplacements.
+        QAction* m_actionGraphismeEmplacement;///< Action permettant d'éditer les graphismes des emplacements.
         
         
         
