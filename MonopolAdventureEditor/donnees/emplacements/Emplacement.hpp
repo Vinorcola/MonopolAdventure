@@ -147,6 +147,13 @@ class Emplacement
         
         
         /**
+         * Notifie à l'élément graphique que la devise a changé.
+         */
+        void deviseChanged();
+        
+        
+        
+        /**
          * Renseigne les informations concernant le graphisme des emplacements.
          * @return Informations concernant le graphisme des emplacements.
          */

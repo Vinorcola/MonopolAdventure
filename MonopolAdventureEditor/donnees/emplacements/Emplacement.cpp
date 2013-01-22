@@ -171,32 +171,6 @@ void Emplacement::editImage(const QPixmap& image)
 
 void Emplacement::setEmplacementEnCoin()
 {
-    /* Pour mettre à jour l'affichage graphique, on doit regarder si le type d'emplacement à changer. Si oui, on doit
-     * reconstruire tous l'élément graphique.
-     */
-    if (m_elementGraphique)
-    {
-        if (!m_enCoin)
-        {
-            // Reconstruction de l'élément graphique.
-            delete m_elementGraphique;
-            m_elementGraphique = new GraphismeEmplacement(m_graphismeInfos,
-                                                          this,
-                                                          m_coordonnees,
-                                                          m_rotation,
-                                                          m_titre,
-                                                          m_sousTitre,
-                                                          m_description,
-                                                          helper_getPrix(),
-                                                          m_image,
-                                                          helper_getCouleurRegroupement(),
-                                                          true,
-                                                          true);
-            m_scene->addItem(m_elementGraphique);
-        }
-    }
-    
-    // Modification de l'information.
     m_enCoin = true;
 }
 
@@ -206,30 +180,16 @@ void Emplacement::setEmplacementEnCoin()
 
 void Emplacement::setEmplacementNormal()
 {
-    /* Voir explication dans Emplacement::setEmplacementEnCoin().
-     */
-    if (m_elementGraphique)
-    {
-        if (m_enCoin)
-        {
-            delete m_elementGraphique;
-            m_elementGraphique = new GraphismeEmplacement(m_graphismeInfos,
-                                                          this,
-                                                          m_coordonnees,
-                                                          m_rotation,
-                                                          m_titre,
-                                                          m_sousTitre,
-                                                          m_description,
-                                                          helper_getPrix(),
-                                                          m_image,
-                                                          helper_getCouleurRegroupement(),
-                                                          false,
-                                                          true);
-            m_scene->addItem(m_elementGraphique);
-        }
-    }
-    
     m_enCoin = false;
+}
+
+
+
+
+
+void Emplacement::deviseChanged()
+{
+    m_elementGraphique->updatePrix(helper_getPrix());
 }
 
 
@@ -266,6 +226,11 @@ GraphismeEmplacement* Emplacement::dessiner()
 {
     if (m_scene)
     {
+        if (m_elementGraphique)
+        {
+            delete m_elementGraphique;
+        }
+        
         m_elementGraphique = new GraphismeEmplacement(m_graphismeInfos,
                                                       this,
                                                       m_coordonnees,

@@ -559,6 +559,14 @@ class Plateau : public QGraphicsScene
         
         
         /**
+         * Configure un emplacement avant de pouvoir le dessiner sur le plateau.
+         * @param emplacement Emplacement a dessiner.
+         */
+        void helper_dessineEmplacement(Emplacement* emplacement);
+        
+        
+        
+        /**
          * Indique si l'emplacement est situé dans un coin du plateau.
          * @param id Numéro d'iddentification de l'emplacement.
          * @return @b @c true si l'emplacement est situé en coin de plateau.

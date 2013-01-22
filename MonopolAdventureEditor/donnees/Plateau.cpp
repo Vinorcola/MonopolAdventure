@@ -40,7 +40,7 @@ Plateau::Plateau(MainWindow* parent) :
 }
 
 
- 
+
 
 
 Plateau::~Plateau()
@@ -67,18 +67,17 @@ Plateau::~Plateau()
 
 void Plateau::dessiner()
 {
+    /* Configuration et affichage des emplacements.
+     */
     for (int i(1), iEnd(m_emplacements.size()); i < iEnd; ++i)
     {
-        //m_emplacements.at(i)->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);/** @todo Voir si on ne peut pas faire ces config dans la méthode editTaille() plutôt qu'ici. */
-        GraphismeEmplacement* elementGraphique(m_emplacements.at(i)->dessiner());
-        connect(elementGraphique, SIGNAL(editEmplacement(Emplacement*)), this, SLOT(editEmplacement(Emplacement*)));
+        helper_dessineEmplacement(m_emplacements.at(i));
     }
     
-    /* On affiche la prison en dernier pour qu'elle soit au dessus de l'emplacement « Simple visite ».
+    /* Configuration et affichage de la prison en dernier pour qu'elle soit au dessus de l'emplacement
+     * « Simple visite ».
      */
-    m_emplacements.first()->setupElementGraphique(helper_getPositionEmplacement(0), helper_getRotationEmplacement(0), this);
-    GraphismeEmplacement* elementGraphique(m_emplacements.first()->dessiner());
-    connect(elementGraphique, SIGNAL(editEmplacement(Emplacement*)), this, SLOT(editEmplacement(Emplacement*)));
+    helper_dessineEmplacement(m_emplacements.first());
 }
 
 
@@ -225,24 +224,6 @@ void Plateau::editTaille(const QSize& taille)
             delete m_emplacements.at(m_taille.width());
             m_emplacements[m_taille.width()] = simpleVisite;
         }
-        
-        
-        
-        /* Rectification des informations des emplacements.
-         */
-        for (int i(0), iEnd(m_emplacements.size()); i < iEnd; ++i)
-        {
-            m_emplacements.at(i)->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);
-            
-            if (helper_isEmplacementEnCoin(i))
-            {
-                m_emplacements.at(i)->setEmplacementEnCoin();
-            }
-            else
-            {
-                m_emplacements.at(i)->setEmplacementNormal();
-            }
-        }
     }
 }
 
@@ -261,10 +242,15 @@ const QString& Plateau::getDevise()
 
 void Plateau::editDevise(const QString& devise)
 {
-    if (!devise.isEmpty() && devise.count() <= 5)
+    if (!devise.isEmpty())
     {
         m_devise = devise;
         m_sauvegarde = false;
+        
+        for (int i(0), iEnd(m_emplacements.count()); i < iEnd; i++)
+        {
+            m_emplacements.at(i)->deviseChanged();
+        }
     }
 }
 
@@ -727,6 +713,7 @@ void Plateau::editGraphismeEmplacement()
     if (fenetre.executer())
     {
         m_sauvegarde = false;
+        dessiner();
     }
 }
 
@@ -1074,20 +1061,6 @@ void Plateau::loadFromFile(QString cheminFichier)
                                 default:
                                     break;
                             }
-                            
-                            
-                            
-                            // Configuration graphique de l'emplacement.
-                            emplacement->setupElementGraphique(helper_getPositionEmplacement(i), helper_getRotationEmplacement(i), this);
-                            
-                            if (helper_isEmplacementEnCoin(i))
-                            {
-                                emplacement->setEmplacementEnCoin();
-                            }
-                            else
-                            {
-                                emplacement->setEmplacementNormal();
-                            }
                         }
                         
                         
@@ -1428,21 +1401,42 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
         
         /* Dessein de l'emplacement.
          */
-        nouvelEmplacement->setupElementGraphique(helper_getPositionEmplacement(rang), helper_getRotationEmplacement(rang), this);
-        if (helper_isEmplacementEnCoin(rang))
-        {
-            nouvelEmplacement->setEmplacementEnCoin();
-        }
-        else
-        {
-            nouvelEmplacement->setEmplacementNormal();
-        }
-        GraphismeEmplacement* elementGraphique(nouvelEmplacement->dessiner());
-        connect(elementGraphique, SIGNAL(editEmplacement(Emplacement*)), this, SLOT(editEmplacement(Emplacement*)));
+        helper_dessineEmplacement(nouvelEmplacement);
         
         
         
         m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::helper_dessineEmplacement(Emplacement* emplacement)
+{
+    if (m_emplacements.contains(emplacement))
+    {
+        int rang(m_emplacements.indexOf(emplacement));
+        
+        // Configuration de la position et de la rotation.
+        emplacement->setupElementGraphique(helper_getPositionEmplacement(rang),
+                                           helper_getRotationEmplacement(rang),
+                                           this);
+        
+        // Configuration du type d'emplacement.
+        if (helper_isEmplacementEnCoin(rang))
+        {
+            emplacement->setEmplacementEnCoin();
+        }
+        else
+        {
+            emplacement->setEmplacementNormal();
+        }
+        
+        // Dessin de l'élément et connexion avec le slot d'édition.
+        connect(emplacement->dessiner(), SIGNAL(editEmplacement(Emplacement*)),
+                this, SLOT(editEmplacement(Emplacement*)));
     }
 }
 
