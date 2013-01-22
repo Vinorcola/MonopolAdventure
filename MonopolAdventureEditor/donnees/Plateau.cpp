@@ -4,6 +4,7 @@
 #include "dialogEdition/EditionEmplacement.hpp"
 #include "dialogEdition/EditionListePilesCartes.hpp"
 #include "dialogEdition/EditionListeRegroupements.hpp"
+#include "dialogEdition/EditionPlateauDecoration.hpp"
 #include "dialogEdition/EditionPrix.hpp"
 #include "donnees/emplacements/Emplacements.hpp"
 #include "MainWindow.hpp"
@@ -667,7 +668,20 @@ int Plateau::getNombrePropriete() const
 
 
 
-void Plateau::editPrix()
+void Plateau::editDecoration()
+{
+    EditionPlateauDecoration fenetre(this, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::editAffichagePrix()
 {
     EditionPrix fenetre(this, m_parent);
     if (fenetre.executer())

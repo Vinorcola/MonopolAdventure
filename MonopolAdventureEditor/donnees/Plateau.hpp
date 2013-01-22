@@ -473,9 +473,16 @@ class Plateau : public QGraphicsScene
         
     public slots:
         /**
+         * Ouvre une fenêtre de dialogue pour l'édition des décorations du plateau.
+         */
+        void editDecoration();
+        
+        
+        
+        /**
          * Ouvre une fenêtre de dialogue pour l'édition des informations concernant les prix.
          */
-        void editPrix();
+        void editAffichagePrix();
         
         
         

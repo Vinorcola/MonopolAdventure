@@ -53,6 +53,7 @@ SOURCES += main.cpp \
     dialogEdition/EditionEmplacement.cpp \
     dialogEdition/EditionListePilesCartes.cpp \
     dialogEdition/EditionListeRegroupements.cpp \
+    dialogEdition/EditionPlateauDecoration.cpp \
     dialogEdition/EditionPrix.cpp \
     donnees/cartes/Action.cpp \
     donnees/cartes/Carte.cpp \
@@ -119,6 +120,7 @@ HEADERS  += global.hpp \
     dialogEdition/EditionEmplacement.hpp \
     dialogEdition/EditionListePilesCartes.hpp \
     dialogEdition/EditionListeRegroupements.hpp \
+    dialogEdition/EditionPlateauDecoration.hpp \
     dialogEdition/EditionPrix.hpp \
     donnees/cartes/Action.hpp \
     donnees/cartes/Carte.hpp \
