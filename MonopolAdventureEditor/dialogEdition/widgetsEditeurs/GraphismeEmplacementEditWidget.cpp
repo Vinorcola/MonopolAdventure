@@ -12,13 +12,13 @@ GraphismeEmplacementEditWidget::GraphismeEmplacementEditWidget(Plateau* plateau)
     m_champLargeur(new QSpinBox),
     m_champHauteur(new QSpinBox),
     m_champHauteurCouleurRegroupement(new QSpinBox),
-    m_champCouleurFond(new ColorSelectWidget(this, QColor(255, 255, 128))),
-    m_champCouleurBordure(new ColorSelectWidget(this, QColor(0, 0, 0))),
+    m_champCouleurFond(new ColorSelectWidget(this, plateau->getCouleurFondEmplacement())),
+    m_champCouleurBordure(new ColorSelectWidget(this, plateau->getCrayonBordureEmplacement().color())),
     m_champEpaisseurBordure(new QSpinBox),
-    m_champFonteTitre(new FontSelectWidget(this, QFont("Comic Sans MS", 20, QFont::Bold))),
-    m_champFonteSousTitre(new FontSelectWidget(this, QFont("Arial", 16))),
-    m_champFonteDescription(new FontSelectWidget(this, QFont("Arial", 12))),
-    m_champFontePrix(new FontSelectWidget(this, QFont("DejaVu Sans Mono", 12))),
+    m_champFonteTitre(new FontSelectWidget(this, plateau->getFonteTitreEmplacement())),
+    m_champFonteSousTitre(new FontSelectWidget(this, plateau->getFonteSousTitreEmplacement())),
+    m_champFonteDescription(new FontSelectWidget(this, plateau->getFonteDescriptionEmplacement())),
+    m_champFontePrix(new FontSelectWidget(this, plateau->getFontePrixEmplacement())),
     m_champMarge(new QSpinBox)
 {
     /* Configuration du contenu
