@@ -84,6 +84,15 @@ void Plateau::dessiner()
 
 
 
+bool Plateau::isSave()
+{
+    return m_sauvegarde;
+}
+
+
+
+
+
 const QString& Plateau::getTitre() const
 {
     return m_titre;

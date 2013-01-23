@@ -105,6 +105,14 @@ class Plateau : public QGraphicsScene
         
         
         /**
+         * Indique si le plateau est sauvegardé.
+         * @return @b @c true si le plateau est sauvegardé, @b @c false sinon.
+         */
+        bool isSave();
+        
+        
+        
+        /**
          * Renseigne le titre du plateau.
          * @return Titre du plateau.
          */

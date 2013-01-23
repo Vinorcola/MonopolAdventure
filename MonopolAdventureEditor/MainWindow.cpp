@@ -107,15 +107,58 @@ void MainWindow::quitter()
 
 void MainWindow::fermerPlateau()
 {
-    // Création d'un plateau vide.
-    delete m_plateau;
-    m_plateau = new Plateau(this);
+    bool annulationFermer(false);
     
-    // Mise à jour du statut des actions.
-    m_barreOutils->hide();
-    m_actionAssistantCreation->setEnabled(true);
-    m_actionSauvegarder->setDisabled(true);
-    m_actionFermerPlateau->setDisabled(true);
+    if (!m_plateau->isSave())
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Voulez-vous enregistrer les modifications apportées au plateau ?");
+        msgBox.setInformativeText("Les modifications non-enregistrées seront perdues.");
+        msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+        msgBox.setDefaultButton(QMessageBox::Save);
+        
+        bool ok;
+        switch (msgBox.exec())
+        {
+            case QMessageBox::Save:
+                ok = enregistrer();
+                while (!ok)
+                {
+                    switch (msgBox.exec())
+                    {
+                        case QMessageBox::Cancel:
+                            annulationFermer = true;
+                            ok = true;
+                            break;
+                        case QMessageBox::Discard:
+                            ok = true;
+                            break;
+                        default:
+                            ok = enregistrer();
+                    }
+                }
+                break;
+            case QMessageBox::Cancel:
+                annulationFermer = true;
+                break;
+            case QMessageBox::Discard:
+                break;
+        }
+    }
+    
+    
+    if (!annulationFermer)
+    {
+        // Création d'un plateau vide.
+        delete m_plateau;
+        m_plateau = new Plateau(this);
+        
+        // Mise à jour du statut des actions.
+        m_barreOutils->hide();
+        m_actionAssistantCreation->setEnabled(true);
+        m_actionSauvegarder->setDisabled(true);
+        m_actionFermerPlateau->setDisabled(true);
+    }
 }
 
 
