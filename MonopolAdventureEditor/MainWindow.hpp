@@ -34,6 +34,9 @@ class MainWindow : public QMainWindow
         QAction* m_actionSauvegarder;///< Action permettant de sauvegarder le plateau.
         QAction* m_actionFermerPlateau;///< Action permettent de fermer un plateau en cours d'édition.
         
+        QAction* m_actionZoomPlus;///< Action permettant de zoomer la vue sur le plateau.
+        QAction* m_actionZoomMoins;///< Action permettant de dézoomer la vue du plateau.
+        
         QAction* m_actionDecoration;///< Action permettant d'éditer les décorations du plateau.
         QAction* m_actionPrix;///< Action permettant d'éditer les informations concernant les prix.
         QAction* m_actionRegroupements;///< Action permettant d'éditer la liste des regroupements du plateau.
@@ -86,6 +89,20 @@ class MainWindow : public QMainWindow
          * @return @b @c true si l'utilisateur a bien sauvegarder, @b @c false s'il a annulé la procédure.
          */
         bool enregistrer();
+        
+        
+        
+        /**
+         * Zoom la vue sur le plateau.
+         */
+        void zoomPlus();
+        
+        
+        
+        /**
+         * Dézoom la vue du le plateau.
+         */
+        void zoomMoins();
 };
 
 #endif // MAINWINDOW_HPP
