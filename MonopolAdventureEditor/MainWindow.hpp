@@ -32,6 +32,7 @@ class MainWindow : public QMainWindow
         QAction* m_actionQuitter;///< Action permettant de quitter l'éditeur.
         QAction* m_actionAssistantCreation;///< Action permettant de lancer l'assistant de création de plateau.
         QAction* m_actionSauvegarder;///< Action permettant de sauvegarder le plateau.
+        QAction* m_actionFermerPlateau;///< Action permettent de fermer un plateau en cours d'édition.
         
         QAction* m_actionDecoration;///< Action permettant d'éditer les décorations du plateau.
         QAction* m_actionPrix;///< Action permettant d'éditer les informations concernant les prix.
@@ -63,6 +64,13 @@ class MainWindow : public QMainWindow
          * Ferme l'application.
          */
         void quitter();
+        
+        
+        
+        /**
+         * Ferme le plateau en cours d'édition.
+         */
+        void fermerPlateau();
         
         
         

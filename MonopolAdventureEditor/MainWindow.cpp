@@ -12,9 +12,10 @@ MainWindow::MainWindow() :
     m_vueCentrale(new QGraphicsView),
     m_barreOutils(addToolBar(tr("Outils d'édition"))),
     m_actionQuitter(new QAction(tr("Quitter"), this)),
-    m_actionAssistantCreation(new QAction(tr("Créer un nouveau plateau"), this)),
-    m_actionSauvegarder(new QAction(tr("Enregistrer"), this)),
-    m_actionDecoration(new QAction(tr("Infos générale du plateau"), this)),
+    m_actionAssistantCreation(new QAction(tr("Éditer un plateau"), this)),
+    m_actionSauvegarder(new QAction(tr("Enregistrer le plateau"), this)),
+    m_actionFermerPlateau(new QAction(tr("Fermer le plateau"), this)),
+    m_actionDecoration(new QAction(tr("Infos générales du plateau"), this)),
     m_actionPrix(new QAction(tr("Affichage des prix"), this)),
     m_actionRegroupements(new QAction(tr("Regroupements"), this)),
     m_actionPilesCartes(new QAction(tr("Piles de cartes"), this)),
@@ -31,7 +32,6 @@ MainWindow::MainWindow() :
     /* Configuration du widget central.
      */
     setCentralWidget(m_vueCentrale);
-    m_vueCentrale->setScene(m_plateau);
     
     
     
@@ -40,13 +40,16 @@ MainWindow::MainWindow() :
     m_actionQuitter->setShortcut(Qt::CTRL + Qt::Key_Q);
     connect(m_actionQuitter, SIGNAL(triggered()), this, SLOT(quitter()));
     connect(m_actionAssistantCreation, SIGNAL(triggered()), this, SLOT(startAssistant()));
+    m_actionSauvegarder->setDisabled(true);
     connect(m_actionSauvegarder, SIGNAL(triggered()), this, SLOT(enregistrer()));
+    m_actionFermerPlateau->setDisabled(true);
+    connect(m_actionFermerPlateau, SIGNAL(triggered()), this, SLOT(fermerPlateau()));
+    
     connect(m_actionDecoration, SIGNAL(triggered()), m_plateau, SLOT(editDecoration()));
     connect(m_actionPrix, SIGNAL(triggered()), m_plateau, SLOT(editAffichagePrix()));
     connect(m_actionRegroupements, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupements()));
     connect(m_actionPilesCartes, SIGNAL(triggered()), m_plateau, SLOT(editListePilesCartes()));
     connect(m_actionGraphismeEmplacement, SIGNAL(triggered()), m_plateau, SLOT(editGraphismeEmplacement()));
-    
     m_actionEditionTypeEmplacement->setCheckable(true);
     
     
@@ -56,6 +59,7 @@ MainWindow::MainWindow() :
     QMenu* menuJeu(menuBar()->addMenu(tr("MonopolAdventureEditor")));
     menuJeu->addAction(m_actionAssistantCreation);
     menuJeu->addAction(m_actionSauvegarder);
+    menuJeu->addAction(m_actionFermerPlateau);
     menuJeu->addSeparator();
     menuJeu->addAction(m_actionQuitter);
     
@@ -101,13 +105,33 @@ void MainWindow::quitter()
 
 
 
+void MainWindow::fermerPlateau()
+{
+    // Création d'un plateau vide.
+    delete m_plateau;
+    m_plateau = new Plateau(this);
+    
+    // Mise à jour du statut des actions.
+    m_barreOutils->hide();
+    m_actionAssistantCreation->setEnabled(true);
+    m_actionSauvegarder->setDisabled(true);
+    m_actionFermerPlateau->setDisabled(true);
+}
+
+
+
+
+
 void MainWindow::startAssistant()
 {
     AssistantCreationPlateau* assistant(new AssistantCreationPlateau(m_plateau));
     if (assistant->exec())
     {
+        m_vueCentrale->setScene(m_plateau);
         m_barreOutils->show();
-        m_actionAssistantCreation->setEnabled(false);// Désactivation de la création de nouveau plateau.
+        m_actionAssistantCreation->setDisabled(true);// Désactivation de la création de nouveau plateau.
+        m_actionSauvegarder->setEnabled(true);
+        m_actionFermerPlateau->setEnabled(true);
     }
 }
 
