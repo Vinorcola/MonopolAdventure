@@ -97,8 +97,51 @@ bool MainWindow::editionTypeActive() const
 
 void MainWindow::quitter()
 {
-    delete m_plateau;
-    qApp->quit();
+    bool annulationFermer(false);
+    
+    if (!m_plateau->isSave())
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Voulez-vous enregistrer les modifications apportées au plateau avant de quitter MonopolAdventureEditor ?");
+        msgBox.setInformativeText("Les modifications non-enregistrées seront perdues.");
+        msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+        msgBox.setDefaultButton(QMessageBox::Save);
+        
+        bool ok;
+        switch (msgBox.exec())
+        {
+            case QMessageBox::Save:
+                ok = enregistrer();
+                while (!ok)
+                {
+                    switch (msgBox.exec())
+                    {
+                        case QMessageBox::Cancel:
+                            annulationFermer = true;
+                            ok = true;
+                            break;
+                        case QMessageBox::Discard:
+                            ok = true;
+                            break;
+                        default:
+                            ok = enregistrer();
+                    }
+                }
+                break;
+            case QMessageBox::Cancel:
+                annulationFermer = true;
+                break;
+            case QMessageBox::Discard:
+                break;
+        }
+    }
+    
+    
+    if (!annulationFermer)
+    {
+        delete m_plateau;
+        qApp->quit();
+    }
 }
 
 
@@ -112,7 +155,7 @@ void MainWindow::fermerPlateau()
     if (!m_plateau->isSave())
     {
         QMessageBox msgBox;
-        msgBox.setText("Voulez-vous enregistrer les modifications apportées au plateau ?");
+        msgBox.setText("Voulez-vous enregistrer les modifications apportées au plateau avant de le fermer ?");
         msgBox.setInformativeText("Les modifications non-enregistrées seront perdues.");
         msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
         msgBox.setDefaultButton(QMessageBox::Save);
