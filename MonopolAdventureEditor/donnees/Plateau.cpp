@@ -655,88 +655,6 @@ int Plateau::getNombrePropriete() const
 
 
 
-void Plateau::editDecoration()
-{
-    EditionPlateauDecoration fenetre(this, m_parent);
-    if (fenetre.executer())
-    {
-        m_sauvegarde = false;
-    }
-}
-
-
-
-
-
-void Plateau::editAffichagePrix()
-{
-    EditionPrix fenetre(this, m_parent);
-    if (fenetre.executer())
-    {
-        m_sauvegarde = false;
-    }
-}
-
-
-
-
-
-void Plateau::editListeRegroupements()
-{
-    EditionListeRegroupements fenetre(m_regroupements, m_parent);
-    if (fenetre.executer())
-    {
-        m_sauvegarde = false;
-    }
-}
-
-
-
-
-
-void Plateau::editListePilesCartes()
-{
-    EditionListePilesCartes fenetre(m_pilesCartes, m_emplacements, m_devise, m_parent);
-    if (fenetre.executer())
-    {
-        m_sauvegarde = false;
-    }
-}
-
-
-
-
-
-void Plateau::editGraphismeEmplacement()
-{
-    EditionGraphismeEmplacement fenetre(this, m_parent);
-    if (fenetre.executer())
-    {
-        m_sauvegarde = false;
-        dessiner();
-    }
-}
-
-
-
-
-
-void Plateau::editEmplacement(Emplacement* emplacement)
-{
-    if (m_parent->editionTypeActive())
-    {
-        editEmplacementType(emplacement);
-    }
-    else
-    {
-        editEmplacementInformations(emplacement);
-    }
-}
-
-
-
-
-
 void Plateau::saveInFile(QString cheminFichier)
 {
     QFile* fichier(new QFile(cheminFichier));
@@ -1109,6 +1027,88 @@ void Plateau::loadFromFile(QString cheminFichier)
         {
             QMessageBox::warning(m_parent, tr("Impossible d'ouvrir le fichier."), tr("Impossible d'ouvrir le fichier ") + cheminFichier + tr(". Le plateau n'a pas été chargé."));
         }
+    }
+}
+
+
+
+
+
+void Plateau::editDecoration()
+{
+    EditionPlateauDecoration fenetre(this, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::editAffichagePrix()
+{
+    EditionPrix fenetre(this, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::editListeRegroupements()
+{
+    EditionListeRegroupements fenetre(m_regroupements, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::editListePilesCartes()
+{
+    EditionListePilesCartes fenetre(m_pilesCartes, m_emplacements, m_devise, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+    }
+}
+
+
+
+
+
+void Plateau::editGraphismeEmplacement()
+{
+    EditionGraphismeEmplacement fenetre(this, m_parent);
+    if (fenetre.executer())
+    {
+        m_sauvegarde = false;
+        dessiner();
+    }
+}
+
+
+
+
+
+void Plateau::editEmplacement(Emplacement* emplacement)
+{
+    if (m_parent->editionTypeActive())
+    {
+        editEmplacementType(emplacement);
+    }
+    else
+    {
+        editEmplacementInformations(emplacement);
     }
 }
 

@@ -471,6 +471,24 @@ class Plateau : public QGraphicsScene
         
         
         
+        /**
+         * Sauvegarde le plateau dans le fichier désigné.
+         * @param cheminFichier Chemin vers le fichier à enregistrer.
+         */
+        void saveInFile(QString cheminFichier = "save.plt");
+        
+        
+        
+        /**
+         * Charge le plateau depuis un fichier.
+         * @param cheminFichier Chemin vers le fichier à enregistrer.
+         * 
+         * Détruit tout ce qui était dans le plateau auparavant.
+         */
+        void loadFromFile(QString cheminFichier = "save.plt");
+        
+        
+        
     public slots:
         /**
          * Ouvre une fenêtre de dialogue pour l'édition des décorations du plateau.
@@ -512,24 +530,6 @@ class Plateau : public QGraphicsScene
          * @param emplacement Emplacement concerné.
          */
         void editEmplacement(Emplacement* emplacement);
-        
-        
-        
-        /**
-         * Sauvegarde le plateau dans le fichier désigné.
-         * @param cheminFichier Chemin vers le fichier à enregistrer.
-         */
-        void saveInFile(QString cheminFichier = "save.plt");
-        
-        
-        
-        /**
-         * Charge le plateau depuis un fichier.
-         * @param cheminFichier Chemin vers le fichier à enregistrer.
-         * 
-         * Détruit tout ce qui était dans le plateau auparavant.
-         */
-        void loadFromFile(QString cheminFichier = "save.plt");
         
         
         
