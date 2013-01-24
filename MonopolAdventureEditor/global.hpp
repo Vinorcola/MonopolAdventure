@@ -15,6 +15,9 @@
                                 * NE JAMAIS CHANGER CETTE VALEUR !
                                 */
 
+#define ZOOM_MAX 1.0
+#define ZOOM_MIN 0.1
+
 
 
 namespace Type

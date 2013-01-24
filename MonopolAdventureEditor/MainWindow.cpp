@@ -15,6 +15,8 @@ MainWindow::MainWindow() :
     m_actionAssistantCreation(new QAction(tr("Éditer un plateau"), this)),
     m_actionSauvegarder(new QAction(tr("Enregistrer le plateau"), this)),
     m_actionFermerPlateau(new QAction(tr("Fermer le plateau"), this)),
+    m_actionZoomPlus(new QAction(tr("Zoom +"), this)),
+    m_actionZoomMoins(new QAction(tr("Zoom -"), this)),
     m_actionDecoration(new QAction(tr("Infos générales du plateau"), this)),
     m_actionPrix(new QAction(tr("Affichage des prix"), this)),
     m_actionRegroupements(new QAction(tr("Regroupements"), this)),
@@ -37,13 +39,18 @@ MainWindow::MainWindow() :
     
     /* Configuration des actions.
      */
-    m_actionQuitter->setShortcut(Qt::CTRL + Qt::Key_Q);
+    m_actionQuitter->setShortcut(QKeySequence::Quit);
     connect(m_actionQuitter, SIGNAL(triggered()), this, SLOT(quitter()));
     connect(m_actionAssistantCreation, SIGNAL(triggered()), this, SLOT(startAssistant()));
     m_actionSauvegarder->setDisabled(true);
     connect(m_actionSauvegarder, SIGNAL(triggered()), this, SLOT(enregistrer()));
     m_actionFermerPlateau->setDisabled(true);
     connect(m_actionFermerPlateau, SIGNAL(triggered()), this, SLOT(fermerPlateau()));
+    
+    m_actionZoomPlus->setShortcut(QKeySequence::ZoomIn);
+    connect(m_actionZoomPlus, SIGNAL(triggered()), this, SLOT(zoomPlus()));
+    m_actionZoomMoins->setShortcut(QKeySequence::ZoomOut);
+    connect(m_actionZoomMoins, SIGNAL(triggered()), this, SLOT(zoomMoins()));
     
     connect(m_actionDecoration, SIGNAL(triggered()), m_plateau, SLOT(editDecoration()));
     connect(m_actionPrix, SIGNAL(triggered()), m_plateau, SLOT(editAffichagePrix()));
@@ -62,6 +69,10 @@ MainWindow::MainWindow() :
     menuJeu->addAction(m_actionFermerPlateau);
     menuJeu->addSeparator();
     menuJeu->addAction(m_actionQuitter);
+    
+    QMenu* menuVue(menuBar()->addMenu(tr("Affichage")));
+    menuVue->addAction(m_actionZoomPlus);
+    menuVue->addAction(m_actionZoomMoins);
     
     
     
@@ -279,5 +290,39 @@ bool MainWindow::enregistrer()
     
     
     return !annulation;
+}
+
+
+
+
+
+void MainWindow::zoomPlus()
+{
+    if (m_vueCentrale->transform().m11() < ZOOM_MAX)
+    {
+        m_vueCentrale->scale(1.2, 1.2);
+        
+        if (m_vueCentrale->transform().m11() > ZOOM_MAX)
+        {
+            m_vueCentrale->setTransform(QTransform::fromScale(ZOOM_MAX, ZOOM_MAX));
+        }
+    }
+}
+
+
+
+
+
+void MainWindow::zoomMoins()
+{
+    if (m_vueCentrale->transform().m11() > ZOOM_MIN)
+    {
+        m_vueCentrale->scale(1 / 1.2, 1 / 1.2);
+        
+        if (m_vueCentrale->transform().m11() < ZOOM_MIN)
+        {
+            m_vueCentrale->setTransform(QTransform::fromScale(ZOOM_MIN, ZOOM_MIN));
+        }
+    }
 }
 
