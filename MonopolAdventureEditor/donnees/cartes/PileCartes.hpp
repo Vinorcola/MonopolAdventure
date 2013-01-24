@@ -2,6 +2,7 @@
 #define PILECARTESINFOS_HPP
 
 #include <QAbstractListModel>
+#include <QPixmap>
 
 class Carte;
 class Emplacement;
@@ -26,6 +27,7 @@ class PileCartes : public QAbstractListModel
         
     private:
         QString m_titre;///< Titre de la pile de cartes.
+        QPixmap m_image;///< Image du verso des cartes de la pile.
         QList<Carte*> m_cartes;///< Liste des cartes contenues dans la pile de cartes.
         
         
@@ -68,6 +70,22 @@ class PileCartes : public QAbstractListModel
          * @param titre Nouveau titre.
          */
         void editTitre(const QString& titre);
+        
+        
+        
+        /**
+         * Renseigne l'image du verso des cartes de la pile.
+         * @return Image du verso des cartes de la pile.
+         */
+        const QPixmap& getImage() const;
+        
+        
+        
+        /**
+         * Remplace l'image du verso des cartes de la pile par @a image.
+         * @param image Nouvelle image.
+         */
+        void editImage(const QPixmap& image);
         
         
         

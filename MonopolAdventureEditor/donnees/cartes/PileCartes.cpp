@@ -10,6 +10,7 @@
 PileCartes::PileCartes() :
     QAbstractListModel(),
     m_titre(tr("Nouvelle pile de cartes")),
+    m_image(),
     m_cartes()
 {
     
@@ -65,6 +66,24 @@ void PileCartes::editTitre(const QString& titre)
     {
         m_titre = titre;
     }
+}
+
+
+
+
+
+const QPixmap& PileCartes::getImage() const
+{
+    return m_image;
+}
+
+
+
+
+
+void PileCartes::editImage(const QPixmap &image)
+{
+    m_image = image;
 }
 
 
@@ -179,6 +198,7 @@ void PileCartes::saveInFile(QDataStream& ecriture,
                             const Plateau* plateau) const
 {
     ecriture << m_titre
+             << m_image
              << (quint8) m_cartes.count();// Ecriture du nombre de terrains présents.
     
     for (int i(0), iEnd(m_cartes.count()); i < iEnd; i++)
@@ -201,6 +221,7 @@ void PileCartes::loadFromFile(QDataStream& lecture,
             quint8 nbCartes;
             
             lecture >> m_titre
+                    >> m_image
                     >> nbCartes;
             
             for (int i(0); i < nbCartes; i++)
