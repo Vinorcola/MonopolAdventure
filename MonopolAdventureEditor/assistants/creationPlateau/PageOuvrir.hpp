@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QWizardPage>
 
+#include "global.hpp"
 #include "widgetsSelecteurs/FileSelectWidget.hpp"
 
 

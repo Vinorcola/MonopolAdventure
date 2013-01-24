@@ -11,6 +11,7 @@
 
 
 #define VERSION_ECRITURE 100// Version actuelle d'écriture dans les fichiers.
+#define EXTENSION_FICHIER ".plt"// Extension des fichiers de sauvegarde de plateau.
 #define TAG_SECURITE 0x7F10A504/* Sécurité pour vérifier que le fichier de sauvegarde est valide.
                                 * NE JAMAIS CHANGER CETTE VALEUR !
                                 */

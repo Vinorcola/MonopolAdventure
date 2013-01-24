@@ -6,6 +6,8 @@
 #include <QLineEdit>
 #include <QPushButton>
 
+#include "global.hpp"
+
 
 
 

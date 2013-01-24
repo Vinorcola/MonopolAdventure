@@ -11,7 +11,7 @@ PageOuvrir::PageOuvrir() :
     /* Configuration de la page
      */
     setTitle(tr("Ouvrir un plateau"));
-    setSubTitle(tr("Sélectionnez un fichier .plt pour modifier un plateau existant."));
+    setSubTitle(tr("Sélectionnez un fichier ") + EXTENSION_FICHIER + tr(" pour modifier un plateau existant."));
     
     
     

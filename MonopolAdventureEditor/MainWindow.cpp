@@ -277,21 +277,21 @@ bool MainWindow::enregistrer()
     // Récupération du chemin du fichier à enregistrer.
     while (!annulation && !sauvegarder)
     {
-        fichier = QFileDialog::getSaveFileName(this, "", "data/", "MonopolAdventure Plateau (*.plt)");
+        fichier = QFileDialog::getSaveFileName(this, "", "data/", QString("Plateau MonopolAdventure (*") + EXTENSION_FICHIER + ")");
         
         if (fichier.isEmpty())
         {
             // L'utilisateur a cliqué sur Annuler.
             annulation = true;
         }
-        else if (fichier.endsWith(".plt"))
+        else if (fichier.endsWith(EXTENSION_FICHIER))
         {
             sauvegarder = true;
         }
         else
         {
             // On rajoute l'extension au fichier.
-            fichier.append(".plt");
+            fichier.append(EXTENSION_FICHIER);
             
             // On doit revérifier que le fichier n'existe pas déjà vu qu'on a rajouter l'extension.
             if (QFile::exists(fichier))

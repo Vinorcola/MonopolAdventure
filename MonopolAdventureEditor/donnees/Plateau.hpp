@@ -483,7 +483,7 @@ class Plateau : public QGraphicsScene
          * Sauvegarde le plateau dans le fichier désigné.
          * @param cheminFichier Chemin vers le fichier à enregistrer.
          */
-        void saveInFile(QString cheminFichier = "save.plt");
+        void saveInFile(QString cheminFichier = QString("save") + EXTENSION_FICHIER);
         
         
         
@@ -493,7 +493,7 @@ class Plateau : public QGraphicsScene
          * 
          * Détruit tout ce qui était dans le plateau auparavant.
          */
-        void loadFromFile(QString cheminFichier = "save.plt");
+        void loadFromFile(QString cheminFichier = QString("save") + EXTENSION_FICHIER);
         
         
         
