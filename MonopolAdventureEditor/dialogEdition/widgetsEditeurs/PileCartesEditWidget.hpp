@@ -9,6 +9,7 @@
 
 #include "dialogEdition/EditionCarte.hpp"
 #include "donnees/cartes/PileCartes.hpp"
+#include "widgetsSelecteurs/ImageSelectWidget.hpp"
 
 
 
@@ -30,6 +31,7 @@ class PileCartesEditWidget : public QWidget
         
         PileCartes* m_pileCartes;///< Pile de cartes à éditer.
         QLineEdit* m_champTitre;///< Champ d'édition du titre de la pile de cartes.
+        ImageSelectWidget* m_champImage;///< Champ d'édition de l'image de la pile de cartes.
         QListView* m_vueCartes;///< Vue de la liste des cartes.
         QLabel* m_description;///< Widget affichant la description de la carte.
         QPushButton* m_creerCarte;///< Bouton demandant la création d'une nouvelle carte.
@@ -65,6 +67,13 @@ class PileCartesEditWidget : public QWidget
          * @param titre Nouveau titre.
          */
         void changeTitre(QString titre);
+        
+        
+        
+        /**
+         * Change l'image de la pile de cartes par celle indiquée dans le champ d'édition.
+         */
+        void changeImage();
         
         
         

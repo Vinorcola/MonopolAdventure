@@ -13,6 +13,7 @@ PileCartesEditWidget::PileCartesEditWidget(const QList<Emplacement*>& emplacemen
     m_devise(devise),
     m_pileCartes(0),
     m_champTitre(new QLineEdit),
+    m_champImage(new ImageSelectWidget(this)),
     m_vueCartes(new QListView),
     m_description(new QLabel),
     m_creerCarte(new QPushButton(tr("Ajouter une nouvelle carte"))),
@@ -41,6 +42,7 @@ PileCartesEditWidget::PileCartesEditWidget(const QList<Emplacement*>& emplacemen
     
     QFormLayout* layout(new QFormLayout);
     layout->addRow(tr("Titre"), m_champTitre);
+    layout->addRow(tr("Image"), m_champImage);
     layout->addRow(tr("Cartes"), layoutCartes);
     
     setLayout(layout);
@@ -49,6 +51,7 @@ PileCartesEditWidget::PileCartesEditWidget(const QList<Emplacement*>& emplacemen
     
     // Connexion des entrées à leur slot respectifs
     connect(m_champTitre, SIGNAL(textEdited(QString)), this, SLOT(changeTitre(QString)));
+    connect(m_champImage, SIGNAL(imageChange()), this, SLOT(changeImage()));
     connect(m_creerCarte, SIGNAL(clicked()), this, SLOT(createCarte()));
     connect(m_modifierCarte, SIGNAL(clicked()), this, SLOT(editCarte()));
     connect(m_supprimerCarte, SIGNAL(clicked()), this, SLOT(deleteCarte()));
@@ -65,6 +68,7 @@ void PileCartesEditWidget::editPileCartes(PileCartes* pileCartes)
     {
         m_pileCartes = pileCartes;
         m_champTitre->setText(pileCartes->getTitre());
+        m_champImage->setImage(pileCartes->getImage());
         m_vueCartes->setModel(pileCartes);
         connect(m_vueCartes->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)), this, SLOT(selectedCarteChanged(QModelIndex)));
         
@@ -87,6 +91,7 @@ void PileCartesEditWidget::editPileCartes(PileCartes* pileCartes)
     else
     {
         m_champTitre->setText("");
+        m_champImage->resetImage();
         m_description->setText("");
         m_creerCarte->setDisabled(true);
         m_modifierCarte->setDisabled(true);
@@ -101,6 +106,21 @@ void PileCartesEditWidget::editPileCartes(PileCartes* pileCartes)
 void PileCartesEditWidget::changeTitre(QString titre)
 {
     emit titreChanged(m_pileCartes, titre);
+}
+
+
+
+
+
+void PileCartesEditWidget::changeImage()
+{
+    if (m_pileCartes)
+    {
+        /* Pas besoin d'émettre un quelconque signal car on n'a pas besoin de notifier ce changement au modèle de
+         * données.
+         */
+        m_pileCartes->editImage(m_champImage->getImage());
+    }
 }
 
 

@@ -36,6 +36,20 @@ ImageSelectWidget::ImageSelectWidget(QWidget* parent,
 
 
 
+void ImageSelectWidget::setImage(const QPixmap& image)
+{
+    if (image.toImage() != m_image.toImage())
+    {
+        m_image = image;
+        updateImageWidget();
+        emit imageChange();
+    }
+}
+
+
+
+
+
 const QPixmap& ImageSelectWidget::getImage() const
 {
     return m_image;
@@ -66,6 +80,16 @@ void ImageSelectWidget::setBackgroundColor(const QColor& color)
     QPalette palette(m_widget->palette());
     palette.setColor(QPalette::Window, color);
     m_widget->setPalette(palette);
+}
+
+
+
+
+
+void ImageSelectWidget::resetImage()
+{
+    m_image = QPixmap();
+    emit imageChange();
 }
 
 

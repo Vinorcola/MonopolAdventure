@@ -45,6 +45,14 @@ class ImageSelectWidget : public QWidget
         
         
         /**
+         * Modifie l'image sélectionnée.
+         * @param image Nouvelle image.
+         */
+        void setImage(const QPixmap& image);
+        
+        
+        
+        /**
          * Retourne une référence vers l'image chargée.
          * @return Image chargée.
          */
@@ -64,6 +72,13 @@ class ImageSelectWidget : public QWidget
          * Change la couleur de fond du QLabel affichant l'image.
          */
         void setBackgroundColor(const QColor& color);
+        
+        
+        
+        /**
+         * Supprime l'image chargée.
+         */
+        void resetImage();
         
         
         
