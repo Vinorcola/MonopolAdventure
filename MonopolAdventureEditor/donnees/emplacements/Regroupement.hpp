@@ -16,7 +16,14 @@ class Plateau;
 
 /**
  * @class Regroupement Regroupement.hpp donnees/emplacements/Regroupement.hpp
- * Regroupement contient les informations éditables d'un regroupement de terrains.
+ * Cette classe permet de rassembler plusieurs terrains dans un même groupe.
+ * 
+ * Les regroupements rassemblent plusieurs terrains dans un unique but : un joueur doit posséder tous les terrains d'un regroupement pour pouvoir construire sur ces terrains. Un regroupement est caractérisé par une couleur (qui est affichée sur les terrains). Les joueurs peuvent ainsi rapidement voir quels terrains font parti du même groupe.
+ * 
+ * Cette classe hérite de QAbstractListModel. Elle permet donc d'afficher la liste des terrains qu'elle contient dans un widget de vue. Cette fonctionnalité est utilisée lors de l'édition des regroupements via une fenêtre de dialogue (cf RegroupementEditWidget). Lors de l'ouverture d'une fenêtre d'édition, tous les regroupements du plateau sont copiés, et ces copies sont mises en « mode édition ». Si l'utilisateur annule l'édition, ces copies sont simplement supprimées. En revanche, si l'utilisateur valide les changements, alors les regroupements originaux sont supprimés, et les copies les remplacent.
+ * 
+ * Le mode édition permet de gérer les terrains différemment. En effet, chaque terrain possède un pointeur vers le regroupement auquel il appartient (pour plus de simplicité). Lorsque l'on transfère un terrain d'un regroupement à un autre, ce pointeur change de valeur pour pointer vers le nouveau regroupement. Mais en mode édition, cette mise à jour du pointeur ne se fait pas : cela permet de garder les regroupements originaux intact, et de travailler avec les copies uniquements, sans modifier les terrains. Ainsi, si l'utilisateur annule tous les changements, la suppression des regroupements copiés et suffisante.
+ * En revanche, si l'utilisateur valide les changements, alors, la méthode Regroupement::termineEdition() doit être appelée pour mettre a jour les pointeur de tous terrains contenus dans le (nouveau) regroupement.
  */
 class Regroupement : public QAbstractListModel
 {

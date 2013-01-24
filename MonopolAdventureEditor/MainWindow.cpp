@@ -17,7 +17,7 @@ MainWindow::MainWindow() :
     m_actionFermerPlateau(new QAction(tr("Fermer le plateau"), this)),
     m_actionZoomPlus(new QAction(tr("Zoom +"), this)),
     m_actionZoomMoins(new QAction(tr("Zoom -"), this)),
-    m_actionDecoration(new QAction(tr("Infos générales du plateau"), this)),
+    m_actionInfosGeneralesPlateau(new QAction(tr("Infos générales du plateau"), this)),
     m_actionPrix(new QAction(tr("Affichage des prix"), this)),
     m_actionRegroupements(new QAction(tr("Regroupements"), this)),
     m_actionPilesCartes(new QAction(tr("Piles de cartes"), this)),
@@ -52,7 +52,7 @@ MainWindow::MainWindow() :
     m_actionZoomMoins->setShortcut(QKeySequence::ZoomOut);
     connect(m_actionZoomMoins, SIGNAL(triggered()), this, SLOT(zoomMoins()));
     
-    connect(m_actionDecoration, SIGNAL(triggered()), m_plateau, SLOT(editDecoration()));
+    connect(m_actionInfosGeneralesPlateau, SIGNAL(triggered()), m_plateau, SLOT(editInfosGenerales()));
     connect(m_actionPrix, SIGNAL(triggered()), m_plateau, SLOT(editAffichagePrix()));
     connect(m_actionRegroupements, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupements()));
     connect(m_actionPilesCartes, SIGNAL(triggered()), m_plateau, SLOT(editListePilesCartes()));
@@ -78,7 +78,7 @@ MainWindow::MainWindow() :
     
     /* Configuration des barres d'outils.
      */
-    m_barreOutils->addAction(m_actionDecoration);
+    m_barreOutils->addAction(m_actionInfosGeneralesPlateau);
     m_barreOutils->addAction(m_actionPrix);
     m_barreOutils->addAction(m_actionRegroupements);
     m_barreOutils->addAction(m_actionPilesCartes);
@@ -206,6 +206,13 @@ void MainWindow::fermerPlateau()
         // Création d'un plateau vide.
         delete m_plateau;
         m_plateau = new Plateau(this);
+        
+        // Connection des action au nouveau plateau.
+        connect(m_actionInfosGeneralesPlateau, SIGNAL(triggered()), m_plateau, SLOT(editDecoration()));
+        connect(m_actionPrix, SIGNAL(triggered()), m_plateau, SLOT(editAffichagePrix()));
+        connect(m_actionRegroupements, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupements()));
+        connect(m_actionPilesCartes, SIGNAL(triggered()), m_plateau, SLOT(editListePilesCartes()));
+        connect(m_actionGraphismeEmplacement, SIGNAL(triggered()), m_plateau, SLOT(editGraphismeEmplacement()));
         
         // Mise à jour du statut des actions.
         m_barreOutils->hide();
