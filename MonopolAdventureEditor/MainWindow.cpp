@@ -298,9 +298,14 @@ bool MainWindow::enregistrer()
 
 void MainWindow::zoomPlus()
 {
-    if (m_vueCentrale->transform().m11() < 1.0)
+    if (m_vueCentrale->transform().m11() < ZOOM_MAX)
     {
         m_vueCentrale->scale(1.2, 1.2);
+        
+        if (m_vueCentrale->transform().m11() > ZOOM_MAX)
+        {
+            m_vueCentrale->setTransform(QTransform::fromScale(ZOOM_MAX, ZOOM_MAX));
+        }
     }
 }
 
@@ -310,6 +315,14 @@ void MainWindow::zoomPlus()
 
 void MainWindow::zoomMoins()
 {
-    m_vueCentrale->scale(1 / 1.2, 1 / 1.2);
+    if (m_vueCentrale->transform().m11() > ZOOM_MIN)
+    {
+        m_vueCentrale->scale(1 / 1.2, 1 / 1.2);
+        
+        if (m_vueCentrale->transform().m11() < ZOOM_MIN)
+        {
+            m_vueCentrale->setTransform(QTransform::fromScale(ZOOM_MIN, ZOOM_MIN));
+        }
+    }
 }
 
