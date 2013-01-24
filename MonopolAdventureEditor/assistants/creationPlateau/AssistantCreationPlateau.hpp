@@ -21,6 +21,9 @@ class PagePrix;
  */
 class AssistantCreationPlateau : public QWizard
 {
+        Q_OBJECT
+        
+        
     private:
         Plateau* m_plateau;///< Plateau créé.
         PageGeneral* m_pageGeneral;///< Page de l'assistant permettant de configurer les informations générales du plateau.

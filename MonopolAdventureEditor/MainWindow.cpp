@@ -8,7 +8,7 @@
 
 MainWindow::MainWindow() :
     QMainWindow(),
-    m_plateau(new Plateau(this)),
+    m_plateau(0),
     m_vueCentrale(new QGraphicsView),
     m_barreOutils(addToolBar(tr("Outils d'édition"))),
     m_actionQuitter(new QAction(tr("Quitter"), this)),
@@ -52,11 +52,6 @@ MainWindow::MainWindow() :
     m_actionZoomMoins->setShortcut(QKeySequence::ZoomOut);
     connect(m_actionZoomMoins, SIGNAL(triggered()), this, SLOT(zoomMoins()));
     
-    connect(m_actionDecoration, SIGNAL(triggered()), m_plateau, SLOT(editDecoration()));
-    connect(m_actionPrix, SIGNAL(triggered()), m_plateau, SLOT(editAffichagePrix()));
-    connect(m_actionRegroupements, SIGNAL(triggered()), m_plateau, SLOT(editListeRegroupements()));
-    connect(m_actionPilesCartes, SIGNAL(triggered()), m_plateau, SLOT(editListePilesCartes()));
-    connect(m_actionGraphismeEmplacement, SIGNAL(triggered()), m_plateau, SLOT(editGraphismeEmplacement()));
     m_actionEditionTypeEmplacement->setCheckable(true);
     
     
@@ -108,49 +103,56 @@ bool MainWindow::editionTypeActive() const
 
 void MainWindow::quitter()
 {
-    bool annulationFermer(false);
-    
-    if (!m_plateau->isSave())
+    if (m_plateau)
     {
-        QMessageBox msgBox;
-        msgBox.setText("Voulez-vous enregistrer les modifications apportées au plateau avant de quitter MonopolAdventureEditor ?");
-        msgBox.setInformativeText("Les modifications non-enregistrées seront perdues.");
-        msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
-        msgBox.setDefaultButton(QMessageBox::Save);
+        bool annulationFermer(false);
         
-        bool ok;
-        switch (msgBox.exec())
+        if (!m_plateau->isSave())
         {
-            case QMessageBox::Save:
-                ok = enregistrer();
-                while (!ok)
-                {
-                    switch (msgBox.exec())
+            QMessageBox msgBox;
+            msgBox.setText("Voulez-vous enregistrer les modifications apportées au plateau avant de quitter MonopolAdventureEditor ?");
+            msgBox.setInformativeText("Les modifications non-enregistrées seront perdues.");
+            msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+            msgBox.setDefaultButton(QMessageBox::Save);
+            
+            bool ok;
+            switch (msgBox.exec())
+            {
+                case QMessageBox::Save:
+                    ok = enregistrer();
+                    while (!ok)
                     {
-                        case QMessageBox::Cancel:
-                            annulationFermer = true;
-                            ok = true;
-                            break;
-                        case QMessageBox::Discard:
-                            ok = true;
-                            break;
-                        default:
-                            ok = enregistrer();
+                        switch (msgBox.exec())
+                        {
+                            case QMessageBox::Cancel:
+                                annulationFermer = true;
+                                ok = true;
+                                break;
+                            case QMessageBox::Discard:
+                                ok = true;
+                                break;
+                            default:
+                                ok = enregistrer();
+                        }
                     }
-                }
-                break;
-            case QMessageBox::Cancel:
-                annulationFermer = true;
-                break;
-            case QMessageBox::Discard:
-                break;
+                    break;
+                case QMessageBox::Cancel:
+                    annulationFermer = true;
+                    break;
+                case QMessageBox::Discard:
+                    break;
+            }
+        }
+        
+        
+        if (!annulationFermer)
+        {
+            delete m_plateau;
+            qApp->quit();
         }
     }
-    
-    
-    if (!annulationFermer)
+    else
     {
-        delete m_plateau;
         qApp->quit();
     }
 }
@@ -161,57 +163,60 @@ void MainWindow::quitter()
 
 void MainWindow::fermerPlateau()
 {
-    bool annulationFermer(false);
-    
-    if (!m_plateau->isSave())
+    if (m_plateau)
     {
-        QMessageBox msgBox;
-        msgBox.setText("Voulez-vous enregistrer les modifications apportées au plateau avant de le fermer ?");
-        msgBox.setInformativeText("Les modifications non-enregistrées seront perdues.");
-        msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
-        msgBox.setDefaultButton(QMessageBox::Save);
+        bool annulationFermer(false);
         
-        bool ok;
-        switch (msgBox.exec())
+        if (!m_plateau->isSave())
         {
-            case QMessageBox::Save:
-                ok = enregistrer();
-                while (!ok)
-                {
-                    switch (msgBox.exec())
+            QMessageBox msgBox;
+            msgBox.setText("Voulez-vous enregistrer les modifications apportées au plateau avant de le fermer ?");
+            msgBox.setInformativeText("Les modifications non-enregistrées seront perdues.");
+            msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+            msgBox.setDefaultButton(QMessageBox::Save);
+            
+            bool ok;
+            switch (msgBox.exec())
+            {
+                case QMessageBox::Save:
+                    ok = enregistrer();
+                    while (!ok)
                     {
-                        case QMessageBox::Cancel:
-                            annulationFermer = true;
-                            ok = true;
-                            break;
-                        case QMessageBox::Discard:
-                            ok = true;
-                            break;
-                        default:
-                            ok = enregistrer();
+                        switch (msgBox.exec())
+                        {
+                            case QMessageBox::Cancel:
+                                annulationFermer = true;
+                                ok = true;
+                                break;
+                            case QMessageBox::Discard:
+                                ok = true;
+                                break;
+                            default:
+                                ok = enregistrer();
+                        }
                     }
-                }
-                break;
-            case QMessageBox::Cancel:
-                annulationFermer = true;
-                break;
-            case QMessageBox::Discard:
-                break;
+                    break;
+                case QMessageBox::Cancel:
+                    annulationFermer = true;
+                    break;
+                case QMessageBox::Discard:
+                    break;
+            }
         }
-    }
-    
-    
-    if (!annulationFermer)
-    {
-        // Création d'un plateau vide.
-        delete m_plateau;
-        m_plateau = new Plateau(this);
         
-        // Mise à jour du statut des actions.
-        m_barreOutils->hide();
-        m_actionAssistantCreation->setEnabled(true);
-        m_actionSauvegarder->setDisabled(true);
-        m_actionFermerPlateau->setDisabled(true);
+        
+        if (!annulationFermer)
+        {
+            // Suppression du plateau.
+            delete m_plateau;
+            m_plateau = 0;
+            
+            // Mise à jour du statut des actions.
+            m_barreOutils->hide();
+            m_actionAssistantCreation->setEnabled(true);
+            m_actionSauvegarder->setDisabled(true);
+            m_actionFermerPlateau->setDisabled(true);
+        }
     }
 }
 
@@ -221,15 +226,40 @@ void MainWindow::fermerPlateau()
 
 void MainWindow::startAssistant()
 {
-    AssistantCreationPlateau* assistant(new AssistantCreationPlateau(m_plateau));
+    AssistantCreationPlateau* assistant(new AssistantCreationPlateau(this));
+    connect(assistant, SIGNAL(plateauCreated(Plateau*)), this, SLOT(dessinePlateau(Plateau*)));
+    
     if (assistant->exec())
     {
         m_vueCentrale->setScene(m_plateau);
-        m_barreOutils->show();
-        m_actionAssistantCreation->setDisabled(true);// Désactivation de la création de nouveau plateau.
-        m_actionSauvegarder->setEnabled(true);
-        m_actionFermerPlateau->setEnabled(true);
     }
+}
+
+
+
+
+
+void MainWindow::dessinePlateau(Plateau *plateau)
+{
+    m_plateau = plateau;
+    
+    // Dessin et affichage du plateau.
+    plateau->dessiner();
+    m_vueCentrale->setScene(plateau);
+    
+    // Activation de la barre d'outils.
+    m_barreOutils->show();
+    connect(m_actionDecoration, SIGNAL(triggered()), plateau, SLOT(editDecoration()));
+    connect(m_actionPrix, SIGNAL(triggered()), plateau, SLOT(editAffichagePrix()));
+    connect(m_actionRegroupements, SIGNAL(triggered()), plateau, SLOT(editListeRegroupements()));
+    connect(m_actionPilesCartes, SIGNAL(triggered()), plateau, SLOT(editListePilesCartes()));
+    connect(m_actionGraphismeEmplacement, SIGNAL(triggered()), plateau, SLOT(editGraphismeEmplacement()));
+    m_actionEditionTypeEmplacement->setChecked(false);
+    
+    // Activation/Désactivation des actions.
+    m_actionAssistantCreation->setDisabled(true);// Désactivation de la création de nouveau plateau.
+    m_actionSauvegarder->setEnabled(true);
+    m_actionFermerPlateau->setEnabled(true);
 }
 
 

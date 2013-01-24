@@ -85,6 +85,14 @@ class MainWindow : public QMainWindow
         
         
         /**
+         * Dessine le plateau et le connecte à différents slots.
+         * @param plateau Plateau à afficher et éditer.
+         */
+        void dessinePlateau(Plateau* plateau);
+        
+        
+        
+        /**
          * Enclenche la procédure de sauvegarde du plateau.
          * @return @b @c true si l'utilisateur a bien sauvegarder, @b @c false s'il a annulé la procédure.
          */
