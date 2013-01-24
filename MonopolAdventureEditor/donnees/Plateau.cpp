@@ -804,7 +804,7 @@ void Plateau::saveInFile(QString cheminFichier)
 
 
 
-void Plateau::loadFromFile(QString cheminFichier)
+bool Plateau::loadFromFile(QString cheminFichier)
 {
     if (QFile::exists(cheminFichier))
     {
@@ -1018,6 +1018,7 @@ void Plateau::loadFromFile(QString cheminFichier)
                         if (tag != TAG_SECURITE)
                         {
                             QMessageBox::warning(m_parent, tr("Problème de lacture du fichier."), tr("Le chargement du plateau ne s'est pas passé comme prévu. Le fichier semble corrompu."));
+                            return false;
                         }
                         
                 }
@@ -1025,6 +1026,7 @@ void Plateau::loadFromFile(QString cheminFichier)
             else
             {
                 QMessageBox::warning(m_parent, tr("Impossible d'ouvrir le fichier."), tr("Le fichier ") + cheminFichier + tr(" n'est pas un fichier de sauvegarde valide. Le plateau n'a pas été chargé."));
+                return false;
             }
             
             
@@ -1035,8 +1037,11 @@ void Plateau::loadFromFile(QString cheminFichier)
         else
         {
             QMessageBox::warning(m_parent, tr("Impossible d'ouvrir le fichier."), tr("Impossible d'ouvrir le fichier ") + cheminFichier + tr(". Le plateau n'a pas été chargé."));
+            return false;
         }
     }
+    
+    return true;
 }
 
 

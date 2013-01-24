@@ -493,7 +493,7 @@ class Plateau : public QGraphicsScene
          * 
          * Détruit tout ce qui était dans le plateau auparavant.
          */
-        void loadFromFile(QString cheminFichier = QString("save") + EXTENSION_FICHIER);
+        bool loadFromFile(QString cheminFichier = QString("save") + EXTENSION_FICHIER);
         
         
         

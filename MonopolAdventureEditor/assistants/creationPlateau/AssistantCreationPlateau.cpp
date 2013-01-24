@@ -53,14 +53,23 @@ void AssistantCreationPlateau::accept()
          * concernant la taille des emplacements.
          */
         m_plateau->editTaille(QSize(field("largeur_plateau").toInt(), field("hauteur_plateau").toInt()));
+        
+        // Envoie du signal indiquant que le plateau est configuré.
+        emit plateauCreated(m_plateau);
     }
     else
     {
-        m_plateau->loadFromFile(field("fichier_ouvrir").toString());
+        if (m_plateau->loadFromFile(field("fichier_ouvrir").toString()))
+        {
+            // Envoie du signal indiquant que le plateau est configuré.
+            emit plateauCreated(m_plateau);
+        }
+        else
+        {
+            // Echec du chargement du plateau. On le supprime.
+            delete m_plateau;
+        }
     }
-    
-    // Envoie du signal indiquant que le plateau est configuré.
-    emit plateauCreated(m_plateau);
     
     QWizard::accept();
 }
