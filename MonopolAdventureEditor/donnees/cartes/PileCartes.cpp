@@ -23,6 +23,7 @@ PileCartes::PileCartes() :
 PileCartes::PileCartes(const PileCartes* pileCartes) :
     QAbstractListModel(),
     m_titre(pileCartes->m_titre),
+    m_image(pileCartes->m_image),
     m_cartes()
 {
     for (int i(0), iEnd(pileCartes->m_cartes.count()); i < iEnd; i++)
