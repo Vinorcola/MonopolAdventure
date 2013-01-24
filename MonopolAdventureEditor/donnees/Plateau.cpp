@@ -17,7 +17,7 @@
 Plateau::Plateau(MainWindow* parent) :
     QGraphicsScene(),
     m_parent(parent),
-    m_sauvegarde(false),
+    m_sauvegarde(true),
     m_titre(tr("Nouveau plateau")),
     m_taille(0, 0),
     m_devise(" €"),
