@@ -3,6 +3,7 @@
 
 #include <QWizard>
 
+class MainWindow;
 class PageGeneral;
 class PageGraphisme;
 class PagePrix;
@@ -20,8 +21,11 @@ class PagePrix;
  */
 class AssistantCreationPlateau : public QWizard
 {
+        Q_OBJECT
+        
+        
     private:
-        Plateau* m_plateau;///< Plateau à configurer.
+        Plateau* m_plateau;///< Plateau créé.
         PageGeneral* m_pageGeneral;///< Page de l'assistant permettant de configurer les informations générales du plateau.
         PageGraphisme* m_pageGraphisme;///< Page de l'assistant permettant de configurer les graphismes des emplacements.
         PagePrix* m_pagePrix;///< Page de l'assistant permettant de configurer les informations sur les prix.
@@ -30,15 +34,32 @@ class AssistantCreationPlateau : public QWizard
         
     public:
         /**
-         * Construit un nouvel assistant qui va configurer le plateau @a plateau.
-         * @param plateau Plateau à configurer.
+         * Construit un nouvel assistant qui va créer un plateau.
+         * @param parent Fenêtre principale du programme.
          */
-        AssistantCreationPlateau(Plateau* plateau);
+        AssistantCreationPlateau(MainWindow* parent);
+        
+        
+        
+    signals:
+        /**
+         * Indique que le plateau à été créé et configuré.
+         * 
+         * Un plateau configuré a pu, soit être chargé depuis un fichier, soit être configuré depuis zéro.
+         */
+        void plateauCreated(Plateau* plateau);
         
         
         
     public slots:
         void accept();
+        
+        
+        
+        /**
+         * Détruit le plateau créé.
+         */
+        void reject();
 };
 
 #endif // ASSISTANTCREATIONPLATEAU_HPP
