@@ -6,16 +6,18 @@
 #include "assistants/creationPlateau/PageOuvrir.hpp"
 #include "assistants/creationPlateau/PagePrix.hpp"
 #include "assistants/creationPlateau/PageTaille.hpp"
+#include "MainWindow.hpp"
 
 
 
 
 
-AssistantCreationPlateau::AssistantCreationPlateau(Plateau* plateau) :
-    m_plateau(plateau),
-    m_pageGeneral(new PageGeneral(plateau)),
-    m_pageGraphisme(new PageGraphisme(plateau)),
-    m_pagePrix(new PagePrix(plateau))
+AssistantCreationPlateau::AssistantCreationPlateau(MainWindow* parent) :
+    QWizard(parent),
+    m_plateau(new Plateau(parent)),
+    m_pageGeneral(new PageGeneral(m_plateau)),
+    m_pageGraphisme(new PageGraphisme(m_plateau)),
+    m_pagePrix(new PagePrix(m_plateau))
 {
     /* Configuration de la fenêtre
      */
@@ -57,8 +59,20 @@ void AssistantCreationPlateau::accept()
         m_plateau->loadFromFile(field("fichier_ouvrir").toString());
     }
     
-    m_plateau->dessiner();
+    // Envoie du signal indiquant que le plateau est configuré.
+    emit plateauCreated(m_plateau);
     
     QWizard::accept();
+}
+
+
+
+
+
+void AssistantCreationPlateau::reject()
+{
+    delete m_plateau;
+    
+    QWizard::reject();
 }
 
