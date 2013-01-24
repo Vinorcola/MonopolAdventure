@@ -26,15 +26,15 @@ PageIntro::PageIntro() :
     m_choix->setWordWrap(true);
     m_choix->setAlignment(Qt::AlignJustify);
     
-    m_radioCreer->setChecked(true);
+    m_radioOuvrir->setChecked(true);
     
     
     
     /* Mise en forme du contenu
      */
     QFormLayout* formLayout(new QFormLayout);
-    formLayout->addRow(m_radioCreer);
     formLayout->addRow(m_radioOuvrir);
+    formLayout->addRow(m_radioCreer);
     
     QVBoxLayout* layout(new QVBoxLayout);
     layout->addWidget(m_introduction);
