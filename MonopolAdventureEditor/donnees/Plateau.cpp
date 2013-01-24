@@ -1414,6 +1414,12 @@ void Plateau::changeTypeEmplacement(Emplacement* emplacement,
         
         
         
+        /* Edition de l'emplacement.
+         */
+        editEmplacementInformations(nouvelEmplacement);
+        
+        
+        
         m_sauvegarde = false;
     }
 }

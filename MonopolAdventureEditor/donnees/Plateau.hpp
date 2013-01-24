@@ -559,7 +559,7 @@ class Plateau : public QGraphicsScene
         
         
         /**
-         * Change le type d'un emplacement et réouvre sa fenêtre d'édition.
+         * Change le type d'un emplacement et ouvre une fenêtre d'édition.
          */
         void changeTypeEmplacement(Emplacement* emplacement,
                                    Type::Emplacement nouveauType);
