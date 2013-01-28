@@ -26,7 +26,7 @@ class PileCartesListModel : public QAbstractListModel
     public:
         /**
          * Construit un nouveau modèle de données avec les piles de cartes contenues dans la liste @a pilesCartes.
-         * @param regroupements Liste des regroupements.
+         * @param pilesCartes Liste des piles de cartes.
          */
         PileCartesListModel(QList<PileCartes*>& pilesCartes);
         

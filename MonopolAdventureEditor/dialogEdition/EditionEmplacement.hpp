@@ -89,7 +89,7 @@ class EditionEmplacement
         
         /**
          * Construit un contrôleur d'édition spécialisé pour une prison.
-         * @param priosn Prison à éditer.
+         * @param prison Prison à éditer.
          * @param parent QWidget parent de la QDialog.
          */
         EditionEmplacement(Prison* prison,

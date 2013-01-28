@@ -38,6 +38,7 @@ class ListePilesCartesEditWidget : public QWidget
         /**
          * Construit un nouveau widget d'édition d'une liste de piles de cartes.
          * @param pilesCartes Liste des piles de cartes à éditer.
+         * @param pileCartesPioche Liste des piles de cartes liées aux emplacements « Pioche ».
          * @param emplacements Liste des emplacements du plateau.
          * @param devise Devise du plateau.
          */

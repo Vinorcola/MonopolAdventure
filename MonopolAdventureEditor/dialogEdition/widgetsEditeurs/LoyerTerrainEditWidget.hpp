@@ -33,7 +33,6 @@ class LoyerTerrainEditWidget : public SauvegardeInterface
         /**
          * Construit un nouveau widget d'édition de loyers d'un terrain.
          * @param terrain Terrain à éditer.
-         * @param nombreMaisonsPourHotel Nombre de maisons nécessaires pour la construction d'un hôtel.
          */
         LoyerTerrainEditWidget(Terrain* const terrain);
         

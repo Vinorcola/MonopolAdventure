@@ -23,6 +23,9 @@ class Carte
         
         
     public:
+        /**
+         * Cette énumération permet de déterminer la position de l'image par rapport à la consigne à l'affichage de la carte.
+         */
         enum ImageDisposition
         {
             GAUCHE, DROITE, HAUT, BAS
