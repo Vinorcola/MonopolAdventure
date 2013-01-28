@@ -250,7 +250,7 @@ void MainWindow::dessinePlateau(Plateau *plateau)
     
     // Activation de la barre d'outils.
     m_barreOutils->show();
-    connect(m_actionDecoration, SIGNAL(triggered()), plateau, SLOT(editDecoration()));
+    connect(m_actionInfosGeneralesPlateau, SIGNAL(triggered()), plateau, SLOT(editInfosGenerales()));
     connect(m_actionPrix, SIGNAL(triggered()), plateau, SLOT(editAffichagePrix()));
     connect(m_actionRegroupements, SIGNAL(triggered()), plateau, SLOT(editListeRegroupements()));
     connect(m_actionPilesCartes, SIGNAL(triggered()), plateau, SLOT(editListePilesCartes()));

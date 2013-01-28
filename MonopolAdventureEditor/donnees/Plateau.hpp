@@ -560,15 +560,11 @@ class Plateau : public QGraphicsScene
         
         
         /**
-<<<<<<< HEAD
          * Change le type d'un emplacement et ouvre une fenêtre d'édition.
-=======
-         * Change le type d'un emplacement.
          * @param emplacement Emplacement concerné.
          * @param nouveauType Nouveau type d'emplacement demandé.
          * 
          * Cette méthode n'effectue aucune vérification sur l'emplacement concerné. Toutes ces vérifications doivent être faite au préalable.
->>>>>>> feature_RelectureDoc
          */
         void changeTypeEmplacement(Emplacement* emplacement,
                                    Type::Emplacement nouveauType);
