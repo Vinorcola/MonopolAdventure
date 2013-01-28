@@ -9,7 +9,9 @@
 
 /**
  * @class Taxe Taxe.hpp donnees/emplacements/Taxe.hpp
- * Taxe contient les informations éditables d'un emplacement « Taxe » d'un plateau.
+ * Cette classe représente un emplacement « Taxe », où les joueurs vont devoir verser des taxes à la banque.
+ * 
+ * Le montant de la taxe peut être un montant fixe, ou bien un pourcentage de la fortune du joueur (la fortune représente toutes les liquidités, les valeurs d'achat des terrains et des constructions possédés par le joueur). Ils est posible de configurer un montant fixe et un pourcentage de la fortune en même temps. Le joueur pourra alors choisir son mode d'imposition.
  */
 class Taxe : public Emplacement
 {

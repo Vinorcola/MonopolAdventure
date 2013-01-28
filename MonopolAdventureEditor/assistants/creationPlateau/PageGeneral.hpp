@@ -20,7 +20,7 @@ class PageGeneral : public QWizardPage
         
         
     private:
-        PlateauDecorationEditWidget* m_champ;
+        PlateauDecorationEditWidget* m_champ;///< Champ d'édition des informations générales du plateau.
         
         
         

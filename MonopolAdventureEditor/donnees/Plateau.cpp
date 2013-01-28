@@ -561,15 +561,6 @@ void Plateau::editFontePrixEmplacement(const QFont& fonte)
 
 
 
-const GraphismeEmplacementInfos& Plateau::getInformationGraphismeEmplacement() const
-{
-    return m_graphismeEmplacement;
-}
-
-
-
-
-
 const Regle& Plateau::getRegle() const
 {
     return m_regle;
@@ -1048,7 +1039,7 @@ bool Plateau::loadFromFile(QString cheminFichier)
 
 
 
-void Plateau::editDecoration()
+void Plateau::editInfosGenerales()
 {
     EditionPlateauDecoration fenetre(this, m_parent);
     if (fenetre.executer())

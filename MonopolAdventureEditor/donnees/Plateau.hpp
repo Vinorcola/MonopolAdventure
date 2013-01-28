@@ -10,13 +10,13 @@
 #include <QString>
 #include <QtCore/qmath.h>
 
+class MainWindow;
 #include "donnees/cartes/PileCartes.hpp"
 #include "donnees/emplacements/CompagnieTransport.hpp"
 #include "donnees/emplacements/Regroupement.hpp"
 #include "donnees/emplacements/Service.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
 #include "donnees/Regle.hpp"
-class MainWindow;
 
 
 
@@ -24,7 +24,11 @@ class MainWindow;
 
 /**
  * @class Plateau Plateau.hpp donnees/Plateau.hpp
- * Plateau contient les informations éditables d'un plateau.
+ * Cette classe représente un plateau de jeu dans MonopolAdventure.
+ * 
+ * Le plateau est la base de tout dans MonopolAdventure : il contient les emplacements, les cartes et toutes les autres informations nécessaires. De plus, il hérite de QGraphicsScene. Il va donc pouvoir être affiché à l'écran, et va s'occuper de rendre les différents emplacements qu'il contient en les aménageant lui-même.
+ * 
+ * Un plateau peut être enregistré dans un fichier.
  */
 class Plateau : public QGraphicsScene
 {
@@ -32,7 +36,7 @@ class Plateau : public QGraphicsScene
         
         
     private:
-        MainWindow* m_parent;///< Fenêtre parent.
+        MainWindow* m_parent;///< Fenêtre parent, nécessaire pour apparenter les diverses fenêtre de dialogue.
         bool m_sauvegarde;///< Indique si le plateau est sauvegardé ou non.
         
         QString m_titre;///< Titre du plateau.
@@ -43,7 +47,7 @@ class Plateau : public QGraphicsScene
          * 
          * Peut aller de 0 à 8. Le coefficient réel vaut 10^m_nombreCoefficient. Par exemple, si m_prixCoefficient vaut 2, le coefficient est de 100, si m_prixCoefficient vaut 5, le coefficient est de 100 000.
          * 
-         * En interne, les prix sont enregistrés dans des quint16 et doivent être compris entre 0 et 50 000. Il est donc possible d'appliquer un coefficient à tous les prix afin d'obtenir 20M € (au lieu de 200 €) en passant par la case Départ par exemple.
+         * En interne, les prix sont enregistrés dans des quint16 et doivent être compris entre 0 et 50 000. Il est donc possible d'appliquer un coefficient à l'affichage de tous les prix afin d'obtenir 20M € (au lieu de 200 €) en passant par la case Départ par exemple.
          */
         quint8 m_prixCoefficient;
         /**
@@ -64,23 +68,23 @@ class Plateau : public QGraphicsScene
         bool m_prixAffichageComplet;
         QColor m_couleurFond;///< Couleur de fond du plateau.
         QPixmap m_image;///< Image au centre du plateau.
-        GraphismeEmplacementInfos m_graphismeEmplacement;///< Détails du graphisme des emplacements.
+        GraphismeEmplacementInfos m_graphismeEmplacement;///< Informations sur les graphismes des emplacements.
         Regle m_regle;///< Règle de jeu associée au plateau.
         
         QList<PileCartes*> m_pilesCartes;///< Liste des piles de cartes du plateau.
         QList<Emplacement*> m_emplacements;///< Liste des emplacements du plateau.
         QList<Regroupement*> m_regroupements;///< Liste des regroupements de terrains.
         
-        // Les attributs suivant sont des racourcis vers certains emplacements. Ils sont tous déj présent dans m_emplacements.
-        QList<CompagnieTransport*> m_compagniesTransport;///< Liste des compagnies de transport du plateau (racourcis).
-        QList<Service*> m_services;///< Liste des services du plateau (racourcis).
+        // Les attributs suivant sont des raccourcis vers certains emplacements. Ils sont tous déjà présent dans m_emplacements.
+        QList<CompagnieTransport*> m_compagniesTransport;///< Liste des compagnies de transport du plateau (raccourcis).
+        QList<Service*> m_services;///< Liste des services du plateau (raccourcis).
         
         
         
     public:
         /**
-         * Construit un nouveau plateau par défaut.
-         * @param parent Fenêtre parent (utilisé pour afficher les fenêtres dialogue pour l'édition).
+         * Construit un nouveau plateau vide et non initialisé.
+         * @param parent Fenêtre parent (utilisé pour apparenter les diverses fenêtres dialogue).
          */
         Plateau(MainWindow* parent);
         
@@ -98,7 +102,7 @@ class Plateau : public QGraphicsScene
         /**
          * Dessine tous les emplacements sur le plateau.
          * 
-         * Appel la méthode Emplacement::dessiner() de tous les emplacements après avoir enregistrer le plateau avec Emplacement::registerScene().
+         * Configure pour chaque emplacement sa position et sa rototion en fonction de sa place sur le plateau. Puis récupère l'élément graphique de l'emplacement.
          */
         void dessiner();
         
@@ -156,7 +160,6 @@ class Plateau : public QGraphicsScene
         /**
          * Change la devise utilisée sur le plateau.
          * @param devise Nouvelle devise.
-         * @note Pour rester cohérent, la devise est limitée à 5 caractères. Mais cette règle pourra être assouplie s'il le faut.
          */
         void editDevise(const QString& devise);
         
@@ -408,14 +411,6 @@ class Plateau : public QGraphicsScene
         
         
         /**
-         * Retourne les informations concernant le graphisme des emplacements.
-         * @return Informations concernant le graphisme des emplacements.
-         */
-        const GraphismeEmplacementInfos& getInformationGraphismeEmplacement() const;
-        
-        
-        
-        /**
          * Retourne les règles de jeu associées au plateau.
          * @return Règles de jeu associées au plateau.
          */
@@ -424,19 +419,19 @@ class Plateau : public QGraphicsScene
         
         
         /**
-         * Fourni la liste des Regroupements du plateau.
-         * @return Liste des Regroupements du plateau.
+         * Fourni la liste des regroupements du plateau.
+         * @return Liste des regroupements du plateau.
          */
         const QList<Regroupement*>& getListeRegroupement();
         
         
         
         /**
-         * Renseigne un identifiant de l'emplacement (identifiant de l'emplacement dans la liste du plateau).
+         * Renseigne un identifiant de l'emplacement par rapport à sa position sur le plateau (identifiant de l'emplacement dans la liste du plateau).
          * @param emplacement Emplacement à identifier.
          * @return Identifiant de l'emplacement.
          * 
-         * Cette méthode est utiliser pour identifier un emplacement dans la sauvegarde de certaines données dans un fichier.
+         * Cette méthode est utilisée pour identifier un emplacement dans la sauvegarde de certaines données dans un fichier.
          */
         quint8 getIdentifiantEmplacement(const Emplacement* emplacement) const;
         
@@ -499,9 +494,9 @@ class Plateau : public QGraphicsScene
         
     public slots:
         /**
-         * Ouvre une fenêtre de dialogue pour l'édition des décorations du plateau.
+         * Ouvre une fenêtre de dialogue pour l'édition des informations générales du plateau.
          */
-        void editDecoration();
+        void editInfosGenerales();
         
         
         
@@ -513,14 +508,14 @@ class Plateau : public QGraphicsScene
         
         
         /**
-         * Ouvre une fenêtre de dialogue pour l'édition de la liste des regroupements.
+         * Ouvre une fenêtre de dialogue pour l'édition des regroupements.
          */
         void editListeRegroupements();
         
         
         
         /**
-         * Ouvre une fenêtre de dialogue pour l'édition de la liste des piles de cartes.
+         * Ouvre une fenêtre de dialogue pour l'édition des cartes et des piles de cartes.
          */
         void editListePilesCartes();
         
@@ -534,8 +529,10 @@ class Plateau : public QGraphicsScene
         
         
         /**
-         * Choisi d'ouvrir une fenêtre de changement de type ou d'édition des informations en fonction de l'état du bouton d'édition de type.
+         * Ouvre une fenêtre de changement de type ou une fenêtre d'édition des informations de l'emplacement.
          * @param emplacement Emplacement concerné.
+         * 
+         * Cette méthode contrôle l'état du bouton d'édition de type (cf MainWindow::m_actionEditionTypeEmplacement). Si celui-ci est activé, alors on lance une fenêtre d'édition du type d'emplacement. Sinon, on lance une fenêtre d'édition des informations de l'emplacement.
          */
         void editEmplacement(Emplacement* emplacement);
         
@@ -553,13 +550,25 @@ class Plateau : public QGraphicsScene
         /**
          * Affiche la fenêtre de dialogue permettant de changer le type d'emplacement.
          * @param emplacement Emplacement concerné.
+         * 
+         * Cette méthode contrôle si le changement de type est possible. Certain emplacement ne peuvent par exemple pas être changés : l'emplacement « Départ », la prison, etc.
+         * 
+         * Si le changement de type est possible, alors, on ouvre la fenêtre de dialogue, puis, si l'utilisateur valide le changement, on appels Plateau::changeTypeEmplacement().
          */
         void editEmplacementType(Emplacement* emplacement);
         
         
         
         /**
+<<<<<<< HEAD
          * Change le type d'un emplacement et ouvre une fenêtre d'édition.
+=======
+         * Change le type d'un emplacement.
+         * @param emplacement Emplacement concerné.
+         * @param nouveauType Nouveau type d'emplacement demandé.
+         * 
+         * Cette méthode n'effectue aucune vérification sur l'emplacement concerné. Toutes ces vérifications doivent être faite au préalable.
+>>>>>>> feature_RelectureDoc
          */
         void changeTypeEmplacement(Emplacement* emplacement,
                                    Type::Emplacement nouveauType);
@@ -569,6 +578,8 @@ class Plateau : public QGraphicsScene
         /**
          * Configure un emplacement avant de pouvoir le dessiner sur le plateau.
          * @param emplacement Emplacement a dessiner.
+         * 
+         * Configure la position de l'emplacement, sa rotation, et s'il doit être dessiner en tant qu'emplacement « normal » ou emplacement « en coin ».
          */
         void helper_dessineEmplacement(Emplacement* emplacement);
         
@@ -576,8 +587,8 @@ class Plateau : public QGraphicsScene
         
         /**
          * Indique si l'emplacement est situé dans un coin du plateau.
-         * @param id Numéro d'iddentification de l'emplacement.
-         * @return @b @c true si l'emplacement est situé en coin de plateau.
+         * @param id Numéro d'identification de l'emplacement.
+         * @return @b @c true si l'emplacement est situé en coin de plateau, @b @c false sinon.
          */
         bool helper_isEmplacementEnCoin(int id) const;
         
@@ -585,7 +596,7 @@ class Plateau : public QGraphicsScene
         
         /**
          * Retourne les coordonnées de l'emplacement sur le plateau.
-         * @param id Numéro d'iddentification de l'emplacement.
+         * @param id Numéro d'identification de l'emplacement.
          * @return Coordonnées de l'emplacement sur le plateau.
          */
         QPoint helper_getPositionEmplacement(int id) const;
@@ -594,7 +605,7 @@ class Plateau : public QGraphicsScene
         
         /**
          * Retourne l'angle de rotation (en °) de l'emplacement sur le plateau.
-         * @param id Numéro d'iddentification de l'emplacement.
+         * @param id Numéro d'identification de l'emplacement.
          * @return Angle de rotation (en °) de l'emplacement sur le plateau.
          */
         int helper_getRotationEmplacement(int id) const;

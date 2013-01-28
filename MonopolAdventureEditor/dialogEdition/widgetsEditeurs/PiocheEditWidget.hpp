@@ -22,7 +22,7 @@ class PiocheEditWidget : public SauvegardeInterface
         
     private:
         Pioche* m_pioche;///< Emplacement « Pioche » en cours d'édition.
-        PointerComboBox<PileCartes>* m_champPileCartes;
+        PointerComboBox<PileCartes>* m_champPileCartes;///< Champ d'édition de la pile de cartes dans laquelle piocher.
         
         
         
@@ -30,6 +30,7 @@ class PiocheEditWidget : public SauvegardeInterface
         /**
          * Construit un nouveau widget d'édition d'emplacement « Pioche ».
          * @param pioche Emplacement « Pioche » à éditer.
+         * @param pilesCartes Liste des piles de cartes.
          */
         PiocheEditWidget(Pioche* const pioche,
                          const QList<PileCartes*>& pilesCartes);

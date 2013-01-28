@@ -13,7 +13,9 @@ class Regroupement;
 
 /**
  * @class Terrain Terrain.hpp donnees/emplacements/Terrain.hpp
- * Terrain contient les informations éditables d'un terrain d'un plateau.
+ * Cette classe représente un terrain.
+ * 
+ * Les terrains sont des propriété. Ce sont les emplacements les plus présents sur un plateau. Ils sont rassemblés en regroupements et peuvent accueillir des constructions.
  */
 class Terrain : public Propriete
 {

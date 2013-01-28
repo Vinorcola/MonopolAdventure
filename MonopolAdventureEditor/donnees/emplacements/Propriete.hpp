@@ -9,7 +9,9 @@
 
 /**
  * @class Propriete Propriete.hpp donnees/emplacements/Propriete.hpp
- * Propriete contient les informations éditables communes à toutes les propriétés d'un plateau.
+ * Cette classe virtuel représente une propriété du plateau.
+ * 
+ * Une propriété est un emplacement que les joueurs peuvent acheter, hypothéquer, et échanger. Ils peuvent aussi en tirer des revenus grâce aux loyers payés par les autres joueurs s'arrêtant dessus.
  */
 class Propriete : public Emplacement
 {

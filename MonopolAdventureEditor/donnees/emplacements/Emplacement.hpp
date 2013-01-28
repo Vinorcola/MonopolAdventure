@@ -17,9 +17,11 @@
 
 /**
  * @class Emplacement Emplacement.hpp donnees/emplacements/Emplacement.hpp
- * Emplacement contient les informations éditables communes à tous les emplacements d'un plateau.
+ * Cette classe virtuelle représente un emplacement sur le plateau.
  * 
- * L'objet graphique est placé dans une classe à part. De cette manière, l'élément graphique n'est créé que si nécessaire. Par exemple, pour l'édition de la liste des regroupements, les regroupements et les terrains sont copiés. Mais les éléments graphiques ne sont pas créés dans les objets terrains copiés.
+ * Cette classe est la base de tous les types d'emplacements que l'utilisateur peut créer. Elle embarque les fonctionnalité communes, tels que le titre, le sous-titre, une image, etc.
+ * 
+ * Pour plus de souplesse, Emplacement n'hérite pas directement de QGraphicsRectItem. On a préféré dédier une classe entière à cet élément graphique, puis l'intégrer en tant qu'attribut dans la classe. De cette manière, l'élément graphique n'est créé que si nécessaire (bien que jusqu'à présent, il ai toujours été nécessaire). Mais cela permet quand même de bien séparer les méthodes liées à l'affichage graphique de l'emplacement de celles contrôlant les informations.
  */
 class Emplacement
 {
@@ -134,6 +136,8 @@ class Emplacement
         
         /**
          * Notifie à l'emplacement qu'il se situe dans un coin du plateau.
+         * 
+         * L'élément graphique généré n'est pas le même si l'emplacement est situé sur un côté ou en coin du plateau.
          */
         void setEmplacementEnCoin();
         
@@ -141,6 +145,8 @@ class Emplacement
         
         /**
          * Notifie à l'emplacement qu'il ne se situe pas dans un coin du plateau.
+         * 
+         * L'élément graphique généré n'est pas le même si l'emplacement est situé sur un côté ou en coin du plateau.
          */
         void setEmplacementNormal();
         
@@ -148,6 +154,8 @@ class Emplacement
         
         /**
          * Notifie à l'élément graphique que la devise a changé.
+         * 
+         * Met à jour l'élément graphique en actualisant les prix.
          */
         void deviseChanged();
         
@@ -175,7 +183,7 @@ class Emplacement
         
         
         /**
-         * Dessine l'emplacement sur la scène configurée dans le constructeur.
+         * Dessine l'élément graphique en fonction de toutes les informations connues puis intègre ce dernier sur la scène configurée.
          * @return Élément graphique.
          */
         GraphismeEmplacement* dessiner();
@@ -194,7 +202,6 @@ class Emplacement
          * Charge les informations concernant l'emplacement depuis le flux de données.
          * @param lecture Flux de données depuis le fichier à lire
          * @param version Version du fichier.
-         * @param plateau Plateau de jeu.
          */
         void loadFromFile(QDataStream& lecture,
                           const quint16 version);
@@ -205,7 +212,7 @@ class Emplacement
         /**
          * Méthode virtuelle permettant à chaque classe héritant de renvoyer un prix personnalisé.
          * 
-         * Cette méthode est réimplémentée dans les emplacements Propriete et Taxe. Pour plus de facilité, elle renvoie un QString directement utilisable.
+         * Cette méthode est réimplémentée dans les propriete, les emplacement « Taxe » et les emplacements « Deplacement ». Pour plus de facilité, elle renvoie un QString directement utilisable.
          */
         virtual QString helper_getPrix() const;
         
@@ -214,7 +221,7 @@ class Emplacement
         /**
          * Méthode virtuelle permettant à chaque classe héritant de renvoyer une couleur personnalisée.
          * 
-         * Cette méthode est réimplémentée dans les emplacements Terrain.
+         * Cette méthode est réimplémentée dans les terrains.
          */
         virtual QColor helper_getCouleurRegroupement() const;
 };

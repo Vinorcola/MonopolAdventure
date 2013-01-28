@@ -17,7 +17,7 @@ MainWindow::MainWindow() :
     m_actionFermerPlateau(new QAction(tr("Fermer le plateau"), this)),
     m_actionZoomPlus(new QAction(tr("Zoom +"), this)),
     m_actionZoomMoins(new QAction(tr("Zoom -"), this)),
-    m_actionDecoration(new QAction(tr("Infos générales du plateau"), this)),
+    m_actionInfosGeneralesPlateau(new QAction(tr("Infos générales du plateau"), this)),
     m_actionPrix(new QAction(tr("Affichage des prix"), this)),
     m_actionRegroupements(new QAction(tr("Regroupements"), this)),
     m_actionPilesCartes(new QAction(tr("Piles de cartes"), this)),
@@ -73,7 +73,7 @@ MainWindow::MainWindow() :
     
     /* Configuration des barres d'outils.
      */
-    m_barreOutils->addAction(m_actionDecoration);
+    m_barreOutils->addAction(m_actionInfosGeneralesPlateau);
     m_barreOutils->addAction(m_actionPrix);
     m_barreOutils->addAction(m_actionRegroupements);
     m_barreOutils->addAction(m_actionPilesCartes);
@@ -203,6 +203,7 @@ void MainWindow::fermerPlateau()
                     break;
             }
         }
+        
         
         
         if (!annulationFermer)

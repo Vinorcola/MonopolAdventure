@@ -11,7 +11,9 @@
 
 /**
  * @class CompagnieTransport CompagnieTransport.hpp donnees/emplacements/CompagnieTransport.hpp
- * CompagnieTransport contient les informations éditables d'une compagnie de transport d'un plateau.
+ * Cette classe représente une compagnie de transport.
+ * 
+ * Une compagnie de transport est une propriété dont le loyer varie en fonction du nombre de compagnies que possède le joueur propriétaire.
  */
 class CompagnieTransport : public Propriete
 {
@@ -77,7 +79,6 @@ class CompagnieTransport : public Propriete
          * Charge les informations concernant la compagnie de transport depuis le flux de données.
          * @param lecture Flux de données depuis le fichier à lire
          * @param version Version du fichier.
-         * @param plateau Plateau de jeu.
          */
         void loadFromFile(QDataStream& lecture,
                           const quint16 version);

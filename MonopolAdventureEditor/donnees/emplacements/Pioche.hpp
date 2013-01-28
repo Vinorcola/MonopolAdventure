@@ -11,7 +11,7 @@ class Plateau;
 
 /**
  * @class Pioche Pioche.hpp donnees/emplacements/Pioche.hpp
- * Pioche contient les informations éditables d'un emplacement « Pioche » d'un plateau.
+ * Cette classe représente un emplacement obligeant les joueurs à piocher une carte.
  */
 class Pioche : public Emplacement
 {
