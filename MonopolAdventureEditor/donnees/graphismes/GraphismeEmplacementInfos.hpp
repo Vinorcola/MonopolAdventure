@@ -12,7 +12,7 @@
 
 /**
  * @class GraphismeEmplacementInfos GraphismeEmplacementInfos.hpp donnees/graphismes/GraphismeEmplacementInfos.hpp
- * GraphismeEmplacementInfos contient les informations éditables permettant l'affichage graphique des emplacements.
+ * GraphismeEmplacementInfos contient les informations graphiques permettant l'affichage des emplacements.
  */
 class GraphismeEmplacementInfos
 {

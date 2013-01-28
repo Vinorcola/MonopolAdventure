@@ -11,7 +11,9 @@
 
 /**
  * @class Service Service.hpp donnees/emplacements/Service.hpp
- * Service contient les information éditables d'un service d'un plateau.
+ * Cette classe représente un service public.
+ * 
+ * Un service public est une propriété dont le loyer varie en fonction du nombre de services que possède le joueur propriétaire et le montant obtenu aux dés.
  */
 class Service : public Propriete
 {

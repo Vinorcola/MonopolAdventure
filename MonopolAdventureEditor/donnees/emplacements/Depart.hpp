@@ -9,7 +9,9 @@
 
 /**
  * @class Depart Depart.hpp donnees/emplacements/Depart.hpp
- * Depart contient les informations éditables d'un emplacement « Départ » d'un plateau.
+ * Cette classe représente la case de départ du plateau.
+ * 
+ * Cet emplacement est unique : il n'y en a qu'un seul sur le plateau (et il est obligatoire). C'est l'emplacement à partir duquel les joueurs vont débuter la partie. Par la suite, ils vont recevoir un salaire à chaque fois qu'il passeront par cet emplacement.
  */
 class Depart : public Emplacement
 {

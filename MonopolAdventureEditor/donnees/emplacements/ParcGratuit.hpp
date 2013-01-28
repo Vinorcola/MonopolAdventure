@@ -9,7 +9,9 @@
 
 /**
  * @class ParcGratuit ParcGratuit.hpp donnees/emplacements/ParcGratuit.hpp
- * ParcGratuit contient les informations éditables d'un parc gratuit d'un plateau.
+ * Cette classe représente un emplacement « Parc gratuit ».
+ * 
+ * Les joueurs peuvent se reposer ici : ils ne doivent rien payer et ne reçoivent rien.
  */
 class ParcGratuit : public Emplacement
 {

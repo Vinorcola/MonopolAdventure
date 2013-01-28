@@ -10,7 +10,9 @@ class Plateau;
 
 /**
  * @class Deplacement Deplacement.hpp donnees/emplacements/Deplacement.hpp
- * Deplacement contient les informations éditables d'un emplacement « Déplacement » d'un plateau.
+ * Cette classe représente un emplacement qui oblige les joueurs à se déplacer vers un autre emplacement précis.
+ * 
+ * Il est possible de configurer une amende que le joueur devra payer avant de se déplacer.
  * @todo Ajouter une option permetant de terminer le tour du joueur ou non (si non, il peut rejouer de suite s'il avait fait un double aux dés).
  */
 class Deplacement : public Emplacement

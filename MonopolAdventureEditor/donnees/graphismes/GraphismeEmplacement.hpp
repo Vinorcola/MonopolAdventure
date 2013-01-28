@@ -20,9 +20,13 @@ class Emplacement;
 
 /**
  * @class GraphismeEmplacement GraphismeEmplacement.hpp donnees/graphismes/GraphismeEmplacement.hpp
- * GraphismeEmplacement permet l'affichage graphique des emplacements sur un plateau.
+ * Cette classe permet l'affichage graphique des emplacements sur le plateau.
  * 
- * Cette classe hérite directement de QGraphicsRectItem. Ce sont les instances de cette classe qui seront dessinées sur le plateau ou dans des fenêtres d'édition afin de représenter les emplacements.
+ * Elle est directement liées à la classe Emplacement. Sa séparation est expliqué plus en détail sur la page de documentation de cette classe.
+ * 
+ * GraphismeEmplacement hérite directement de QGraphicsRectItem et va ainsi pouvoir être dessinée sur le plateau ou dans des fenêtres d'édition afin de représenter les emplacements.
+ * 
+ * @todo Détailler le fonctionnement de cet élément.
  */
 class GraphismeEmplacement : public QObject, public QGraphicsRectItem
 {

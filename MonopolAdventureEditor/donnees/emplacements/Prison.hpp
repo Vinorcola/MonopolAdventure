@@ -10,7 +10,14 @@ class Plateau;
 
 /**
  * @class Prison Prison.hpp donnees/emplacements/Prison.hpp
- * Prison contient les informations éditables d'une prison d'un plateau.
+ * Cette classe représente la prison du plateau.
+ * 
+ * Il ne peut y avoir qu'une et une seule prison sur le plateau. Elle doit alors être associée à un emplacement « Simple visite ». Les joueurs peuvent être envoyé en prison pour diverses raisons :
+ * @li Ils ont fait trois doubles consécutifs aux dés ;
+ * @li Ils sont tombés sur un emplacement les envoyant en prison ;
+ * @li Ils ont pioché une carte les envoyant en prison.
+ * 
+ * Pour sortir de prison, ils doivent faire un double aux dés, payer une caution ou bien utiliser une carte permettant de sortir de prison. Le nombre de tours consécutifs en prison est limité.
  */
 class Prison : public Emplacement
 {

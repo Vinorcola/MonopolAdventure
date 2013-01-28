@@ -11,7 +11,7 @@ class Plateau;
 
 /**
  * @class Action Action.hpp donnees/cartes/Action.hpp
- * Action est une action à éxécuter après avoir piocher une carte.
+ * Cette classe représente une action à éxécuter après avoir piocher une carte.
  * 
  * Une action peut indiquer au joueur qu'il doit payer quelquechose à quelqu'un, qu'il doit se déplacer quelque part, qu'il doit piocher une autre carte, etc.
  */

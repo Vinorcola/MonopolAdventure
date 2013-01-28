@@ -9,7 +9,9 @@
 
 /**
  * @class SimpleVisite SimpleVisite.hpp donnees/emplacements/SimpleVisite.hpp
- * SimpleVisite contient les informations éditables d'un emplacement « Simple visite » d'un plateau.
+ * Cette classe représente un emplacement « Simple visite ».
+ * 
+ * Les joueurs ne font rien de spécial sur ce type d'emplacement. Une prison peut être associé à un tel emplacement.
  */
 class SimpleVisite : public Emplacement
 {
