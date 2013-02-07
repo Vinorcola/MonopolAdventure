@@ -14,8 +14,10 @@ int main(int argc, char *argv[])
 {
     /* Configuration des codec en UTF-8.
      */
+#if QT_VERSION < 0x050000
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
+#endif
     
     
     
@@ -33,7 +35,7 @@ int main(int argc, char *argv[])
     app.installTranslator(&translator);
     
     MainWindow window;
-    window.show();
+    window.showMaximized();
     
     
     

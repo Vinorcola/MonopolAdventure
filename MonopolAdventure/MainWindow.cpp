@@ -11,6 +11,5 @@ MainWindow::MainWindow() :
      */
     setWindowIcon(QIcon("data/MonopolAdventureIcon.png"));
     setWindowTitle("MonopolAdventure");
-    setWindowState(Qt::WindowMaximized);
 }
 
