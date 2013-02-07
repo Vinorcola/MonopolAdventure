@@ -27,6 +27,10 @@ class Plateau;
  */
 class Regroupement : public QAbstractListModel
 {
+        Q_OBJECT
+        
+        
+        
     private:
         QString m_titre;///< Titre du regroupement.
         QColor m_couleur;///< Couleur du regroupement.
