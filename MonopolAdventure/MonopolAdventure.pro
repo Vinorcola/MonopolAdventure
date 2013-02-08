@@ -32,6 +32,7 @@ SOURCES += main.cpp\
     donnees/Plateau.cpp \
     donnees/Regle.cpp \
     jeu/Des.cpp \
+    jeu/Joueur.cpp \
     MainWindow.cpp
 
 HEADERS  += global.hpp \
@@ -57,4 +58,5 @@ HEADERS  += global.hpp \
     donnees/Plateau.hpp \
     donnees/Regle.hpp \
     jeu/Des.hpp \
+    jeu/Joueur.hpp \
     MainWindow.hpp
