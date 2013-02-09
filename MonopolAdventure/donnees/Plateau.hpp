@@ -303,6 +303,7 @@ class Plateau : public QGraphicsScene
         /**
          * Charge le plateau depuis un fichier.
          * @param cheminFichier Chemin vers le fichier à enregistrer.
+         * @return @b @c true si le plateau a été chargé correctement, @b @c false sinon.
          * 
          * Détruit tout ce qui était dans le plateau auparavant.
          */

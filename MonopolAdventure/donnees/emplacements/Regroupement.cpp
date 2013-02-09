@@ -59,9 +59,17 @@ void Regroupement::loadFromFile(QDataStream& lecture,
             
             for (int i(0); i < nbTerrains; i++)
             {
-                quint8 terrain;
-                lecture >> terrain;
-                m_terrains.append(static_cast<Terrain*>((Emplacement*) plateau->getEmplacement(terrain)));
+                // On récupère l'id du terrain
+                quint8 idTerrain;
+                lecture >> idTerrain;
+                
+                // On récupère le terrain associé à l'id et on le configure
+                Terrain* terrain(static_cast<Terrain*>((Emplacement*) plateau->getEmplacement(idTerrain)));
+                terrain->m_regroupement = this;
+                
+                // On ajoute le terrain dans la liste du regroupement.
+                m_terrains.append(terrain);
+                
             }
     }
 }

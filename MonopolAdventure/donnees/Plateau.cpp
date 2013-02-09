@@ -552,9 +552,8 @@ void Plateau::helper_dessineEmplacement(Emplacement* emplacement)
             emplacement->setEmplacementNormal();
         }
         
-        // Dessin de l'élément et connexion avec le slot d'édition.
-        connect(emplacement->dessiner(), SIGNAL(editEmplacement(Emplacement*)),
-                this, SLOT(editEmplacement(Emplacement*)));
+        // Dessin de l'élément.
+        emplacement->dessiner();
     }
 }
 

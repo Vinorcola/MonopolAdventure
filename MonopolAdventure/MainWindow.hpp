@@ -6,8 +6,9 @@
 #include <QGraphicsView>
 #include <QMainWindow>
 #include <QMenuBar>
+#include <QTimer>
 
-#include "donnees/Plateau.hpp"
+#include "assistants/partieMultijoueurs/AssistantPartieMultijoueurs.hpp"
 
 
 
@@ -28,6 +29,9 @@ class MainWindow : public QMainWindow
         QAction* m_actionQuitter;///< Action permettant de quitter MonopolAdventureEditor.
         QAction* m_actionLancerNouvellePartie;///< Action permettant de lancer une nouvelle partie.
         
+        QAction* m_actionZoomPlus;///< Action permettant de zoomer la vue sur le plateau.
+        QAction* m_actionZoomMoins;///< Action permettant de dézoomer la vue du plateau.
+        
         
         
     public:
@@ -45,6 +49,39 @@ class MainWindow : public QMainWindow
          * Quitte MonopolAdventure.
          */
         void quitter();
+        
+        
+        
+        /**
+         * Lance l'assistant de chargement d'une nouvelle partie.
+         */
+        void startAssistantPartieMultijoueurs();
+        
+        
+        
+        /**
+         * Dessine le plateau et le connecte à différents slots.
+         * @param plateau Plateau à afficher pour la partie.
+         */
+        void dessinePlateau(Plateau* plateau);
+        
+        
+        
+        /**
+         * Zoom la vue sur le plateau.
+         * 
+         * Applique un zoom plus important sur le plateau.
+         */
+        void zoomPlus();
+        
+        
+        
+        /**
+         * Dézoom la vue du le plateau.
+         * 
+         * Applique un zoom moins important sur le plateau.
+         */
+        void zoomMoins();
 };
 
 #endif // MAINWINDOW_HPP
