@@ -230,10 +230,7 @@ void MainWindow::startAssistant()
     AssistantCreationPlateau* assistant(new AssistantCreationPlateau(this));
     connect(assistant, SIGNAL(plateauCreated(Plateau*)), this, SLOT(dessinePlateau(Plateau*)));
     
-    if (assistant->exec())
-    {
-        m_vueCentrale->setScene(m_plateau);
-    }
+    assistant->exec();
 }
 
 
