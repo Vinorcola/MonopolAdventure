@@ -10,7 +10,7 @@ TARGET = MonopolAdventure
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
+SOURCES += main.cpp \
     donnees/cartes/Action.cpp \
     donnees/cartes/Carte.cpp \
     donnees/cartes/PileCartes.cpp \
@@ -33,6 +33,10 @@ SOURCES += main.cpp\
     donnees/Regle.cpp \
     jeu/Des.cpp \
     jeu/Joueur.cpp \
+    widgetsSelecteurs/ColorSelectWidget.cpp \
+    widgetsSelecteurs/FileSelectWidget.cpp \
+    widgetsSelecteurs/FontSelectWidget.cpp \
+    widgetsSelecteurs/ImageSelectWidget.cpp \
     MainWindow.cpp
 
 HEADERS  += global.hpp \
@@ -59,4 +63,9 @@ HEADERS  += global.hpp \
     donnees/Regle.hpp \
     jeu/Des.hpp \
     jeu/Joueur.hpp \
+    widgetsSelecteurs/ColorSelectWidget.hpp \
+    widgetsSelecteurs/FileSelectWidget.hpp \
+    widgetsSelecteurs/FontSelectWidget.hpp \
+    widgetsSelecteurs/ImageSelectWidget.hpp \
+    widgetsSelecteurs/PointerComboBox.hpp \
     MainWindow.hpp
