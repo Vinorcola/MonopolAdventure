@@ -530,7 +530,7 @@ void Regle::setJoueurPresentPourConstruire(const bool actif)
 
 
 
-qint8 Regle::nombreTourMax() const
+quint8 Regle::nombreTourMax() const
 {
     return m_nombreTourMax;
 }
@@ -539,7 +539,7 @@ qint8 Regle::nombreTourMax() const
 
 
 
-void Regle::setNombreTourMax(const qint8 nombre)
+void Regle::setNombreTourMax(const quint8 nombre)
 {
     m_nombreTourMax = nombre;
 }

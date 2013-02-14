@@ -379,8 +379,8 @@ class Regle
         
         
         
-        qint8 nombreTourMax() const;
-        void setNombreTourMax(const qint8 nombre);
+        quint8 nombreTourMax() const;
+        void setNombreTourMax(const quint8 nombre);
         
         
         
