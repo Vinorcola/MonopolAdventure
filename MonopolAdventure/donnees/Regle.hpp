@@ -354,7 +354,7 @@ class Regle
         
         
         
-        qint8 nombreTourMax() const;
+        quint8 nombreTourMax() const;
         
         
         

@@ -258,7 +258,7 @@ bool Regle::joueurPresentPourConstruire() const
 
 
 
-qint8 Regle::nombreTourMax() const
+quint8 Regle::nombreTourMax() const
 {
     return m_nombreTourMax;
 }

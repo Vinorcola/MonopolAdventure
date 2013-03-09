@@ -2,8 +2,15 @@
 #define REGLECONFIGWIDGET_HPP
 
 #include <QCheckBox>
+#include <QFormLayout>
+#include <QGroupBox>
+#include <QLabel>
+#include <QPushButton>
+#include <QScrollArea>
+#include <QScrollBar>
 #include <QSpinBox>
 
+#include "global.hpp"
 #include "donnees/Regle.hpp"
 
 
@@ -12,24 +19,67 @@
 /**
  * @class RegleConfigWidget RegleConfigWidget.hpp config/RegleConfigWidget.hpp
  * Cette classe représente un widget permettant de configurer les règles de jeu lors du lancement d'une partie.
+ * 
+ * @todo Créé des slots pour l'intégrité des options.
  */
-class RegleConfigWidget : public QWidget
+class RegleConfigWidget : public QScrollArea
 {
+        Q_OBJECT
+        
+        
     private:
-        QSpinBox* m_nombreTotalMaison;
-        QSpinBox* m_nombreTotalHotel;
-        QCheckBox* m_constructionsUniformes;
+        Regle* m_regleDefaut;///< Règle par défaut du plateau.
         
-        QCheckBox* m_doubleSalaire;
-        QCheckBox* m_enchereDepart;
-        QCheckBox* m_premierTourSansAchat;
+        // Groupe Constructions
+        QGroupBox* m_groupeConstruction;///< Groupe des options concernant les constructions.
+        QSpinBox* m_nombreTotalMaison;///< Champ permettant de modifier le nombre total de maisons.
+        QSpinBox* m_nombreTotalHotel;///< Champ permettant de modifier le nombre total d'hôtels.
+        QCheckBox* m_possessionRegroupement;///< Champ permettant d'imposer la possession du regroupement pour pouvoir construire.
+        QCheckBox* m_constructionsUniformes;///< Champ permettant d'imposer des constructions uniformes sur un regroupement.
+        QCheckBox* m_joueurPresentPourConstruire;///< Champ permettant d'imposer que le joueur soit présent pour pouvoir construire.
+        QCheckBox* m_tousTerrainVendus;///< Champ permettant d'obliger les joueurs à attendre que tous les terrains soient vendus pour pouvoir construire.
+        QCheckBox* m_toutesPprtVendues;///< Champ permettant d'obliger les joueurs à attendre que toutes les propriétés soient vendus pour pouvoir construire.
         
-        QCheckBox* m_taxeAuParcGratuit;
-        QCheckBox* m_amendeCarteAuParcGratuit;
-        QCheckBox* m_cagnotteFixe;
-        QSpinBox* m_montantCagnotte;
+        // Groupe Case Départ
+        QGroupBox* m_groupeDepart;///< Groupe des options concernant la case Départ.
+        QSpinBox* m_salaire;///< Champ permettant de changer le salaire reçu à la case Départ.
+        QCheckBox* m_doubleSalaire;///< Champ permettant d'activer le double salaire si le joueur s'arrête sur la cae Départ.
         
-        QSpinBox* m_maxTourEnPrison;
+        // Groupe Début de la partie
+        QGroupBox* m_groupeDebut;///< Groupe des options concernant le début de la partie.
+        QSpinBox* m_nbPprtAuDebut;///< Champ permettant de déterminer un nombre de propriétés par joueur à distribuer au début de la partie.
+        QCheckBox* m_toutesPprtAuDebut;///< Champ permettant de distribuer toutes les propriétés aux joueurs au début de la partie.
+        QCheckBox* m_encheresDepart;///< Champ permettant de démarrer une enchère pour savoir quel joueur part le premier.
+        QCheckBox* m_premierTourSansAchat;///< Champ permettant de désactiver les achats de propriétés durant le premier tour.
+        
+        // Groupe Parc gratuit
+        QGroupBox* m_groupeParcGratuit;///< Groupe des options concernant le Parc gratuit.
+        QCheckBox* m_taxeAuParcGratuit;///< Champ permettant d'envoyer les taxes récoltés au Parc gratuit.
+        QCheckBox* m_amendeCarteAuParcGratuit;///< Champ permettant d'envoyer les amendes des cartes au Parc gratuit.
+        QCheckBox* m_cagnotteFixe;///< Champ permettant d'activité la distribution d'une cagnotte au Parc gratuit.
+        QLabel* m_labelMontantCagnotte;///< Label associé à m_montantCagnotte.
+        QSpinBox* m_montantCagnotte;///< Champ permettant de déterminer le montant de la cagnotte à distribuer au Parc gratuit.
+        
+        // Groupe Prison
+        QGroupBox* m_groupePrison;///< Groupe des options concernant la prison.
+        QSpinBox* m_maxTourEnPrison;///< Champ permettant de configurer le nombre maximum de tours en prison.
+        QCheckBox* m_percevoirLoyerEnPrison;
+        QCheckBox* m_participerEnchereEnPrison;
+        QCheckBox* m_echangerEnPrison;
+        QCheckBox* m_construireEnPrison;
+        QPushButton* m_tousLesDroitsEnPrison;
+        QPushButton* m_aucunDroitEnPrison;
+        
+        // Groupe Enchères
+        QGroupBox* m_groupeEncheres;///< Groupe des options concernant les enchères.
+        QCheckBox* m_encheresSurBiensPerdus;///< Champ permettant d'imposer des enchères sur les biens perdus de retour à la banque.
+        QCheckBox* m_encheresSurNonAchete;///< Champ permettant d'imposer des enchères sur les biens non-achetés.
+        
+        // Groupe Autres
+        QGroupBox* m_groupeAutres;///< Groupe de toutes les options non-classés
+        QCheckBox* m_deRapide;///< Champ permettant d'autoriser l'utilisation du dé rapide.
+        QCheckBox* m_nbMaxTours;///< Champ permettant d'imposer un nombre maximum de tours.
+        QSpinBox* m_nbTours;///< Champ permettant de configurer le nombre de tours maximum.
         
         
         
@@ -38,7 +88,32 @@ class RegleConfigWidget : public QWidget
          * Construit un widget de configuration de règles.
          * @param defaut Règle utilisée par défaut.
          */
-        RegleConfigWidget(const Regle* defaut);
+        RegleConfigWidget(const Regle* defaut = 0,
+                          const quint16 salaire = 200);
+        
+        
+        
+        /**
+         * Configure tous les champs avec la règle passée en argument.
+         * @param regle Règle permettant d'initialiser les champs.
+         */
+        void setRegle(const Regle* regle,
+                      const quint16 salaire = 200);
+        
+        
+        
+    private slots:
+        /**
+         * Coche toutes les checkbox nécessaires afin d'avoir tous les droits en prison.
+         */
+        void tousLesDroitsEnPrison();
+        
+        
+        
+        /**
+         * Décoche toutes les checkbox nécessaires pour n'avoir aucun droit en prison.
+         */
+        void aucunDroitEnPrison();
 };
 
 #endif // REGLECONFIGWIDGET_HPP

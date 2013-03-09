@@ -10,8 +10,8 @@ MainWindow::MainWindow() :
     m_vueCentrale(new QGraphicsView),
     m_actionQuitter(new QAction(tr("Quitter"), this)),
     m_actionLancerNouvellePartie(new QAction(tr("Nouvelle partie"), this)),
-  m_actionZoomPlus(new QAction(tr("Zoom +"), this)),
-  m_actionZoomMoins(new QAction(tr("Zoom -"), this))
+    m_actionZoomPlus(new QAction(tr("Zoom +"), this)),
+    m_actionZoomMoins(new QAction(tr("Zoom -"), this))
 {
     /* Configuration de la fenêtre.
      */
@@ -31,6 +31,7 @@ MainWindow::MainWindow() :
     m_actionQuitter->setShortcut(QKeySequence::Quit);
     connect(m_actionQuitter, SIGNAL(triggered()), this, SLOT(quitter()));
     m_actionLancerNouvellePartie->setShortcut(Qt::CTRL + Qt::Key_N);
+    connect(m_actionLancerNouvellePartie, SIGNAL(triggered()), this, SLOT(startAssistantPartieMultijoueurs()));
     
     m_actionZoomPlus->setShortcut(QKeySequence::ZoomIn);
     connect(m_actionZoomPlus, SIGNAL(triggered()), this, SLOT(zoomPlus()));

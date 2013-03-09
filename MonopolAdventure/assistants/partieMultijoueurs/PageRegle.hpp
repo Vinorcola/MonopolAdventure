@@ -3,6 +3,8 @@
 
 #include <QWizardPage>
 
+#include "config/RegleConfigWidget.hpp"
+
 
 
 
@@ -15,8 +17,28 @@
  */
 class PageRegle : public QWizardPage
 {
+        Q_OBJECT
+        
+        
+    private:
+        Plateau* m_plateau;///< Plateau chargé précédemment.
+        RegleConfigWidget* m_widgetCentral;///< Widget de configuration de la règle.
+        
+        
+        
     public:
-        PageRegle();
+        /**
+         * Construit une nouvelle page.
+         * @param plateau Plateau chargé précédemment.
+         */
+        PageRegle(Plateau* plateau);
+        
+        
+        
+        /**
+         * Initialise le widget avec la règle du plateau chargé.
+         */
+        void initializePage();
 };
 
 #endif // PAGEREGLE_HPP
