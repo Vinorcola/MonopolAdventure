@@ -12,7 +12,7 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     m_possessionRegroupement(new QCheckBox(tr("Possession du regroupement pour construire"))),
     m_constructionsUniformes(new QCheckBox(tr("Constructions uniformes"))),
     m_joueurPresentPourConstruire(new QCheckBox(tr("Joueur présent pour la construction"))),
-    m_tousTerrainVendus(new QCheckBox(tr("Tous les terrains doivent être vendus pour construire"))),
+    m_tousTerrainsVendus(new QCheckBox(tr("Tous les terrains doivent être vendus pour construire"))),
     m_toutesPprtVendues(new QCheckBox(tr("Toutes les propriétés doivent être vendues pour construire"))),
     
     m_groupeDepart(new QGroupBox(tr("Case Départ"))),
@@ -26,10 +26,9 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     m_premierTourSansAchat(new QCheckBox(tr("Premier tour du plateau sans achat"))),
     
     m_groupeParcGratuit(new QGroupBox(tr("Parc gratuit"))),
-    m_taxeAuParcGratuit(new QCheckBox(tr("Les taxes sotn redistribuées au Parc gratuit"))),
+    m_taxeAuParcGratuit(new QCheckBox(tr("Les taxes sont redistribuées au Parc gratuit"))),
     m_amendeCarteAuParcGratuit(new QCheckBox(tr("Les amendes des cartes sont redistribuées au Parc gratuit"))),
     m_cagnotteFixe(new QCheckBox(tr("Une cagnotte est distribuée au Parc gratuit"))),
-    m_labelMontantCagnotte(new QLabel(tr("Montant de la cagnotte"))),
     m_montantCagnotte(new QSpinBox),
     
     m_groupePrison(new QGroupBox(tr("Prison"))),
@@ -96,7 +95,7 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     layoutConstruction->addRow(m_possessionRegroupement);
     layoutConstruction->addRow(m_constructionsUniformes);
     layoutConstruction->addRow(m_joueurPresentPourConstruire);
-    layoutConstruction->addRow(m_tousTerrainVendus);
+    layoutConstruction->addRow(m_tousTerrainsVendus);
     layoutConstruction->addRow(m_toutesPprtVendues);
     m_groupeConstruction->setLayout(layoutConstruction);
     
@@ -172,8 +171,16 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     
     /* Connexion slots/signaux.
      */
+    connect(m_possessionRegroupement, SIGNAL(stateChanged(int)), this, SLOT(possessionRegroupementChanged(int)));
+    connect(m_tousTerrainsVendus, SIGNAL(stateChanged(int)), this, SLOT(tousTerrainsVendusChanged(int)));
+    connect(m_toutesPprtVendues, SIGNAL(stateChanged(int)), this, SLOT(toutesPprtVenduesChanged(int)));
     connect(m_tousLesDroitsEnPrison, SIGNAL(clicked()), this, SLOT(tousLesDroitsEnPrison()));
     connect(m_aucunDroitEnPrison, SIGNAL(clicked()), this, SLOT(aucunDroitEnPrison()));
+    connect(m_toutesPprtAuDebut, SIGNAL(stateChanged(int)), this, SLOT(toutesPprtAuDebut(int)));
+    connect(m_taxeAuParcGratuit, SIGNAL(stateChanged(int)), this, SLOT(taxeAuParcGratuitChanged(int)));
+    connect(m_amendeCarteAuParcGratuit, SIGNAL(stateChanged(int)), this, SLOT(amendeCarteAuParcGratuitChanged(int)));
+    connect(m_cagnotteFixe, SIGNAL(stateChanged(int)), this, SLOT(cagnotteFixeChanged(int)));
+    connect(m_nbMaxTours, SIGNAL(stateChanged(int)), this, SLOT(nbMaxToursChanged(int)));
 }
 
 
@@ -192,7 +199,7 @@ void RegleConfigWidget::setRegle(const Regle* regle,
         m_possessionRegroupement->setChecked(regle->possessionRegroupementPourConstruire());
         m_constructionsUniformes->setChecked(regle->constructionHomogene());
         m_joueurPresentPourConstruire->setChecked(regle->joueurPresentPourConstruire());
-        m_tousTerrainVendus->setChecked(regle->tousTerrainsVendusPourConstruire());
+        m_tousTerrainsVendus->setChecked(regle->tousTerrainsVendusPourConstruire());
         m_toutesPprtVendues->setChecked(regle->toutesProprietesVenduesPourConstruire());
         
         
@@ -228,13 +235,11 @@ void RegleConfigWidget::setRegle(const Regle* regle,
         if (regle->cagnotteFixe())
         {
             m_cagnotteFixe->setChecked(true);
-            m_labelMontantCagnotte->setEnabled(true);
             m_montantCagnotte->setValue(regle->montantFixe());
         }
         else
         {
             m_cagnotteFixe->setChecked(false);
-            m_labelMontantCagnotte->setDisabled(true);
             m_montantCagnotte->setDisabled(true);
             m_montantCagnotte->setValue(0);
         }
@@ -279,6 +284,43 @@ void RegleConfigWidget::setRegle(const Regle* regle,
 
 
 
+void RegleConfigWidget::possessionRegroupementChanged(int state)
+{
+    if (state == Qt::Checked)
+    {
+        m_constructionsUniformes->setEnabled(true);
+    }
+    else
+    {
+        m_constructionsUniformes->setChecked(false);
+        m_constructionsUniformes->setDisabled(true);
+    }
+}
+
+
+
+
+
+
+void RegleConfigWidget::tousTerrainsVendusChanged(int state)
+{
+    m_toutesPprtVendues->setDisabled(state == Qt::Checked);
+}
+
+
+
+
+
+void RegleConfigWidget::toutesPprtVenduesChanged(int state)
+{
+    m_tousTerrainsVendus->setDisabled(state == Qt::Checked);
+}
+
+
+
+
+
+
 void RegleConfigWidget::tousLesDroitsEnPrison()
 {
     m_percevoirLoyerEnPrison->setChecked(true);
@@ -297,5 +339,92 @@ void RegleConfigWidget::aucunDroitEnPrison()
     m_participerEnchereEnPrison->setChecked(false);
     m_echangerEnPrison->setChecked(false);
     m_construireEnPrison->setChecked(false);
+}
+
+
+
+
+
+void RegleConfigWidget::toutesPprtAuDebut(int state)
+{
+    if (state == Qt::Checked)
+    {
+        m_nbPprtAuDebut->setValue(0);
+        m_nbPprtAuDebut->setDisabled(true);
+    }
+    else
+    {
+        m_nbPprtAuDebut->setEnabled(true);
+    }
+}
+
+
+
+
+
+void RegleConfigWidget::taxeAuParcGratuitChanged(int state)
+{
+    if (state == Qt::Checked)
+    {
+        m_cagnotteFixe->setDisabled(true);
+    }
+    else if (!m_amendeCarteAuParcGratuit->isChecked())
+    {
+        m_cagnotteFixe->setEnabled(true);
+    }
+}
+
+
+
+
+
+void RegleConfigWidget::amendeCarteAuParcGratuitChanged(int state)
+{
+    if (state == Qt::Checked)
+    {
+        m_cagnotteFixe->setDisabled(true);
+    }
+    else if (!m_taxeAuParcGratuit->isChecked())
+    {
+        m_cagnotteFixe->setEnabled(true);
+    }
+}
+
+
+
+
+
+void RegleConfigWidget::cagnotteFixeChanged(int state)
+{
+    if (state == Qt::Checked)
+    {
+        m_taxeAuParcGratuit->setDisabled(true);
+        m_amendeCarteAuParcGratuit->setDisabled(true);
+        m_montantCagnotte->setEnabled(true);
+    }
+    else
+    {
+        m_taxeAuParcGratuit->setEnabled(true);
+        m_amendeCarteAuParcGratuit->setEnabled(true);
+        m_montantCagnotte->setValue(0);
+        m_montantCagnotte->setDisabled(true);
+    }
+}
+
+
+
+
+
+void RegleConfigWidget::nbMaxToursChanged(int state)
+{
+    if (state == Qt::Checked)
+    {
+        m_nbTours->setEnabled(true);
+    }
+    else
+    {
+        m_nbTours->setValue(10);
+        m_nbTours->setDisabled(true);
+    }
 }
 

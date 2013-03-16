@@ -19,8 +19,6 @@
 /**
  * @class RegleConfigWidget RegleConfigWidget.hpp config/RegleConfigWidget.hpp
  * Cette classe représente un widget permettant de configurer les règles de jeu lors du lancement d'une partie.
- * 
- * @todo Créé des slots pour l'intégrité des options.
  */
 class RegleConfigWidget : public QScrollArea
 {
@@ -37,7 +35,7 @@ class RegleConfigWidget : public QScrollArea
         QCheckBox* m_possessionRegroupement;///< Champ permettant d'imposer la possession du regroupement pour pouvoir construire.
         QCheckBox* m_constructionsUniformes;///< Champ permettant d'imposer des constructions uniformes sur un regroupement.
         QCheckBox* m_joueurPresentPourConstruire;///< Champ permettant d'imposer que le joueur soit présent pour pouvoir construire.
-        QCheckBox* m_tousTerrainVendus;///< Champ permettant d'obliger les joueurs à attendre que tous les terrains soient vendus pour pouvoir construire.
+        QCheckBox* m_tousTerrainsVendus;///< Champ permettant d'obliger les joueurs à attendre que tous les terrains soient vendus pour pouvoir construire.
         QCheckBox* m_toutesPprtVendues;///< Champ permettant d'obliger les joueurs à attendre que toutes les propriétés soient vendus pour pouvoir construire.
         
         // Groupe Case Départ
@@ -57,7 +55,6 @@ class RegleConfigWidget : public QScrollArea
         QCheckBox* m_taxeAuParcGratuit;///< Champ permettant d'envoyer les taxes récoltés au Parc gratuit.
         QCheckBox* m_amendeCarteAuParcGratuit;///< Champ permettant d'envoyer les amendes des cartes au Parc gratuit.
         QCheckBox* m_cagnotteFixe;///< Champ permettant d'activité la distribution d'une cagnotte au Parc gratuit.
-        QLabel* m_labelMontantCagnotte;///< Label associé à m_montantCagnotte.
         QSpinBox* m_montantCagnotte;///< Champ permettant de déterminer le montant de la cagnotte à distribuer au Parc gratuit.
         
         // Groupe Prison
@@ -104,6 +101,30 @@ class RegleConfigWidget : public QScrollArea
         
     private slots:
         /**
+         * Active ou non l'option « Constructions uniformes » en fonction de l'état de l'option « Possession regroupement pour construire ».
+         * @param state État de l'option « Possession regroupement pour construire ».
+         */
+        void possessionRegroupementChanged(int state);
+        
+        
+        
+        /**
+         * Active ou non l'option « Toutes propriétés vendues pour construire » en fonction de l'état de l'option « Tous terrains vendus pour construire ».
+         * @param state État de l'option « Tous terrains vendus pour construire ».
+         */
+        void tousTerrainsVendusChanged(int state);
+        
+        
+        
+        /**
+         * Active ou non l'option « Tous terrains vendus pour construire » en fonction de l'état de l'option « Toutes propriétés vendues pour construire ».
+         * @param state État de l'option « Toutes propriétés vendues pour construire ».
+         */
+        void toutesPprtVenduesChanged(int state);
+        
+        
+        
+        /**
          * Coche toutes les checkbox nécessaires afin d'avoir tous les droits en prison.
          */
         void tousLesDroitsEnPrison();
@@ -114,6 +135,46 @@ class RegleConfigWidget : public QScrollArea
          * Décoche toutes les checkbox nécessaires pour n'avoir aucun droit en prison.
          */
         void aucunDroitEnPrison();
+        
+        
+        
+        /**
+         * Active ou non le champ « Nombre de propriété au début » en fonction de l'état de l'option « Toutes les propriété au début ».
+         * @param state État de l'option « Toutes les propriétés au début ».
+         */
+        void toutesPprtAuDebut(int state);
+        
+        
+        
+        /**
+         * 
+         * @param state 
+         */
+        void taxeAuParcGratuitChanged(int state);
+        
+        
+        
+        /**
+         * 
+         * @param state 
+         */
+        void amendeCarteAuParcGratuitChanged(int state);
+        
+        
+        
+        /**
+         * 
+         * @param state 
+         */
+        void cagnotteFixeChanged(int state);
+        
+        
+        
+        /**
+         *
+         * @param state
+         */
+        void nbMaxToursChanged(int state);
 };
 
 #endif // REGLECONFIGWIDGET_HPP
