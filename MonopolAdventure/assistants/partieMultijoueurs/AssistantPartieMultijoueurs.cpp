@@ -20,6 +20,7 @@ AssistantPartieMultijoueurs::AssistantPartieMultijoueurs(MainWindow* parent) :
      */
     setPage(1, new PagePlateau(m_plateau));
     setPage(2, new PageRegle(m_plateau));
+    setPage(3, new PageJoueur);
 }
 
 

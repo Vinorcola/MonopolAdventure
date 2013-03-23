@@ -16,6 +16,7 @@
 
 
 
+
 /**
  * @class RegleConfigWidget RegleConfigWidget.hpp config/RegleConfigWidget.hpp
  * Cette classe représente un widget permettant de configurer les règles de jeu lors du lancement d'une partie.

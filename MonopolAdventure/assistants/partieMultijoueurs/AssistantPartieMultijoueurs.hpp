@@ -4,6 +4,7 @@
 #include <QWizard>
 
 class MainWindow;
+#include "assistants/partieMultijoueurs/PageJoueur.hpp"
 #include "assistants/partieMultijoueurs/PagePlateau.hpp"
 #include "assistants/partieMultijoueurs/PageRegle.hpp"
 

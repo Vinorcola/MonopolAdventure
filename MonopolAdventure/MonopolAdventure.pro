@@ -12,8 +12,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     assistants/partieMultijoueurs/AssistantPartieMultijoueurs.cpp \
+    assistants/partieMultijoueurs/PageJoueur.cpp \
     assistants/partieMultijoueurs/PagePlateau.cpp \
     assistants/partieMultijoueurs/PageRegle.cpp \
+    config/JoueurConfigWidget.cpp \
     config/RegleConfigWidget.cpp \
     donnees/cartes/Action.cpp \
     donnees/cartes/Carte.cpp \
@@ -45,8 +47,10 @@ SOURCES += main.cpp \
 
 HEADERS  += global.hpp \
     assistants/partieMultijoueurs/AssistantPartieMultijoueurs.hpp \
+    assistants/partieMultijoueurs/PageJoueur.hpp \
     assistants/partieMultijoueurs/PagePlateau.hpp \
     assistants/partieMultijoueurs/PageRegle.hpp \
+    config/JoueurConfigWidget.hpp \
     config/RegleConfigWidget.hpp \
     donnees/cartes/Action.hpp \
     donnees/cartes/Carte.hpp \
