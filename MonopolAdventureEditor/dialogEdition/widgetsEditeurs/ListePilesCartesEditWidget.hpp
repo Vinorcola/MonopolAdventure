@@ -2,6 +2,7 @@
 #define LISTEPILESCARTESEDITWIDGET_HPP
 
 #include <QComboBox>
+#include <QMessageBox>
 #include <QPushButton>
 
 #include "dialogEdition/modeles/PileCartesListModel.hpp"

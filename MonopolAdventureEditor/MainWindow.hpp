@@ -7,6 +7,7 @@
 #include <QGraphicsView>
 #include <QMainWindow>
 #include <QMenuBar>
+#include <QMessageBox>
 #include <QTimer>
 #include <QToolBar>
 
