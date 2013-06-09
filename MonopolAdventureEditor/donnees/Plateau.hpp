@@ -68,6 +68,7 @@ class Plateau : public QGraphicsScene
         bool m_prixAffichageComplet;
         QColor m_couleurFond;///< Couleur de fond du plateau.
         QPixmap m_image;///< Image au centre du plateau.
+        QGraphicsPixmapItem* m_graphicsItemImage;///< Élément graphique permettant d'afficher l'image au centre du plateau.
         GraphismeEmplacementInfos m_graphismeEmplacement;///< Informations sur les graphismes des emplacements.
         Regle m_regle;///< Règle de jeu associée au plateau.
         
@@ -605,6 +606,13 @@ class Plateau : public QGraphicsScene
          * @return Angle de rotation (en °) de l'emplacement sur le plateau.
          */
         int helper_getRotationEmplacement(int id) const;
+        
+        
+        
+        /**
+         * Dessine l'image au centre du plateau.
+         */
+        void helper_dessineImageCentre();
 };
 
 #endif // PLATEAUINFOS_HPP
