@@ -343,6 +343,14 @@ class GraphismeEmplacement : public QObject, public QGraphicsRectItem
         
         
         /**
+         * Redimensionne @c m_graphImage;
+         * @return Le coefficient réducteur de l'image.
+         */
+        qreal redimensionneImage(int hauteurMax);
+        
+        
+        
+        /**
          * Modifie le QGraphicsTextItem pour qu'il affiche correctement le texte @a texte.
          * @param item Item à modifier.
          * @param texte Texte à afficher.

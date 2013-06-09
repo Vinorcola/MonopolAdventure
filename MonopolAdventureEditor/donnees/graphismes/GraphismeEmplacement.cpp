@@ -662,9 +662,11 @@ void GraphismeEmplacement::positionneImage()
                     margeBasse -= m_graphPrix->boundingRect().height() - m_infosGraphiques.getMarge();
                 }
                 
+                // Utilisation de Pythagore pour calculer les points en diagonal.
                 margeHaute = qSqrt(qPow(margeHaute, 2) / 2);
                 margeBasse = qSqrt(qPow(margeBasse, 2) / 2);
                 
+                // Calcul des points d epositionnement.
                 int x((rect().width() - m_graphImage->boundingRect().width()) / 2);
                 int y((rect().height() + margeHaute - margeBasse - m_graphImage->boundingRect().height()) / 2);
                 
@@ -701,8 +703,13 @@ void GraphismeEmplacement::positionneImage()
                 margeBasse -= m_graphPrix->boundingRect().height() - m_infosGraphiques.getMarge();
             }
             
-            int x((rect().width() - m_graphImage->boundingRect().width()) / 2);
-            int y((margeHaute + margeBasse - m_graphImage->boundingRect().height()) / 2);
+            // Redimensionnement de l'image.
+            // On récupère le coefficient de réduction de l'image puisqu'apparemment, le boundingRect n'est pas mis à jour.
+            qreal scale(redimensionneImage(margeBasse - margeHaute));
+            
+            // Calcul des points d eposition.
+            int x((rect().width() - m_graphImage->boundingRect().width() * scale) / 2);
+            int y((margeHaute + margeBasse - m_graphImage->boundingRect().height() * scale) / 2);
             
             m_graphImage->setPos(x, y);
         }
@@ -795,6 +802,27 @@ void GraphismeEmplacement::positionnePrix()
             m_graphPrix->setPos(x, y);
         }
     }
+}
+
+
+
+
+
+qreal GraphismeEmplacement::redimensionneImage(int hauteurMax)
+{
+    qreal scale(1);
+    
+    if (m_graphImage)
+    {
+        qreal hauteurImage(m_graphImage->boundingRect().height());
+        if (hauteurImage > hauteurMax)
+        {
+            scale = hauteurMax / hauteurImage;
+            m_graphImage->setScale(scale);
+        }
+    }
+    
+    return scale;
 }
 
 
