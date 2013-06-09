@@ -25,8 +25,11 @@ class ImageSelectWidget : public QWidget
         
         
     protected:
+        const int m_tailleMaxApercuImage;
+        
         QPixmap m_image;///< Image chargée par l'utilisateur.
         QLabel* m_widget;///< QLabel affichant l'image.
+        QPushButton* m_reset;///< Bouton permettant de supprimer l'image sélectionnée.
         QPushButton* m_button;///< Bouton affichant la QFileDialog.
         
         
