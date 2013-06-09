@@ -1172,7 +1172,7 @@ void Plateau::editEmplacementInformations(Emplacement* emplacement)
     
     if (fenetre->executer())
     {
-        m_sauvegarde = true;
+        m_sauvegarde = false;
     }
     
     delete fenetre;
