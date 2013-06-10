@@ -5,16 +5,21 @@
 #-------------------------------------------------
 
 QT       += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = MonopolAdventure
 TEMPLATE = app
 
 
 SOURCES += main.cpp \
+    assistants/menu/PageMenuAventure.cpp \
+    assistants/menu/PageMenuClassique.cpp \
+    assistants/menu/PageMenuPrincipal.cpp \
     assistants/partieMultijoueurs/AssistantPartieMultijoueurs.cpp \
     assistants/partieMultijoueurs/PageJoueur.cpp \
     assistants/partieMultijoueurs/PagePlateau.cpp \
     assistants/partieMultijoueurs/PageRegle.cpp \
+    assistants/AssistantMenu.cpp \
     config/JoueurConfigWidget.cpp \
     config/RegleConfigWidget.cpp \
     donnees/cartes/Action.cpp \
@@ -22,6 +27,7 @@ SOURCES += main.cpp \
     donnees/cartes/PileCartes.cpp \
     donnees/graphismes/GraphismeEmplacement.cpp \
     donnees/graphismes/GraphismeEmplacementInfos.cpp \
+    donnees/graphismes/GraphismeJoueur.cpp \
     donnees/emplacements/CompagnieTransport.cpp \
     donnees/emplacements/Depart.cpp \
     donnees/emplacements/Deplacement.cpp \
@@ -46,10 +52,14 @@ SOURCES += main.cpp \
     MainWindow.cpp
 
 HEADERS  += global.hpp \
+    assistants/menu/PageMenuAventure.hpp \
+    assistants/menu/PageMenuClassique.hpp \
+    assistants/menu/PageMenuPrincipal.hpp \
     assistants/partieMultijoueurs/AssistantPartieMultijoueurs.hpp \
     assistants/partieMultijoueurs/PageJoueur.hpp \
     assistants/partieMultijoueurs/PagePlateau.hpp \
     assistants/partieMultijoueurs/PageRegle.hpp \
+    assistants/AssistantMenu.hpp \
     config/JoueurConfigWidget.hpp \
     config/RegleConfigWidget.hpp \
     donnees/cartes/Action.hpp \
@@ -57,6 +67,7 @@ HEADERS  += global.hpp \
     donnees/cartes/PileCartes.hpp \
     donnees/graphismes/GraphismeEmplacement.hpp \
     donnees/graphismes/GraphismeEmplacementInfos.hpp \
+    donnees/graphismes/GraphismeJoueur.hpp \
     donnees/emplacements/CompagnieTransport.hpp \
     donnees/emplacements/Depart.hpp \
     donnees/emplacements/Deplacement.hpp \
