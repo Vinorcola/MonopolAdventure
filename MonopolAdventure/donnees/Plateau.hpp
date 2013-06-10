@@ -5,6 +5,7 @@
 #include <QDialogButtonBox>
 #include <QFile>
 #include <QGraphicsScene>
+#include <QMessageBox>
 #include <QPixmap>
 #include <QSize>
 #include <QString>

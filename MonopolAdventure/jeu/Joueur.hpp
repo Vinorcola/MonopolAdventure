@@ -21,7 +21,7 @@ class Joueur
         QPixmap m_image;///< Image associée au joueur.
         qint32 m_cagnotte;///< Cagnotte du joueur.
         quint8 m_nbTourEnPrisonRestant;///< Indique si le nombre de tour en prison restant au joueur.
-        QList<Propriete*> m_proprietes;///< Liste des prorpiétés possédés par le joueur.
+        QList<Propriete*> m_proprietes;///< Liste des propriétés possédés par le joueur.
         
         
         

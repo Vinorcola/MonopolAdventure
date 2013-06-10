@@ -54,6 +54,7 @@ class MainWindow : public QMainWindow
         
         /**
          * Lance l'assistant de chargement d'une nouvelle partie.
+         * @note Pour l'instant, on lance l'assistant de parties multijoueurs.
          */
         void startAssistantPartieMultijoueurs();
         

@@ -194,7 +194,7 @@ const Emplacement* Action::getEmplacement() const
         return m_deplacementEmplacement;
     }
     
-    return false;
+    return 0;
 }
 
 

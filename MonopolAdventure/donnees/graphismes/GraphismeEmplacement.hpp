@@ -23,7 +23,7 @@ class Emplacement;
  * 
  * Elle est directement liées à la classe Emplacement. Sa séparation est expliqué plus en détail sur la page de documentation de cette classe.
  * 
- * GraphismeEmplacement hérite directement de QGraphicsRectItem et va ainsi pouvoir être dessinée sur le plateau ou dans des fenêtres d'édition afin de représenter les emplacements.
+ * GraphismeEmplacement hérite directement de QGraphicsRectItem et va ainsi pouvoir être dessinée sur le plateau ou dans des fenêtres annexes afin de représenter les emplacements.
  * 
  * @todo Détailler le fonctionnement de cet élément.
  */

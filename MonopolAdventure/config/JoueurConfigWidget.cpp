@@ -8,7 +8,7 @@ JoueurConfigWidget::JoueurConfigWidget() :
     QWidget(),
     m_pseudo(new QLineEdit)
 {
-    QVBoxLayout* layout = new QVBoxLayout;
+    QVBoxLayout* layout(new QVBoxLayout);
     layout->addWidget(m_pseudo);
     
     setLayout(layout);
