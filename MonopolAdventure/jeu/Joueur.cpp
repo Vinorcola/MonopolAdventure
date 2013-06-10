@@ -5,12 +5,14 @@
 
 
 Joueur::Joueur(const QString& pseudo,
-               const qint32 cagnotteDepart) :
+               const qint32 cagnotteDepart,
+               const QString& couleur) :
     m_pseudo(pseudo),
-    m_image(),
+    m_image(new GraphismeJoueur(couleur)),
     m_cagnotte(cagnotteDepart),
     m_nbTourEnPrisonRestant(0),
-    m_proprietes()
+    m_proprietes(),
+    m_panneauInfos(new PanneauInfosJoueur(this))
 {
     
 }

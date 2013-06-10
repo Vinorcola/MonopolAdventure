@@ -45,6 +45,7 @@ SOURCES += main.cpp \
     donnees/Regle.cpp \
     jeu/Des.cpp \
     jeu/Joueur.cpp \
+    jeu/PanneauInfosJoueur.cpp \
     widgetsSelecteurs/ColorSelectWidget.cpp \
     widgetsSelecteurs/FileSelectWidget.cpp \
     widgetsSelecteurs/FontSelectWidget.cpp \
@@ -86,6 +87,7 @@ HEADERS  += global.hpp \
     donnees/Regle.hpp \
     jeu/Des.hpp \
     jeu/Joueur.hpp \
+    jeu/PanneauInfosJoueur.hpp \
     widgetsSelecteurs/ColorSelectWidget.hpp \
     widgetsSelecteurs/FileSelectWidget.hpp \
     widgetsSelecteurs/FontSelectWidget.hpp \

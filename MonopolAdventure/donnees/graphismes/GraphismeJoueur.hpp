@@ -39,8 +39,7 @@ class GraphismeJoueur : public QGraphicsPixmapItem
          * Construit un nouvel objet graphique.
          * @param couleur Couleur du joueur.
          */
-        GraphismeJoueur(QString couleur,
-                        QGraphicsScene* scene);
+        GraphismeJoueur(QString couleur);
         
         
         

@@ -4,7 +4,10 @@
 #include <QString>
 #include <QPixmap>
 
+class PanneauInfosJoueur;
 #include "donnees/emplacements/Propriete.hpp"
+#include "donnees/graphismes/GraphismeJoueur.hpp"
+#include "jeu/PanneauInfosJoueur.hpp"
 
 
 
@@ -18,10 +21,11 @@ class Joueur
 {
     private:
         QString m_pseudo;///< Pseudo du joueur.
-        QPixmap m_image;///< Image associée au joueur.
+        GraphismeJoueur* m_image;///< Image associée au joueur.
         qint32 m_cagnotte;///< Cagnotte du joueur.
         quint8 m_nbTourEnPrisonRestant;///< Indique si le nombre de tour en prison restant au joueur.
         QList<Propriete*> m_proprietes;///< Liste des propriétés possédés par le joueur.
+        PanneauInfosJoueur* m_panneauInfos;///< Panneau affichant les informations publiques du joueur.
         
         
         
@@ -30,9 +34,11 @@ class Joueur
          * Créé un nouveau joueur.
          * @param pseudo Pseudo du joueur.
          * @param cagnotteDepart Cagnotte de départ du joueur.
+         * @param couleur Couleur du joueur.
          */
         Joueur(const QString& pseudo,
-               const qint32 cagnotteDepart);
+               const qint32 cagnotteDepart,
+               const QString& couleur);
         
         
         

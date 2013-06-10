@@ -4,8 +4,7 @@
 
 
 
-GraphismeJoueur::GraphismeJoueur(QString couleur,
-                                 QGraphicsScene* scene) :
+GraphismeJoueur::GraphismeJoueur(QString couleur) :
     QGraphicsPixmapItem(),
     m_imageH(new QPixmap("data/joueurs/" + couleur + "H.bmp")),
     m_imageB(new QPixmap("data/joueurs/" + couleur + "B.bmp")),
