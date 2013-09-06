@@ -18,13 +18,15 @@ Plateau::Plateau(MainWindow* parent) :
     m_prixAffichageComplet(true),
     m_couleurFond(255, 255, 255),
     m_image(),
+    m_graphicsItemImage(new QGraphicsPixmapItem),
     m_graphismeEmplacement(),
     m_regle(),
     m_pilesCartes(),
     m_emplacements(),
     m_regroupements()
 {
-    
+    // Ajout de l'élément graphique permettant d'afficher l'image de fond du plateau.
+    addItem(m_graphicsItemImage);
 }
 
 
@@ -663,5 +665,29 @@ int Plateau::helper_getRotationEmplacement(int id) const
     }
     
     return 0;
+}
+
+
+
+
+
+void Plateau::helper_dessineImageCentre()
+{
+    QSize taille(m_graphismeEmplacement.getTailleNormale());
+    
+    // Déplacement de l'image au centre du plateau.
+    m_graphicsItemImage->setPos(taille.height(), taille.height());
+    
+    // Redimenssionnement de l'image au centre du plateau.
+    if (!m_image.isNull())
+    {
+        int h((m_taille.height() - 2) * taille.width());// On enlève 2 pour les bords du plateau.
+        int w((m_taille.width() - 2) * taille.width());// Idem ici.
+        m_graphicsItemImage->setPixmap(m_image.scaled(w, h));
+    }
+    else
+    {
+        m_graphicsItemImage->setPixmap(m_image);
+    }
 }
 
