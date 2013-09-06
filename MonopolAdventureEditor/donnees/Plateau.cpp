@@ -82,6 +82,10 @@ void Plateau::dessiner()
      * « Simple visite ».
      */
     helper_dessineEmplacement(m_emplacements.first());
+    
+    /* Configuration et affichage de l'image au centre du plateau.
+     */
+    helper_dessineImageCentre();
 }
 
 
