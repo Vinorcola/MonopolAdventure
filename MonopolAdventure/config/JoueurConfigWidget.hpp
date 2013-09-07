@@ -1,8 +1,9 @@
 #ifndef JOUEURCONFIGWIDGET_HPP
 #define JOUEURCONFIGWIDGET_HPP
 
+#include <QHBoxLayout>
 #include <QLineEdit>
-#include <QVBoxLayout>
+#include <QPushButton>
 
 
 
@@ -19,6 +20,7 @@ class JoueurConfigWidget : public QWidget
         
     private:
         QLineEdit* m_pseudo;///< Champ permettant de saisir le pseudo du joueur.
+        QPushButton* m_boutonSupprimer;///< Bouton permetant de demander la suppression du widget.
         
         
         
@@ -35,6 +37,14 @@ class JoueurConfigWidget : public QWidget
          * @return Le pseudo du joueur.
          */
         QString pseudo();
+        
+        
+        
+    signals:
+        /**
+         * Signal envoyé lorsque le bouton « Supprimer » a été cliqué.
+         */
+        void supprimer();
 };
 
 #endif // JOUEURCONFIGWIDGET_HPP

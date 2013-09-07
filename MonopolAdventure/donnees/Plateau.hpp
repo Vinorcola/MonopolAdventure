@@ -104,7 +104,7 @@ class Plateau : public QGraphicsScene
         /**
          * Dessine tous les emplacements sur le plateau.
          * 
-         * Configure pour chaque emplacement sa position et sa rototion en fonction de sa place sur le plateau. Puis récupère l'élément graphique de l'emplacement.
+         * Configure pour chaque emplacement sa position et sa rototion en fonction de sa place sur le plateau. Puis récupère l'élément graphique de l'emplacement. Affiche aussi l'image au centre du plateau.
          */
         void dessiner();
         
@@ -354,6 +354,17 @@ class Plateau : public QGraphicsScene
          * Dessine l'image au centre du plateau.
          */
         void helper_dessineImageCentre();
+        
+        
+        
+        /**
+         * Retourne le salaire perçu par les joueurs lors du passage sur l'emplacement Départ.
+         * 
+         * Cette fonction recherche l'emplacement Départ dans la liste des emplacements puis retourne le salaire. Cette méthode sert à l'assistant de chargement de plateau qui transmet le salaire à la page de configuration des règles de jeu.
+         * 
+         * @return Salaire perçu par les joueurs lors du passage sur l'emplacement Départ.
+         */
+        quint16 helper_getSalaireDepart();
 };
 
 #endif // PLATEAUINFOS_HPP

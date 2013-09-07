@@ -94,9 +94,10 @@ class RegleConfigWidget : public QScrollArea
         /**
          * Configure tous les champs avec la règle passée en argument.
          * @param regle Règle permettant d'initialiser les champs.
+         * @param salaire Salaire perçu en passant à l'emplacement Départ.
          */
         void setRegle(const Regle* regle,
-                      const quint16 salaire = 200);
+                      const quint16 salaire);
         
         
         

@@ -47,6 +47,10 @@ class PagePlateau : public QWizardPage
         
         
         
+        
+        
+        
+        
     public slots:
         /**
          * Charge le plateau demandé par l'utilisateur.

@@ -691,3 +691,20 @@ void Plateau::helper_dessineImageCentre()
     }
 }
 
+
+
+
+
+quint16 Plateau::helper_getSalaireDepart()
+{
+    for (int i(0), iEnd(m_emplacements.size()); i < iEnd; i++)
+    {
+        if (m_emplacements.at(i)->getType() == Type::Depart)
+        {
+            return static_cast<Depart*>(m_emplacements.at(i))->getSalaire();
+        }
+    }
+    
+    return 0;
+}
+

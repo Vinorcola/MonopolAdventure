@@ -67,6 +67,10 @@ void PagePlateau::chargePlateau(const QString& chemin)
         }
         else
         {
+            /* Si le chargement du plateau a échoué, il faut réinitialisé l'affichage par défaut au cas où
+             * un autre plateau aurait déjà été chargé, et que l'utilisateur aurait changé pour un plateau
+             * non valide.
+             */
             m_fichier->setFilePath("");
             m_msgConfirmation->setText(tr("<span style=\"color:#ff0000\">Aucun plateau chargé.</span>"));
             m_plateauCharge = false;

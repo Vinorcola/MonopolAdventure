@@ -11,7 +11,7 @@ Action::Action() :
     m_deplacement(false),
     m_joueurAvance(false),
     m_deplacementRelatif(0),
-    m_deplacementEmplacement(false),
+    m_deplacementEmplacement(0),
     m_deplacementJusquauProchain(Type::Aucun),
     m_coefficientLoyer(0),
     m_relanceDes(false),
