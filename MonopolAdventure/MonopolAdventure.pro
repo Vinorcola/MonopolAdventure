@@ -20,6 +20,7 @@ SOURCES += main.cpp \
     assistants/partieMultijoueurs/PagePlateau.cpp \
     assistants/partieMultijoueurs/PageRegle.cpp \
     assistants/AssistantMenu.cpp \
+    config/CouleurListModel.cpp \
     config/JoueurConfigWidget.cpp \
     config/RegleConfigWidget.cpp \
     donnees/cartes/Action.cpp \
@@ -61,6 +62,7 @@ HEADERS  += global.hpp \
     assistants/partieMultijoueurs/PagePlateau.hpp \
     assistants/partieMultijoueurs/PageRegle.hpp \
     assistants/AssistantMenu.hpp \
+    config/CouleurListModel.hpp \
     config/JoueurConfigWidget.hpp \
     config/RegleConfigWidget.hpp \
     donnees/cartes/Action.hpp \

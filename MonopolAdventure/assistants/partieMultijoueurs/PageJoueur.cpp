@@ -56,16 +56,20 @@ PageJoueur::PageJoueur() :
 
 void PageJoueur::ajouterJoueur()
 {
-    // Création du widget est insertion dans la liste.
-    JoueurConfigWidget* widget(new JoueurConfigWidget);
-    m_joueurs.append(widget);
-    
-    // Insertion du nouveau widget dans le layout.
-    m_layout->insertWidget(m_joueurs.size() - 1, widget);
-    
-    // Enregistrement du widget auprès du QSignalMapper.
-    connect(widget, SIGNAL(supprimer()), m_signalMapper, SLOT(map()));
-    m_signalMapper->setMapping(widget, m_joueurs.size() - 1);
+    // La partie est limitée à 4 joueurs pour le moment.
+    if (m_joueurs.size() < 4)
+    {
+        // Création du widget est insertion dans la liste.
+        JoueurConfigWidget* widget(new JoueurConfigWidget);
+        m_joueurs.append(widget);
+        
+        // Insertion du nouveau widget dans le layout.
+        m_layout->insertWidget(m_joueurs.size() - 1, widget);
+        
+        // Enregistrement du widget auprès du QSignalMapper.
+        connect(widget, SIGNAL(supprimer()), m_signalMapper, SLOT(map()));
+        m_signalMapper->setMapping(widget, m_joueurs.size() - 1);
+    }
 }
 
 

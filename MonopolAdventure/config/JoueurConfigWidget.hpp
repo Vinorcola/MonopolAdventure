@@ -1,9 +1,12 @@
 #ifndef JOUEURCONFIGWIDGET_HPP
 #define JOUEURCONFIGWIDGET_HPP
 
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
+
+#include "config/CouleurListModel.hpp"
 
 
 
@@ -21,6 +24,8 @@ class JoueurConfigWidget : public QWidget
     private:
         QLineEdit* m_pseudo;///< Champ permettant de saisir le pseudo du joueur.
         QPushButton* m_boutonSupprimer;///< Bouton permetant de demander la suppression du widget.
+        QComboBox* m_listeCouleur;///< Liste permettant de sélectionner la couleur du personnage.
+        CouleurListModel* m_modeleCouleur;///< Modèle de données contenant la liste des couleurs disponible.
         
         
         
@@ -29,6 +34,15 @@ class JoueurConfigWidget : public QWidget
          * Construit un widget de configuration d'un joueur.
          */
         JoueurConfigWidget();
+        
+        
+        
+        /**
+         * Destructeur.
+         * 
+         * Libère la couleur du modèle de données.
+         */
+        ~JoueurConfigWidget();
         
         
         
