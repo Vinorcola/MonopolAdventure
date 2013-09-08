@@ -40,6 +40,13 @@ class Regle
          */
         bool m_premierTourSansAchat;
         
+        /**
+         * Option "Argent au départ".
+         * 
+         * Argent donné à chaque joueur pour commencer la partie.
+         */
+        quint16 m_argentDepart;
+        
         
         
         // Options depart
@@ -271,6 +278,11 @@ class Regle
         
         bool premierTourSansAchat() const;
         void setPremierTourSansAchat(const bool actif);
+        
+        
+        
+        quint16 argentDepart() const;
+        void setArgentDepart(const quint16 montant);
         
         
         

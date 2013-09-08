@@ -10,6 +10,7 @@ Regle::Regle() :
     m_nombreProprietesAuDepart(0),
     m_enchereDepart(false),
     m_premierTourSansAchat(false),
+    m_argentDepart(1500),
     m_salaireDouble(false),
     m_taxeInParcGratuit(false),
     m_amendeCarteInParcGratuit(false),
@@ -104,6 +105,31 @@ bool Regle::premierTourSansAchat() const
 void Regle::setPremierTourSansAchat(const bool actif)
 {
     m_premierTourSansAchat = actif;
+}
+
+
+
+
+
+quint16 Regle::argentDepart() const
+{
+    return m_argentDepart;
+}
+
+
+
+
+
+void Regle::setArgentDepart(const quint16 montant)
+{
+    if (montant > MONTANT_MAX_EDITEUR)
+    {
+        m_argentDepart = MONTANT_MAX_EDITEUR;
+    }
+    else
+    {
+        m_argentDepart = montant;
+    }
 }
 
 
@@ -610,6 +636,7 @@ void Regle::saveInFile(QDataStream& ecriture) const
     ecriture << m_nombreProprietesAuDepart
              << m_enchereDepart
              << m_premierTourSansAchat
+             << m_argentDepart
              << m_salaireDouble
              << m_taxeInParcGratuit
              << m_amendeCarteInParcGratuit
@@ -649,6 +676,7 @@ void Regle::loadFromFile(QDataStream& lecture,
             lecture >> m_nombreProprietesAuDepart
                     >> m_enchereDepart
                     >> m_premierTourSansAchat
+                    >> m_argentDepart
                     >> m_salaireDouble
                     >> m_taxeInParcGratuit
                     >> m_amendeCarteInParcGratuit

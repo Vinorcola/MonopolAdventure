@@ -44,11 +44,12 @@ class RegleConfigWidget : public QScrollArea
         
         // Groupe Case Départ
         QGroupBox* m_groupeDepart;///< Groupe des options concernant la case Départ.
-        QSpinBox* m_salaire;///< Champ permettant de changer le salaire reçu à la case Départ.
-        QCheckBox* m_doubleSalaire;///< Champ permettant d'activer le double salaire si le joueur s'arrête sur la cae Départ.
+        QSpinBox* m_salaire;///< Champ permettant de changer le salaire reçu à l'emplacement Départ.
+        QCheckBox* m_doubleSalaire;///< Champ permettant d'activer le double salaire si le joueur s'arrête sur l'emplacement Départ.
         
         // Groupe Début de la partie
         QGroupBox* m_groupeDebut;///< Groupe des options concernant le début de la partie.
+        QSpinBox* m_argentDepart;///< Champ permettant de configurer l'argent que possède les joueurs au début.
         QSpinBox* m_nbPprtAuDebut;///< Champ permettant de déterminer un nombre de propriétés par joueur à distribuer au début de la partie.
         QCheckBox* m_toutesPprtAuDebut;///< Champ permettant de distribuer toutes les propriétés aux joueurs au début de la partie.
         QCheckBox* m_encheresDepart;///< Champ permettant de démarrer une enchère pour savoir quel joueur part le premier.

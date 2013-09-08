@@ -24,6 +24,7 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     m_doubleSalaire(new QCheckBox(tr("Salaire doublé lors de l'arrêt sur la case Départ"))),
     
     m_groupeDebut(new QGroupBox(tr("Début de la partie"))),
+    m_argentDepart(new QSpinBox),
     m_nbPprtAuDebut(new QSpinBox),
     m_toutesPprtAuDebut(new QCheckBox(tr("Toutes"))),
     m_encheresDepart(new QCheckBox(tr("Enchère de départ"))),
@@ -72,6 +73,9 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     
     
     // Groupe Début
+    m_argentDepart->setMinimum(500);
+    m_argentDepart->setMaximum(MONTANT_MAX_EDITEUR);
+    m_argentDepart->setSingleStep(500);
     m_nbPprtAuDebut->setMaximum(50);
     
     
@@ -113,10 +117,11 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     layoutNbPprt->addWidget(m_nbPprtAuDebut);
     layoutNbPprt->addWidget(m_toutesPprtAuDebut);
     layoutNbPprt->addStretch(1);
-    QVBoxLayout* layoutDebut(new QVBoxLayout);
-    layoutDebut->addLayout(layoutNbPprt);
-    layoutDebut->addWidget(m_encheresDepart);
-    layoutDebut->addWidget(m_premierTourSansAchat);
+    QFormLayout* layoutDebut(new QFormLayout);
+    layoutDebut->addRow(tr("Argent au début de la partie"), m_argentDepart);
+    layoutDebut->addRow(layoutNbPprt);
+    layoutDebut->addRow(m_encheresDepart);
+    layoutDebut->addRow(m_premierTourSansAchat);
     m_groupeDebut->setLayout(layoutDebut);
     
     QFormLayout* layoutParcGratuit(new QFormLayout);
@@ -227,6 +232,7 @@ void RegleConfigWidget::setRegle(const Regle* regle,
         
         
         // Groupe Début de la partie
+        m_argentDepart->setValue(regle->argentDepart());
         qint8 nbPprtAuDepart(regle->nombreProprietesAuDepart());
         if (nbPprtAuDepart == -1)
         {
@@ -320,6 +326,7 @@ void RegleConfigWidget::configureRegle(Regle& regle,
     
     
     // Groupe Début de la partie
+    regle.setArgentDepart(m_argentDepart->value());
     regle.setNombreProprietesAuDepart(m_toutesPprtAuDebut->isChecked() ? -1 : m_nbPprtAuDebut->value(), plateau);
     regle.setEnchereDepart(m_encheresDepart->isChecked());
     regle.setPremierTourSansAchat(m_premierTourSansAchat->isChecked());
