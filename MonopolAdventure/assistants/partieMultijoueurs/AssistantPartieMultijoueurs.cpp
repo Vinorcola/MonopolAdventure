@@ -6,7 +6,8 @@
 
 AssistantPartieMultijoueurs::AssistantPartieMultijoueurs(MainWindow* parent) :
     QWizard(),
-    m_plateau(new Plateau(parent))
+    m_plateau(new Plateau(parent)),
+    m_pageRegle(new PageRegle(m_plateau))
 {
     /* Configuration de la fenêtre
      */
@@ -19,7 +20,7 @@ AssistantPartieMultijoueurs::AssistantPartieMultijoueurs(MainWindow* parent) :
     /* Configuration des pages
      */
     setPage(1, new PagePlateau(m_plateau));
-    setPage(2, new PageRegle(m_plateau));
+    setPage(2, m_pageRegle);
     setPage(3, new PageJoueur);
 }
 
@@ -29,6 +30,10 @@ AssistantPartieMultijoueurs::AssistantPartieMultijoueurs(MainWindow* parent) :
 
 void AssistantPartieMultijoueurs::accept()
 {
+    // Configuration de la règle du plateau.
+    m_pageRegle->configureRegle(m_plateau->getReglePourConfig(), m_plateau);
+    
+    // Émission du signal pour prévenir que le plateau est prêt.
     emit plateauLoaded(m_plateau);
     
     QWizard::accept();

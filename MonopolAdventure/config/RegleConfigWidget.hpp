@@ -12,6 +12,7 @@
 
 #include "global.hpp"
 #include "donnees/Regle.hpp"
+#include "donnees/Plateau.hpp"
 
 
 
@@ -101,6 +102,16 @@ class RegleConfigWidget : public QScrollArea
          */
         void setRegle(const Regle* regle,
                       const quint16 salaire);
+        
+        
+        
+        /**
+         * Configure la règle selon l'état des widgets.
+         * @param regle Règle à configurer.
+         * @param plateau Plateau contenant l'emplacement Départ à configurer pour le salaire.
+         */
+        void configureRegle(Regle& regle,
+                            Plateau* plateau);
         
         
         

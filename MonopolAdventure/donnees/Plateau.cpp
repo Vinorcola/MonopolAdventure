@@ -240,6 +240,15 @@ const Regle& Plateau::getRegle() const
 
 
 
+Regle& Plateau::getReglePourConfig()
+{
+    return m_regle;
+}
+
+
+
+
+
 const QList<Regroupement*>& Plateau::getListeRegroupement()
 {
     return m_regroupements;
@@ -706,5 +715,21 @@ quint16 Plateau::helper_getSalaireDepart()
     }
     
     return 0;
+}
+
+
+
+
+
+void Plateau::helper_setSalaireDepart(quint16 salaire)
+{
+    for (int i(0), iEnd(m_emplacements.size()); i < iEnd; i++)
+    {
+        if (m_emplacements.at(i)->getType() == Type::Depart)
+        {
+            static_cast<Depart*>(m_emplacements.at(i))->setSalaire(salaire);
+            return;
+        }
+    }
 }
 

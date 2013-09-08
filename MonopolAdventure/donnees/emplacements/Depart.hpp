@@ -52,6 +52,14 @@ class Depart : public Emplacement
         
         
         /**
+         * Configure le salaire de l'emplacement.
+         * @param salaire Nouveau salaire.
+         */
+        void setSalaire(quint16 salaire);
+        
+        
+        
+        /**
          * Charge les informations concernant l'emplacement « Départ » depuis le flux de données.
          * @param lecture Flux de données depuis le fichier à lire
          * @param version Version du fichier.

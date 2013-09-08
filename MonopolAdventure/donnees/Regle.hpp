@@ -259,114 +259,143 @@ class Regle
         
         
         qint8 nombreProprietesAuDepart() const;
+        void setNombreProprietesAuDepart(qint8 nombre,
+                                         const Plateau* const plateau);
         
         
         
         bool enchereDepart() const;
+        void setEnchereDepart(const bool actif);
         
         
         
         bool premierTourSansAchat() const;
+        void setPremierTourSansAchat(const bool actif);
         
         
         
         bool salaireDouble() const;
+        void setSalaireDouble(const bool actif);
         
         
         
         bool taxeInParcGratuit() const;
+        void setTaxeInParcGratuit(const bool actif);
         
         
         
         bool amendeCarteInParcGratuit() const;
+        void setAmendeCarteInParcGratuit(const bool actif);
         
         
         
         bool cagnotteFixe() const;
+        void setCagnotteFixe(const bool actif);
         
         
         
         quint16 montantFixe() const;
+        void setMontantFixe(const quint16 montant);
         
         
         
         quint8 nombreMaxTourEnPrison() const;
+        void setNombreMaxTourEnPrison(const quint8 nombre);
         
         
         
         bool joueurPeutPercevoirLoyerEnPrison() const;
+        void setJoueurPeutPercevoirLoyerEnPrison(const bool actif);
         
         
         
         bool joueurPeutParticiperEncheresEnPrison() const;
+        void setJoueurPeutParticiperEncheresEnPrison(const bool actif);
         
         
         
         bool joueurPeutEchangerEnPrison() const;
+        void setJoueurPeutEchangerEnPrison(const bool actif);
         
         
         
         bool joueurPeutConstruireEnPrison() const;
+        void setJoueurPeutConstruireEnPrison(const bool actif);
         
         
         
         bool banquePeutFaireFaillite() const;
+        void setBanquePeutFaireFaillite(const bool actif);
         
         
         
         quint32 montantMaxBanque() const;
+        void setMontantMaxBanque(const quint32 montant);
         
         
         
         quint8 nombreTotalMaison() const;
+        void setNombreTotalMaison(const quint8 nombre);
         
         
         
         quint8 nombreTotalHotel() const;
+        void setNombreTotalHotel(const quint8 nombre);
         
         
         
         bool enchereSurBiensRecperes() const;
+        void setEnchereSurBiensRecuperes(const bool actif);
         
         
         
         bool enchereSurNonAchete() const;
+        void setEnchereSurNonAchete(const bool actif);
         
         
         
         bool constructionHomogene() const;
+        void setConstructionHomogene(const bool actif);
         
         
         
         bool tousTerrainsVendusPourConstruire() const;
+        void setTousTerrainsVendusPourConstruire(const bool actif);
         
         
         
         bool toutesProprietesVenduesPourConstruire() const;
+        void setToutesProprietesVenduesPourConstruire(const bool actif);
         
         
         
         bool possessionRegroupementPourConstruire() const;
+        void setPossessionRegroupementPourConstruire(const bool actif);
         
         
         
         bool joueurPresentPourConstruire() const;
+        void setJoueurPresentPourConstruire(const bool actif);
         
         
         
         quint8 nombreTourMax() const;
+        void setNombreTourMax(const quint8 nombre);
         
         
         
         bool partieNormale() const;
+        void setPartieNormale(const bool actif);
         
         
         
         bool partieRapide() const;
+        void setPartieRapide(const bool actif);
         
         
         
         bool partieRuineLaBanque() const;
+        void setPartieRuineLaBanque(const bool actif);
         
         
         

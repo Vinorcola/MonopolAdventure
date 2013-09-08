@@ -39,6 +39,16 @@ class PageRegle : public QWizardPage
          * Initialise le widget avec la règle du plateau chargé.
          */
         void initializePage();
+        
+        
+        
+        /**
+         * Configure la règle selon le widget de configuration.
+         * @param regle Règle à configurer.
+         * @param plateau Plateau contenant l'emplacement Départ à configurer pour le salaire.
+         */
+        void configureRegle(Regle& regle,
+                            Plateau* plateau);
 };
 
 #endif // PAGEREGLE_HPP

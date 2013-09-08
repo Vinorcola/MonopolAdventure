@@ -35,6 +35,15 @@ quint16 Depart::getSalaire() const
 
 
 
+void Depart::setSalaire(quint16 salaire)
+{
+    m_salaire = salaire;
+}
+
+
+
+
+
 void Depart::loadFromFile(QDataStream&lecture,
                           const quint16 version)
 {

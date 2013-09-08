@@ -51,9 +51,41 @@ qint8 Regle::nombreProprietesAuDepart() const
 
 
 
+void Regle::setNombreProprietesAuDepart(qint8 nombre,
+                                        const Plateau* const plateau)
+{
+    int nbMaxEmplacements(plateau->getNombrePropriete() / 2);
+    
+    if (nombre < 0)
+    {
+        m_nombreProprietesAuDepart = -1;
+    }
+    else if (nombre > nbMaxEmplacements)
+    {
+        m_nombreProprietesAuDepart = nbMaxEmplacements;
+    }
+    else
+    {
+        m_nombreProprietesAuDepart = nombre;
+    }
+}
+
+
+
+
+
 bool Regle::enchereDepart() const
 {
     return m_enchereDepart;
+}
+
+
+
+
+
+void Regle::setEnchereDepart(const bool actif)
+{
+    m_enchereDepart = actif;
 }
 
 
@@ -69,9 +101,27 @@ bool Regle::premierTourSansAchat() const
 
 
 
+void Regle::setPremierTourSansAchat(const bool actif)
+{
+    m_premierTourSansAchat = actif;
+}
+
+
+
+
+
 bool Regle::salaireDouble() const
 {
     return m_salaireDouble;
+}
+
+
+
+
+
+void Regle::setSalaireDouble(const bool actif)
+{
+    m_salaireDouble = actif;
 }
 
 
@@ -87,9 +137,27 @@ bool Regle::taxeInParcGratuit() const
 
 
 
+void Regle::setTaxeInParcGratuit(const bool actif)
+{
+    m_taxeInParcGratuit = actif;
+}
+
+
+
+
+
 bool Regle::amendeCarteInParcGratuit() const
 {
     return m_amendeCarteInParcGratuit;
+}
+
+
+
+
+
+void Regle::setAmendeCarteInParcGratuit(const bool actif)
+{
+    m_amendeCarteInParcGratuit = actif;
 }
 
 
@@ -105,9 +173,34 @@ bool Regle::cagnotteFixe() const
 
 
 
+void Regle::setCagnotteFixe(const bool actif)
+{
+    m_cagnotteFixe = actif;
+}
+
+
+
+
+
 quint16 Regle::montantFixe() const
 {
     return m_montantFixe;
+}
+
+
+
+
+
+void Regle::setMontantFixe(const quint16 montant)
+{
+    if (montant > MONTANT_MAX_EDITEUR)
+    {
+        m_montantFixe = MONTANT_MAX_EDITEUR;
+    }
+    else
+    {
+        m_montantFixe = montant;
+    }
 }
 
 
@@ -123,9 +216,34 @@ quint8 Regle::nombreMaxTourEnPrison() const
 
 
 
+void Regle::setNombreMaxTourEnPrison(const quint8 nombre)
+{
+    if (nombre > NOMBRE_TOURS_MAX_PRISON)
+    {
+        m_nombreMaxTourEnPrison = NOMBRE_TOURS_MAX_PRISON;
+    }
+    else
+    {
+        m_nombreMaxTourEnPrison = nombre;
+    }
+}
+
+
+
+
+
 bool Regle::joueurPeutPercevoirLoyerEnPrison() const
 {
     return m_joueurPeutPercevoirLoyerEnPrison;
+}
+
+
+
+
+
+void Regle::setJoueurPeutPercevoirLoyerEnPrison(const bool actif)
+{
+    m_joueurPeutPercevoirLoyerEnPrison = actif;
 }
 
 
@@ -141,9 +259,27 @@ bool Regle::joueurPeutParticiperEncheresEnPrison() const
 
 
 
+void Regle::setJoueurPeutParticiperEncheresEnPrison(const bool actif)
+{
+    m_joueurPeutParticiperEncheresEnPrison = actif;
+}
+
+
+
+
+
 bool Regle::joueurPeutEchangerEnPrison() const
 {
     return m_joueurPeutEchangerEnPrison;
+}
+
+
+
+
+
+void Regle::setJoueurPeutEchangerEnPrison(const bool actif)
+{
+    m_joueurPeutEchangerEnPrison = actif;
 }
 
 
@@ -159,9 +295,38 @@ bool Regle::joueurPeutConstruireEnPrison() const
 
 
 
+void Regle::setJoueurPeutConstruireEnPrison(const bool actif)
+{
+    m_joueurPeutConstruireEnPrison = actif;
+}
+
+
+
+
+
 bool Regle::banquePeutFaireFaillite() const
 {
     return m_banquePeutFaireFaillite;
+}
+
+
+
+
+
+void Regle::setBanquePeutFaireFaillite(const bool actif)
+{
+    if (actif)
+    {
+        m_banquePeutFaireFaillite = true;
+    }
+    else
+    {
+        if (!m_partieRuineLaBanque)
+        {
+            m_banquePeutFaireFaillite = false;
+            m_montantMaxBanque = 0;
+        }
+    }
 }
 
 
@@ -177,9 +342,37 @@ quint32 Regle::montantMaxBanque() const
 
 
 
+void Regle::setMontantMaxBanque(const quint32 montant)
+{
+    if (m_banquePeutFaireFaillite)
+    {
+        if (montant > MONTANT_MAX_EDITEUR)
+        {
+            m_montantMaxBanque = MONTANT_MAX_EDITEUR;
+        }
+        else
+        {
+            m_montantMaxBanque = montant;
+        }
+    }
+}
+
+
+
+
+
 quint8 Regle::nombreTotalMaison() const
 {
     return m_nombreTotalMaison;
+}
+
+
+
+
+
+void Regle::setNombreTotalMaison(const quint8 nombre)
+{
+    m_nombreTotalMaison = nombre;
 }
 
 
@@ -195,9 +388,27 @@ quint8 Regle::nombreTotalHotel() const
 
 
 
+void Regle::setNombreTotalHotel(const quint8 nombre)
+{
+    m_nombreTotalHotel = nombre;
+}
+
+
+
+
+
 bool Regle::enchereSurBiensRecperes() const
 {
     return m_enchereSurBiensRecuperes;
+}
+
+
+
+
+
+void Regle::setEnchereSurBiensRecuperes(const bool actif)
+{
+    m_enchereSurBiensRecuperes = actif;
 }
 
 
@@ -213,9 +424,27 @@ bool Regle::enchereSurNonAchete() const
 
 
 
+void Regle::setEnchereSurNonAchete(const bool actif)
+{
+    m_enchereSurNonAchete = actif;
+}
+
+
+
+
+
 bool Regle::constructionHomogene() const
 {
     return m_constructionHomogene;
+}
+
+
+
+
+
+void Regle::setConstructionHomogene(const bool actif)
+{
+    m_constructionHomogene = (actif && m_possessionRegroupementPourConstruire);
 }
 
 
@@ -231,9 +460,29 @@ bool Regle::tousTerrainsVendusPourConstruire() const
 
 
 
+void Regle::setTousTerrainsVendusPourConstruire(const bool actif)
+{
+    m_tousTerrainsVendusPourConstruire = actif;
+    m_toutesProprietesVenduesPourConstruire = (m_toutesProprietesVenduesPourConstruire && !actif);
+}
+
+
+
+
+
 bool Regle::toutesProprietesVenduesPourConstruire() const
 {
     return m_toutesProprietesVenduesPourConstruire;
+}
+
+
+
+
+
+void Regle::setToutesProprietesVenduesPourConstruire(const bool actif)
+{
+    m_tousTerrainsVendusPourConstruire = (m_tousTerrainsVendusPourConstruire && !actif);
+    m_toutesProprietesVenduesPourConstruire = actif;
 }
 
 
@@ -249,9 +498,32 @@ bool Regle::possessionRegroupementPourConstruire() const
 
 
 
+void Regle::setPossessionRegroupementPourConstruire(const bool actif)
+{
+    m_possessionRegroupementPourConstruire = actif;
+    
+    if (!actif)
+    {
+        m_constructionHomogene = false;
+    }
+}
+
+
+
+
+
 bool Regle::joueurPresentPourConstruire() const
 {
     return m_joueurPresentPourConstruire;
+}
+
+
+
+
+
+void Regle::setJoueurPresentPourConstruire(const bool actif)
+{
+    m_joueurPresentPourConstruire = actif;
 }
 
 
@@ -267,9 +539,28 @@ quint8 Regle::nombreTourMax() const
 
 
 
+void Regle::setNombreTourMax(const quint8 nombre)
+{
+    m_nombreTourMax = nombre;
+}
+
+
+
+
+
 bool Regle::partieNormale() const
 {
     return !(m_partieRapide || m_partieRuineLaBanque);
+}
+
+
+
+
+
+void Regle::setPartieNormale(const bool actif)
+{
+    m_partieRapide = (m_partieRapide && !actif);
+    m_partieRuineLaBanque = (m_partieRuineLaBanque && !actif);
 }
 
 
@@ -285,9 +576,29 @@ bool Regle::partieRapide() const
 
 
 
+void Regle::setPartieRapide(const bool actif)
+{
+    m_partieRapide = actif;
+    m_partieRuineLaBanque = (m_partieRuineLaBanque && !actif);
+}
+
+
+
+
+
 bool Regle::partieRuineLaBanque() const
 {
     return m_partieRuineLaBanque;
+}
+
+
+
+
+
+void Regle::setPartieRuineLaBanque(const bool actif)
+{
+    m_partieRapide = (m_partieRapide && !actif);
+    m_partieRuineLaBanque = actif;
 }
 
 

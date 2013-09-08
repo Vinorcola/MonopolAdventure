@@ -269,6 +269,14 @@ class Plateau : public QGraphicsScene
         
         
         /**
+         * Retourne une référence non constante vers la règle associée au plateau.
+         * @return Règle associée au plateau.
+         */
+        Regle& getReglePourConfig();
+        
+        
+        
+        /**
          * Fourni la liste des regroupements du plateau.
          * @return Liste des regroupements du plateau.
          */
@@ -365,6 +373,14 @@ class Plateau : public QGraphicsScene
          * @return Salaire perçu par les joueurs lors du passage sur l'emplacement Départ.
          */
         quint16 helper_getSalaireDepart();
+        
+        
+        
+        /**
+         * Configure le salaire de l'emplacement Départ.
+         * @param salaire Nouveau salaire.
+         */
+        void helper_setSalaireDepart(quint16 salaire);
 };
 
 #endif // PLATEAUINFOS_HPP

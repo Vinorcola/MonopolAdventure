@@ -38,3 +38,13 @@ void PageRegle::initializePage()
     m_widgetCentral->setRegle(&m_plateau->getRegle(), m_plateau->helper_getSalaireDepart());
 }
 
+
+
+
+
+void PageRegle::configureRegle(Regle& regle,
+                               Plateau* plateau)
+{
+    m_widgetCentral->configureRegle(regle, plateau);
+}
+

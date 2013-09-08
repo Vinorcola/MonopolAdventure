@@ -299,6 +299,64 @@ void RegleConfigWidget::setRegle(const Regle* regle,
 
 
 
+void RegleConfigWidget::configureRegle(Regle& regle,
+                                       Plateau* plateau)
+{
+    // Groupe Construction
+    regle.setNombreTotalMaison(m_nombreTotalMaison->value());
+    regle.setNombreTotalHotel(m_nombreTotalHotel->value());
+    regle.setPossessionRegroupementPourConstruire(m_possessionRegroupement->isChecked());
+    regle.setConstructionHomogene(m_constructionsUniformes->isChecked());
+    regle.setJoueurPresentPourConstruire(m_joueurPresentPourConstruire->isChecked());
+    regle.setTousTerrainsVendusPourConstruire(m_tousTerrainsVendus->isChecked());
+    regle.setToutesProprietesVenduesPourConstruire(m_toutesPprtVendues->isChecked());
+    
+    
+    
+    // Groupe Case Départ
+    plateau->helper_setSalaireDepart(m_salaire->value());
+    regle.setSalaireDouble(m_doubleSalaire->isChecked());
+    
+    
+    
+    // Groupe Début de la partie
+    regle.setNombreProprietesAuDepart(m_toutesPprtAuDebut->isChecked() ? -1 : m_nbPprtAuDebut->value(), plateau);
+    regle.setEnchereDepart(m_encheresDepart->isChecked());
+    regle.setPremierTourSansAchat(m_premierTourSansAchat->isChecked());
+    
+    
+    
+    // Groupe Parc Gratuit
+    regle.setTaxeInParcGratuit(m_taxeAuParcGratuit->isChecked());
+    regle.setAmendeCarteInParcGratuit(m_amendeCarteAuParcGratuit->isChecked());
+    regle.setCagnotteFixe(m_cagnotteFixe->isChecked());
+    regle.setMontantFixe(m_montantCagnotte->value());
+    
+    
+    
+    // Groupe Prison
+    regle.setNombreMaxTourEnPrison(m_maxTourEnPrison->value());
+    regle.setJoueurPeutPercevoirLoyerEnPrison(m_percevoirLoyerEnPrison->isChecked());
+    regle.setJoueurPeutParticiperEncheresEnPrison(m_participerEnchereEnPrison->isChecked());
+    regle.setJoueurPeutEchangerEnPrison(m_echangerEnPrison->isChecked());
+    regle.setJoueurPeutConstruireEnPrison(m_construireEnPrison->isChecked());
+    
+    
+    
+    // Groupe Enchères
+    regle.setEnchereSurBiensRecuperes(m_encheresSurBiensPerdus->isChecked());
+    regle.setEnchereSurNonAchete(m_encheresSurNonAchete->isChecked());
+    
+    
+    
+    // Groupe Autre
+    regle.setPartieRapide(m_deRapide->isChecked());
+    regle.setNombreTourMax(m_nbMaxTours->isChecked() ? m_nbTours->value() : 0);
+}
+
+
+
+
 
 void RegleConfigWidget::possessionRegroupementChanged(int state)
 {
@@ -312,7 +370,6 @@ void RegleConfigWidget::possessionRegroupementChanged(int state)
         m_constructionsUniformes->setDisabled(true);
     }
 }
-
 
 
 
