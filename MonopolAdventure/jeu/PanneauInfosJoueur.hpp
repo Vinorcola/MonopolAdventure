@@ -25,6 +25,7 @@ class PanneauInfosJoueur : public QDockWidget
         
     private:
         QWidget* m_widgetCentral;///< Widget central du dock.
+        const QString& m_devise;///< Devise utilisée sur le plateau.
         QLabel* m_argent;///< Label affichant l'argent de possède le joueur.
         QGraphicsScene* m_etatPlateau;///< Scène montrant l'état des propriétés du plateau.
         QGraphicsView* m_vueEtatPlateau;///< Vue permettant d'afficher la scène montrant l'état des propriétés du plateau.
@@ -36,7 +37,8 @@ class PanneauInfosJoueur : public QDockWidget
          * Créé un nouveau panneau d'affichage des informations publiques d'un joueur.
          * @param joueur Joueur à qui appartient le panneau d'information.
          */
-        PanneauInfosJoueur(const Joueur* joueur);
+        PanneauInfosJoueur(const Joueur* const joueur,
+                           const QString& devise);
         
         
         

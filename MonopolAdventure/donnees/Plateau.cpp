@@ -23,7 +23,10 @@ Plateau::Plateau(MainWindow* parent) :
     m_regle(),
     m_pilesCartes(),
     m_emplacements(),
-    m_regroupements()
+    m_regroupements(),
+    m_joueurs(),
+    m_compagniesTransport(),
+    m_services()
 {
     // Ajout de l'élément graphique permettant d'afficher l'image de fond du plateau.
     addItem(m_graphicsItemImage);
@@ -72,6 +75,32 @@ void Plateau::dessiner()
     /* Configuration et affichage de l'image au centre du plateau.
      */
     helper_dessineImageCentre();
+}
+
+
+
+
+
+void Plateau::creerJoueur(const QString& pseudo,
+                          const QString& couleur)
+{
+    m_joueurs.append(new Joueur(pseudo, m_regle.argentDepart(), couleur, m_devise));
+}
+
+
+
+
+
+QList<PanneauInfosJoueur*> Plateau::getPanneauInformationsJoueurs() const
+{
+    QList<PanneauInfosJoueur*> liste;
+    
+    for (int i(0), iEnd(m_joueurs.size()); i < iEnd; i++)
+    {
+        liste.append(m_joueurs.at(i)->getPanneauInformations());
+    }
+    
+    return liste;
 }
 
 

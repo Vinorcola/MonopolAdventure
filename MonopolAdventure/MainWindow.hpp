@@ -61,7 +61,7 @@ class MainWindow : public QMainWindow
         
         
         /**
-         * Dessine le plateau et le connecte à différents slots.
+         * Commence une partie avec un plateau, des règles et une liste de joueurs.
          * @param plateau Plateau à afficher pour la partie.
          */
         void dessinePlateau(Plateau* plateau);

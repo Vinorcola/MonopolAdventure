@@ -4,10 +4,12 @@
 
 
 
-PanneauInfosJoueur::PanneauInfosJoueur(const Joueur* joueur) :
+PanneauInfosJoueur::PanneauInfosJoueur(const Joueur* const joueur,
+                                       const QString& devise) :
     QDockWidget(joueur->getPseudo()),
     m_widgetCentral(new QWidget),
-    m_argent(new QLabel(QString::number(joueur->getCagnotte()))),
+    m_devise(devise),
+    m_argent(new QLabel(QString::number(joueur->getCagnotte()) + devise)),
     m_etatPlateau(new QGraphicsScene),
     m_vueEtatPlateau(new QGraphicsView)
 {
@@ -30,6 +32,6 @@ PanneauInfosJoueur::PanneauInfosJoueur(const Joueur* joueur) :
 
 void PanneauInfosJoueur::updateArgent(qint32 cagnotte)
 {
-    m_argent->setText(QString::number(cagnotte));
+    m_argent->setText(QString::number(cagnotte) + m_devise);
 }
 

@@ -23,6 +23,7 @@ class AssistantPartieMultijoueurs : public QWizard
     private:
         Plateau* m_plateau;///< Plateau chargé pour la partie multijoueur.
         PageRegle* m_pageRegle;///< Page de l'assistant permettant de configurer la règle.
+        PageJoueur* m_pageJoueur;///< Page de l'assistant permettant de configurer les joueurs.
         
         
         

@@ -50,3 +50,17 @@ QString JoueurConfigWidget::pseudo()
     return m_pseudo->text();
 }
 
+
+
+
+
+void JoueurConfigWidget::configureJoueur(Plateau* plateau) const
+{
+    /* On vérifie que le joueur soit entièrement configuré.
+     */
+    if (!m_pseudo->text().isEmpty() && !m_listeCouleur->currentText().isEmpty())
+    {
+        plateau->creerJoueur(m_pseudo->text(), m_listeCouleur->currentText().toLower());
+    }
+}
+

@@ -18,6 +18,7 @@ class MainWindow;
 #include "donnees/emplacements/Service.hpp"
 #include "donnees/graphismes/GraphismeEmplacementInfos.hpp"
 #include "donnees/Regle.hpp"
+#include "jeu/Joueur.hpp"
 
 
 
@@ -38,7 +39,7 @@ class Plateau : public QGraphicsScene
         
     private:
         MainWindow* m_parent;///< Fenêtre parent, nécessaire pour apparenter les diverses fenêtre de dialogue.
-        bool m_sauvegarde;///< Indique si le plateau est sauvegardé ou non.
+        bool m_sauvegarde;///< Indique si la partie est sauvegardée ou non.
         
         QString m_titre;///< Titre du plateau.
         QSize m_taille;///< Taille du plateau (en nombre d'emplacements).
@@ -76,6 +77,7 @@ class Plateau : public QGraphicsScene
         QList<PileCartes*> m_pilesCartes;///< Liste des piles de cartes du plateau.
         QList<Emplacement*> m_emplacements;///< Liste des emplacements du plateau.
         QList<Regroupement*> m_regroupements;///< Liste des regroupements de terrains.
+        QList<Joueur*> m_joueurs;///< Liste des joueurs.
         
         // Les attributs suivant sont des raccourcis vers certains emplacements. Ils sont tous déjà présent dans m_emplacements.
         QList<CompagnieTransport*> m_compagniesTransport;///< Liste des compagnies de transport du plateau (raccourcis).
@@ -107,6 +109,24 @@ class Plateau : public QGraphicsScene
          * Configure pour chaque emplacement sa position et sa rototion en fonction de sa place sur le plateau. Puis récupère l'élément graphique de l'emplacement. Affiche aussi l'image au centre du plateau.
          */
         void dessiner();
+        
+        
+        
+        /**
+         * Ajoute un nouveau joueur dans la partie.
+         * @param pseudo Pseudo du joueur.
+         * @param couleur Couleur du joueur.
+         */
+        void creerJoueur(const QString& pseudo,
+                         const QString& couleur);
+        
+        
+        
+        /**
+         * Retourne la liste des panneaux d'informations des joueurs.
+         * @return Liste des panneaux d'informations des joueurs.
+         */
+        QList<PanneauInfosJoueur*> getPanneauInformationsJoueurs() const;
         
         
         

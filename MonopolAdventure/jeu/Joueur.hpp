@@ -35,10 +35,12 @@ class Joueur
          * @param pseudo Pseudo du joueur.
          * @param cagnotteDepart Cagnotte de départ du joueur.
          * @param couleur Couleur du joueur.
+         * @param devise Devise utilisée sur le plateau.
          */
         Joueur(const QString& pseudo,
                const qint32 cagnotteDepart,
-               const QString& couleur);
+               const QString& couleur,
+               const QString& devise);
         
         
         
@@ -63,6 +65,14 @@ class Joueur
          * @return Nombre de tour en prison restant au joueur.
          */
         bool getNbTourEnPrisonRestant() const;
+        
+        
+        
+        /**
+         * Retourne le panneau d'informations du joueur.
+         * @return Panneau d'informations du joueur.
+         */
+        PanneauInfosJoueur* getPanneauInformations() const;
 };
 
 #endif // JOUEUR_HPP

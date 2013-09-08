@@ -7,6 +7,7 @@
 #include <QPushButton>
 
 #include "config/CouleurListModel.hpp"
+#include "donnees/Plateau.hpp"
 
 
 
@@ -51,6 +52,14 @@ class JoueurConfigWidget : public QWidget
          * @return Le pseudo du joueur.
          */
         QString pseudo();
+        
+        
+        
+        /**
+         * Configure un nouveau joueur sur le plateau avec les renseignements présents dans les différents widgets.
+         * @param plateau Plateau de jeu.
+         */
+        void configureJoueur(Plateau* plateau) const;
         
         
         

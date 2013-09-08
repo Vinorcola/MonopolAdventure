@@ -640,6 +640,7 @@ void Regle::loadFromFile(QDataStream& lecture,
             lecture >> m_nombreProprietesAuDepart
                     >> m_enchereDepart
                     >> m_premierTourSansAchat
+                    >> m_argentDepart
                     >> m_salaireDouble
                     >> m_taxeInParcGratuit
                     >> m_amendeCarteInParcGratuit

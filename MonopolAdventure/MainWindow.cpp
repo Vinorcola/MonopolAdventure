@@ -76,7 +76,10 @@ void MainWindow::startAssistantPartieMultijoueurs()
     AssistantPartieMultijoueurs* assistant(new AssistantPartieMultijoueurs(this));
     connect(assistant, SIGNAL(plateauLoaded(Plateau*)), this, SLOT(dessinePlateau(Plateau*)));
     
-    assistant->exec();
+    if (assistant->exec())
+    {
+        m_actionLancerNouvellePartie->setDisabled(true);
+    }
 }
 
 
@@ -85,9 +88,17 @@ void MainWindow::startAssistantPartieMultijoueurs()
 
 void MainWindow::dessinePlateau(Plateau* plateau)
 {
+    // Affichage du plateau dans la fenêtre.
     m_plateau = plateau;
     plateau->dessiner();
     m_vueCentrale->setScene(plateau);
+    
+    // Affichage des panneaux d'informations des joueurs.
+    QList<PanneauInfosJoueur*> panneaux(m_plateau->getPanneauInformationsJoueurs());
+    for (int i(0), iEnd(panneaux.size()); i < iEnd; i++)
+    {
+        addDockWidget(Qt::RightDockWidgetArea, panneaux.at(i));
+    }
 }
 
 

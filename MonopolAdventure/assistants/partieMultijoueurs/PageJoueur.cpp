@@ -95,3 +95,15 @@ void PageJoueur::enleverJoueur(int index)
     }
 }
 
+
+
+
+
+void PageJoueur::configureJoueurs(Plateau* plateau)
+{
+    for (int i(0), iEnd(m_joueurs.size()); i < iEnd; i++)
+    {
+        m_joueurs.at(i)->configureJoueur(plateau);
+    }
+}
+

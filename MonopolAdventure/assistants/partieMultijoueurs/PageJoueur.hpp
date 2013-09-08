@@ -52,6 +52,14 @@ class PageJoueur : public QWizardPage
          * @param index Index du joueur à supprimer.
          */
         void enleverJoueur(int index);
+        
+        
+        
+        /**
+         * Configure les joueurs sur le plateau.
+         * @param plateau Plateau de jeu.
+         */
+        void configureJoueurs(Plateau* plateau);
 };
 
 #endif // PAGEJOUEUR_HPP
