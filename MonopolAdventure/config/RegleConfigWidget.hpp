@@ -27,7 +27,9 @@ class RegleConfigWidget : public QScrollArea
         
         
     private:
-        Regle* m_regleDefaut;///< Règle par défaut du plateau.
+        const Regle* m_regleDefaut;///< Règle par défaut du plateau.
+        quint16 m_salaireDefaut;///< Salaire par défaut.
+        QPushButton* m_parDefaut;///< Bouton permettant de réinitialisé tous les widgets.
         
         // Groupe Constructions
         QGroupBox* m_groupeConstruction;///< Groupe des options concernant les constructions.
@@ -85,6 +87,7 @@ class RegleConfigWidget : public QScrollArea
         /**
          * Construit un widget de configuration de règles.
          * @param defaut Règle utilisée par défaut.
+         * @param salaire Salaire perçu en passant par l'emplacement Départ.
          */
         RegleConfigWidget(const Regle* defaut = 0,
                           const quint16 salaire = 200);
@@ -177,6 +180,13 @@ class RegleConfigWidget : public QScrollArea
          * @param state
          */
         void nbMaxToursChanged(int state);
+        
+        
+        
+        /**
+         * Reconfigure tous les widgets avec la règle et le salaire par défaut.
+         */
+        void setParDefaut();
 };
 
 #endif // REGLECONFIGWIDGET_HPP

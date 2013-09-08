@@ -6,6 +6,10 @@
 RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
                                      const quint16 salaire) :
     QScrollArea(),
+    m_regleDefaut(defaut),
+    m_salaireDefaut(salaire),
+    m_parDefaut(new QPushButton(tr("Tout remettre par défaut"))),
+    
     m_groupeConstruction(new QGroupBox(tr("Constructions"))),
     m_nombreTotalMaison(new QSpinBox),
     m_nombreTotalHotel(new QSpinBox),
@@ -144,6 +148,10 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     layoutAutres->addRow(m_nbMaxTours, m_nbTours);
     m_groupeAutres->setLayout(layoutAutres);
     
+    QHBoxLayout* layoutBouton(new QHBoxLayout);
+    layoutBouton->addStretch(1);
+    layoutBouton->addWidget(m_parDefaut);
+    layoutBouton->addStretch(1);
     
     
     QVBoxLayout* layout(new QVBoxLayout);
@@ -154,6 +162,7 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     layout->addWidget(m_groupeDepart);
     layout->addWidget(m_groupeParcGratuit);
     layout->addWidget(m_groupeAutres);
+    layout->addLayout(layoutBouton);
     
     QWidget* widgetCentral(new QWidget);
     widgetCentral->setLayout(layout);
@@ -171,6 +180,7 @@ RegleConfigWidget::RegleConfigWidget(const Regle* defaut,
     
     /* Connexion slots/signaux.
      */
+    connect(m_parDefaut, SIGNAL(clicked()), this, SLOT(setParDefaut()));
     connect(m_possessionRegroupement, SIGNAL(stateChanged(int)), this, SLOT(possessionRegroupementChanged(int)));
     connect(m_tousTerrainsVendus, SIGNAL(stateChanged(int)), this, SLOT(tousTerrainsVendusChanged(int)));
     connect(m_toutesPprtVendues, SIGNAL(stateChanged(int)), this, SLOT(toutesPprtVenduesChanged(int)));
@@ -193,6 +203,12 @@ void RegleConfigWidget::setRegle(const Regle* regle,
 {
     if (regle)
     {
+        // Modification des règles et salaires par défaut.
+        m_regleDefaut = regle;
+        m_salaireDefaut = salaire;
+        
+        
+        
         // Groupe Construction
         m_nombreTotalMaison->setValue(regle->nombreTotalMaison());
         m_nombreTotalHotel->setValue(regle->nombreTotalHotel());
@@ -426,5 +442,14 @@ void RegleConfigWidget::nbMaxToursChanged(int state)
         m_nbTours->setValue(10);
         m_nbTours->setDisabled(true);
     }
+}
+
+
+
+
+
+void RegleConfigWidget::setParDefaut()
+{
+    setRegle(m_regleDefaut, m_salaireDefaut);
 }
 

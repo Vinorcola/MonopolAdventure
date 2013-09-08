@@ -32,6 +32,9 @@ PageRegle::PageRegle(Plateau* plateau) :
 
 void PageRegle::initializePage()
 {
+    /* On configure le widget RegleConfigWidget à l'initialisation de la page et non pas à sa construction,
+     * car le plateau n'est pas encore chargé (la page est construite lors de la construction de l'assistant).
+     */
     m_widgetCentral->setRegle(&m_plateau->getRegle(), m_plateau->helper_getSalaireDepart());
 }
 
